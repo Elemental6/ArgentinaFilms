@@ -6,14 +6,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
-import org.springframework.orm.jpa.JpaTransactionManager;
 
 @Configuration
 public class AppConfig {
 	
 	@Bean
 	public DataSource dataSource(){
-		DriverManagerDataSource ret = new DriverManagerDataSource("jdbc:mysql://localhost:3306/prueba", "root", "root");
+		DriverManagerDataSource ret = new DriverManagerDataSource("jdbc:mysql://localhost:3306/argentinafilms", "root", "root");
 		ret.setDriverClassName("com.mysql.jdbc.Driver");
 		return ret;
 	}
