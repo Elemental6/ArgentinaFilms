@@ -17,6 +17,12 @@ public class Directores {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Directores(String nombre, String apellido, Integer edad) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.edad = edad;
+	}
+
 	public Integer getId_director() {
 		return id_director;
 	}

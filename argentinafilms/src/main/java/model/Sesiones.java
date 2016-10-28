@@ -1,5 +1,7 @@
 package model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,11 +14,18 @@ public class Sesiones {
 	private Integer sesion_id;
 	private java.sql.Timestamp fecha_inicio;
 	private java.sql.Timestamp fecha_cierre;
+	
 	@ManyToOne
 	private Usuarios usuario;
 	
 	public Sesiones() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Sesiones(Timestamp fecha_inicio, Timestamp fecha_cierre, Usuarios usuario) {
+		this.fecha_inicio = fecha_inicio;
+		this.fecha_cierre = fecha_cierre;
+		this.usuario = usuario;
 	}
 
 	public Integer getSesion_id() {

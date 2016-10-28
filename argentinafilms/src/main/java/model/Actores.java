@@ -17,6 +17,12 @@ public class Actores {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Actores(String nombre, String apellido, Integer edad) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.edad = edad;
+	}
+
 	public Integer getId_actor() {
 		return id_actor;
 	}

@@ -1,8 +1,6 @@
 package model;
 
-import java.sql.Date;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,13 +17,11 @@ public class Peliculas {
 	private Integer id_pelicula;
 
 	private String nombre;
-	private Date fecha;
+	private int año;
 	private String ubicacion;
 	private Integer duracion;
 	private String synopsis;
-	
 	private Integer puntuacion_total;
-	
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "PeliculaXActores", joinColumns = @JoinColumn(name = "id_pelicula"), inverseJoinColumns = @JoinColumn(name = "id_actor"))
@@ -48,6 +44,20 @@ public class Peliculas {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Peliculas(String nombre, int año, String ubicacion, Integer duracion, String synopsis, Integer puntuacion_total, List<Actores> actores, Directores director, List<Reseñas> reseñas, Usuarios usuario, Generos genero) {
+		this.nombre = nombre;
+		this.setAño(año);
+		this.ubicacion = ubicacion;
+		this.duracion = duracion;
+		this.synopsis = synopsis;
+		this.puntuacion_total = puntuacion_total;
+		this.actores = actores;
+		this.director = director;
+		this.reseñas = reseñas;
+		this.usuario = usuario;
+		this.genero = genero;
+	}
+
 	public Integer getId_pelicula() {
 		return id_pelicula;
 	}
@@ -62,14 +72,6 @@ public class Peliculas {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public Date getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
 	}
 
 	public String getUbicacion() {
@@ -142,6 +144,14 @@ public class Peliculas {
 
 	public void setGenero(Generos genero) {
 		this.genero = genero;
+	}
+
+	public int getAño() {
+		return año;
+	}
+
+	public void setAño(int año) {
+		this.año = año;
 	}
 
 }

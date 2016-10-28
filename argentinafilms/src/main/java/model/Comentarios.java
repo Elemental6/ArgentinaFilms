@@ -19,6 +19,12 @@ public class Comentarios {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Comentarios(String comentario, Integer puntaje, Usuarios usuario) {
+		this.comentario = comentario;
+		this.puntaje = puntaje;
+		this.usuario = usuario;
+	}
+
 	public Integer getComentario_id() {
 		return comentario_id;
 	}

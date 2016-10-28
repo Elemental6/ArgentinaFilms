@@ -20,6 +20,12 @@ public class Puntajes {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Puntajes(Integer puntuacion, Peliculas pelicula, Usuarios usuario) {
+		this.puntuacion = puntuacion;
+		this.pelicula = pelicula;
+		this.usuario = usuario;
+	}
+
 	public Integer getPuntaje_id() {
 		return puntaje_id;
 	}

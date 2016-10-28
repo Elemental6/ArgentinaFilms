@@ -29,6 +29,13 @@ public class Reseñas {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Reseñas(String reseña, String aportadores, Usuarios usuario, List<Comentarios> comentarios) {
+		this.reseña = reseña;
+		this.aportadores = aportadores;
+		this.usuario = usuario;
+		this.comentarios = comentarios;
+	}
+
 	public Integer getId_reseña() {
 		return id_reseña;
 	}
