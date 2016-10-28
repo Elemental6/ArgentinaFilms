@@ -15,4 +15,20 @@ public class Generos {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Integer getGenero_id() {
+		return genero_id;
+	}
+
+	public void setGenero_id(Integer genero_id) {
+		this.genero_id = genero_id;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
 }

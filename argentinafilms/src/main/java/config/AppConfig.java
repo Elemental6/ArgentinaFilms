@@ -1,11 +1,7 @@
 package config;
 
 import java.util.Properties;
-
 import javax.sql.DataSource;
-
-import model.Person;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -25,9 +21,6 @@ public class AppConfig {
 	@Bean
 	public AnnotationSessionFactoryBean sessionFactoryBean(){
 		AnnotationSessionFactoryBean ret = new AnnotationSessionFactoryBean();
-	
-		Class[] annotatedClasses = { Person.class };
-		ret.setAnnotatedClasses(annotatedClasses);
 		
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");

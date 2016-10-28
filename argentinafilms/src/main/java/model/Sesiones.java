@@ -19,4 +19,36 @@ public class Sesiones {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Integer getSesion_id() {
+		return sesion_id;
+	}
+
+	public void setSesion_id(Integer sesion_id) {
+		this.sesion_id = sesion_id;
+	}
+
+	public java.sql.Timestamp getFecha_inicio() {
+		return fecha_inicio;
+	}
+
+	public void setFecha_inicio(java.sql.Timestamp fecha_inicio) {
+		this.fecha_inicio = fecha_inicio;
+	}
+
+	public java.sql.Timestamp getFecha_cierre() {
+		return fecha_cierre;
+	}
+
+	public void setFecha_cierre(java.sql.Timestamp fecha_cierre) {
+		this.fecha_cierre = fecha_cierre;
+	}
+
+	public Usuarios getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuarios usuario) {
+		this.usuario = usuario;
+	}
+
 }

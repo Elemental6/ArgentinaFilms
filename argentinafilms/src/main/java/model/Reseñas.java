@@ -29,4 +29,44 @@ public class Reseñas {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Integer getId_reseña() {
+		return id_reseña;
+	}
+
+	public void setId_reseña(Integer id_reseña) {
+		this.id_reseña = id_reseña;
+	}
+
+	public String getReseña() {
+		return reseña;
+	}
+
+	public void setReseña(String reseña) {
+		this.reseña = reseña;
+	}
+
+	public String getAportadores() {
+		return aportadores;
+	}
+
+	public void setAportadores(String aportadores) {
+		this.aportadores = aportadores;
+	}
+
+	public Usuarios getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuarios usuario) {
+		this.usuario = usuario;
+	}
+
+	public List<Comentarios> getComentarios() {
+		return comentarios;
+	}
+
+	public void setComentarios(List<Comentarios> comentarios) {
+		this.comentarios = comentarios;
+	}
+
 }

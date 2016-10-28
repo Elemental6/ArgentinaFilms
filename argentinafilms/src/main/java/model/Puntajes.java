@@ -20,4 +20,36 @@ public class Puntajes {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Integer getPuntaje_id() {
+		return puntaje_id;
+	}
+
+	public void setPuntaje_id(Integer puntaje_id) {
+		this.puntaje_id = puntaje_id;
+	}
+
+	public Integer getPuntuacion() {
+		return puntuacion;
+	}
+
+	public void setPuntuacion(Integer puntuacion) {
+		this.puntuacion = puntuacion;
+	}
+
+	public Peliculas getPelicula() {
+		return pelicula;
+	}
+
+	public void setPelicula(Peliculas pelicula) {
+		this.pelicula = pelicula;
+	}
+
+	public Usuarios getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuarios usuario) {
+		this.usuario = usuario;
+	}
+
 }

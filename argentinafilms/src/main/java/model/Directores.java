@@ -12,8 +12,41 @@ public class Directores {
 	private String nombre;
 	private String apellido;
 	private Integer edad;
+	
 	public Directores() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Integer getId_director() {
+		return id_director;
+	}
+
+	public void setId_director(Integer id_director) {
+		this.id_director = id_director;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public Integer getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
 	}
 
 }

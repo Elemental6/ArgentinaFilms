@@ -48,4 +48,100 @@ public class Peliculas {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Integer getId_pelicula() {
+		return id_pelicula;
+	}
+
+	public void setId_pelicula(Integer id_pelicula) {
+		this.id_pelicula = id_pelicula;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public String getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
+
+	public Integer getDuracion() {
+		return duracion;
+	}
+
+	public void setDuracion(Integer duracion) {
+		this.duracion = duracion;
+	}
+
+	public String getSynopsis() {
+		return synopsis;
+	}
+
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
+
+	public Integer getPuntuacion_total() {
+		return puntuacion_total;
+	}
+
+	public void setPuntuacion_total(Integer puntuacion_total) {
+		this.puntuacion_total = puntuacion_total;
+	}
+
+	public List<Actores> getActores() {
+		return actores;
+	}
+
+	public void setActores(List<Actores> actores) {
+		this.actores = actores;
+	}
+
+	public Directores getDirector() {
+		return director;
+	}
+
+	public void setDirector(Directores director) {
+		this.director = director;
+	}
+
+	public List<Reseñas> getReseñas() {
+		return reseñas;
+	}
+
+	public void setReseñas(List<Reseñas> reseñas) {
+		this.reseñas = reseñas;
+	}
+
+	public Usuarios getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuarios usuario) {
+		this.usuario = usuario;
+	}
+
+	public Generos getGenero() {
+		return genero;
+	}
+
+	public void setGenero(Generos genero) {
+		this.genero = genero;
+	}
+
 }
