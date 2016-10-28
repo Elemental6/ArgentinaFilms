@@ -19,4 +19,14 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>config.AppConfig</param-value>
   </context-param>
+  
+  <servlet>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>presentation.IndexServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
