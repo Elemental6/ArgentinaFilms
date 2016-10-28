@@ -1,0 +1,43 @@
+
+
+.contenido
+{
+    margin-top: 10%;
+}
+
+.login
+{
+    min-width: 20px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.titulo-seccion
+{
+    color: #00d3c4;
+}
+
+.imagen-seccion
+{
+    width: 20%;
+    margin: auto;
+}
+
+.ultimas-publicaciones
+{
+    width: 95%;
+    margin: auto;
+}
+
+.cuerpo-suelto
+{
+    color: #ffffff;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.aprender-mas
+{
+	width: 10%;
+	margin: auto;
+}
