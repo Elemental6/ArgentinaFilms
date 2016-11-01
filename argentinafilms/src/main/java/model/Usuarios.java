@@ -7,6 +7,7 @@ import javax.persistence.Id;
 public class Usuarios {
 	@Id
 	private String usuario;
+	private String pass;
 	private String nombre;
 	private String apellido;
 	private String email;
@@ -74,4 +75,13 @@ public class Usuarios {
 		this.estado = estado;
 	}
 
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	
 }

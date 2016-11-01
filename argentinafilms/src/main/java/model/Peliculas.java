@@ -17,7 +17,7 @@ public class Peliculas {
 	private Integer id_pelicula;
 
 	private String nombre;
-	private int año;
+	private int anio;
 	private String ubicacion;
 	private Integer duracion;
 	private String synopsis;
@@ -31,8 +31,8 @@ public class Peliculas {
 	private Directores director;	
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "ReseÃ±asXPelicula", joinColumns = @JoinColumn(name = "id_pelicula"), inverseJoinColumns = @JoinColumn(name = "id_reseÃ±a"))
-	private List<Reseñas> reseñas;
+	@JoinTable(name = "ReseniasXPelicula", joinColumns = @JoinColumn(name = "id_pelicula"), inverseJoinColumns = @JoinColumn(name = "id_resenia"))
+	private List<Resenias> resenias;
 	
 	@ManyToOne
 	private Usuarios usuario;
@@ -44,16 +44,16 @@ public class Peliculas {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Peliculas(String nombre, int año, String ubicacion, Integer duracion, String synopsis, Integer puntuacion_total, List<Actores> actores, Directores director, List<Reseñas> reseñas, Usuarios usuario, Generos genero) {
+	public Peliculas(String nombre, int anio, String ubicacion, Integer duracion, String synopsis, Integer puntuacion_total, List<Actores> actores, Directores director, List<Resenias> resenias, Usuarios usuario, Generos genero) {
 		this.nombre = nombre;
-		this.setAño(año);
+		this.setAnio(anio);
 		this.ubicacion = ubicacion;
 		this.duracion = duracion;
 		this.synopsis = synopsis;
 		this.puntuacion_total = puntuacion_total;
 		this.actores = actores;
 		this.director = director;
-		this.reseñas = reseñas;
+		this.resenias = resenias;
 		this.usuario = usuario;
 		this.genero = genero;
 	}
@@ -122,12 +122,12 @@ public class Peliculas {
 		this.director = director;
 	}
 
-	public List<Reseñas> getReseñas() {
-		return reseñas;
+	public List<Resenias> getResenias() {
+		return resenias;
 	}
 
-	public void setReseñas(List<Reseñas> reseñas) {
-		this.reseñas = reseñas;
+	public void setResenias(List<Resenias> reseñas) {
+		this.resenias = reseñas;
 	}
 
 	public Usuarios getUsuario() {
@@ -146,12 +146,12 @@ public class Peliculas {
 		this.genero = genero;
 	}
 
-	public int getAño() {
-		return año;
+	public int getAnio() {
+		return anio;
 	}
 
-	public void setAño(int año) {
-		this.año = año;
+	public void setAnio(int anio) {
+		this.anio = anio;
 	}
 
 }

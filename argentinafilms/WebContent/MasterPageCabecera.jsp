@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE HTML>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head>
 	<title>Argentina Films</title>
@@ -11,11 +12,14 @@
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/dashboard.css" rel="stylesheet">
         <link href="css/lb.min.css" rel="stylesheet" type="text/css">
+        <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
         <link href="css/redes-sociales.css" rel="stylesheet" type="text/css">
         <link href="css/contenido.css" rel="stylesheet" type="text/css">
         
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/seccion-desplegable.js"></script>
+        <script type="text/javascript" src="js/sweetalert.min.js"></script>
+        <script type="text/javascript" src="js/AJAXregistro-usuario.js"></script>
     </head>
     
     <body>

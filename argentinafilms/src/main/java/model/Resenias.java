@@ -12,7 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Reseñas {
+public class Resenias {
 	@Id
 	@GeneratedValue
 	private Integer id_reseña;
@@ -22,14 +22,14 @@ public class Reseñas {
 	private Usuarios usuario;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "ComentariosXReseÃ±a", joinColumns = @JoinColumn(name = "id_reseÃ±a"), inverseJoinColumns = @JoinColumn(name = "id_comentario"))
+	@JoinTable(name = "ComentariosXResenia", joinColumns = @JoinColumn(name = "id_resenia"), inverseJoinColumns = @JoinColumn(name = "id_comentario"))
 	private List<Comentarios> comentarios;
 	
-	public Reseñas() {
+	public Resenias() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reseñas(String reseña, String aportadores, Usuarios usuario, List<Comentarios> comentarios) {
+	public Resenias(String reseña, String aportadores, Usuarios usuario, List<Comentarios> comentarios) {
 		this.reseña = reseña;
 		this.aportadores = aportadores;
 		this.usuario = usuario;
