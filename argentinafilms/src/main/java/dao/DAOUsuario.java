@@ -10,10 +10,10 @@ public interface DAOUsuario {
 	
 	Usuarios getByUserName(String nombreUsuario);
 	
-	void add(Usuarios usuario);
-	
 	void update(Usuarios usuario);
-	
+		
 	void delete(String nombreUsuario);
+	
+	void save(Usuarios usuario);
 
 }

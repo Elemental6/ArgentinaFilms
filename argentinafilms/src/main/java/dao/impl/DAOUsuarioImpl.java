@@ -27,7 +27,7 @@ public class DAOUsuarioImpl implements DAOUsuario{
 	}
 
 	@Override
-	public void add(Usuarios usuario) {
+	public void save(Usuarios usuario) {
 		this.hibernateTemplate.save(usuario);
 	}
 

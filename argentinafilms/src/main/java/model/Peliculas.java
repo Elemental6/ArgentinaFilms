@@ -58,6 +58,21 @@ public class Peliculas {
 		this.genero = genero;
 	}
 
+	
+
+	public Peliculas(String nombre, int anio, String ubicacion, Integer duracion, String synopsis,
+			Integer puntuacion_total, Usuarios usuario, Generos genero) {
+		super();
+		this.nombre = nombre;
+		this.anio = anio;
+		this.ubicacion = ubicacion;
+		this.duracion = duracion;
+		this.synopsis = synopsis;
+		this.puntuacion_total = puntuacion_total;
+		this.usuario = usuario;
+		this.genero = genero;
+	}
+
 	public Integer getId_pelicula() {
 		return id_pelicula;
 	}
@@ -126,8 +141,8 @@ public class Peliculas {
 		return resenias;
 	}
 
-	public void setResenias(List<Resenias> reseñas) {
-		this.resenias = reseñas;
+	public void setResenias(List<Resenias> resenias) {
+		this.resenias = resenias;
 	}
 
 	public Usuarios getUsuario() {

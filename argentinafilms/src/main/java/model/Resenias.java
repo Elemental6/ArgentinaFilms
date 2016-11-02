@@ -15,8 +15,8 @@ import javax.persistence.ManyToOne;
 public class Resenias {
 	@Id
 	@GeneratedValue
-	private Integer id_reseña;
-	private String reseña;
+	private Integer id_resenia;
+	private String resenia;
 	private String aportadores;
 	@ManyToOne
 	private Usuarios usuario;
@@ -29,28 +29,54 @@ public class Resenias {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Resenias(String reseña, String aportadores, Usuarios usuario, List<Comentarios> comentarios) {
-		this.reseña = reseña;
+	
+
+	public Resenias(String resenia, String aportadores, Usuarios usuario,
+			List<Comentarios> comentarios) {
+		super();
+		this.resenia = resenia;
 		this.aportadores = aportadores;
 		this.usuario = usuario;
 		this.comentarios = comentarios;
 	}
 
-	public Integer getId_reseña() {
-		return id_reseña;
+
+
+	public Resenias(Integer id_resenia, String resenia, String aportadores, Usuarios usuario,
+			List<Comentarios> comentarios) {
+		super();
+		this.id_resenia = id_resenia;
+		this.resenia = resenia;
+		this.aportadores = aportadores;
+		this.usuario = usuario;
+		this.comentarios = comentarios;
 	}
 
-	public void setId_reseña(Integer id_reseña) {
-		this.id_reseña = id_reseña;
+
+
+	public Integer getId_resenia() {
+		return id_resenia;
 	}
 
-	public String getReseña() {
-		return reseña;
+
+
+	public void setId_resenia(Integer id_resenia) {
+		this.id_resenia = id_resenia;
 	}
 
-	public void setReseña(String reseña) {
-		this.reseña = reseña;
+
+
+	public String getResenia() {
+		return resenia;
 	}
+
+
+
+	public void setResenia(String resenia) {
+		this.resenia = resenia;
+	}
+
+
 
 	public String getAportadores() {
 		return aportadores;

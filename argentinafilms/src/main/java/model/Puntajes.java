@@ -17,8 +17,7 @@ public class Puntajes {
 	private Usuarios usuario;
 	
 	public Puntajes() {
-		// TODO Auto-generated constructor stub
-	}
+		}
 
 	public Puntajes(Integer puntuacion, Peliculas pelicula, Usuarios usuario) {
 		this.puntuacion = puntuacion;

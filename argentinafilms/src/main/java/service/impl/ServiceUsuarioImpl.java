@@ -30,7 +30,7 @@ public class ServiceUsuarioImpl implements ServiceUsuario{
 	
 	@Override
 	public void add(Usuarios usuario){
-		this.daoUsuario.add(usuario);
+		this.daoUsuario.save(usuario);
 	}
 	
 	@Override
