@@ -12,6 +12,7 @@ public class Usuarios {
 	private String apellido;
 	private String email;
 	private String rango;
+	private String codActivacion;
 	private boolean estado;
 	
 	public Usuarios() {
@@ -81,6 +82,14 @@ public class Usuarios {
 
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+
+	public String getCodActivacion() {
+		return codActivacion;
+	}
+
+	public void setCodActivacion(String codActivacion) {
+		this.codActivacion = codActivacion;
 	}
 
 	

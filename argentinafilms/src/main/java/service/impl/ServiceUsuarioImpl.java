@@ -29,7 +29,7 @@ public class ServiceUsuarioImpl implements ServiceUsuario{
 
 	
 	@Override
-	public void add(Usuarios usuario) {
+	public void add(Usuarios usuario){
 		this.daoUsuario.add(usuario);
 	}
 	
@@ -42,6 +42,8 @@ public class ServiceUsuarioImpl implements ServiceUsuario{
 	public void delete(String nombreUsuario) {
 		this.daoUsuario.delete(nombreUsuario);
 	}
+
+	
 
 	public void setDaoUsuario(DAOUsuario daoUsuario) {
 		this.daoUsuario = daoUsuario;

@@ -6,6 +6,15 @@
 <head>
 	<title>Argentina Films</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Deshabilitar caché para no volver atrás -->
+		<meta http-equiv="Expires" content="0" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		
+		<script type="text/javascript">
+		  if(history.forward(1)){
+		    location.replace( history.forward(1) );
+		  }
+		</script>
 
 		<link rel="shortcut icon" href="imgs/AFFavicon.ico" type="image/x-icon" />
 		
@@ -19,7 +28,8 @@
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/seccion-desplegable.js"></script>
         <script type="text/javascript" src="js/sweetalert.min.js"></script>
-        <script type="text/javascript" src="js/AJAXregistro-usuario.js"></script>
+        <script type="text/javascript" src="js/validaciones.js"></script>
+        <script type="text/javascript" src="js/ajax-activar-cuenta.js"></script>
     </head>
     
     <body>
@@ -36,22 +46,36 @@
                         <img src="imgs/ArgentinaFilms_LogoTexto_Final.png" height="70px">
                     </a>
                 </div>
+                
                 <div id="navbar" class="navbar-collapse collapse">
+                
                     <ul class="nav navbar-nav navbar-right">
+                    
+                    <c:if test="${empty userLogueado}" >
                         <li>
-                            <a href="IniciarSesion.jsp">Iniciar sesión</a>
+                            <a href="IniciarSesion.jsp"><!-- <span class="glyphicon glyphicon-log-in"></span> --> Iniciar sesión</a>
                         </li>
                         <li>
-                            <a href="Registrarse.jsp">Registrarse</a>
+                            <a href="Registrarse.jsp"><!-- <span class="glyphicon glyphicon-registration-mark"></span> --> Registrarse</a>
+                        </li>
+                    </c:if>   
+                    
+                    
+                    <c:if test="${not empty userLogueado}" >
+                        <li>
+                            <a href="MiPerfil.jsp"><!-- <span class="glyphicon glyphicon-user"></span> --> ${userLogueado.usuario}</a>
                         </li>
                         <li>
-</li>
-                        <li>
-</li>
+                            <a href="CerrarSesion"><!-- <span class="glyphicon glyphicon-log-out"></span> --> Cerrar sesión</a>
+                        </li>
+                    </c:if>  
+                        
+                        
                     </ul>
                     <form class="navbar-form navbar-right">
-                        <input type="text" class="form-control" placeholder="Buscar película...">
+                         <input type="text" class="form-control" placeholder="Buscar película...">
                     </form>
                 </div>
+                
             </div>
         </nav>

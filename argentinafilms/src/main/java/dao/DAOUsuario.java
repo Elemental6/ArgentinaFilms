@@ -15,5 +15,5 @@ public interface DAOUsuario {
 	void update(Usuarios usuario);
 	
 	void delete(String nombreUsuario);
-	
+
 }

@@ -3,26 +3,30 @@
 <div class="contenido">
     <div class="login">
         <h1 class="text-center titulo-seccion"><img src="imgs/login.png" class="imagen-seccion" />INICIAR SESIÓN</h1>
-        <form role="form" class="login form-horizontal"> 
+        
+        <div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
+        
+        <form role="form" class="login form-horizontal" action="Loguear" method="POST"> 
+        
             <div class="form-group"> 
-                <label class="control-label col-sm-2" for="lblNombreUsuario">Nombre de usuario:</label>                 
+                <label class="control-label col-sm-2">Nombre de usuario:</label>                 
                 <div class="col-sm-10">
                     <div>
                         <div>
                             <div>
-                                <input type="text" class="form-control" id="txtNombreUsuario" placeholder="Ingrese su nombre de usuario" required>
+                                <input type="text" class="form-control" name="txtNombreUsuario" placeholder="Ingrese su nombre de usuario" maxlength=15 required>
                             </div>
                         </div>
                     </div>
                 </div>                 
             </div>             
             <div class="form-group"> 
-                <label class="control-label col-sm-2" for="lblPass">Contraseña:</label>                 
+                <label class="control-label col-sm-2">Contraseña:</label>                 
                 <div class="col-sm-10">
                     <div>
                         <div>
                             <div>
-                                <input type="password" class="form-control login" id="txtPass" placeholder="Ingrese su contraseña" required>
+                                <input type="password" class="form-control login" name="txtPass" placeholder="Ingrese su contraseña" maxlength=15 required>
                             </div>
                         </div>
                     </div>

@@ -46,6 +46,5 @@ public class DAOUsuarioImpl implements DAOUsuario{
 	public void setSessionFactory(SessionFactory sessionFactory){
 		this.hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
-	
-	
+
 }

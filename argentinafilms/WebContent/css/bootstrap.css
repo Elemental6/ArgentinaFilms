@@ -366,8 +366,8 @@ th
 @font-face{
   font-family: 'Glyphicons Halflings';
 
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('fonts/glyphicons-halflings-regular.eot');
+  src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('fonts/glyphicons-halflings-regular.woff') format('woff'), url('fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
 .glyphicon
@@ -1701,7 +1701,6 @@ th
     box-sizing: border-box;
 }
 
-
 *:before,
 *:after
 {
@@ -1721,8 +1720,7 @@ body
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #333;
-    background-color: #fff;
+    color: #045aa1;
 }
 
 input,
@@ -3732,6 +3730,7 @@ output
 
 .form-control
 {
+    margin: auto;
     display: block;
     width: 100%;
     height: 34px;
@@ -6110,6 +6109,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn
   .navbar > .container-fluid .navbar-brand
     {
         margin-left: -15px;
+        color: #fff100;
+        font-family: Arial Black;
+        font-size: 24px;
+        font-weight: bold;
+        text-decoration: overline;
     }
 }
 
@@ -6219,8 +6223,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn
     margin-right: -15px;
     margin-bottom: 8px;
     margin-left: -15px;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
 }
@@ -6236,7 +6238,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn
     .navbar-form .form-control
     {
         display: inline-block;
-        width: auto;
+        width: 100px;
         vertical-align: middle;
     }
     .navbar-form .form-control-static
@@ -6518,13 +6520,15 @@ fieldset[disabled] .navbar-default .btn-link:focus
 
 .navbar-inverse
 {
-    background-color: #222;
+    background-color: #363636;
     border-color: #080808;
 }
 
 .navbar-inverse .navbar-brand
 {
-    color: #9d9d9d;
+    color: #fff100;
+    font-family: Arial Black;
+    text-decoration: overline;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -7033,7 +7037,6 @@ a.badge:focus
     padding-bottom: 30px;
     margin-bottom: 30px;
     color: inherit;
-    background-color: #eee;
 }
 
 .jumbotron h1,

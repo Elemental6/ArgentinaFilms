@@ -4,7 +4,9 @@
     <div class="login reg">
         <h1 class="text-center titulo-seccion"><img src="imgs/register.png" class="imagen-seccion" />REGISTRARSE</h1>
         
-        <form action="javascript:submitregistro();" role="form" class="login form-horizontal" method="POST"> 
+        <div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
+        
+        <form action="RegistrarUsuario" role="form" class="login form-horizontal" method="POST"> 
         
         
             <div class="form-group"> 
@@ -13,7 +15,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="text" class="form-control" id="txtId" placeholder="Ingrese su nombre de usuario" required>
+                                <input type="text" class="form-control" name="txtId" placeholder="Ingrese su nombre de usuario" required>
                             </div>
                         </div>
                     </div>
@@ -26,7 +28,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="password" class="form-control login" id="txtPass1" placeholder="Ingrese su contraseña" required>
+                                <input type="password" class="form-control login" name="txtPass1" placeholder="Ingrese su contraseña" required>
                             </div>
                         </div>
                     </div>
@@ -39,7 +41,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="password" class="form-control login" id="txtPass2" placeholder="Repita su contraseña" required>
+                                <input type="password" class="form-control login" name="txtPass2" placeholder="Repita su contraseña" required>
                             </div>
                         </div>
                     </div>
@@ -53,7 +55,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="email" class="form-control login" id="txtEmail" placeholder="Ingrese su correo electrónico" required>
+                                <input type="email" class="form-control login" name="txtEmail" placeholder="Ingrese su correo electrónico" required>
                             </div>
                         </div>
                     </div>
@@ -66,7 +68,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="text" class="form-control login" id="txtNombre" placeholder="Ingrese su nombre real" required>
+                                <input type="text" class="form-control login" name="txtNombre" placeholder="Ingrese su nombre real" required>
                             </div>
                         </div>
                     </div>
@@ -79,7 +81,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="text" class="form-control login" id="txtApellido" placeholder="Ingrese su apellido real" required>
+                                <input type="text" class="form-control login" name="txtApellido" placeholder="Ingrese su apellido real" required>
                             </div>
                         </div>
                     </div>
