@@ -43,6 +43,9 @@ public class ServletRegistrarUsuario extends HttpServlet{
 		String emailIngresado = request.getParameter("txtEmail");
 		String codActivacion = CodigoAleatorio.getCadenaAlfanumAleatoria(15);
 		
+		//TODO: Encontrar forma de guardar un avatar que suba el usuario y en el campo "Avatar" se guardaria la direccion para saber de donde buscarla
+		//String avatar = request.getParameter("avatar");
+		
 		Usuarios usuario = new Usuarios();
 		usuario.setUsuario(idIngresado);
 		usuario.setPass(passIngresado);

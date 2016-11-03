@@ -67,6 +67,13 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			Integer puntuacion_total = 0; 				
 			
 			Peliculas pelicula = new Peliculas(nombre,anio,ubicacion,duracion,synopsis,puntuacion_total,usuario,genero);
+			
+			// Poster y trailer podrian ser nulos
+			String trailer = request.getParameter("pelicula_trailer");
+			String poster = request.getParameter("pelicula_poster");
+			
+			pelicula.setTrailer(trailer);
+			pelicula.setPoster(poster);
 			// Guardo la pelicula
 			this.peliculaService.save(pelicula);
 			

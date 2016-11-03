@@ -14,7 +14,7 @@ public class Usuarios {
 	private String rango;
 	private String codActivacion;
 	private boolean estado;
-	
+	private String avatar = null;
 	public Usuarios() {
 		// TODO Auto-generated constructor stub
 	}
@@ -26,6 +26,14 @@ public class Usuarios {
 		this.email = email;
 		this.rango = rango;
 		this.estado = estado;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
 	}
 
 	public String getUsuario() {

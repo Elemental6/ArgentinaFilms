@@ -22,6 +22,8 @@ public class Peliculas {
 	private Integer duracion;
 	private String synopsis;
 	private Integer puntuacion_total;
+	private String poster;
+	private String trailer;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "PeliculaXActores", joinColumns = @JoinColumn(name = "id_pelicula"), inverseJoinColumns = @JoinColumn(name = "id_actor"))
@@ -59,6 +61,38 @@ public class Peliculas {
 	}
 
 	
+
+	public String getPoster() {
+		return poster;
+	}
+
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
+
+	public String getTrailer() {
+		return trailer;
+	}
+
+	public void setTrailer(String trailer) {
+		this.trailer = trailer;
+	}
+
+	public Peliculas(String nombre, int anio, String ubicacion, Integer duracion, String synopsis,
+			Integer puntuacion_total, String poster, String trailer, Usuarios usuario,
+			Generos genero) {
+		super();
+		this.nombre = nombre;
+		this.anio = anio;
+		this.ubicacion = ubicacion;
+		this.duracion = duracion;
+		this.synopsis = synopsis;
+		this.puntuacion_total = puntuacion_total;
+		this.poster = poster;
+		this.trailer = trailer;
+		this.usuario = usuario;
+		this.genero = genero;
+	}
 
 	public Peliculas(String nombre, int anio, String ubicacion, Integer duracion, String synopsis,
 			Integer puntuacion_total, Usuarios usuario, Generos genero) {
