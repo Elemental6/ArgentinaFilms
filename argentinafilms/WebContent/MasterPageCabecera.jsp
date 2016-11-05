@@ -45,6 +45,7 @@
                     <a class="navbar-brand" href="Inicio.jsp">
                         <img src="imgs/ArgentinaFilms_LogoTexto_Final.png" height="70px">
                     </a>
+                   
                 </div>
                 
                 <div id="navbar" class="navbar-collapse collapse">
@@ -69,7 +70,10 @@
                             <a href="CerrarSesion"><!-- <span class="glyphicon glyphicon-log-out"></span> --> Cerrar sesión</a>
                         </li>
                     </c:if>  
-                        
+                     <li>
+                         <a  href="ServletListarPeliculas"> <!-- <span class="glyphicon glyphicon-user"></span> -->     Listar Peliculas </a>
+                        </li>
+                   
                         
                     </ul>
                     <form class="navbar-form navbar-right">

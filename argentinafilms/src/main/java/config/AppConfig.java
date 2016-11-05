@@ -12,7 +12,9 @@ import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
 import service.ServiceUsuario;
 import service.impl.ServiceUsuarioImpl;
 import dao.DAOUsuario;
-import dao.impl.DAOUsuarioImpl;
+import dao.impl.DAOActoresImpl;
+import dao.*;
+import dao.impl.*;
 import model.*;
 @SuppressWarnings("rawtypes")
 
@@ -22,12 +24,50 @@ public class AppConfig {
 	@Bean
 	public DataSource dataSource(){
 		DriverManagerDataSource ret = new DriverManagerDataSource("jdbc:mysql://localhost:3306/argentinafilms?createDatabaseIfNotExist=true",
-																  "root", "root");
+																  "root", "admin");
 		ret.setDriverClassName("com.mysql.jdbc.Driver");
 		return ret;
 	}
 	
+	@Bean
+	public DAOActores actoresDAO(){
+		return new DAOActoresImpl();
+	}
 	
+	@Bean
+	public DAOComentarios comentariosDAO(){
+		return new DAOComentariosImpl();
+	}
+	
+	@Bean
+	public DAODirectores directoresDAO(){
+		return new DAODirectoresImpl();
+	}
+	
+	@Bean
+	public DAOGeneros generosDAO(){
+		return new DAOGenerosImpl();
+	}
+	
+	@Bean
+	public DAOPeliculas peliculasDAO(){
+		return new DAOPeliculasImpl();
+	}
+	
+	@Bean
+	public DAOPuntajes puntajesDAO(){
+		return new DAOPuntajesImpl();
+	}
+	
+	@Bean
+	public DAOResenias reseniasDAO(){
+		return new DAOReseniasImpl();
+	}
+	
+	@Bean
+	public DAOSesiones sesionesDAO(){
+		return new DAOSesionesImpl();
+	}
 	@Bean
 	public AnnotationSessionFactoryBean sessionFactoryBean(){
 		AnnotationSessionFactoryBean ret = new AnnotationSessionFactoryBean();
@@ -53,7 +93,7 @@ public class AppConfig {
 	
 	
 	@Bean
-	public DAOUsuario daoUsuario(){
+	public DAOUsuario usuariosDAO(){
 		return new DAOUsuarioImpl();
 	}
 	
