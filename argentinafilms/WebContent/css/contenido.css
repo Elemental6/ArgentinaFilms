@@ -1,6 +1,10 @@
 .contenido
 {
-    margin-top: 10%;
+    margin-top: 50px;
+}
+
+#cagamargin{
+	height:70px;
 }
 
 .login
