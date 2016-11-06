@@ -1,7 +1,9 @@
 package model;
 
 import java.util.List;
+
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,6 +22,7 @@ public class Peliculas {
 	private int anio;
 	private String ubicacion;
 	private Integer duracion;
+	@Column(length=812)
 	private String synopsis;
 	private Integer puntuacion_total;
 	private String poster;
@@ -45,6 +48,31 @@ public class Peliculas {
 	public Peliculas() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	
+	public Peliculas(String nombre, int anio, String ubicacion,
+			Integer duracion, String synopsis, Integer puntuacion_total,
+			String poster, String trailer, List<Actores> actores,
+			Directores director, List<Resenias> resenias, Usuarios usuario,
+			Generos genero) {
+		super();
+		this.nombre = nombre;
+		this.anio = anio;
+		this.ubicacion = ubicacion;
+		this.duracion = duracion;
+		this.synopsis = synopsis;
+		this.puntuacion_total = puntuacion_total;
+		this.poster = poster;
+		this.trailer = trailer;
+		this.actores = actores;
+		this.director = director;
+		this.resenias = resenias;
+		this.usuario = usuario;
+		this.genero = genero;
+	}
+
+
 
 	public Peliculas(String nombre, int anio, String ubicacion, Integer duracion, String synopsis, Integer puntuacion_total, List<Actores> actores, Directores director, List<Resenias> resenias, Usuarios usuario, Generos genero) {
 		this.nombre = nombre;

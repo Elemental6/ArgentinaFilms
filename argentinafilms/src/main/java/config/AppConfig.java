@@ -9,49 +9,27 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
 
-import service.ServiceUsuario;
-import service.impl.ServiceUsuarioImpl;
-import dao.DAOUsuario;
-import dao.impl.DAOActoresImpl;
+import service.*;
+import service.impl.*;
 import dao.*;
 import dao.impl.*;
 import model.*;
-@SuppressWarnings("rawtypes")
 
+@SuppressWarnings("rawtypes")
 @Configuration
 public class AppConfig {
 	
 	@Bean
 	public DataSource dataSource(){
 		DriverManagerDataSource ret = new DriverManagerDataSource("jdbc:mysql://localhost:3306/argentinafilms?createDatabaseIfNotExist=true",
-																  "root", "admin");
+																  "root", "root");
 		ret.setDriverClassName("com.mysql.jdbc.Driver");
 		return ret;
 	}
 	
 	@Bean
-	public DAOActores actoresDAO(){
-		return new DAOActoresImpl();
-	}
-	
-	@Bean
 	public DAOComentarios comentariosDAO(){
 		return new DAOComentariosImpl();
-	}
-	
-	@Bean
-	public DAODirectores directoresDAO(){
-		return new DAODirectoresImpl();
-	}
-	
-	@Bean
-	public DAOGeneros generosDAO(){
-		return new DAOGenerosImpl();
-	}
-	
-	@Bean
-	public DAOPeliculas peliculasDAO(){
-		return new DAOPeliculasImpl();
 	}
 	
 	@Bean
@@ -68,6 +46,7 @@ public class AppConfig {
 	public DAOSesiones sesionesDAO(){
 		return new DAOSesionesImpl();
 	}
+	
 	@Bean
 	public AnnotationSessionFactoryBean sessionFactoryBean(){
 		AnnotationSessionFactoryBean ret = new AnnotationSessionFactoryBean();
@@ -91,11 +70,52 @@ public class AppConfig {
 		return new ServiceUsuarioImpl();
 	}
 	
-	
 	@Bean
 	public DAOUsuario usuariosDAO(){
 		return new DAOUsuarioImpl();
 	}
 	
-
+	
+	@Bean
+	public ServicePelicula servicePelicula(){
+		return new ServicePeliculaImpl();
+	}
+	
+	@Bean
+	public DAOPeliculas peliculasDAO(){
+		return new DAOPeliculasImpl();
+	}
+	
+	
+	@Bean
+	public ServiceGenero serviceGenero(){
+		return new ServiceGeneroImpl();
+	}
+	
+	@Bean
+	public DAOGeneros generosDAO(){
+		return new DAOGenerosImpl();
+	}
+	
+	
+	@Bean
+	public ServiceDirector serviceDirector(){
+		return new ServiceDirectorImpl();
+	}
+	
+	@Bean
+	public DAODirectores directoresDAO(){
+		return new DAODirectoresImpl();
+	}
+	
+	
+	@Bean
+	public ServiceActor serviceActor(){
+		return new ServiceActorImpl();
+	}
+	
+	@Bean
+	public DAOActores actoresDAO(){
+		return new DAOActoresImpl();
+	}
 }
