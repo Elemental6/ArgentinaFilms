@@ -5,7 +5,7 @@
 
 	<div class="container" align="center" data-pg-id="4579"
 		style="font-size: 24px; font-weight: bold;">
-<style  type="text/css">>
+<style type="text/css">>
 .myButton {
 	-moz-box-shadow: 0px 1px 0px 0px #fff6af;
 	-webkit-box-shadow: 0px 1px 0px 0px #fff6af;
@@ -54,7 +54,7 @@
 					<button class="myButton" type="submit" name="A">A</button>
 		<button class="myButton"  type="submit" name="B">B</button>
 		<button class="myButton"  type="submit" name="C">C</button>
-		<button class="myButton"  type="submit" name="D"">D</button>
+		<button class="myButton"  type="submit" name="D">D</button>
 		<button class="myButton"  type="submit" name="E">E</button>
 		<button class="myButton"  type="submit" name="F">F</button>
 		<button class="myButton"  type="submit" name="G">G</button>
@@ -222,40 +222,52 @@ td.text-right {
 	text-align: right;
 }
 </style>
-		<table class="tg">
 
-			<tr>
-				<th colspan="4">
-					<h3>Peliculas</h3>
-				</th>
-			</tr>
-			<tr>
-				<td>Nombre</td>
-				<td>Puntaje</td>
-				<td>Poster</td>
-				<td>Duracion</td>
-
-			</tr>
-
-			<c:if test="${PeliculasListado != null}">
-				<c:forEach items="${PeliculasListado}" var="Pelicula">
-
-					<tr>
-
-						<td>${Pelicula.nombre}</td>
-						<td>${Pelicula.puntuacion_total}</td>
-
-						<td><img src=${Pelicula.poster } /></td>
-						<td>${Pelicula.duracion}</td>
-					</tr>
-
-
-				</c:forEach>
-			</c:if>
-
-		</table>
-	</div>
+</div>
 
 
 
-	<jsp:include page="MasterPageFooter.jsp" />
+
+
+
+<section id="popular-reviews" class="section ultimas-publicaciones">
+        
+<h2 class="section-heading">TODAS LAS PELÍCULAS</h2>
+            
+
+	<ul class="posters film-list clear posters-70 film-details-list no-title">
+            
+	<c:forEach items="${PeliculasListado}" var="Pelicula">
+
+		<li class="film-detail"> 
+                
+			<div class="poster film-poster really-lazy-load" data-image-width="70" data-image-height="105"> 
+				 <img src="${Pelicula.poster}" width="70" height="105" />
+				 <span class="frame"><span class="frame-title"></span></span> 
+			 </div>                     
+                    
+             <div class="film-detail-content pull-left"> 
+             	<h2 class="film-title prettify"><a href="/peliculas/${Pelicula.id_pelicula}">${Pelicula.nombre}</a> <small><a href="/peliculas/anios/${Pelicula.anio}/">${Pelicula.anio}</a></small></h2> 
+                	<p class="film-detail-meta rating-green film-detail-with-author"> <a class="avatar avatar-24"> 
+                    <img src="<%= getServletContext().getRealPath("/") %>${Pelicula.usuario.avatar}" width="24" height="24" /> 
+                    <span></span> 
+                    </a> <a href="/perfil/${Pelicula.usuario.usuario}" class="author">${Pelicula.usuario.usuario}</a> </p> 
+                        <div class="text collapsible-text"> 
+                	<p>${Pelicula.synopsis}</p>
+              	</div>                         
+              </div>                     
+    	</li>
+        
+	</c:forEach>
+
+
+	</ul>
+
+</section>
+
+
+	
+
+
+
+<jsp:include page="MasterPageFooter.jsp" />
