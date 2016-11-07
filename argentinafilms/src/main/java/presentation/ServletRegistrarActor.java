@@ -53,7 +53,7 @@ public class ServletRegistrarActor extends HttpServlet {
 			String apellido = request.getParameter("actor_apellido");
 			Integer edad = Integer.parseInt(request.getParameter("actor_edad"));
 			
-			Actores actor = new Actores (nombre,apellido,edad);
+			Actores actor = new Actores (nombre,apellido,edad, false);
 			// Guardar actor
 			this.actorService.save(actor);
 			

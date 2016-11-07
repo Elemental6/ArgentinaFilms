@@ -42,6 +42,15 @@ public class ServletLogin extends HttpServlet{
 			
 			if(usuario.getPass().compareTo(passIngresado) == 0)
 			{
+				
+				if(!usuario.isEstado())
+				{
+					request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
+			        request.setAttribute("mensajeResultado", "Estás baneado. No podés ingresar");
+					request.getRequestDispatcher("/IniciarSesion.jsp").forward(request, response);
+					return;
+				}
+				
 				HttpSession sesion = request.getSession(true);
 				sesion.setAttribute("userLogueado", usuario);
 				

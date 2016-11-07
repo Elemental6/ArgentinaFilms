@@ -8,6 +8,8 @@ public interface DAOPeliculas {
 
 	List<Peliculas> getAll();	
 	
+	List<Peliculas> getLastThree();
+	
 	Peliculas getById(Integer id_pelicula);
 	
 	void update(Peliculas pelicula);

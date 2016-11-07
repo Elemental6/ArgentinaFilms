@@ -16,6 +16,11 @@ public class DAOPeliculasImpl implements DAOPeliculas {
 	public List<Peliculas> getAll() {
 		return this.hibernateTemplate.loadAll(Peliculas.class);
 	}
+	
+	public List<Peliculas> getLastThree(){
+		this.hibernateTemplate.setMaxResults(3);
+		return this.hibernateTemplate.loadAll(Peliculas.class);
+	}
 
 	@Override
 	public Peliculas getById(Integer id_pelicula) {
@@ -40,7 +45,6 @@ public class DAOPeliculasImpl implements DAOPeliculas {
 	@Override
 	public void save(Peliculas pelicula) {
 		this.hibernateTemplate.save(pelicula);
-		
 	}
 
 }

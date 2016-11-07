@@ -19,8 +19,9 @@ public class Usuarios {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Usuarios(String usuario, String nombre, String apellido, String email, String rango, boolean estado) {
+	public Usuarios(String usuario, String pass, String nombre, String apellido, String email, String rango, boolean estado) {
 		this.usuario = usuario;
+		this.pass = pass;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;

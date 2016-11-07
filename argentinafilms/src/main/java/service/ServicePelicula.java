@@ -7,6 +7,8 @@ public interface ServicePelicula {
 	
 	public List<Peliculas> getAll();
 	
+	List<Peliculas> getLastThree();
+	
 	public Peliculas getById(int id);
 	
 	public void add(Peliculas pelicula);

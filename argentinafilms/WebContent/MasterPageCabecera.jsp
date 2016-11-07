@@ -45,7 +45,6 @@
                     <a class="navbar-brand" href="Inicio.jsp">
                         <img src="imgs/ArgentinaFilms_LogoTexto_Final.png" height="70px">
                     </a>
-                   
                 </div>
                 
                 <div id="navbar" class="navbar-collapse collapse">
@@ -62,22 +61,32 @@
                     </c:if>   
                     
                     
+ 
                     <c:if test="${not empty userLogueado}" >
                         <li>
-                            <a href="MiPerfil.jsp"><!-- <span class="glyphicon glyphicon-user"></span> --> ${userLogueado.usuario}</a>
+                            <a href="VerPerfil.jsp"><!-- <span class="glyphicon glyphicon-user"></span> --> ${userLogueado.usuario}</a>
                         </li>
+                        
+                        <c:if test="${userLogueado.rango == 'admin'  || userLogueado.rango == 'moderador'}" >
+                        <li>
+                            <a href="Administrar.jsp"><!-- <span class="glyphicon glyphicon-log-in"></span> -->
+                            <c:if test="${userLogueado.rango == 'admin'}" >Administrar</c:if>
+                            <c:if test="${userLogueado.rango == 'moderador'}" >Moderar</c:if></a>
+                        </li>
+	                    </c:if>  
+	                        
+                        <li>
+                            <a href="AgregarPelicula.jsp"><!-- <span class="glyphicon glyphicon-log-in"></span> --> Agregar película</a>
+                        </li>
+                     
                         <li>
                             <a href="CerrarSesion"><!-- <span class="glyphicon glyphicon-log-out"></span> --> Cerrar sesión</a>
                         </li>
                     </c:if>  
-                     <li>
-                         <a  href="ServletListarPeliculas"> <!-- <span class="glyphicon glyphicon-user"></span> -->     Listar Peliculas </a>
-                        </li>
-                   
-                        
+  
                     </ul>
                     <form class="navbar-form navbar-right">
-                         <input type="text" class="form-control" placeholder="Buscar película...">
+                         <input type="text" class="form-control" placeholder="Buscar película..." style="font-size:11px;">
                     </form>
                 </div>
                 

@@ -19,6 +19,11 @@ public class ServicePeliculaImpl implements ServicePelicula{
 	public List<Peliculas> getAll() {
 		return this.daoPelicula.getAll();
 	}
+	
+	@Override
+	public List<Peliculas> getLastThree(){
+		return this.daoPelicula.getLastThree();
+	}
 
 	@Override
 	public Peliculas getById(int id) {

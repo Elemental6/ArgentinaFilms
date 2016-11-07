@@ -12,15 +12,17 @@ public class Actores {
 	private String nombre;
 	private String apellido;
 	private Integer edad;
+	private boolean estado;
 	
 	public Actores() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Actores(String nombre, String apellido, Integer edad) {
+	public Actores(String nombre, String apellido, Integer edad, boolean estado) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.edad = edad;
+		this.estado = estado;
 	}
 
 	public Integer getId_actor() {
@@ -53,6 +55,14 @@ public class Actores {
 
 	public void setEdad(Integer edad) {
 		this.edad = edad;
+	}
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 	
 }

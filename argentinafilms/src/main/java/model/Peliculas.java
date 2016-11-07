@@ -27,6 +27,7 @@ public class Peliculas {
 	private Integer puntuacion_total;
 	private String poster;
 	private String trailer;
+	private boolean estado;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "PeliculaXActores", joinColumns = @JoinColumn(name = "id_pelicula"), inverseJoinColumns = @JoinColumn(name = "id_actor"))
@@ -55,7 +56,7 @@ public class Peliculas {
 			Integer duracion, String synopsis, Integer puntuacion_total,
 			String poster, String trailer, List<Actores> actores,
 			Directores director, List<Resenias> resenias, Usuarios usuario,
-			Generos genero) {
+			Generos genero, boolean estado) {
 		super();
 		this.nombre = nombre;
 		this.anio = anio;
@@ -70,6 +71,7 @@ public class Peliculas {
 		this.resenias = resenias;
 		this.usuario = usuario;
 		this.genero = genero;
+		this.estado = estado;
 	}
 
 
@@ -229,6 +231,18 @@ public class Peliculas {
 
 	public void setAnio(int anio) {
 		this.anio = anio;
+	}
+
+
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 
 }
