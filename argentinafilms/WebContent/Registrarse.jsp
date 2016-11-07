@@ -6,7 +6,7 @@
         
         <div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
         
-        <form action="RegistrarUsuario" role="form" class="login form-horizontal" method="POST"> 
+        <form action="RegistrarUsuario" role="form" class="login form-horizontal" method="POST" enctype="multipart/form-data"> 
         
         
             <div class="form-group"> 
@@ -82,6 +82,19 @@
                         <div>
                             <div>
                                 <input type="text" class="form-control login" name="txtApellido" placeholder="Ingrese su apellido real" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>                 
+			 </div> 
+			 
+			 <div class="form-group"> 
+            	<label class="control-label col-sm-2">Avatar:</label>                 
+                <div class="col-sm-10">
+                    <div>
+                        <div>
+                            <div>
+                                <input type="file" name="file"/>
                             </div>
                         </div>
                     </div>

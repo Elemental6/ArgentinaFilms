@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +20,11 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import service.ServiceUsuario;
 import util.CodigoAleatorio;
 import util.MailService;
+import util.SubidaDeImagen;
 
 @SuppressWarnings("serial")
 @WebServlet("/RegistrarUsuario")
+@MultipartConfig
 public class ServletRegistrarUsuario extends HttpServlet{
 
 	
@@ -41,10 +44,9 @@ public class ServletRegistrarUsuario extends HttpServlet{
 		String nombreIngresado = request.getParameter("txtNombre");
 		String apellidoIngresado = request.getParameter("txtApellido");
 		String emailIngresado = request.getParameter("txtEmail");
+		String avatar  = SubidaDeImagen.Subir(request, response, "imgs\\avatares\\", CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg");
 		String codActivacion = CodigoAleatorio.getCadenaAlfanumAleatoria(15);
 		
-		//TODO: Encontrar forma de guardar un avatar que suba el usuario y en el campo "Avatar" se guardaria la direccion para saber de donde buscarla
-		//String avatar = request.getParameter("avatar");
 		
 		Usuarios usuario = new Usuarios();
 		usuario.setUsuario(idIngresado);
@@ -54,6 +56,7 @@ public class ServletRegistrarUsuario extends HttpServlet{
 		usuario.setEmail(emailIngresado);
 		usuario.setRango("novato");
 		usuario.setEstado(false);
+		usuario.setAvatar(avatar);
 		usuario.setCodActivacion(codActivacion);
 		
 		try{
