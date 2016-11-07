@@ -7129,6 +7129,8 @@ a.thumbnail.active
     margin-bottom: 20px;
     border: 1px solid transparent;
     border-radius: 4px;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .alert h4

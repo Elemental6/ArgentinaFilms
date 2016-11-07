@@ -49,7 +49,7 @@ public class ServletBanearUsuario extends HttpServlet{
 		}
 		
 		request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
-        request.setAttribute("mensajeResultado", "El usuario " + usuario.getUsuario() + "fue baneado con éxito.");
+        request.setAttribute("mensajeResultado", "El usuario " + usuario.getUsuario() + " fue baneado con éxito.");
 		request.getRequestDispatcher("/BanearUsuario.jsp").forward(request, response);
 	}
 	
