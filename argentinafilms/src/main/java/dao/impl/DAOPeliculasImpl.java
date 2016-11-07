@@ -14,9 +14,11 @@ public class DAOPeliculasImpl implements DAOPeliculas {
 	private HibernateTemplate hibernateTemplate = null;
 	@Override
 	public List<Peliculas> getAll() {
+		this.hibernateTemplate.setMaxResults(999);
 		return this.hibernateTemplate.loadAll(Peliculas.class);
 	}
 	
+	@Override
 	public List<Peliculas> getLastThree(){
 		this.hibernateTemplate.setMaxResults(3);
 		return this.hibernateTemplate.loadAll(Peliculas.class);
