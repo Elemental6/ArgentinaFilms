@@ -1,4 +1,5 @@
 <jsp:include page="MasterPageCabecera.jsp" />
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div id="contenido" class="film backdropped logged-out backdrop-loaded">
 	<div id="cagamargin"></div>
@@ -14,7 +15,7 @@
 							<ul>
 								<li class="filmstat-watches">
 									<a class="has-icon icon-watched icon-16">
-										★ ★ ★ ★★
+										@ @ @ @ @��
 									</a>
 								</li>
 							</ul>
@@ -23,8 +24,7 @@
 					<section class="watch-panel js-watch-panel">
 						<h3 class="title">Ver</h3>
 						<p class="js-watch-panel-trailer">
-							<a class="label -text track-event js-trailer-zoom cboxElement">
-								<span class="icon -play"></span>
+							<a class="label -text track-event js-trailer-zoom cboxElement" onclick='javascript:showTrailer("${selectPelicula.trailer}");'>								<span class="icon -play"></span>
 								<span class="name">Trailer</span>
 							</a>
 						</p>
@@ -73,7 +73,7 @@
 							<div class="cast-list box-link-list">
 								<p>
 									<a href="###link-Actor" class="box-link">
-										<span itemprop="name">${selectPelicula.director.name}</span>
+										<span itemprop="name">${selectPelicula.director.nombre} ${selectPelicula.director.apellido}</span>
 									</a>
 								</p>
 							</div>
@@ -91,7 +91,7 @@
 							<div class="cast-list box-link-list">
 								<p>
 									<c:forEach items="${selectPelicula.actores}" var="actor">
-										<a href="VerActor?id=${actor.id}" class="box-link">
+										<a href="VerActor?id=${actor.id_actor}" class="box-link">
 											<span itemprop="name">${actor.nombre} ${actor.apellido}</span>
 										</a>
 									</c:forEach>
@@ -103,7 +103,7 @@
 				<section class="film-recent-reviews">
 					<section id="viewings-list">
 						<h2 class="section-heading">
-							Reseñas
+							Rese�as
 						</h2>
 						<ul class="posters posters-70">
 							<!--Aca nose como manejar las reseñas -->
@@ -133,5 +133,33 @@
 		</div>
 	</div>
 </div>
-
+<div id="cboxOverlay" style="opacity: 0.7; display: none;"></div>
+<div id="colorbox" class="" style="display: none; visibility: visible; top: 20%; left: 25%; position: fixed; width: 980px; height: 586px; overflow: hidden; opacity: 1; cursor: auto;">
+	<div id="cboxWrapper" style="height: 586px; width: 980px;">
+		<div>
+			<div id="cboxTopLeft" style="float: left;"></div>
+			<div id="cboxTopCenter" style="float: left; width: 944px;"></div>
+			<div id="cboxTopRight" style="float: left;"></div>
+		</div>
+		<div style="clear: left;">
+			<div id="cboxMiddleLeft" style="float: left; height: 550px;"></div>
+			<div id="cboxContent" style="float: left; width: 944px; height: 550px;">
+				<div id="cboxLoadedContent" style="width: 944px; overflow: auto; height: 550px;"></div>
+				<div id="cboxTitle" style="float: left; display: block;"></div>
+				<div id="cboxCurrent" style="float: left; display: none;"></div>
+				<div id="cboxNext" style="float: left; display: none;"></div>
+				<div id="cboxPrevious" style="float: left; display: none;"></div>
+				<div id="cboxSlideshow" style="float: left; display: none;"></div>
+				<div id="cboxClose" style="float: left;" onclick="javascript:hideTrailer();">close</div>
+			</div>
+			<div id="cboxMiddleRight" style="float: left; height: 550px;"></div>
+		</div>
+		<div style="clear: left;">
+			<div id="cboxBottomLeft" style="float: left;"></div>
+			<div id="cboxBottomCenter" style="float: left; width: 944px;"></div>
+			<div id="cboxBottomRight" style="float: left;"></div>
+		</div>
+	</div>
+	<div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
+</div>
 <jsp:include page="MasterPageFooter.jsp" />

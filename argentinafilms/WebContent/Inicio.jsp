@@ -35,7 +35,7 @@
                     </div>                     
                     
                     <div class="film-detail-content pull-left"> 
-                        <h2 class="film-title prettify"><a href="/peliculas/${pelicula.id_pelicula}">${pelicula.nombre}</a> <small><a href="/peliculas/anios/${pelicula.anio}/">${pelicula.anio}</a></small></h2> 
+                        <h2 class="film-title prettify"><a href="ServletVerPelicula?pelicula_id=${pelicula.id_pelicula}">${pelicula.nombre}</a> <small><a href="/peliculas/anios/${pelicula.anio}/">${pelicula.anio}</a></small></h2> 
                         <p class="film-detail-meta rating-green film-detail-with-author"> <a class="avatar avatar-24"> 
                                 <img src="<%= getServletContext().getRealPath("/") %>${pelicula.usuario.avatar}" width="24" height="24" /> 
                                 <span></span> 

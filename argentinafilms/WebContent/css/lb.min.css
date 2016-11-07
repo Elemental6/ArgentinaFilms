@@ -283,7 +283,7 @@ em
 
 .ir,.replace
 {
-    background: url(../img/sprite.59afe236.svg) no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) no-repeat;
     -webkit-background-size: 800px 1000px;
     -moz-background-size: 800px 1000px;
     background-size: 800px 1000px;
@@ -804,7 +804,7 @@ a.has-icon:active,a.has-icon:hover
 
 .icon
 {
-    background: url(../img/sprite.59afe236.svg) no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) no-repeat;
     left: 0;
 }
 
@@ -1221,7 +1221,7 @@ a.icon-14:active,a.icon-14:hover,a.icon-16:active,a.icon-16:hover
     display: inline-block;
     width: 16px;
     height: 14px;
-    background: url(../img/sprite.59afe236.svg) -630px -50px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) -630px -50px no-repeat;
 }
 
 .like-link a,.like-link span
@@ -2346,7 +2346,7 @@ a.icon-14:active,a.icon-14:hover,a.icon-16:active,a.icon-16:hover
     display: block;
     width: 30px;
     height: 26px;
-    background-image: url(../img/sprite.59afe236.svg);
+    background-image: url(../imgs/sprite.59afe236.svg);
     background-repeat: no-repeat;
     -webkit-background-size: 800px 1000px;
     -moz-background-size: 800px 1000px;
@@ -2608,7 +2608,7 @@ a.icon-14:active,a.icon-14:hover,a.icon-16:active,a.icon-16:hover
     top: 0;
     padding: 30px 0 0;
     display: block;
-    background: url(../img/sprite.59afe236.svg) -230px -270px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) -230px -270px no-repeat;
     -webkit-background-size: 800px 1000px;
     -moz-background-size: 800px 1000px;
     background-size: 800px 1000px;
@@ -2778,7 +2778,7 @@ a.tag,ul.tags li a,ul.tags li.tag span
     -ms-text-overflow: ellipsis;
     -moz-binding: url(../js/ellipsis.d3fa04c4.xml#ellipsis);
     box-sizing: border-box;
-    background-image: url(../img/sprite.59afe236.svg);
+    background-image: url(../imgs/sprite.59afe236.svg);
     background-repeat: no-repeat;
     -webkit-background-size: 800px 1000px;
     -moz-background-size: 800px 1000px;
@@ -5070,7 +5070,7 @@ label[for=frm-pronoun]
     position: absolute;
     width: 33px;
     height: 33px;
-    background: url(../img/sprite.59afe236.svg) -500px -560px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) -500px -560px no-repeat;
     top: 50%;
     left: 50%;
     margin: -16px 0 0 -16px;
@@ -5911,7 +5911,7 @@ body.filmography-page .ui-block-header,body.films-rated .ui-block-header,body.fi
 .rating
 {
     height: 16px;
-    background: url(../img/sprite.59afe236.svg) -290px -90px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) -290px -90px no-repeat;
 }
 
 .rated-0
@@ -5977,7 +5977,7 @@ body.filmography-page .ui-block-header,body.films-rated .ui-block-header,body.fi
 .rating-large
 {
     height: 14px;
-    background: url(../img/sprite.59afe236.svg) -390px -130px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) -390px -130px no-repeat;
 }
 
 .rated-large-0
@@ -6044,7 +6044,7 @@ body.filmography-page .ui-block-header,body.films-rated .ui-block-header,body.fi
 {
     width: 12px;
     height: 10px;
-    background: url(../img/sprite.59afe236.svg) -390px -180px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) -390px -180px no-repeat;
 }
 
 .liked
@@ -6317,7 +6317,7 @@ div.rateit
 
 div.rateit div.rateit-hover,div.rateit div.rateit-range,div.rateit div.rateit-reset,div.rateit div.rateit-selected
 {
-    background-image: url(../img/sprite.59afe236.svg);
+    background-image: url(../imgs/sprite.59afe236.svg);
 }
 
 div.rateit div.rateit-range
@@ -6435,7 +6435,7 @@ input.panel-rateit-field
 
 div.panel-rateit div.rateit-hover,div.panel-rateit div.rateit-range,div.panel-rateit div.rateit-selected
 {
-    background-image: url(../img/sprite.59afe236.svg);
+    background-image: url(../imgs/sprite.59afe236.svg);
 }
 
 div.panel-rateit div.rateit-range
@@ -6647,7 +6647,7 @@ h1.title+.sub-heading
     color: #abc;
     padding-bottom: 10px;
     padding-left: 20px;
-    background: url(../img/sprite.59afe236.svg) -790px -7px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) -790px -7px no-repeat;
     line-height: 15px;
 }
 
@@ -7305,7 +7305,7 @@ a.mute:hover
 
 .remove-sidebar-rating:active,.remove-sidebar-rating:hover
 {
-    background: url(../img/sprite.59afe236.svg) -230px -310px no-repeat #2C3641;
+    background: url(../imgs/sprite.59afe236.svg) -230px -310px no-repeat #2C3641;
 }
 
 .profile-mini-person h1.person-name,.profile-summary .profile-name-wrap h1,.profile-summary .profile-person-info .icon-website
@@ -7880,7 +7880,7 @@ li.empty-list p
     width: 34px;
     height: 20px;
     padding-top: 10px;
-    background: url(../img/sprite.59afe236.svg) -600px -280px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) -600px -280px no-repeat;
     float: left;
     text-align: center;
     margin: 0 0 2px;
@@ -11942,7 +11942,7 @@ aside .message-container
     height: 40px;
     padding: 14px 0 0;
     margin-top: -3px;
-    background: url(../img/sprite.59afe236.svg) 0 -550px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) 0 -550px no-repeat;
     text-align: center;
     color: #131819;
     font-weight: 400;
@@ -13189,7 +13189,7 @@ body.popular-people .sidebar,body.popular-reviews .sidebar
     text-indent: 110%;
     white-space: nowrap;
     overflow: hidden;
-    background-image: url(../img/sprite.59afe236.svg);
+    background-image: url(../imgs/sprite.59afe236.svg);
     background-repeat: no-repeat;
     -webkit-background-size: 800px 1000px;
     -moz-background-size: 800px 1000px;
@@ -13264,7 +13264,7 @@ body.popular-people .sidebar,body.popular-reviews .sidebar
     display: inline-block;
     width: 67px;
     height: 13px;
-    background-image: url(../img/sprite.59afe236.svg);
+    background-image: url(../imgs/sprite.59afe236.svg);
     background-repeat: no-repeat;
     -webkit-background-size: 800px 1000px;
     -moz-background-size: 800px 1000px;
@@ -14234,7 +14234,7 @@ p.import-list-text
     height: 16px;
     text-indent: -999em;
     overflow: hidden;
-    background: url(../img/sprite.59afe236.svg) -630px -130px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) -630px -130px no-repeat;
 }
 
 .poster-list #list-items li .list-item-details a.list-item-edit:active,.poster-list #list-items li .list-item-details a.list-item-edit:hover
@@ -14883,7 +14883,7 @@ footer section.social .slash
     width: 10px;
     height: 20px;
     margin-left: 4px;
-    background: url(../img/sprite.59afe236.svg) -475px -180px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) -475px -180px no-repeat;
 }
 
 footer p.twitter a
@@ -15728,7 +15728,7 @@ a:hover .context
     width: 12px;
     height: 10px;
     margin-bottom: -1px;
-    background: url(../img/sprite.59afe236.svg) -180px -670px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) -180px -670px no-repeat;
 }
 
 .icon-instant-queue:active .icon,.icon-instant-queue:hover .icon
@@ -16177,7 +16177,7 @@ a:hover .context
     margin: -10px 0 0 -10px;
     width: 20px;
     height: 20px;
-    background: url(../img/sprite.59afe236.svg) no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) no-repeat;
     text-indent: 110%;
     white-space: nowrap;
     overflow: hidden;
@@ -21779,7 +21779,7 @@ td.datepickerSpecial.datepickerSelected a
     position: fixed;
     width: 100%;
     height: 100%;
-    background: url(../img/modal/overlay.51be5ed1.png);
+    background-color: #000;
 }
 
 .touch #cboxOverlay
@@ -21830,8 +21830,8 @@ td.datepickerSpecial.datepickerSelected a
 
 .cboxIframe
 {
-    width: 100%;
-    height: 100%;
+    width: 99.2%;
+    height: 98.6%;
 }
 
 #cboxBottomCenter,#cboxBottomLeft,#cboxBottomRight,#cboxMiddleLeft,#cboxMiddleRight,#cboxTopCenter,#cboxTopLeft,#cboxTopRight
@@ -21968,7 +21968,7 @@ td.datepickerSpecial.datepickerSelected a
     position: absolute;
     top: -8px;
     right: -8px;
-    background: url(../img/sprite.59afe236.svg) -230px -180px no-repeat;
+    background: url(../imgs/sprite.59afe236.svg) -230px -180px no-repeat;
     width: 28px;
     height: 28px;
     text-indent: -9999px;
