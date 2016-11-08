@@ -22,7 +22,7 @@ public class AppConfig {
 	@Bean
 	public DataSource dataSource(){
 		DriverManagerDataSource ret = new DriverManagerDataSource("jdbc:mysql://localhost:3306/argentinafilms?createDatabaseIfNotExist=true",
-																  "root", "admin");
+																  "root", "root");
 		ret.setDriverClassName("com.mysql.jdbc.Driver");
 		return ret;
 	}
