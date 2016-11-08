@@ -26,6 +26,7 @@
         <script type="text/javascript" src="js/sweetalert.min.js"></script>
         <script type="text/javascript" src="js/others.js"></script>
         <script type="text/javascript" src="js/validaciones.js"></script>
+        <script type="text/javascript" src="js/busqueda-pelicula.js"></script>
         <script type="text/javascript" src="js/ajax-activar-cuenta.js"></script>
         <script type="text/javascript" src="js/ajax-peticiones-admin.js"></script>
         <script type="text/javascript" src="js/ajax-puntuar.js"></script>
@@ -84,9 +85,9 @@
                     </c:if>  
   
                     </ul>
-                    <form class="navbar-form navbar-right">
-                         <input type="text" class="form-control" placeholder="Buscar película..." style="font-size:11px;">
-                    </form>
+                    <div class="navbar-form navbar-right" id="formSearch">
+                         <input type="text" id="inputBuscarPelicula" class="form-control" placeholder="Buscar película..." style="font-size:11px;">
+                    </div>
                 </div>
                 
             </div>
