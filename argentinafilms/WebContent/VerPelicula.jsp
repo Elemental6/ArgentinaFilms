@@ -19,17 +19,15 @@
 								<div style="font-size: 22px; font-weight: bold; color: #9AFE2E;">
 									Iniciá sesión para votar esta película.
 								</div>
-								 </c:if> 
-								
-								
-								<c:if test="${not empty userLogueado}" >
+								 </c:if>
+								 <c:if test="${not empty userLogueado}" >
 								    <label onclick="javascript:PuntuarPelicula(5, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
 								    <label onclick="javascript:PuntuarPelicula(4, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
 								    <label onclick="javascript:PuntuarPelicula(3, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
 								    <label onclick="javascript:PuntuarPelicula(2, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
 								    <label onclick="javascript:PuntuarPelicula(1, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
 								</c:if>
-								 </div>˜…
+								</div>˜…
 								</li>
 							</ul>
 						</div>
