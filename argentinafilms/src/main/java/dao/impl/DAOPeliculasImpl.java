@@ -47,7 +47,7 @@ public class DAOPeliculasImpl implements DAOPeliculas {
 		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		return this.hibernateTemplate.findByCriteria(crit);
 	}
-
+	
 	@Override
 	public Peliculas getById(Integer id_pelicula) {
 		return this.hibernateTemplate.get(Peliculas.class, id_pelicula);

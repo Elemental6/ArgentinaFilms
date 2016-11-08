@@ -120,7 +120,10 @@
 						<h2 class="section-heading">
 							Reseñas
 						</h2>
+						
 						<ul class="posters posters-70">
+						<c:forEach items="${selectPelicula.resenias}" var="resenia">
+						
 							<!--Aca nose como manejar las reseÃ±as -->
 							<li class="film-detail">
 								<a class="avatar avatar-40" href="###link-user">
@@ -135,13 +138,17 @@
 									<div class="text collapsible-text">
 										<div class="collapsed-text">
 											<p>
-												reseña
+												${resenia.resenia}
 											</p>
 										</div>
 									</div>
 								</div>
 							</li>
+						
+						
+					</c:forEach>	
 						</ul>
+						
 					</section>
 				</section>
 			</div>
