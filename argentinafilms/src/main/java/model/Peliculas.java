@@ -13,6 +13,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class Peliculas {
 	@Id
@@ -30,14 +33,15 @@ public class Peliculas {
 	private String trailer;
 	private boolean estado;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "PeliculaXActores", joinColumns = @JoinColumn(name = "id_pelicula"), inverseJoinColumns = @JoinColumn(name = "id_actor"))
 	private List<Actores> actores;	
 	
 	@ManyToOne
 	private Directores director;	
 
-
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "ReseniasXPelicula", joinColumns = @JoinColumn(name = "id_pelicula"), inverseJoinColumns = @JoinColumn(name = "id_resenia"))
 	private List<Resenias> resenias;

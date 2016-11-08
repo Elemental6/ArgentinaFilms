@@ -11,6 +11,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class Resenias {
 	@Id
@@ -21,6 +24,7 @@ public class Resenias {
 	@ManyToOne
 	private Usuarios usuario;
 	
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "ComentariosXResenia", joinColumns = @JoinColumn(name = "id_resenia"), inverseJoinColumns = @JoinColumn(name = "id_comentario"))
 	private List<Comentarios> comentarios;
