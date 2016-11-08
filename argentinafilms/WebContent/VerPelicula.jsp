@@ -13,29 +13,43 @@
 						</div>
 						<div class="film-stats">
 							<ul>
-								<li class="filmstat-watches">
-									<a class="has-icon icon-watched icon-16">
-										@ @ @ @ @˜…
-									</a>
+								<li class="filmstat-watches">	
+								<div class="star-rating" >
+								<c:if test="${empty userLogueado}" >
+								<div style="font-size: 22px; font-weight: bold; color: #9AFE2E;">
+									Iniciá sesión para votar esta película.
+								</div>
+								 </c:if> 
+								
+								
+								<c:if test="${not empty userLogueado}" >
+								    <label onclick="javascript:PuntuarPelicula(5, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
+								    <label onclick="javascript:PuntuarPelicula(4, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
+								    <label onclick="javascript:PuntuarPelicula(3, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
+								    <label onclick="javascript:PuntuarPelicula(2, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
+								    <label onclick="javascript:PuntuarPelicula(1, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
+								</c:if>
+								 </div>˜…
 								</li>
 							</ul>
 						</div>
 					</section>
 					<section class="watch-panel js-watch-panel">
-						<h3 class="title">Ver</h3>
+						<h3 class="title">Trailer</h3>
 						<p class="js-watch-panel-trailer">
 							<a class="label -text track-event js-trailer-zoom cboxElement" onclick='javascript:showTrailer("${selectPelicula.trailer}");'>								<span class="icon -play"></span>
-								<span class="name">Trailer</span>
+								<span class="name">Ver</span>
 							</a>
 						</p>
 					</section>
 				</div>
 			</div>
+			
 			<div class="col-17" Style="top: 10%;">
 				<section id="featured-film-header">
 					<h1 class="film-title prettify">${selectPelicula.nombre}</h1>
 					<p>
-						<small itemprop="datePublished">
+						<small>
 							${selectPelicula.anio}
 						</small>
 					</p>
@@ -43,7 +57,7 @@
 				<section class="section col-10 col-main">
 					<section>
 						<div class="review text text-large">
-							<h4 class="tagline">Synopsis</h4>
+							<h4 class="tagline">Sinopsis</h4>
 							<div class="truncate">
 								<p>
 									${selectPelicula.synopsis}
@@ -53,10 +67,11 @@
 					</section>
 					<section>
 						<div class="review text text-large">
-							<h4 class="tagline">Duracion</h4>
+						<br>
+							<h4 class="tagline">Duración</h4>
 							<div class="truncate">
 								<p>
-									${selectPelicula.duracion}
+									${selectPelicula.duracion} minutos
 								</p>
 							</div>
 						</div>
@@ -73,7 +88,7 @@
 							<div class="cast-list box-link-list">
 								<p>
 									<a href="###link-Actor" class="box-link">
-										<span itemprop="name">${selectPelicula.director.nombre} ${selectPelicula.director.apellido}</span>
+										<span>${selectPelicula.director.nombre} ${selectPelicula.director.apellido}</span>
 									</a>
 								</p>
 							</div>
@@ -92,7 +107,7 @@
 								<p>
 									<c:forEach items="${selectPelicula.actores}" var="actor">
 										<a href="VerActor?id=${actor.id_actor}" class="box-link">
-											<span itemprop="name">${actor.nombre} ${actor.apellido}</span>
+											<span>${actor.nombre} ${actor.apellido}</span>
 										</a>
 									</c:forEach>
 								</p>
@@ -114,13 +129,13 @@
 								<div class="film-detail-content">
 									<p class="film-detail-meta rating-green">
 										<a href="###link-user" class="author">
-											###name-user
+											name-user
 										</a>
 									</p>
 									<div class="text collapsible-text">
 										<div class="collapsed-text">
 											<p>
-												###reseÃ±a
+												reseña
 											</p>
 										</div>
 									</div>

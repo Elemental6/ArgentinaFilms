@@ -46,18 +46,12 @@ public class ServletRegistrarPuntaje extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 		
-		// TODO: Validar datos como la gente / Separar en capa de servicio si hay tiempo
-				try{
-					// Obtengo el usuario que esta logeado
-					Usuarios usuario =  (Usuarios) request.getSession().getAttribute("Usuario");					
-					
-					// TODO: Deberia obtener a la pelicula de otra forma, ya sea con un parametro u otro
+					Usuarios usuario =  (Usuarios) request.getSession().getAttribute("userLogueado");					
 					Integer id_pelicula = Integer.parseInt(request.getParameter("id_pelicula")); 				
 					Peliculas pelicula = this.peliculaService.getById(id_pelicula);
 					
 					// Puntuacion deberia ser de 1-5 cierto?
 					Integer puntuacion = Integer.parseInt(request.getParameter("puntuacion")); 				
-					
 					Puntajes puntaje = new Puntajes(puntuacion,pelicula,usuario);
 					
 					// Guardo nuevo puntaje
@@ -69,12 +63,7 @@ public class ServletRegistrarPuntaje extends HttpServlet {
 					
 					this.peliculaService.update(pelicula);
 					
-					System.out.println("Datos guardados");
-				}
-				catch (Exception e){
-					System.out.println(e.getMessage());
-				}
-		
+
 	}
 	@Override
 	public void init(ServletConfig config) {

@@ -17,7 +17,7 @@ public class ServletCerrarSesion extends HttpServlet{
 		
 		request.getSession().invalidate();
 
-		request.getRequestDispatcher("/Inicio.jsp").forward(request, response);
+		response.sendRedirect("Inicio.jsp");;
 	}
 	
 }

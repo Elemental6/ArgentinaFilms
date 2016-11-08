@@ -8,15 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import service.ServicePelicula;
-import service.ServiceUsuario;
 import model.Peliculas;
-import model.Usuarios;
 
 /**
  * Servlet implementation class ServletVerPelicula
@@ -48,10 +45,10 @@ public class ServletVerPelicula extends HttpServlet {
 			pelicula = this.servicePelicula.getById(id);
 			request.getSession().setAttribute("selectPelicula", pelicula);
 			request.getRequestDispatcher("/VerPelicula.jsp").forward(request, response);
-			
+
 		}
 		catch(NullPointerException e){
-			request.getRequestDispatcher("/Error404.jsp").forward(request, response);
+			response.sendRedirect("Error404.jsp");
 			return;
 		}
 	}

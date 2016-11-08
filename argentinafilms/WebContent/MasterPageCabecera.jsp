@@ -18,15 +18,17 @@
         <link href="css/lb.min.css" rel="stylesheet" type="text/css">
         <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
         <link href="css/redes-sociales.css" rel="stylesheet" type="text/css">
+        <link href="css/star-rating.css" rel="stylesheet" type="text/css">
         <link href="css/contenido.css" rel="stylesheet" type="text/css">
         
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/seccion-desplegable.js"></script>
         <script type="text/javascript" src="js/sweetalert.min.js"></script>
+        <script type="text/javascript" src="js/others.js"></script>
         <script type="text/javascript" src="js/validaciones.js"></script>
         <script type="text/javascript" src="js/ajax-activar-cuenta.js"></script>
         <script type="text/javascript" src="js/ajax-peticiones-admin.js"></script>
-        <script type="text/javascript" src="js/others.js"></script>
+        <script type="text/javascript" src="js/ajax-puntuar.js"></script>
     </head>
     
     <body>

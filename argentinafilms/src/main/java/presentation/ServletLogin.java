@@ -54,7 +54,7 @@ public class ServletLogin extends HttpServlet{
 				HttpSession sesion = request.getSession(true);
 				sesion.setAttribute("userLogueado", usuario);
 				
-				request.getRequestDispatcher("/Inicio.jsp").forward(request, response);
+				response.sendRedirect("Inicio.jsp");
 				return;
 			}
 			
