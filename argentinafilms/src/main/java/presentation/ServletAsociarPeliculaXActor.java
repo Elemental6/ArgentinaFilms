@@ -28,49 +28,86 @@ public class ServletAsociarPeliculaXActor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public DAOActores actorService = null;
 	public DAOPeliculas peliculaService = null;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletAsociarPeliculaXActor() {
-        super();
-      
-    }
-
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public ServletAsociarPeliculaXActor() {
+		super();
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		// TODO: Validar datos como la gente / Separar en capa de servicio si hay tiempo
-		try{
-			// TODO: Al director habria que elegirlo de un listbox y sacar su id de ahi
-			Integer id_actor = Integer.parseInt(request.getParameter("id_actor"));
-			Actores actor = this.actorService.getById(id_actor);	
-			
-			// Traigo a la pelicula a la cual agregar al actor
-			Peliculas pelicula = this.peliculaService.getById(Integer.parseInt(request.getParameter("id_pelicula")));
-			// A esta pelicula le agrego al actor
+		List<Peliculas> peliculas = this.peliculaService.getAll();
+		request.getSession().setAttribute("PeliculasAsociar", peliculas);
+
+		List<Actores> actores = this.actorService.getAll();
+		request.getSession().setAttribute("ActoresAsociar", actores);
+		
+		response.sendRedirect("AsociarActor.jsp");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// doGet(request, response);
+
+		Boolean valido = true;
+		try {
+			String actorstring = request.getParameter("AsociarActor");
+			String trimactor[] = actorstring.split(" - ");
+			Integer id_actor = Integer.parseInt(trimactor[0]);
+			Actores actor = this.actorService.getById(id_actor);
+
+			String peliculastring = request.getParameter("AsociarPelicula");
+			String trimpelicula[] = peliculastring.split(" - ");
+			Integer id_pelicula = Integer.parseInt(trimpelicula[0]);
+			Peliculas pelicula = this.peliculaService.getById(id_pelicula);
+
+			// Primero me fijo si ya esta el actor agregado
 			List<Actores> pelicula_actores = pelicula.getActores();
-			pelicula_actores.add(actor);
-			pelicula.setActores(pelicula_actores);
-			// Y la actualizo para que se agrege este nuevo actor a la pelicula			
-			this.peliculaService.update(pelicula);
-			
-			System.out.println("Datos guardados");
-		}		
-		catch (Exception e){
+			for (Actores actor_iterate : pelicula_actores) {
+				if (actor_iterate.getId_actor() == actor.getId_actor()) {
+					System.out.println("Actor ya existe en esta pelicula");
+					valido = false;
+					break;
+				}
+
+			}
+
+			if (valido) {
+				// A esta pelicula le agrego al actor
+				pelicula_actores.add(actor);
+				pelicula.setActores(pelicula_actores);
+				// Y la actualizo para que se agrege este nuevo actor a la
+				// pelicula
+				this.peliculaService.update(pelicula);
+				System.out.println("Datos guardados");
+				request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
+				request.setAttribute("mensajeResultado", "Asociacion exitosa!");
+			}
+
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			valido = false;
+
+		} finally {
+			if (!valido) {
+				request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
+				request.setAttribute("mensajeResultado", "Actor no puede asociarse dos veces a la misma pelicula.");
+			}
 		}
+		// response.sendRedirect("AsociarActor.jsp");
+		request.getRequestDispatcher("/AsociarActor.jsp").forward(request, response);
+
 	}
 	@Override
 	public void init(ServletConfig config) {

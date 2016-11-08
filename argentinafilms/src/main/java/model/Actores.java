@@ -25,6 +25,15 @@ public class Actores {
 		this.estado = estado;
 	}
 
+	public Actores(Integer id_actor, String nombre, String apellido, Integer edad, boolean estado) {
+		super();
+		this.id_actor = id_actor;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.edad = edad;
+		this.estado = estado;
+	}
+
 	public Integer getId_actor() {
 		return id_actor;
 	}

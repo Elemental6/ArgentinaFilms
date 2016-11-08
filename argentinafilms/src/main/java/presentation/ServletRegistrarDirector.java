@@ -15,6 +15,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import dao.*;
 import model.*;
+import util.ValidarDatos;
 
 
 /**
@@ -24,7 +25,6 @@ import model.*;
 public class ServletRegistrarDirector extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public DAODirectores directorService = null;
-	public DAOPeliculas peliculaService = null;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -48,27 +48,48 @@ public class ServletRegistrarDirector extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 		
-		// TODO: Validar datos como la gente 
+					
+				
+				
+				Integer errores = 0;
 				try{
 					String nombre = request.getParameter("director_nombre");
+					if (!ValidarDatos.validarString(nombre)) errores++;	
+					
 					String apellido = request.getParameter("director_apellido");
+					if (!ValidarDatos.validarString(apellido)) errores++;
+					
 					Integer edad = Integer.parseInt(request.getParameter("director_edad"));
+					if (!ValidarDatos.validarInteger(request.getParameter("director_edad"))) errores++;
 					
-					Directores director = new Directores (nombre,apellido,edad);
-					// Guardar director
-					this.directorService.save(director);					
+					if (errores == 0){
+						Directores director = new Directores (nombre,apellido,edad);
+						// Guardar actor
+						this.directorService.save(director);
+									
+						System.out.println("Datos guardados");
+						request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
+				        request.setAttribute("mensajeResultado", "Director agregado");	     
+					}
 					
-					System.out.println("Datos guardados");
 				}		
 				catch (Exception e){
-					System.out.println(e.getMessage());
+					System.out.println(e.getLocalizedMessage());
+					
 				}
+				finally{
+					if (errores >= 1){
+						request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
+				        request.setAttribute("mensajeResultado", "Datos incorrectos");
+					}
+				}
+		        request.getRequestDispatcher("/AgregarDirector.jsp").forward(request, response);
 	}
 	@Override
 	public void init(ServletConfig config) {
 		WebApplicationContext context = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(config.getServletContext());
 		this.directorService = (DAODirectores) context.getBean(DAODirectores.class);
-		this.peliculaService = (DAOPeliculas) context.getBean(DAOPeliculas.class);
+	
 	}
 }

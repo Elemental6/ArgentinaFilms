@@ -16,6 +16,8 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import dao.*;
 import model.Actores;
 import model.Peliculas;
+import util.ValidarDatos;
+
 
 /**
  * Servlet implementation class ServletRegistrarActor
@@ -45,24 +47,42 @@ public class ServletRegistrarActor extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		doGet(request, response);		
 		
-		// TODO: Validar datos como la gente
+		
+		Integer errores = 0;
 		try{
 			String nombre = request.getParameter("actor_nombre");
+			if (!ValidarDatos.validarString(nombre)) errores++;	
+			
 			String apellido = request.getParameter("actor_apellido");
+			if (!ValidarDatos.validarString(apellido)) errores++;
+			
 			Integer edad = Integer.parseInt(request.getParameter("actor_edad"));
+			if (!ValidarDatos.validarInteger(request.getParameter("actor_edad"))) errores++;
 			
-			Actores actor = new Actores (nombre,apellido,edad, false);
-			// Guardar actor
-			this.actorService.save(actor);
+			if (errores == 0){
+				Actores actor = new Actores (nombre,apellido,edad, true);
+				// Guardar actor
+				this.actorService.save(actor);
+							
+				System.out.println("Datos guardados");
+				request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
+		        request.setAttribute("mensajeResultado", "Actor agregado");	     
+			}
 			
-			System.out.println("Datos guardados");
 		}		
 		catch (Exception e){
-			System.out.println(e.getMessage());
+			System.out.println(e.getLocalizedMessage());
+			
 		}
-		
+		finally{
+			if (errores >= 1){
+				request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
+		        request.setAttribute("mensajeResultado", "Datos incorrectos");
+			}
+		}
+        request.getRequestDispatcher("/AgregarActor.jsp").forward(request, response);
 	}
 	@Override
 	public void init(ServletConfig config) {
