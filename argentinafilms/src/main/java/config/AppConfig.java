@@ -28,18 +28,8 @@ public class AppConfig {
 	}
 	
 	@Bean
-	public DAOComentarios comentariosDAO(){
-		return new DAOComentariosImpl();
-	}
-	
-	@Bean
 	public DAOPuntajes puntajesDAO(){
 		return new DAOPuntajesImpl();
-	}
-	
-	@Bean
-	public DAOResenias reseniasDAO(){
-		return new DAOReseniasImpl();
 	}
 	
 	@Bean
@@ -117,5 +107,27 @@ public class AppConfig {
 	@Bean
 	public DAOActores actoresDAO(){
 		return new DAOActoresImpl();
+	}
+	
+	
+	@Bean
+	public ServiceResenia serviceResenia(){
+		return new ServiceReseniaImpl();
+	}
+	
+	@Bean
+	public DAOResenias reseniasDAO(){
+		return new DAOReseniasImpl();
+	}
+	
+	
+	@Bean
+	public ServiceComentario serviceComentario(){
+		return new ServiceComentarioImpl();
+	}
+	
+	@Bean
+	public DAOComentarios comentariosDAO(){
+		return new DAOComentariosImpl();
 	}
 }

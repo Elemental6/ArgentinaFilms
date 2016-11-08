@@ -2,6 +2,9 @@ package service.impl;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,6 +31,14 @@ public class ServicePeliculaImpl implements ServicePelicula{
 	@Override
 	public List<Peliculas> getInactivas(){
 		return this.daoPelicula.getInactivas();
+	}
+	
+	@Override
+	public List<Peliculas> getByTextoEnNombre(String texto) {
+		DetachedCriteria crit = DetachedCriteria.forClass(Peliculas.class);
+		crit.add(Restrictions.eq("nombre", texto));
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.daoPelicula.getByTextoEnNombre(texto);
 	}
 	
 	@Override

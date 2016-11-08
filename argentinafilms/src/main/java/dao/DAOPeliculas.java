@@ -22,4 +22,6 @@ public interface DAOPeliculas {
 
 	void save(Peliculas pelicula);
 
+	List<Peliculas> getByTextoEnNombre(String texto);
+
 }

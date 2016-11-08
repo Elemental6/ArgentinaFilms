@@ -43,9 +43,13 @@ public class ServletVerPelicula extends HttpServlet {
 		try{
 			Peliculas pelicula = new Peliculas();
 			pelicula = this.servicePelicula.getById(id);
+			
 			request.getSession().setAttribute("selectPelicula", pelicula);
+
 			request.getRequestDispatcher("/VerPelicula.jsp").forward(request, response);
 
+			
+			
 		}
 		catch(NullPointerException e){
 			response.sendRedirect("Error404.jsp");

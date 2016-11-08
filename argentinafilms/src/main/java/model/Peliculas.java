@@ -37,6 +37,7 @@ public class Peliculas {
 	@ManyToOne
 	private Directores director;	
 
+
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "ReseniasXPelicula", joinColumns = @JoinColumn(name = "id_pelicula"), inverseJoinColumns = @JoinColumn(name = "id_resenia"))
 	private List<Resenias> resenias;

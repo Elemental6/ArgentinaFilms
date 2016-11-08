@@ -19,17 +19,15 @@
 								<div style="font-size: 22px; font-weight: bold; color: #9AFE2E;">
 									Iniciá sesión para votar esta película.
 								</div>
-								 </c:if> 
-								
-								
-								<c:if test="${not empty userLogueado}" >
+								 </c:if>
+								 <c:if test="${not empty userLogueado}" >
 								    <label onclick="javascript:PuntuarPelicula(5, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
 								    <label onclick="javascript:PuntuarPelicula(4, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
 								    <label onclick="javascript:PuntuarPelicula(3, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
 								    <label onclick="javascript:PuntuarPelicula(2, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
 								    <label onclick="javascript:PuntuarPelicula(1, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
 								</c:if>
-								 </div>˜…
+								</div>˜…
 								</li>
 							</ul>
 						</div>
@@ -120,7 +118,10 @@
 						<h2 class="section-heading">
 							Reseñas
 						</h2>
+						
 						<ul class="posters posters-70">
+						<c:forEach items="${selectPelicula.resenias}" var="resenia">
+						
 							<!--Aca nose como manejar las reseÃ±as -->
 							<li class="film-detail">
 								<a class="avatar avatar-40" href="###link-user">
@@ -135,13 +136,17 @@
 									<div class="text collapsible-text">
 										<div class="collapsed-text">
 											<p>
-												reseña
+												${resenia.resenia}
 											</p>
 										</div>
 									</div>
 								</div>
 							</li>
+						
+						
+					</c:forEach>	
 						</ul>
+						
 					</section>
 				</section>
 			</div>
