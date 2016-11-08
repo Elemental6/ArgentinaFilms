@@ -5,13 +5,29 @@
 
 <div class="contenido">
 
+<c:if test="${PeliculasEncontradas.size() == 0 || PeliculasEncontradas == null}">
+	<div class="container left-addon inner-addon">
+		<img src="imgs/notFound.png" class="text-center img-responsive" width="10px%" style="margin:auto;">
+		<br>
+        <h1 class="text-center">No se han encontrado resultados. Verifique su búsqueda por favor.<br><br></h1>  
+    </div>
+</c:if> 
+
+
+<c:if test="${not empty PeliculasEncontradas}"> 
+
 <section id="popular-reviews" class="section ultimas-publicaciones">
+   
+   
+   
+  
         
 <h2 class="section-heading">RESULTADOS</h2>
             
 
 	<ul class="posters film-list clear posters-70 film-details-list no-title">
             
+     
 	<c:forEach items="${PeliculasEncontradas}" var="Pelicula">
 
 		<li class="film-detail"> 
@@ -39,7 +55,7 @@
 	</ul>
 
 </section>
-
+</c:if> 
 
 	</div>
 
