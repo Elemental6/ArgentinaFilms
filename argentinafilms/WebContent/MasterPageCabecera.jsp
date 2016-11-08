@@ -25,6 +25,7 @@
         <script type="text/javascript" src="js/sweetalert.min.js"></script>
         <script type="text/javascript" src="js/validaciones.js"></script>
         <script type="text/javascript" src="js/ajax-activar-cuenta.js"></script>
+        <script type="text/javascript" src="js/ajax-peticiones-admin.js"></script>
         <script type="text/javascript" src="js/others.js"></script>
     </head>
     

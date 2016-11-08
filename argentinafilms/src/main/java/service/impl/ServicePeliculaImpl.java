@@ -21,8 +21,18 @@ public class ServicePeliculaImpl implements ServicePelicula{
 	}
 	
 	@Override
-	public List<Peliculas> getLastThree(){
-		return this.daoPelicula.getLastThree();
+	public List<Peliculas> getActivas(){
+		return this.daoPelicula.getActivas();
+	}
+	
+	@Override
+	public List<Peliculas> getInactivas(){
+		return this.daoPelicula.getInactivas();
+	}
+	
+	@Override
+	public List<Peliculas> getUltimasCuatroActivas(){
+		return this.daoPelicula.getUltimasCuatroActivas();
 	}
 
 	@Override
@@ -41,8 +51,8 @@ public class ServicePeliculaImpl implements ServicePelicula{
 	}
 
 	@Override
-	public void delete(int id) {
-		this.daoPelicula.delete(id);
+	public void delete(Peliculas pelicula) {
+		this.daoPelicula.delete(pelicula);
 	}
 
 	public void setDaoPelicula(DAOPeliculas daoPelicula) {

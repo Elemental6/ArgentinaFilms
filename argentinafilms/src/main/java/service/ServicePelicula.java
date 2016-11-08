@@ -7,7 +7,11 @@ public interface ServicePelicula {
 	
 	public List<Peliculas> getAll();
 	
-	public List<Peliculas> getLastThree();
+	public List<Peliculas> getActivas();
+	
+	public List<Peliculas> getUltimasCuatroActivas();
+	
+	List<Peliculas> getInactivas();
 	
 	public Peliculas getById(int id);
 	
@@ -15,6 +19,7 @@ public interface ServicePelicula {
 	
 	public void update(Peliculas pelicula);
 	
-	public void delete(int id);
-	
+	public void delete(Peliculas pelicula);
+
+
 }

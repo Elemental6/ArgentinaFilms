@@ -8,13 +8,17 @@ public interface DAOPeliculas {
 
 	List<Peliculas> getAll();	
 	
-	List<Peliculas> getLastThree();
+	List<Peliculas> getUltimasCuatroActivas();
+	
+	List<Peliculas> getInactivas();
+	
+	List<Peliculas> getActivas();
 	
 	Peliculas getById(Integer id_pelicula);
 	
 	void update(Peliculas pelicula);
 	
-	void delete(Integer id_pelicula);
+	void delete(Peliculas pelicula);
 
 	void save(Peliculas pelicula);
 

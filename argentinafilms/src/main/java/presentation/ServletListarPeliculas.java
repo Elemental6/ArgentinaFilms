@@ -36,7 +36,7 @@ public class ServletListarPeliculas extends HttpServlet {
 		/* Genera las peliculas */
 		// if(request.getSession().getAttribute("Peliculas") == null)
 		// crearDatos();
-		List<Peliculas> peliculas = this.peliculaService.getAll();
+		List<Peliculas> peliculas = this.peliculaService.getActivas();
 		request.getSession().setAttribute("PeliculasListado", peliculas);
 		response.sendRedirect("ListadoPeliculas.jsp");
 		// TODO: Mostrar poster en listado de peliculas y hacer que se puedan
@@ -47,7 +47,7 @@ public class ServletListarPeliculas extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(request, response);
 
-		List<Peliculas> peliculas = this.peliculaService.getAll();
+		List<Peliculas> peliculas = this.peliculaService.getActivas();
 		List<Peliculas> peliculas_filtradas = new ArrayList<Peliculas>();
 
 		if (request.getParameter("A") != null) {

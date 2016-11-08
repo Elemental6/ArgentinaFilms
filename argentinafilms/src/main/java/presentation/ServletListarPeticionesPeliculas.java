@@ -34,7 +34,7 @@ public class ServletListarPeticionesPeliculas extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		List<Peliculas> peliculas = this.peliculaService.getAll();
+		List<Peliculas> peliculas = this.peliculaService.getInactivas();
 		request.getSession().setAttribute("peticionesPeliculas", peliculas);
 		response.sendRedirect("ListadoPeticionesPeliculas.jsp");
 	}

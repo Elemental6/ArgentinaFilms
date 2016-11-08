@@ -2,9 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
     
 <div class="contenido">
-    <div class="login">
-    
-    
+
 <c:if test="${userLogueado.rango != 'admin'}" >
 	<div class="container left-addon inner-addon">
 		<img src="imgs/SinPermisos.png" class="text-center img-responsive" width="10px%" style="margin:auto;">
@@ -16,7 +14,10 @@
     
     
 <c:if test="${userLogueado.rango == 'admin'}">
-        <h1 class="text-center titulo-seccion"><img src="imgs/CambiarRango.png" class="imagen-seccion" />CAMBIAR RANGO A USUARIO</h1>
+
+    <div class="login">
+		<h1 class="text-center titulo-seccion"><img src="imgs/CambiarRango.png" class="imagen-seccion" />CAMBIAR RANGO A USUARIO</h1>
+	</div>
         
         <div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
         
@@ -69,7 +70,6 @@
 </div>
     
 
-    
-</div>
+
 
 <jsp:include page="MasterPageFooter.jsp" />

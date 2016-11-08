@@ -2,26 +2,50 @@ package dao.impl;
 
 import java.util.List;
 
+
+
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import dao.DAOPeliculas;
 import model.*;
+@SuppressWarnings("unchecked")
 
 public class DAOPeliculasImpl implements DAOPeliculas {
 
 	private HibernateTemplate hibernateTemplate = null;
 	@Override
 	public List<Peliculas> getAll() {
-		this.hibernateTemplate.setMaxResults(999);
 		return this.hibernateTemplate.loadAll(Peliculas.class);
 	}
 	
+	
 	@Override
-	public List<Peliculas> getLastThree(){
-		this.hibernateTemplate.setMaxResults(3);
-		return this.hibernateTemplate.loadAll(Peliculas.class);
+	public List<Peliculas> getActivas() {
+		DetachedCriteria crit = DetachedCriteria.forClass(Peliculas.class);
+		crit.add(Restrictions.eq("estado", true));
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.hibernateTemplate.findByCriteria(crit);
+	}
+	
+	@Override
+	public List<Peliculas> getInactivas() {
+		DetachedCriteria crit = DetachedCriteria.forClass(Peliculas.class);
+		crit.add(Restrictions.eq("estado", false));
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.hibernateTemplate.findByCriteria(crit);
+	}
+	
+	@Override
+	public List<Peliculas> getUltimasCuatroActivas(){
+		DetachedCriteria crit = DetachedCriteria.forClass(Peliculas.class);
+		crit.add(Restrictions.eq("estado", true)).add(Restrictions.sqlRestriction("50=50 LIMIT 50"));
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.hibernateTemplate.findByCriteria(crit);
 	}
 
 	@Override
@@ -35,8 +59,8 @@ public class DAOPeliculasImpl implements DAOPeliculas {
 	}
 
 	@Override
-	public void delete(Integer id_pelicula) {
-		this.hibernateTemplate.delete(id_pelicula);
+	public void delete(Peliculas pelicula) {
+		this.hibernateTemplate.delete(pelicula);
 	}
 
 	@Autowired

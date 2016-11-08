@@ -1,6 +1,5 @@
 ﻿function ActivarCuenta(){
 
-//LLAMADA AJAX
         $.post('ActivarCuenta', {
 
             txtCodActivacion: $('#txtCodActivacion').val(),
