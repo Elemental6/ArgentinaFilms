@@ -48,6 +48,13 @@ public class ServletRegistrarUsuario extends HttpServlet{
 		String codActivacion = CodigoAleatorio.getCadenaAlfanumAleatoria(15);
 		
 		
+		if(passIngresado == request.getParameter("txtPass2")){
+			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
+	        request.setAttribute("mensajeResultado", "Las contraseñas no coinciden. Reintente por favor.");
+			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
+			return;
+		}
+		
 		Usuarios usuario = new Usuarios();
 		usuario.setUsuario(idIngresado);
 		usuario.setPass(passIngresado);
@@ -64,7 +71,7 @@ public class ServletRegistrarUsuario extends HttpServlet{
 		}
 		catch(DataIntegrityViolationException e){
 			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
-	        request.setAttribute("mensajeResultado", "El nombre de usuario ingresado ya existe. Reintente con otro nombre por favor.");
+	        request.setAttribute("mensajeResultado", "El nombre de usuario o e-mail ingresado ya existe. Reintente con otro nombre y luego con otro mail por favor.");
 			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
 			return;
 		}

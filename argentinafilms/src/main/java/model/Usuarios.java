@@ -1,5 +1,6 @@
 package model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -10,6 +11,8 @@ public class Usuarios {
 	private String pass;
 	private String nombre;
 	private String apellido;
+	
+	@Column(unique=true)
 	private String email;
 	private String rango;
 	private String codActivacion;
