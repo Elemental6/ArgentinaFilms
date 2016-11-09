@@ -69,4 +69,9 @@ public class ServicePeliculaImpl implements ServicePelicula{
 	public void setDaoPelicula(DAOPeliculas daoPelicula) {
 		this.daoPelicula = daoPelicula;
 	}
+	
+	@Override
+	public List<Peliculas> getByActor(int id) {
+		return this.daoPelicula.getByActor(id);
+	}
 }

@@ -23,5 +23,7 @@ public interface DAOPeliculas {
 	void save(Peliculas pelicula);
 
 	List<Peliculas> getByTextoEnNombre(String texto);
+	
+	List<Peliculas> getByActor(int id);
 
 }

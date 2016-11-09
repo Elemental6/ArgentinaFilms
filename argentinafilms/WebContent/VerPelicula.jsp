@@ -27,7 +27,7 @@
 								    <label onclick="javascript:PuntuarPelicula(2, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
 								    <label onclick="javascript:PuntuarPelicula(1, ${selectPelicula.id_pelicula});" style="cursor:pointer;">&#9733;</label>
 								</c:if>
-								</div>˜…
+								</div>
 								</li>
 							</ul>
 						</div>
@@ -104,7 +104,7 @@
 							<div class="cast-list box-link-list">
 								<p>
 									<c:forEach items="${selectPelicula.actores}" var="actor">
-										<a href="VerActor?id=${actor.id_actor}" class="box-link">
+										<a href="ServletVerPerfilActor?id=${actor.id_actor}" class="box-link">
 											<span>${actor.nombre} ${actor.apellido}</span>
 										</a>
 									</c:forEach>

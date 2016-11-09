@@ -81,4 +81,7 @@ public class DAOPeliculasImpl implements DAOPeliculas {
 		this.hibernateTemplate.save(pelicula);
 	}
 
+	public List<Peliculas> getByActor(int id_actor) {
+		return this.hibernateTemplate.find("select p from Peliculas as p join p.actores as a where a.id_actor = " + id_actor);
+	}
 }
