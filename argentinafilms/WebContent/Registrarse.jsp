@@ -94,7 +94,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="file" name="file"/>
+                                <input type="file" name="file" accept="image/*"/>
                             </div>
                         </div>
                     </div>
