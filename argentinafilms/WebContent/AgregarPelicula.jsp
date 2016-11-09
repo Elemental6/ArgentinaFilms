@@ -5,8 +5,8 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 
-
 <div class="contenido">
+
     <div class="login reg">
         <h1 class="text-center titulo-seccion"><img src="imgs/register.png" class="imagen-seccion" />REGISTRARSE</h1>
         
@@ -48,8 +48,12 @@
 				                <div class="col-sm-10">
 				                    <div>
 				                        <div>
-				                            <div class="bootstrap-filestyle input-group">
-				                                <input type="file" id="myFile">
+				                            <div class="bootstrap-filestyle input-group" style="width: 100%;">
+				                            <span class ="btn btn-default btn-file" style="width: 100%;cursor: default;">
+				                           
+				                            <input type="file" id="myFile" style="cursor: default;" accept="image/*" required>
+				                            </span>
+				                                
 				                                
 				                                </div>
 				                            </div>
@@ -64,7 +68,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="text" class="form-control login" name="txtDuracion" placeholder="Ingrese la duracíon" required>
+                                <input type="number" min="0" max="300" class="form-control login" name="txtDuracion" placeholder="Ingrese la duracíon" required>
                             </div>
                         </div>
                     </div>
@@ -77,28 +81,14 @@
                     <div>
                         <div>
                             <div>
-                                <input type="text" class="form-control login" name="txtTrailer" placeholder="Ingrese el trailer" required>
+                                <input type="text" class="form-control login" name="txtTrailer" placeholder="Ingrese el trailer">
                             </div>
                         </div>
                     </div>
                 </div>                 
 			 </div> 
 			 
-			<div class="form-group"> 
-            	<label class="control-label col-sm-2">Synopsis:</label>                 
-	                	<div class="col-sm-10">
-	                    <div>
-	                        <div>
-	                         <div> 
-							   <textarea class="form-control login" rows="5" name="txtAreaSynospsis"  MAXLENGTH="254" required></textarea>
-							 </div>
-                        </div>
-                    </div>
-                </div>   
-                            
-			 </div> 
-	
-			 <div class="form-group"> 
+			  <div class="form-group"> 
                 <label class="control-label col-sm-2">Director:</label>                 
                 <div class="col-sm-10">
                     <div>
@@ -107,13 +97,13 @@
                                   <select class ="form-control" name="txtdirector" id ="completarDirectores">
                                   
 							  </select>
-							    </button>
                             </div>
                         </div>
                     </div>
                 </div> 
                   </div>
-                <div class="form-group"> 
+			 
+			  <div class="form-group"> 
                 <label class="control-label col-sm-2">Género:</label>                 
                 <div class="col-sm-10">
                     <div>
@@ -125,8 +115,22 @@
                         </div>
                     </div>
                 </div>       
-			 </div>                
-                
+			 </div>  
+			 
+			<div class="form-group"> 
+            	<label class="control-label col-sm-2">Synopsis:</label>                 
+	                	<div class="col-sm-10">
+	                    <div>
+	                        <div>
+	                         <div> 
+							   <textarea class="form-control login" rows="5" name="txtAreaSynospsis"  MAXLENGTH="254"></textarea>
+							 </div>
+                        </div>
+                    </div>
+                </div>   
+                            
+			 </div> 
+			
                 <div class="form-group"> 
                 <label class="control-label col-sm-2">Año:</label>                 
                 <div class="col-sm-10">
@@ -134,7 +138,7 @@
                         <div>
                             <div>
                                 <select  class="form-control login" name="txtanio" value="2015" placeholder ="Ingrese el año de la película" required>
-                                <option>Seleccione un año</option>
+                                <option value="">Seleccione un año</option>
                                 <script>
 								  var myDate = new Date();
 								  var year = myDate.getFullYear();
@@ -147,26 +151,25 @@
                     </div>
                 </div>                 
             </div>  
-                
 			 <div class="form-group"> 
-                <label class="control-label col-sm-2">Actores:</label>                 
-                <div class="col-sm-6">
-                    <div>
-                        <div class= "select-field">
-							  <select class ="form-control" name="txtactor" id ="completarActores" >
-							   
-							  </select>
-
-                        </div>
-                    </div>
-                </div>  
-                  <div class="col-sm-4">  
-                          <button class="btn btn-default btn-sm" id="btnAgregarActor">Agregar Actor</button>    
-            </div>  
-            <label id="lblActores"></label>       
-			 </div>
-			 
-            <div class="form-group">
+			                <label class="control-label col-sm-2">Actores:</label>                 
+			                <div class="col-sm-6">
+			                    <div>
+			                        <div class= "select-field">
+										  <select class ="form-control" name="txtactor" id ="completarActores" >
+										   
+										  </select>
+			
+			                        </div>
+			                    </div>
+			                </div>  
+			                  <div class="col-sm-4">  
+			                          <button class="btn btn-default btn-sm" id="btnAgregarActor">Agregar Actor</button>    
+			            </div>  
+			            <label id="lblActores"></label>       
+						 </div>
+						 
+						 <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <div>
                         <div>
@@ -177,12 +180,12 @@
                     </div>
                 </div>
             </div>    
-
-      </form>
+	 </form>
     </div>
-</div>
-
-<script type="text/javascript" src="js/select2.min.js"></script>
+    
+</div>		 
+		
+		<script type="text/javascript" src="js/select2.min.js"></script>
 
 <script> $('select').select2();</script>
 <style type="text/css">
@@ -197,4 +200,5 @@ body {
 
 -->
 </style> 
-<jsp:include page="MasterPageFooter.jsp" />
+<jsp:include page="MasterPageFooter.jsp" />				 
+

@@ -2,7 +2,7 @@
 function cargarActores() {
 	 $.get('ServletCompletarActores',  function(responseText) {
      	var jsonObj =jQuery.parseJSON(responseText);
-             
+     	$('#completarActores').append( '<option value="">'+" Elija una opción" + '</option>');
              for (i = 0; i < jsonObj.length; i++)
              { 
                   
@@ -16,7 +16,7 @@ function cargarGeneros() {
 	
 	 $.get('ServletCargarGenero',  function(responseText) {
 	     	var jsonObj =jQuery.parseJSON(responseText);
-	             
+	     	$('#completarGeneros').append( '<option value="">'+" Elija una opción" + '</option>');
 	             for (i = 0; i < jsonObj.length; i++)
 	             { 
 	                  
@@ -30,7 +30,7 @@ function cargarDirectores() {
 	
 	 $.get('ServletCargarDirector',  function(responseText) {
 	     	var jsonObj =jQuery.parseJSON(responseText);
-	             
+	     	$('#completarDirectores').append( '<option value="">'+" Elija una opción" + '</option>');
 	             for (i = 0; i < jsonObj.length; i++)
 	             { 
 	                  

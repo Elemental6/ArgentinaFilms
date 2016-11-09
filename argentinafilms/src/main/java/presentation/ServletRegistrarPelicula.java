@@ -24,11 +24,14 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 
 
+
 import service.ServiceActor;
 import service.ServiceDirector;
 import service.ServiceGenero;
 import service.ServicePelicula;
 import service.ServiceUsuario;
+import util.CodigoAleatorio;
+import util.SubidaDeImagen;
 import dao.*;
 import model.*;
 
@@ -65,40 +68,60 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			
 			
 			// Obtengo el usuario que esta logeado
-			Usuarios usuario =  (Usuarios) request.getSession().getAttribute("usuario");
+			Usuarios usuario =  (Usuarios) request.getAttribute("usuario");
+			// TODO: Deberia obtener al genero de un listbox
+			Integer id_genero = null;
+			Generos genero = new Generos();
+			if(request.getParameter("txtGenero")!= "")
+			{
+				id_genero =Integer.parseInt(request.getParameter("txtgenero"));
+				genero = this.generosService.getById(id_genero);
+			}
 			
-			String nombre = request.getParameter("txtnombre"); 
-			int anio = Integer.parseInt(request.getParameter("txtanio")); 
-			String ubicacion = request.getParameter("txtUbicacion"); 
-			Integer duracion = 1;//Integer.parseInt(request.getParameter("txtDuracion")); 
+			String nombre = request.getParameter("txtnombre");
+			Integer anio =null;
+			if(request.getParameter("txtanio")!=""){
+				anio  = Integer.parseInt(request.getParameter("txtanio"));
+			}
+			String ubicacion = request.getParameter("txtUbicacion");
+			
+			
+			Integer duracion = Integer.parseInt(request.getParameter("txtDuracion")); 
 			String synopsis = request.getParameter("txtAreaSynospsis"); 
 			// Siempre que se registre una nueva pelicula su puntuacion sera 0
-			Integer puntuacion_total = 0; 				
+			Integer puntuacion_total = 0;
+			Peliculas pelicula = new Peliculas(nombre,anio,ubicacion,duracion,synopsis,puntuacion_total,usuario,genero);
+			String poster  = SubidaDeImagen.Subir(request, response, "imgs\\peliculas\\", CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg");
 			
-			Peliculas pelicula = new Peliculas(nombre,anio,ubicacion,duracion,synopsis,puntuacion_total,usuario,null);
 			
 			// Poster y trailer podrian ser nulos
 			String trailer = request.getParameter("txtTrailer");
-			String poster = null ;  //request.getParameter("pelicula_poster");
-			
-			// TODO: Deberia obtener al genero de un listbox
-			Integer id_genero = Integer.parseInt(request.getParameter("txtGenero")); 
-			Generos genero = this.generosService.getById(id_genero);
-			pelicula.setGenero(genero);
+			  
 			
 			pelicula.setTrailer(trailer);
 			pelicula.setPoster(poster);
-			Integer id_director = Integer.parseInt(request.getParameter("txtdirector"));
-			Directores director = this.directoresService.getById(id_director);
-			
-			
-			pelicula.setDirector(director);
+			pelicula.setEstado(false);
+			Integer id_director;
+			if(request.getParameter("txtdirector")!="")
+			{
+				id_director	= Integer.parseInt(request.getParameter("txtdirector"));
+				Directores director = this.directoresService.getById(id_director);
+				pelicula.setDirector(director);
+			}
+
+			if(request.getParameter("txtactor")!=""){
+				
 			Integer id_actor =Integer.parseInt(request.getParameter("txtactor"));
-			Actores actor = this.actoresService.getById(id_actor);
+			Actores actor = new Actores();
 			List<Actores> actores = new ArrayList<>();
-			actores.add(actor);
-			pelicula.setActores(actores);
 			
+				 this.actoresService.getById(id_actor);
+				actores.add(actor);
+				pelicula.setActores(actores);
+			}
+			
+			
+			pelicula.setPoster(poster);
 			 //Guardo la pelicula
 			this.peliculaService.add(pelicula);
 			
@@ -107,8 +130,13 @@ public class ServletRegistrarPelicula extends HttpServlet {
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage());
+			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
+	        request.setAttribute("mensajeResultado", "No se pudo cargar la pelìcula. Reintente por favor.");
+			request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
+			return;
 		}
+	
+		request.getRequestDispatcher("/Inicio.jsp").forward(request, response);
+	
 	}
-	
-	
 }
