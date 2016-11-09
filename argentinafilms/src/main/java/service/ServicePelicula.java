@@ -24,5 +24,5 @@ public interface ServicePelicula {
 
 	List<Peliculas> getByTextoEnNombre(String texto);
 
-
+	public List<Peliculas> getByActor(int id);
 }
