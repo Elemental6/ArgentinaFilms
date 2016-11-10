@@ -1,8 +1,9 @@
 package presentation;
 
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.io.IOException;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -14,16 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.BeansException;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-
-
-
-
-
-
-
-
-
-
 
 import service.ServiceActor;
 import service.ServiceDirector;
@@ -68,15 +59,11 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			
 			
 			// Obtengo el usuario que esta logeado
-			Usuarios usuario =  (Usuarios) request.getAttribute("usuario");
+			Usuarios usuario =  (Usuarios) request.getSession().getAttribute("Usuario");
 			// TODO: Deberia obtener al genero de un listbox
-			Integer id_genero = null;
+			
 			Generos genero = new Generos();
-			if(request.getParameter("txtGenero")!= "")
-			{
-				id_genero =Integer.parseInt(request.getParameter("txtgenero"));
-				genero = this.generosService.getById(id_genero);
-			}
+			
 			
 			String nombre = request.getParameter("txtnombre");
 			Integer anio =null;
@@ -90,14 +77,19 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			String synopsis = request.getParameter("txtAreaSynospsis"); 
 			// Siempre que se registre una nueva pelicula su puntuacion sera 0
 			Integer puntuacion_total = 0;
-			Peliculas pelicula = new Peliculas(nombre,anio,ubicacion,duracion,synopsis,puntuacion_total,usuario,genero);
+			Peliculas pelicula = new Peliculas(nombre,anio,ubicacion,duracion,synopsis,puntuacion_total,usuario,null);
 			String poster  = SubidaDeImagen.Subir(request, response, "imgs\\peliculas\\", CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg");
 			
 			
 			// Poster y trailer podrian ser nulos
 			String trailer = request.getParameter("txtTrailer");
-			  
-			
+			Integer id_genero ;
+			if(request.getParameter("txtGenero")!= "")
+			{
+				id_genero =Integer.parseInt(request.getParameter("txtGenero"));
+				genero = this.generosService.getById(id_genero);
+				pelicula.setGenero(genero);
+			}  
 			pelicula.setTrailer(trailer);
 			pelicula.setPoster(poster);
 			pelicula.setEstado(false);
@@ -115,7 +107,7 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			Actores actor = new Actores();
 			List<Actores> actores = new ArrayList<>();
 			
-				 this.actoresService.getById(id_actor);
+			actor = this.actoresService.getById(id_actor);
 				actores.add(actor);
 				pelicula.setActores(actores);
 			}
@@ -136,6 +128,7 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			return;
 		}
 	
+		
 		request.getRequestDispatcher("/Inicio.jsp").forward(request, response);
 	
 	}

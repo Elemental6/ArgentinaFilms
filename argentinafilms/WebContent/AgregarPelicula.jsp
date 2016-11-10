@@ -51,7 +51,7 @@
 				                            <div class="bootstrap-filestyle input-group" style="width: 100%;">
 				                            <span class ="btn btn-default btn-file" style="width: 100%;cursor: default;">
 				                           
-				                            <input type="file" id="myFile" style="cursor: default;" accept="image/*" required>
+				                            <input type="file" id="myFile" style="cursor: default;" accept="image/*">
 				                            </span>
 				                                
 				                                
@@ -68,7 +68,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="number" min="0" max="300" class="form-control login" name="txtDuracion" placeholder="Ingrese la duracíon" required>
+                                <input type="number" min="0" max="300" class="form-control login" name="txtDuracion" placeholder="Ingrese la duracíon">
                             </div>
                         </div>
                     </div>
