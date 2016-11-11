@@ -78,7 +78,7 @@
 							<br>
 							<h4 class="tagline">Duración</h4>
 							<div class="truncate">
-								<p>${selectPelicula.duracion} minutos</p>
+								<p>${selectPelicula.duracion}minutos</p>
 							</div>
 						</div>
 					</section>
@@ -126,8 +126,6 @@
 					<section id="viewings-list">
 						<h2 class="section-heading">Reseñas</h2>
 
-
-
 						<div class="${tipoMensaje}">
 							<b>${mensajeResultado}</b>
 						</div>
@@ -153,10 +151,6 @@
 							</div>
 
 
-
-
-
-
 							<div class="form-group">
 								<div class="col-sm-offset-2 col-sm-10">
 									<div>
@@ -170,14 +164,7 @@
 								</div>
 							</div>
 
-
 						</form>
-
-
-
-
-
-
 
 						<ul class="posters posters-70">
 							<c:forEach items="${selectPelicula.resenias}" var="resenia">
@@ -194,6 +181,7 @@
 										<div class="text collapsible-text">
 											<div class="collapsed-text">
 												<p>${resenia.resenia}</p>
+												<p>${resenia.usuario}</p>
 											</div>
 										</div>
 									</div></li>

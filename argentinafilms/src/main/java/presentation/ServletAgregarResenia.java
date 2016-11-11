@@ -34,21 +34,30 @@ public class ServletAgregarResenia extends HttpServlet {
 		doGet(request, response);
 	
 		try {
-			String reseniaCreada = request.getParameter("resenia");
+			if (request.getParameter("btnAgregarResenia") != null) {
+				String reseniaCreada = request.getParameter("resenia");
+				
+				//Obtengo el usuario que est? logueado
+				Usuarios usuario = (Usuarios) request.getSession().getAttribute("Usuario");
+				
+				
+				Resenias resenia = new Resenias();
+				
+				resenia.setUsuario(usuario);
+				resenia.setResenia(reseniaCreada);
+				
+				//Guardo el comentario
+				this.serviceResenia.add(resenia);
+				
+				System.out.println("Reseña guardada");
+			}
 			
-			//Obtengo el usuario que est? logueado
-			Usuarios usuario = (Usuarios) request.getSession().getAttribute("Usuario");
+			if (request.getParameter("btnAgregarComentario") != null) {
+				//TODO: Agregar comentario
+				System.out.println("Comentario");
+				
+			}
 			
-			
-			Resenias resenia = new Resenias();
-			
-			resenia.setUsuario(usuario);
-			resenia.setResenia(reseniaCreada);
-			
-			//Guardo el comentario
-			this.serviceResenia.add(resenia);
-			
-			System.out.println("Reseña guardada");
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

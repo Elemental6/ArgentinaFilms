@@ -3,10 +3,8 @@
 
 
 
-<div class="contenido" style="margin: auto;
-    width: 50%; margin-top:100px;
-  
-   ">
+<div class="contenido"
+	style="margin: auto; width: 50%; margin-top: 100px;">
 
 	<style type="text/css">
 div.table-title {
@@ -142,8 +140,7 @@ td.text-right {
 	text-align: right;
 }
 </style>
-
-	<c:if test="${not empty userLogueado}">
+	<c:if test="${not empty perfilUsuario}">
 
 		<table class="tg">
 
@@ -158,33 +155,40 @@ td.text-right {
 				<td>Email</td>
 				<td>Rango</td>
 
-<td>Avatar</td>
+				<td>Avatar</td>
 			</tr>
 
 
-			
-
-				<tr>
-
-					<td>${userLogueado.usuario}</td>
-					<td>${userLogueado.nombre}</td>
-
-					<td>${userLogueado.email}</td>
-					<td>${userLogueado.rango}</td>
-			
-				 		 <td>  <img src="<%= getServletContext().getRealPath("/") %>${userLogueado.avatar}" width="24" height="24" /> </td>
 
 
-				</tr>
+			<tr>
+
+				<td>${perfilUsuario.usuario}</td>
+				<td>${perfilUsuario.nombre}</td>
+
+				<td>${perfilUsuario.email}</td>
+				<td>${perfilUsuario.rango}</td>
+
+				<td><img
+					src="<%= getServletContext().getRealPath("/") %>${perfilUsuario.avatar}"
+					width="24" height="24" /></td>
 
 
-		
+			</tr>
+
+
+
 
 
 		</table>
-
+</br></br></br></br></br>
 	</c:if>
-
+	<c:if test="${empty perfilUsuario}">
+	</br></br></br>
+		<div style="font-size: 22px; font-weight: bold; color: red; margin:auto">
+			Usuario inexistente.</div>
+			</br></br></br>
+	</c:if>
 </div>
 
 
