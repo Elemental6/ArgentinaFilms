@@ -11,40 +11,50 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Actores;
+import model.Resenias;
+import model.Usuarios;
 import model.Peliculas;
 
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import service.ServiceUsuario;
 import service.ServicePelicula;
-import service.ServiceActor;
+import service.ServiceResenia;
 
-@WebServlet("/ServletVerPerfilActor")
-public class ServletVerPerfilActor extends HttpServlet {
+@WebServlet("/ServletVerPerfilUsuario")
+public class ServletVerPerfilUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
 	public ServicePelicula servicePelicula = null;
-	public ServiceActor serviceActor = null;
+	public ServiceUsuario serviceUsuario = null;
+	public ServiceResenia serviceResenia = null;
 	
 	public void init(ServletConfig config) {
 		WebApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(config.getServletContext());
 		this.servicePelicula = (ServicePelicula) context.getBean(ServicePelicula.class);
-		this.serviceActor = (ServiceActor) context.getBean(ServiceActor.class);
+		this.serviceUsuario = (ServiceUsuario) context.getBean(ServiceUsuario.class);
+		this.serviceResenia = (ServiceResenia) context.getBean(ServiceResenia.class);
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().removeAttribute("lasPeliculas");
-		request.getSession().removeAttribute("directorSelect");
-		request.getSession().removeAttribute("actorSelect");
-		int id = Integer.parseInt(request.getParameter("id"));
+		String id = request.getParameter("id");
 		try{
 			List<Peliculas> peliculas = new ArrayList<Peliculas>();
-			Actores actor = new Actores();
-			actor = this.serviceActor.getById(id);
-			request.getSession().setAttribute("actorSelect", actor);
-			peliculas = this.servicePelicula.getByActor(id);
+			Usuarios usuario = new Usuarios();
+			usuario = this.serviceUsuario.getByUserName(id);
+			request.getSession().setAttribute("usuarioSelect", usuario);
+			peliculas = this.servicePelicula.getByUsuario(id);
 			request.getSession().setAttribute("lasPeliculas", peliculas);
-			request.getRequestDispatcher("/VerPerfilActor.jsp").forward(request, response);
+			List<Resenias> resenias = new ArrayList<Resenias>();
+			List<Peliculas> peliculasResenia = new ArrayList<Peliculas>();
+			resenias = this.serviceResenia.getByUsuario(id);
+			System.out.println("resenias = " + resenias.size());
+			for(int i=0; i<resenias.size();i++){
+				resenias.get(i).setPelicula(servicePelicula.getByResenia(resenias.get(i).getId_resenia()));
+			}
+			request.getSession().setAttribute("lasResenias", resenias);
+			request.getRequestDispatcher("/VerPerfilUsuario.jsp").forward(request, response);
 		}
 		catch(NullPointerException e){
 			response.sendRedirect("Error404.jsp");
@@ -55,5 +65,6 @@ public class ServletVerPerfilActor extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
+
 
 }

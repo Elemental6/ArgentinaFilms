@@ -25,6 +25,12 @@ public interface DAOPeliculas {
 	List<Peliculas> getByTextoEnNombre(String texto);
 	
 	List<Peliculas> getByActor(int id);
+	
+	List<Peliculas> getByDirector(int id);
+	
+	List<Peliculas> getByUsuario(String id);
+	
+	Peliculas getByResenia(int id);
 
 	int getCantInactivas();
 

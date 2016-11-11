@@ -87,6 +87,19 @@ public class DAOPeliculasImpl implements DAOPeliculas {
 		return this.hibernateTemplate.find("select p from Peliculas as p join p.actores as a where a.id_actor = " + id_actor);
 	}
 	
+	public List<Peliculas> getByDirector(int id_director) {
+		return this.hibernateTemplate.find("select p from Peliculas as p join p.director as a where a.id_director = " + id_director);
+	}
+	
+	public List<Peliculas> getByUsuario(String usuario) {
+		return this.hibernateTemplate.find("select p from Peliculas as p join p.usuario as a where a.usuario = '" + usuario + "'");
+	}
+	
+	@Override
+	public Peliculas getByResenia(int id) {
+		return (Peliculas)this.hibernateTemplate.find("select p from Peliculas as p join p.resenias as r where r.id_resenia = " + id).get(0);
+	}
+	
 	@Override
 	public int getCantInactivas(){
 		DetachedCriteria crit = DetachedCriteria.forClass(Peliculas.class);

@@ -147,7 +147,7 @@
 						<div id="tab-cast">
 							<div class="cast-list box-link-list">
 								<p>
-									<a href="###link-Actor" class="box-link"> <span>${selectPelicula.director.nombre}
+									<a href="ServletVerPerfilDirector?id=${selectPelicula.director.id_director}" class="box-link"> <span>${selectPelicula.director.nombre}
 											${selectPelicula.director.apellido}</span>
 									</a>
 								</p>
@@ -183,7 +183,7 @@
 						<div class="${tipoMensaje}">
 							<b>${mensajeResultado}</b>
 						</div>
-
+<c:if test="${!empty userLogueado}">
 						<form action=ServletRegistrarResenia role="form"
 							class="login form-horizontal" method="POST">
 
@@ -219,27 +219,25 @@
 							</div>
 
 						</form>
+</c:if>
 
 						<ul class="posters posters-70">
 							<c:forEach items="${selectPelicula.resenias}" var="resenia">
-
-								<!--Aca nose como manejar las reseñas -->
 								<li class="film-detail"><a class="avatar avatar-40"
-									href="###link-user"> <img src="###avatar-user"
-										alt="###name-user" height="40" width="40">
+									href="ServletVerPerfilUsuario?id=${resenia.usuario.usuario}"> <img src="imgs/avatares/no-foto.png"
+										alt="${resenia.usuario.usuario}" height="40" width="40">
 								</a>
 									<div class="film-detail-content">
 										<p class="film-detail-meta rating-green">
-											<a href="###link-user" class="author"> ${resenia.usuario.usuario} </a>
+											<a href="ServletVerPerfilUsuario?id=${resenia.usuario.usuario}" class="author"> ${resenia.usuario.usuario} </a>
 										</p>
 										<div class="text collapsible-text">
 											<div class="collapsed-text">
 												<p>${resenia.resenia}</p>
-												<p>${resenia.usuario}</p>
 											</div>
 										</div>
-									</div></li>
-
+									</div>
+								</li>
 
 							</c:forEach>
 						</ul>

@@ -7570,19 +7570,19 @@ a.mute:hover
     text-shadow: #000 0 -1px 0;
 }
 
-.stats li:last-child a
+.stats li:last-child p
 {
     padding-right: 0;
 }
 
-.stats li a
+.stats li p
 {
     display: block;
     padding: 5px 12px;
     color: #678;
 }
 
-.stats li a strong
+.stats li p strong
 {
     color: #9AB;
     font-size: 24px;

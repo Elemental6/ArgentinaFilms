@@ -64,7 +64,7 @@ public class ServletRegistrarResenia extends HttpServlet {
 			String reseniaCreada = request.getParameter("resenia");
 			
 			//Obtengo el usuario que esta logueado
-			Usuarios usuario = (Usuarios) request.getSession().getAttribute("Usuario");
+			Usuarios usuario = (Usuarios) request.getSession().getAttribute("userLogueado");
 			
 			List<Resenias> resenias = pelicula.getResenias();
 			Resenias resenia = new Resenias();

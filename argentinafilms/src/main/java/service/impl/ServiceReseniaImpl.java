@@ -38,4 +38,8 @@ public class ServiceReseniaImpl implements ServiceResenia{
 		this.daoResenia.delete(id);
 	}
 	
+	@Override
+	public List<Resenias> getByUsuario(String id) {
+		return this.daoResenia.getByUsuario(id);
+	}
 }

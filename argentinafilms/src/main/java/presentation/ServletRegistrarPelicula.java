@@ -56,7 +56,7 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			
 			
 			// Obtengo el usuario que esta logeado
-			Usuarios usuario =  (Usuarios) request.getSession().getAttribute("Usuario");
+			Usuarios usuario =  (Usuarios) request.getSession().getAttribute("userLogueado");
 			// TODO: Deberia obtener al genero de un listbox
 			
 			Generos genero = new Generos();

@@ -42,7 +42,7 @@
                         <p class="film-detail-meta rating-green film-detail-with-author"> <a class="avatar avatar-24"> 
                                 <img src="file:///localhost:8081/<%= getServletContext().getRealPath("/") %>${pelicula.usuario.avatar}" width="24" height="24" /> 
                                 <span></span> 
-                            </a> <a href="ServletVerPerfil?usuario=${pelicula.usuario.usuario}" class="author">${pelicula.usuario.usuario}</a> </p> 
+                            </a> <a href="ServletVerPerfilUsuario?id=${pelicula.usuario.usuario}" class="author">${pelicula.usuario.usuario}</a> </p> 
                         <div class="text collapsible-text"> 
                             <p>${pelicula.synopsis}</p>
                         </div>                         

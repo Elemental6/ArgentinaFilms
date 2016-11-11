@@ -8,17 +8,17 @@
 			<span class="frame"><span class="frame-title"></span></span> 
 		</div>
 		<div class="pull-left"> 
-			<h2 class="film-title prettify">${actorSelect.nombre} ${actorSelect.apellido} (Actor)</h2> 
+			<h2 class="film-title prettify"><c:if test="${!empty actorSelect}">${actorSelect.nombre} ${actorSelect.apellido} (Actor)</c:if><c:if test="${!empty directorSelect}">${directorSelect.nombre} ${directorSelect.apellido} (Director)</c:if></h2> 
 			<div class="text collapsible-text">
 				<p></p>
 			</div>                         
 		</div>                     
 	</div>
 	<section id="live-feed" class="section" style="margin-left:20%; width:60%; margin-top:50px;">
-		<h2 class="section-heading">Peliculas en las que participa</h2>
+		<h2 class="section-heading">Peliculas en las que fue <c:if test="${!empty actorSelect}">actor</c:if><c:if test="${!empty directorSelect}">director</c:if></h2>
 		<div class="live-feed-container has-fade ">
 			<ul class="posters posters-70">
-				<c:forEach items="${actorPeliculas}" var="pelicula">
+				<c:forEach items="${lasPeliculas}" var="pelicula">
 					<li class="live-poster">
 						<div class="react-component film-poster film-poster-70663 poster linked-film-poster">
 							<div data-reactid=".7">

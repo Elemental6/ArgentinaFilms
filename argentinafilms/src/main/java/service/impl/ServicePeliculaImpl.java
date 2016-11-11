@@ -76,6 +76,21 @@ public class ServicePeliculaImpl implements ServicePelicula{
 	}
 
 	@Override
+	public List<Peliculas> getByDirector(int id) {
+		return this.daoPelicula.getByDirector(id);
+	}
+	
+	@Override
+	public List<Peliculas> getByUsuario(String id) {
+		return this.daoPelicula.getByUsuario(id);
+	}
+	
+	@Override
+	public Peliculas getByResenia(int id) {
+		return this.daoPelicula.getByResenia(id);
+	}
+	
+	@Override
 	public int getCantInactivas() {
 		return this.daoPelicula.getCantInactivas();
 	}

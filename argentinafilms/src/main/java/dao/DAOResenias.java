@@ -16,5 +16,6 @@ public interface DAOResenias {
 
 	void save(Resenias resenia);
 	
-	
+	List<Resenias> getByUsuario(String id);	
+
 }

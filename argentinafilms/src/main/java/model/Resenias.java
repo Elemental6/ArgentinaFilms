@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -25,6 +26,9 @@ public class Resenias implements Serializable{
 	private String aportadores;
 	@ManyToOne
 	private Usuarios usuario;
+	
+	@Transient
+	Peliculas pelicula;
 	
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(cascade = CascadeType.ALL)
@@ -58,7 +62,14 @@ public class Resenias implements Serializable{
 		this.comentarios = comentarios;
 	}
 
-
+	@Transient
+	public Peliculas getPelicula(){
+		return pelicula;
+	}
+	@Transient
+	public void setPelicula(Peliculas pelicula){
+		this.pelicula = pelicula;
+	}
 
 	public Integer getId_resenia() {
 		return id_resenia;

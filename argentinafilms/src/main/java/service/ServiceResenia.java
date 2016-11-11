@@ -18,4 +18,7 @@ public interface ServiceResenia {
 	public void update(Resenias resenia);
 	
 	public void delete(int id);
+	
+	public List<Resenias> getByUsuario(String id);
+
 }

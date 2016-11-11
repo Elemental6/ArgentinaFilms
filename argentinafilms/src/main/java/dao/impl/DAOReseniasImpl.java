@@ -9,6 +9,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import dao.DAOResenias;
 import model.*;
 
+@SuppressWarnings("unchecked")
 public class DAOReseniasImpl implements DAOResenias {
 
 	private HibernateTemplate hibernateTemplate = null;
@@ -30,6 +31,11 @@ public class DAOReseniasImpl implements DAOResenias {
 	@Override
 	public void delete(Integer id_resenia) {
 		this.hibernateTemplate.delete(id_resenia);
+	}
+	
+	@Override
+	public List<Resenias> getByUsuario(String usuario) {
+		return this.hibernateTemplate.find("select r from Resenias as r join r.usuario as u where u.usuario = '" + usuario + "'");
 	}
 
 	@Autowired

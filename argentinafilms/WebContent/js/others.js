@@ -13,3 +13,17 @@ function showTrailer(id){
 	document.getElementById("cboxOverlay").style.display = 'block';
 	document.getElementById("colorbox").style.display = 'block';
 }
+
+function showPeliculas(){
+	document.getElementById("peliculas-section").style.display = 'block';
+	document.getElementById("resenias-section").style.display = 'none';
+	document.getElementById("li-nav-one").className = "hide-for-owner";
+	document.getElementById("li-nav-two").className = "selected";
+}
+
+function showResenias(){
+	document.getElementById("resenias-section").style.display = 'block';
+	document.getElementById("peliculas-section").style.display = 'none';
+	document.getElementById("li-nav-two").className = "hide-for-owner";
+	document.getElementById("li-nav-one").className = "selected";
+}

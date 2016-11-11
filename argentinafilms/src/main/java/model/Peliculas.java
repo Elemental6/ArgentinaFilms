@@ -97,8 +97,6 @@ public class Peliculas implements Serializable{
 		this.genero = genero;
 	}
 
-	
-
 	public String getPoster() {
 		return poster;
 	}

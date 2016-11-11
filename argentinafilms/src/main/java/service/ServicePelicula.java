@@ -26,5 +26,11 @@ public interface ServicePelicula {
 
 	public List<Peliculas> getByActor(int id);
 
+	public List<Peliculas> getByDirector(int id);
+	
+	public List<Peliculas> getByUsuario(String id);
+	
+	public Peliculas getByResenia(int id);
+	
 	public int getCantInactivas();
 }
