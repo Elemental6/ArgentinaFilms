@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,8 +15,9 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+@SuppressWarnings("serial")
 @Entity
-public class Resenias {
+public class Resenias implements Serializable{
 	@Id
 	@GeneratedValue
 	private Integer id_resenia;

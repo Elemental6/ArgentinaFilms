@@ -1,11 +1,14 @@
 package model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@SuppressWarnings("serial")
 @Entity
-public class Usuarios {
+public class Usuarios implements Serializable{
 	@Id
 	private String usuario;
 	private String pass;

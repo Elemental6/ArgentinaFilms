@@ -1,12 +1,15 @@
 package model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@SuppressWarnings("serial")
 @Entity
-public class Puntajes {
+public class Puntajes implements Serializable{
 	@Id
 	@GeneratedValue
 	private Integer puntaje_id;	

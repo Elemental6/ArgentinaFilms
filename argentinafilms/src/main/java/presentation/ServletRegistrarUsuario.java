@@ -44,7 +44,7 @@ public class ServletRegistrarUsuario extends HttpServlet{
 		String nombreIngresado = request.getParameter("txtNombre");
 		String apellidoIngresado = request.getParameter("txtApellido");
 		String emailIngresado = request.getParameter("txtEmail");
-		String avatar  = SubidaDeImagen.Subir(request, response, "imgs\\avatares\\", CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg");
+		String avatar  = SubidaDeImagen.Subir(request, response, "/imgs/avatares/", CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg");
 		String codActivacion = CodigoAleatorio.getCadenaAlfanumAleatoria(15);
 		
 		

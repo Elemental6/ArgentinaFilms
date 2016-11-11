@@ -9,3 +9,11 @@
   .star-rating label:hover ~ label {
     color: #f39c12; /* amarillo (seleccionado) */
   }
+
+  
+  
+  
+  .star-rating-voted label {
+	font-size: 300%;
+  float: right;
+}

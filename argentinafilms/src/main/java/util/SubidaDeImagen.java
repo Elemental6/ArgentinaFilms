@@ -21,7 +21,7 @@ public class SubidaDeImagen {
 		FileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
 
-		String appPath = request.getServletContext().getRealPath("");
+		String appPath = "/";
 		
 		List items;
 		try {
@@ -31,7 +31,7 @@ public class SubidaDeImagen {
 				   FileItem uploaded = (FileItem) item;
 
 				   if (!uploaded.isFormField()) {
-				      File fichero = new File(appPath + ruta, nombre);
+				      File fichero = new File(ruta, nombre);
 				      try {
 						uploaded.write(fichero);
 

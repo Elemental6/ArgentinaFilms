@@ -17,30 +17,84 @@
 						<div class="film-stats">
 							<ul>
 								<li class="filmstat-watches">
-									<div class="star-rating">
+									<div class="star-rating" id="star-rating">
+	
 										<c:if test="${empty userLogueado}">
-											<div
-												style="font-size: 22px; font-weight: bold; color: #9AFE2E;">
+											<div style="font-size: 18px; font-weight: bold;">
 												Iniciá sesión para votar esta película.</div>
 										</c:if>
-										<c:if test="${not empty userLogueado}">
+										
+										<c:if test="${not empty userLogueado && empty puntajeUserLogueado}">
 											<label
 												onclick="javascript:PuntuarPelicula(5, ${selectPelicula.id_pelicula});"
-												style="cursor: pointer;">&#9733;</label>
+												style="cursor: pointer;" id="fiveStars">&#9733;</label>
 											<label
 												onclick="javascript:PuntuarPelicula(4, ${selectPelicula.id_pelicula});"
-												style="cursor: pointer;">&#9733;</label>
+												style="cursor: pointer;" id="fourStars">&#9733;</label>
 											<label
 												onclick="javascript:PuntuarPelicula(3, ${selectPelicula.id_pelicula});"
-												style="cursor: pointer;">&#9733;</label>
+												style="cursor: pointer;" id="threeStars">&#9733;</label>
 											<label
 												onclick="javascript:PuntuarPelicula(2, ${selectPelicula.id_pelicula});"
-												style="cursor: pointer;">&#9733;</label>
+												style="cursor: pointer;" id="twoStars">&#9733;</label>
 											<label
 												onclick="javascript:PuntuarPelicula(1, ${selectPelicula.id_pelicula});"
-												style="cursor: pointer;">&#9733;</label>
+												style="cursor: pointer;" id="oneStar">&#9733;</label>
 										</c:if>
+
 									</div>
+									
+									<div class="star-rating-voted" id="star-rating-voted">
+									<c:if test="${not empty userLogueado && not empty puntajeUserLogueado}">
+									
+										<c:if test="${puntajeUserLogueado.puntuacion == 1}">
+											<label>&#9733;</label>
+											<label>&#9733;</label>
+											<label>&#9733;</label>
+											<label>&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+										</c:if>
+											
+										<c:if test="${puntajeUserLogueado.puntuacion == 2}">
+											<label>&#9733;</label>
+											<label>&#9733;</label>
+											<label>&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+										</c:if>
+											
+										<c:if test="${puntajeUserLogueado.puntuacion == 3}">
+											<label>&#9733;</label>
+											<label>&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+										</c:if>
+											
+											
+										<c:if test="${puntajeUserLogueado.puntuacion == 4}">
+											<label>&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+										</c:if>
+											
+											
+										<c:if test="${puntajeUserLogueado.puntuacion == 5}">
+											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#f39c12;">&#9733;</label>
+										</c:if>
+										</c:if>
+										
+									</div>
+									
+									
+												Puntuación total: <span id="puntTotal">${selectPelicula.puntuacion_total}</span>
+					
 								</li>
 							</ul>
 						</div>
@@ -163,7 +217,7 @@
 										<div>
 											<div>
 												<button type="submit" class="btn btn-success"
-													id="btnAgregarResenia">Agregar resenia</button>
+													id="btnAgregarResenia">Agregar reseña</button>
 											</div>
 										</div>
 									</div>
@@ -189,7 +243,7 @@
 								</a>
 									<div class="film-detail-content">
 										<p class="film-detail-meta rating-green">
-											<a href="###link-user" class="author"> name-user </a>
+											<a href="###link-user" class="author"> ${resenia.usuario.usuario} </a>
 										</p>
 										<div class="text collapsible-text">
 											<div class="collapsed-text">

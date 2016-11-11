@@ -130,4 +130,6 @@ public class AppConfig {
 	public DAOComentarios comentariosDAO(){
 		return new DAOComentariosImpl();
 	}
+	
+	
 }

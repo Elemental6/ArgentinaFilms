@@ -3,7 +3,10 @@ package dao.impl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import dao.DAOPuntajes;
@@ -12,6 +15,7 @@ import model.*;
 public class DAOPuntajesImpl implements DAOPuntajes {
 
 	private HibernateTemplate hibernateTemplate = null;
+	
 	@Override
 	public List<Puntajes> getAll() {
 		return this.hibernateTemplate.loadAll(Puntajes.class);
@@ -41,6 +45,16 @@ public class DAOPuntajesImpl implements DAOPuntajes {
 	public void save(Puntajes puntaje) {
 		this.hibernateTemplate.save(puntaje);
 		
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Puntajes getByUsuarioYPelicula(Usuarios usuario, Peliculas pelicula){
+
+		DetachedCriteria crit = DetachedCriteria.forClass(Puntajes.class);
+		crit.add(Restrictions.eq("usuario", usuario));
+		crit.add(Restrictions.eq("pelicula", pelicula));
+		return (Puntajes) DataAccessUtils.uniqueResult(this.hibernateTemplate.findByCriteria(crit));
 	}
 }
 

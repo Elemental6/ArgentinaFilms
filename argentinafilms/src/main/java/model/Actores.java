@@ -1,10 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+@SuppressWarnings("serial")
 @Entity
-public class Actores {
+public class Actores implements Serializable{
 	@Id
 	@GeneratedValue
 	private Integer id_actor;
