@@ -8,9 +8,9 @@ public interface DAOPeliculas {
 
 	List<Peliculas> getAll();	
 	
-	List<Peliculas> getUltimasCuatroActivas();
+	List<Peliculas> getUltimasActivas();
 	
-	List<Peliculas> getInactivas();
+	List<Peliculas> getInactivas(int offset, int cantRegistros);
 	
 	List<Peliculas> getActivas();
 	
@@ -25,5 +25,8 @@ public interface DAOPeliculas {
 	List<Peliculas> getByTextoEnNombre(String texto);
 	
 	List<Peliculas> getByActor(int id);
+
+	int getCantInactivas();
+
 
 }

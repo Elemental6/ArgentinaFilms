@@ -55,6 +55,64 @@
 			</tbody>
 		</table>
 
+
+	<div class="paginado" align="center">
+
+
+		<ul class="pagination lead" data-pg-collapsed> 
+		<c:if test="${paginaActual != 1}">
+		    <li>
+		        <a href="AceptarPeliculas.jsp?pagina=1">&laquo;</a>
+		    </li>    
+		 </c:if>   
+		     
+		     
+		 <c:forEach begin="1" end="${cantPaginas}" var="i">    
+
+
+		    <li <c:if test="${paginaActual == i}">class="active"</c:if>>
+		        <a href="AceptarPeliculas.jsp?pagina=${i}">${i}</a>
+		    </li>     
+
+		   </c:forEach> 
+		    
+		    <c:if test="${paginaActual lt cantPaginas}">
+		    <li>
+		        <a href="AceptarPeliculas.jsp?pagina=${cantPaginas}">&raquo;</a>
+		    </li>     
+		    </c:if>
+		</ul>
+
+<%-- 		
+		For displaying Previous link except for the 1st page
+
+	 
+	    For displaying Page numbers. 
+	    The when condition does not display a link for the current page
+	    <table border="1" cellpadding="5" cellspacing="5">
+	        <tr>
+	            <c:forEach begin="1" end="${cantPaginas}" var="i">
+	                <c:choose>
+	                    <c:when test="${currentPage eq i}">
+	                        <td>${i}</td>
+	                    </c:when>
+	                    <c:otherwise>
+	                        <td><a href="AceptarPeliculas.jsp?pagina=${i}">${i}</a></td>
+	                    </c:otherwise>
+	                </c:choose>
+	            </c:forEach>
+	        </tr>
+	    </table>
+	     
+	    For displaying Next link
+	    <c:if test="${paginaActual lt cantPaginas}">
+	        <td><a href="AceptarPeliculas.jsp?pagina=${paginaActual + 1}">Siguiente</a></td>
+	    </c:if> --%>
+
+
+	</div>
+
+
  </c:if>  
 
 </div>

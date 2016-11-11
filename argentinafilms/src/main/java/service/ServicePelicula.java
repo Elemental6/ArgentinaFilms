@@ -12,7 +12,7 @@ public interface ServicePelicula {
 	
 	public List<Peliculas> getUltimasCuatroActivas();
 	
-	List<Peliculas> getInactivas();
+	List<Peliculas> getInactivas(int offset, int cantRegistros);
 	
 	public Peliculas getById(int id);
 	
@@ -25,4 +25,6 @@ public interface ServicePelicula {
 	List<Peliculas> getByTextoEnNombre(String texto);
 
 	public List<Peliculas> getByActor(int id);
+
+	public int getCantInactivas();
 }

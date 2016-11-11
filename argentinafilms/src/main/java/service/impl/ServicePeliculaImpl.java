@@ -29,8 +29,8 @@ public class ServicePeliculaImpl implements ServicePelicula{
 	}
 	
 	@Override
-	public List<Peliculas> getInactivas(){
-		return this.daoPelicula.getInactivas();
+	public List<Peliculas> getInactivas(int offset, int cantRegistros){
+		return this.daoPelicula.getInactivas(offset, cantRegistros);
 	}
 	
 	@Override
@@ -43,7 +43,7 @@ public class ServicePeliculaImpl implements ServicePelicula{
 	
 	@Override
 	public List<Peliculas> getUltimasCuatroActivas(){
-		return this.daoPelicula.getUltimasCuatroActivas();
+		return this.daoPelicula.getUltimasActivas();
 	}
 
 	@Override
@@ -74,4 +74,10 @@ public class ServicePeliculaImpl implements ServicePelicula{
 	public List<Peliculas> getByActor(int id) {
 		return this.daoPelicula.getByActor(id);
 	}
+
+	@Override
+	public int getCantInactivas() {
+		return this.daoPelicula.getCantInactivas();
+	}
+
 }

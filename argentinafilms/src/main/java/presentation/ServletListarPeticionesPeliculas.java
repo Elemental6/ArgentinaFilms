@@ -34,8 +34,20 @@ public class ServletListarPeticionesPeliculas extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		List<Peliculas> peliculas = this.peliculaService.getInactivas();
+		int pagina = 1;
+		int cantRegistrosXPagina = 3;
+		
+		if(request.getParameter("pagina") != null)
+            pagina = Integer.parseInt(request.getParameter("pagina"));
+		
+		List<Peliculas> peliculas = this.peliculaService.getInactivas((pagina-1)*cantRegistrosXPagina, cantRegistrosXPagina);
+		
+		int cantTotalRegistros = this.peliculaService.getCantInactivas();
+		int cantPaginas = (int) Math.ceil(cantTotalRegistros * 1.0 / cantRegistrosXPagina); 
+		
 		request.getSession().setAttribute("peticionesPeliculas", peliculas);
+		request.setAttribute("cantPaginas", cantPaginas);
+        request.setAttribute("paginaActual", pagina);
 		response.sendRedirect("ListadoPeticionesPeliculas.jsp");
 	}
 

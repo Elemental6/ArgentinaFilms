@@ -32,6 +32,7 @@ public class ServletListarUltimasPeliculas extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Peliculas> peliculas = this.peliculaService.getUltimasCuatroActivas();
 		request.getSession().setAttribute("UltimasPeliculas", peliculas);
+		
 	}
 	
 }

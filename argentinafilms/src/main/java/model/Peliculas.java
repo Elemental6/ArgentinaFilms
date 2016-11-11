@@ -1,11 +1,11 @@
 package model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -16,8 +16,9 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+@SuppressWarnings("serial")
 @Entity
-public class Peliculas {
+public class Peliculas implements Serializable{
 	@Id
 	@GeneratedValue
 	private Integer id_pelicula;

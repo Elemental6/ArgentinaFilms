@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.BeansException;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -20,10 +19,8 @@ import service.ServiceActor;
 import service.ServiceDirector;
 import service.ServiceGenero;
 import service.ServicePelicula;
-import service.ServiceUsuario;
 import util.CodigoAleatorio;
 import util.SubidaDeImagen;
-import dao.*;
 import model.*;
 
 
