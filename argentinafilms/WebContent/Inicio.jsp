@@ -12,15 +12,7 @@
            <a href="RegistrosIniciales"><img src="imgs/EnConstruccion.png" width="100"></a>
         </div>
     </div>
-    <div>
-     <c:if test="${not empty userLogueado}" >
-       <a href="AgregarActor.jsp"  style="color:red; font-weight: bold; margin-left:200px; font-size: 20px;">Registrar Actor</a></br></br>
-         <a href="AgregarDirector.jsp"  style="color:red; font-weight: bold; margin-left:200px;font-size: 20px;">Registrar Director</a></br></br>
-           <a href="ServletAsociarPeliculaXActor" style="color:red; font-weight: bold; margin-left:200px;font-size: 20px;">Asociar Actor con pelicula</a></br></br>
-            <a href="ServletAsociarDirectorXPelicula" style="color:red; font-weight: bold; margin-left:200px;font-size: 20px;">Asociar Director con pelicula</a></br></br>
-            
-     
-     </c:if>
+    
     
     </div>
     <div class="ultimas-publicaciones">

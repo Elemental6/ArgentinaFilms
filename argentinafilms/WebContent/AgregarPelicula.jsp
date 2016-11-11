@@ -8,7 +8,7 @@
 <div class="contenido">
 
     <div class="login reg">
-        <h1 class="text-center titulo-seccion"><img src="imgs/register.png" class="imagen-seccion" />REGISTRARSE</h1>
+        <h1 class="text-center titulo-seccion"><img src="imgs/register.png" class="imagen-seccion" />Agregar Pelicula</h1>
         
         <div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
         

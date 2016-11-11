@@ -20,8 +20,8 @@ import service.ServiceResenia;
  * Servlet implementation class ServletAgregarReseña
  */
 @SuppressWarnings("serial")
-@WebServlet("/AgregarReseña")
-public class ServletAgregarReseña extends HttpServlet {
+@WebServlet("/AgregarResenia")
+public class ServletAgregarResenia extends HttpServlet {
        
     public ServiceResenia serviceResenia = null;
 
@@ -32,11 +32,11 @@ public class ServletAgregarReseña extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
-		
+	
 		try {
-			String reseniaCreada = request.getParameter("inputResenia");
+			String reseniaCreada = request.getParameter("resenia");
 			
-			//Obtengo el usuario que está logueado
+			//Obtengo el usuario que est? logueado
 			Usuarios usuario = (Usuarios) request.getSession().getAttribute("Usuario");
 			
 			

@@ -1,54 +1,59 @@
 <jsp:include page="MasterPageCabecera.jsp" />
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<style type="text/css">
 
-<div class="contenido" data-pg-collapsed>
 
-	<div class="container" align="center" data-pg-id="4579"
-		style="font-size: 24px; font-weight: bold;">
-<style type="text/css">>
 .myButton {
-	-moz-box-shadow: 0px 1px 0px 0px #fff6af;
-	-webkit-box-shadow: 0px 1px 0px 0px #fff6af;
-	box-shadow: 0px 1px 0px 0px #fff6af;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
-	background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
-	background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
-	background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
-	background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
-	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
-	background-color:#ffec64;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #ffaa22;
+	-moz-box-shadow:inset 0px 0px 3px 0px #3dc21b;
+	-webkit-box-shadow:inset 0px 0px 3px 0px #3dc21b;
+	box-shadow:inset 0px 0px 3px 0px #3dc21b;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1da0cf), color-stop(1, #1b3da3));
+	background:-moz-linear-gradient(top, #1da0cf 5%, #1b3da3 100%);
+	background:-webkit-linear-gradient(top, #1da0cf 5%, #1b3da3 100%);
+	background:-o-linear-gradient(top, #1da0cf 5%, #1b3da3 100%);
+	background:-ms-linear-gradient(top, #1da0cf 5%, #1b3da3 100%);
+	background:linear-gradient(to bottom, #1da0cf 5%, #1b3da3 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1da0cf', endColorstr='#1b3da3',GradientType=0);
+	background-color:#1da0cf;
+	-moz-border-radius:33px;
+	-webkit-border-radius:33px;
+	border-radius:33px;
+	border:1px solid #000000;
 	display:inline-block;
 	cursor:pointer;
-	color:#333333;
+	color:#ffffff;
 	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
+	font-size:17px;
+	padding:6px 7px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #ffee66;
+	text-shadow:0px 1px 0px #2f6627;
 }
 .myButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
-	background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
-	background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
-	background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
-	background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
-	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
-	background-color:#ffab23;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1b3da3), color-stop(1, #1da0cf));
+	background:-moz-linear-gradient(top, #1b3da3 5%, #1da0cf 100%);
+	background:-webkit-linear-gradient(top, #1b3da3 5%, #1da0cf 100%);
+	background:-o-linear-gradient(top, #1b3da3 5%, #1da0cf 100%);
+	background:-ms-linear-gradient(top, #1b3da3 5%, #1da0cf 100%);
+	background:linear-gradient(to bottom, #1b3da3 5%, #1da0cf 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1b3da3', endColorstr='#1da0cf',GradientType=0);
+	background-color:#1b3da3;
 }
 .myButton:active {
 	position:relative;
 	top:1px;
 }
 
+        
 
 </style>
+<div class="contenido" data-pg-collapsed>
+
+	<div class="container" align="center" data-pg-id="4579"
+		style="font-size: 24px; font-weight: bold;">
+
+	  <div class="login reg">
+        <h1 class="text-center titulo-seccion">Filtrar peliculas</h1>
+        </div>
 		<form action="ServletListarPeliculas" role="form"
 			class="login form-horizontal" method="POST">
 					<button class="myButton" type="submit" name="A">A</button>
