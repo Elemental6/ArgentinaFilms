@@ -29,18 +29,18 @@
             </div>    
                      
            
-			<div class="form-group"> 
-			<label class="control-label col-sm-2">Ubicación:</label>                 
-                <div class="col-sm-10">
-                    <div>
-                        <div>
-                            <div>
-                                <input type="text" class="form-control login" name="txtUbicacion" placeholder="Ingrese la ubicacíon" required>
-                            </div>
-                        </div>
-                    </div>
-                </div>                 
-			</div>
+<!-- 			<div class="form-group">  -->
+<!-- 			<label class="control-label col-sm-2">Ubicación:</label>                  -->
+<!--                 <div class="col-sm-10"> -->
+<!--                     <div> -->
+<!--                         <div> -->
+<!--                             <div> -->
+<!--                                 <input type="text" class="form-control login" name="txtUbicacion" placeholder="Ingrese la ubicacíon" required> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                 </div>                  -->
+<!-- 			</div> -->
 			
 			
 				<div class="form-group"> 
@@ -68,7 +68,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="number" min="0" max="300" class="form-control login" name="txtDuracion" placeholder="Ingrese la duracíon">
+                                <input type="number" min="0" max="300" class="form-control login" name="txtDuracion" placeholder="Ingrese la duracíon" required>
                             </div>
                         </div>
                     </div>

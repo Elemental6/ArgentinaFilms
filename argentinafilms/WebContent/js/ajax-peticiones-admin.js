@@ -1,47 +1,76 @@
-function AceptarPelicula(idPelicula){
-	
-    $.post('AceptarPeticionPelicula', {
+function AceptarPelicula(idPelicula) {
 
-        idSeleccionado: idPelicula
+	$.post('AceptarPeticionPelicula', {
 
+		idSeleccionado : idPelicula
 
-    }, function (data) {
-       
-    	$("#fila" + idPelicula).hide();
+	}, function(data) {
 
-    })
-	
-	
+		$("#fila" + idPelicula).hide();
+
+	})
+
 }
 
+function RechazarPelicula(idPelicula) {
+	swal(
+			{
+				title : "Est\u00E1s seguro de rechazar esta petici\u00F3n de Pel\u00EDcula?",
+				text : "No podr\u00E1s deshacer esta opci\u00F3n!",
+				type : "warning",
+				showCancelButton : true,
+				confirmButtonColor : "#DD6B55",
+				confirmButtonText : "Si, rechazar",
+				closeOnConfirm : true
+			}, function() {
 
+				$.post('RechazarPeticionPelicula', {
 
+					idSeleccionado : idPelicula
 
-function RechazarPelicula(idPelicula){
+				}, function(data) {
+
+					$("#fila" + idPelicula).hide();
+
+				})
+
+			});
+}
+
+function AceptarActor(idActor) {
+
+	$.post('AceptarPeticionActor', {
+
+		idSeleccionado : idActor
+
+	}, function(data) {
+
+		$("#fila" + idActor).hide();
+
+	})
+
+}
+
+function RechazarActor(idActor) {
 	swal({
-		  title: "Est\u00E1s seguro de rechazar esta petici\u00F3n de Pel\u00EDcula?",
-		  text: "No podr\u00E1s deshacer esta opci\u00F3n!",
-		  type: "warning",
-		  showCancelButton: true,
-		  confirmButtonColor: "#DD6B55",
-		  confirmButtonText: "Si, rechazar",
-		  closeOnConfirm: true
-		},
-		function(){
-			
-			
-			$.post('RechazarPeticionPelicula', {
+		title : "Est\u00E1s seguro de rechazar esta petici\u00F3n de Actor?",
+		text : "No podr\u00E1s deshacer esta opci\u00F3n!",
+		type : "warning",
+		showCancelButton : true,
+		confirmButtonColor : "#DD6B55",
+		confirmButtonText : "Si, rechazar",
+		closeOnConfirm : true
+	}, function() {
 
-		        idSeleccionado: idPelicula
+		$.post('RechazarPeticionActor', {
 
+			idSeleccionado : idActor
 
-		    }, function (data) {
-		       
-		    	$("#fila" + idPelicula).hide();
+		}, function(data) {
 
-		    })
-			
-			
-		  
-		});
+			$("#fila" + idActor).hide();
+
+		})
+
+	});
 }

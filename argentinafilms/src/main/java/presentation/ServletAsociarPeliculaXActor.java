@@ -46,7 +46,8 @@ public class ServletAsociarPeliculaXActor extends HttpServlet {
 		List<Peliculas> peliculas = this.peliculaService.getAll();
 		request.getSession().setAttribute("PeliculasAsociar", peliculas);
 
-		List<Actores> actores = this.actorService.getAll();
+		List<Actores> actores = this.actorService.getActivas();
+		
 		request.getSession().setAttribute("ActoresAsociar", actores);
 		
 		response.sendRedirect("AsociarActor.jsp");
@@ -66,7 +67,8 @@ public class ServletAsociarPeliculaXActor extends HttpServlet {
 			String trimactor[] = actorstring.split(" - ");
 			Integer id_actor = Integer.parseInt(trimactor[0]);
 			Actores actor = this.actorService.getById(id_actor);
-
+			if (!actor.isEstado()) valido = false;
+			
 			String peliculastring = request.getParameter("AsociarPelicula");
 			String trimpelicula[] = peliculastring.split(" - ");
 			Integer id_pelicula = Integer.parseInt(trimpelicula[0]);

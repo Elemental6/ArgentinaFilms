@@ -12,7 +12,15 @@ public interface DAOActores {
 	
 	void update(Actores actor);
 	
-	void delete(Integer dni);
+	void delete(Actores actor);
 
 	void save(Actores actor);
+	
+    List<Actores> getUltimasActivas();
+	
+	List<Actores> getInactivas(int offset, int cantRegistros);
+	
+	int getCantInactivas();
+	
+	List<Actores> getActivas();
 }

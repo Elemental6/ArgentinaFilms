@@ -39,8 +39,8 @@ public class ServiceActorImpl implements ServiceActor{
 	}
 
 	@Override
-	public void delete(int id) {
-		this.daoActor.delete(id);
+	public void delete(Actores actor) {
+		this.daoActor.delete(actor);
 	}
 
 	

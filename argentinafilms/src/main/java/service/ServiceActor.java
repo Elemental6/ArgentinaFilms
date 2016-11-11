@@ -14,6 +14,6 @@ public interface ServiceActor {
 	
 	public void update(Actores actor);
 	
-	public void delete(int id);
+	public void delete(Actores actor);
 	
 }

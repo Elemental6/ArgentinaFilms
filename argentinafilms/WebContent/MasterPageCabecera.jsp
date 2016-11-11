@@ -67,7 +67,7 @@
 
 
 					<c:if test="${not empty userLogueado}">
-						<li><a href="VerPerfil.jsp">
+						<li><a href="ServletVerPerfil?usuario=${userLogueado.usuario}">
 								<!-- <span class="glyphicon glyphicon-user"></span> -->
 								${userLogueado.usuario}
 						</a></li>
