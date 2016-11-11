@@ -54,7 +54,7 @@ public class DAOPuntajesImpl implements DAOPuntajes {
 		DetachedCriteria crit = DetachedCriteria.forClass(Puntajes.class);
 		crit.add(Restrictions.eq("usuario", usuario));
 		crit.add(Restrictions.eq("pelicula", pelicula));
-		return (Puntajes) DataAccessUtils.uniqueResult(this.hibernateTemplate.findByCriteria(crit));
+		return (Puntajes) DataAccessUtils.singleResult(this.hibernateTemplate.findByCriteria(crit));
 	}
 }
 
