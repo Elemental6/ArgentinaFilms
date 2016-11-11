@@ -116,17 +116,19 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			
 			// Nota: Al director y actores se los agrega  usando los servlets de asociar peliculas con actores y director
 			System.out.println("Datos guardados");
+			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
+	        request.setAttribute("mensajeResultado", "Pelicula agregada. Pendiente a ser aceptada o rechazada..");	     
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage());
 			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
-	        request.setAttribute("mensajeResultado", "No se pudo cargar la pelìcula. Reintente por favor.");
+	        request.setAttribute("mensajeResultado", "No se pudo cargar la pelicula. Reintente por favor.");
 			request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
 			return;
 		}
 	
 		
-		request.getRequestDispatcher("/Inicio.jsp").forward(request, response);
+		request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
 	
 	}
 }

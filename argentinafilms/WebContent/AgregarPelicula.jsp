@@ -68,7 +68,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="number" min="0" max="300" class="form-control login" name="txtDuracion" placeholder="Ingrese la duracíon">
+                                <input type="number" min="0" max="300" class="form-control login" name="txtDuracion" placeholder="Ingrese la duracíon" required>
                             </div>
                         </div>
                     </div>

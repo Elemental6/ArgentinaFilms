@@ -1,5 +1,6 @@
 <jsp:include page="MasterPageCabecera.jsp" />
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <style type="text/css">
 
 
@@ -231,14 +232,10 @@ td.text-right {
 </div>
 
 
-
-
-
-
 <section id="popular-reviews" class="section ultimas-publicaciones">
         
-<h2 class="section-heading">TODAS LAS PELÍCULAS</h2>
-            
+<h2 class="section-heading">Listado de películas: <b>${fn:length(PeliculasListado)}</b></h2>
+  
 
 	<ul class="posters film-list clear posters-70 film-details-list no-title">
             
