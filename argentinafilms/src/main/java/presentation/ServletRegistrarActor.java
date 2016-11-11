@@ -62,7 +62,7 @@ public class ServletRegistrarActor extends HttpServlet {
 			if (!ValidarDatos.validarInteger(request.getParameter("actor_edad"))) errores++;
 			
 			if (errores == 0){
-				Actores actor = new Actores (nombre,apellido,edad, true);
+				Actores actor = new Actores (nombre,apellido,edad, false);
 				// Guardar actor
 				this.actorService.save(actor);
 							

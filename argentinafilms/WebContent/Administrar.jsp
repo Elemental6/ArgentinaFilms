@@ -25,7 +25,7 @@
             <p></p>
           </div>
           
-          <div class="col-md-6" onclick="location.href=AceptarActores.jsp';" style="cursor:pointer;">
+          <div class="col-md-6" onclick="location.href='AceptarActores.jsp';" style="cursor:pointer;">
             <img src="imgs/AceptarActores.png" class="img-responsive img-thumbnail">
             <h1 class="text-primary">ACEPTAR PETICIONES ACTORES</h1>
             <p></p>

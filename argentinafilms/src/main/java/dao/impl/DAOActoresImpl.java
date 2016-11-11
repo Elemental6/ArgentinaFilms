@@ -2,7 +2,11 @@ package dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -28,8 +32,8 @@ public class DAOActoresImpl implements DAOActores {
 	}
 
 	@Override
-	public void delete(Integer id_actor) {
-		this.hibernateTemplate.delete(id_actor);
+	public void delete(Actores actor) {
+		this.hibernateTemplate.delete(actor);
 	}
 
 	@Autowired
@@ -42,5 +46,38 @@ public class DAOActoresImpl implements DAOActores {
 		this.hibernateTemplate.save(actor);
 		
 	}
+	@Override
+	public List<Actores> getActivas() {
+		DetachedCriteria crit = DetachedCriteria.forClass(Actores.class);
+		crit.add(Restrictions.eq("estado", true));
+		crit.addOrder(Order.asc("nombre"));
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.hibernateTemplate.findByCriteria(crit);
+	}
+	
+	@Override
+	public List<Actores> getInactivas(int offset, int cantRegistros) {
+		DetachedCriteria crit = DetachedCriteria.forClass(Actores.class);
+		crit.add(Restrictions.eq("estado", false));
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.hibernateTemplate.findByCriteria(crit, offset, cantRegistros);
+	}
+	
+	@Override
+	public int getCantInactivas(){
+		DetachedCriteria crit = DetachedCriteria.forClass(Actores.class);
+		crit.add(Restrictions.eq("estado", false));
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.hibernateTemplate.findByCriteria(crit).size();
+	}
 
+	@Override
+	public List<Actores> getUltimasActivas(){
+		DetachedCriteria crit = DetachedCriteria.forClass(Actores.class);
+		crit.add(Restrictions.eq("estado", true));
+		crit.addOrder(Order.desc("id_actor"));
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.hibernateTemplate.findByCriteria(crit, 0, 9);
+	}
+	
 }
