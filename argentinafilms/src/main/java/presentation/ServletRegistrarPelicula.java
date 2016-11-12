@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,12 +20,10 @@ import service.ServiceActor;
 import service.ServiceDirector;
 import service.ServiceGenero;
 import service.ServicePelicula;
-import util.CodigoAleatorio;
-import util.SubidaDeImagen;
 import model.*;
 
 
-
+@MultipartConfig
 @WebServlet("/ServletRegistrarPelicula")
 public class ServletRegistrarPelicula extends HttpServlet {
 	
@@ -51,6 +50,9 @@ public class ServletRegistrarPelicula extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		
+		
 		// TODO: Validar datos como la gente / Separar en capa de servicio si hay tiempo
 		try{
 			
@@ -75,9 +77,9 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			// Siempre que se registre una nueva pelicula su puntuacion sera 0
 			Integer puntuacion_total = 0;
 			Peliculas pelicula = new Peliculas(nombre,anio,ubicacion,duracion,synopsis,puntuacion_total,usuario,null);
-			String poster  = SubidaDeImagen.Subir(request, response, "imgs\\peliculas\\", CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg");
-			
-			
+//			String poster  = SubidaDeImagen.Subir(request, response, "imgs\\peliculas\\", CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg");
+//			
+//			
 			// Poster y trailer podrian ser nulos
 			String trailer = request.getParameter("txtTrailer");
 			Integer id_genero ;
@@ -88,7 +90,7 @@ public class ServletRegistrarPelicula extends HttpServlet {
 				pelicula.setGenero(genero);
 			}  
 			pelicula.setTrailer(trailer);
-			pelicula.setPoster(poster);
+//			pelicula.setPoster(poster);
 			pelicula.setEstado(false);
 			Integer id_director;
 			if(request.getParameter("txtdirector")!="")
@@ -110,7 +112,7 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			}
 			
 			
-			pelicula.setPoster(poster);
+//			pelicula.setPoster(poster);
 			 //Guardo la pelicula
 			this.peliculaService.add(pelicula);
 			

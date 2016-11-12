@@ -8,7 +8,7 @@
 		<section id="profile-header">
 			<div class="profile-summary">
 				<span class="avatar avatar-60">
-					<img src="imgs/avatares/no-foto.png" alt="@usuario" width="60" height="60">
+					<img src="<%=request.getContextPath()%>/${usuarioSelect.avatar}" width="60" height="60">
 					<a id="avatar-zoom" href="#avatar-large" class="cboxElement"></a>
 				</span>
 				<div class="profile-person-info followable" style="width: 497px; max-width: 497px;">

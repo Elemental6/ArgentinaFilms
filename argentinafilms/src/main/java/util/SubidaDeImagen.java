@@ -1,6 +1,7 @@
 package util;
 
 import java.io.File;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,42 +17,10 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 public class SubidaDeImagen {
 
-	
-	public static String Subir(HttpServletRequest request, HttpServletResponse response, String ruta, String nombre){
-		FileItemFactory factory = new DiskFileItemFactory();
-		ServletFileUpload upload = new ServletFileUpload(factory);
-
-		String appPath = "/";
-		
-		List items;
-		try {
-			items = upload.parseRequest(request);
-			
-			for (Object item : items) {
-				   FileItem uploaded = (FileItem) item;
-
-				   if (!uploaded.isFormField()) {
-				      File fichero = new File(ruta, nombre);
-				      try {
-						uploaded.write(fichero);
-
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				   } else {
-				      String key = uploaded.getFieldName();
-				      String valor = uploaded.getString();
-				   }
-				}
-			
-		} catch (FileUploadException e) {
-			e.printStackTrace();
-		}
+	public static void Subir(HttpServletRequest request, HttpServletResponse response, String ruta, String nombreImagenAvatar){
 		
 
-		return ruta + nombre;
+	      }
 		
-	}
 	
 }

@@ -57,7 +57,7 @@ public class RegistrosIniciales extends HttpServlet{
 	
 	private void crearDatos(){
 		Usuarios usuario = new Usuarios("Jocs", "1234", "Jose", "Hassan", "jose.h.utn@gmail.com", "admin", true);
-		usuario.setAvatar("imgs\\avatares\\xfdfrgf.jpg");
+		usuario.setAvatar("imgs/avatares/xfdfrgf.jpg");
 		this.usuarioService.add(usuario);
 		
 		List<Actores> actorespelicula = null;

@@ -1,6 +1,7 @@
 <jsp:include page="MasterPageCabecera.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
 <c:import url="/ServletListarUltimasPeliculas" /> <!-- llamo servlet al cargar pagina -->
 
 <div class="contenido" data-pg-collapsed>
@@ -32,7 +33,7 @@
                 <li class="film-detail"> 
                 
                     <div class="poster film-poster really-lazy-load" data-image-width="70" data-image-height="105"> 
-                        <img src="${pelicula.poster}" width="70" height="105" />
+                        <img src="<%=request.getContextPath()%>/${pelicula.poster}" width="70" height="105" />
                         <span class="frame"><span class="frame-title"></span></span> 
                     </div>                     
                     
@@ -40,7 +41,7 @@
                   
                         <h2 class="film-title prettify"><a href="ServletVerPelicula?pelicula_id=${pelicula.id_pelicula}">${pelicula.nombre}</a> <small><a href="/peliculas/anios/${pelicula.anio}/">${pelicula.anio}</a></small></h2> 
                         <p class="film-detail-meta rating-green film-detail-with-author"> <a class="avatar avatar-24"> 
-                                <img src="file:///localhost:8081/<%= getServletContext().getRealPath("/") %>${pelicula.usuario.avatar}" width="24" height="24" /> 
+                                <img src="<%=request.getContextPath()%>/${pelicula.usuario.avatar}" width="24" height="24" /> 
                                 <span></span> 
                             </a> <a href="ServletVerPerfilUsuario?id=${pelicula.usuario.usuario}" class="author">${pelicula.usuario.usuario}</a> </p> 
                         <div class="text collapsible-text"> 
