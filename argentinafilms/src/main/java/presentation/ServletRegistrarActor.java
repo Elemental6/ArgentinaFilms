@@ -1,7 +1,6 @@
 package presentation;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -15,7 +14,6 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import dao.*;
 import model.Actores;
-import model.Peliculas;
 import util.ValidarDatos;
 
 

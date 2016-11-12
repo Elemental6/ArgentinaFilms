@@ -13,10 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import dao.DAOActores;
 import dao.DAOComentarios;
 import dao.DAOResenias;
-import model.Actores;
 import model.Comentarios;
 import model.Resenias;
 import model.Usuarios;

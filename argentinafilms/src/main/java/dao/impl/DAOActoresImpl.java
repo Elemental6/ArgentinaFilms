@@ -12,6 +12,8 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import dao.DAOActores;
 import model.*;
+@SuppressWarnings("unchecked")
+
 
 public class DAOActoresImpl implements DAOActores {
 
@@ -46,6 +48,7 @@ public class DAOActoresImpl implements DAOActores {
 		this.hibernateTemplate.save(actor);
 		
 	}
+
 	@Override
 	public List<Actores> getActivas() {
 		DetachedCriteria crit = DetachedCriteria.forClass(Actores.class);

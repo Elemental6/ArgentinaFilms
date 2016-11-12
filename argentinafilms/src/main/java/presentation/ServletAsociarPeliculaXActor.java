@@ -14,10 +14,8 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import dao.DAOActores;
-import dao.DAODirectores;
 import dao.DAOPeliculas;
 import model.Actores;
-import model.Directores;
 import model.Peliculas;
 
 /**

@@ -16,8 +16,6 @@ import com.google.gson.Gson;
 
 import dao.DAOActores;
 import model.Actores;
-import model.Peliculas;
-import service.ServicePelicula;
 
 /**
  * Servlet implementation class ServletRechazarPeticionActor

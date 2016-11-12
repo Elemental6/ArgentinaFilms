@@ -13,9 +13,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import dao.DAOUsuario;
-import model.Peliculas;
 import model.Usuarios;
-import service.ServicePelicula;
 
 /**
  * Servlet implementation class ServletVerPerfil

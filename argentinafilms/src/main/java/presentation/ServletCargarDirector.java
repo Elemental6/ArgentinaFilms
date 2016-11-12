@@ -14,12 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import service.ServiceActor;
 import service.ServiceDirector;
-import service.ServiceGenero;
-import model.Actores;
 import model.Directores;
-import model.Generos;
 
 import com.google.gson.Gson;
 

@@ -11,6 +11,8 @@ public final class ValidarDatos {
 		
 		return valido;
 	}
+	
+	@SuppressWarnings("unused")
 	public static boolean validarInteger(String variable){
 		boolean valido = true;
 		try{

@@ -37,6 +37,7 @@ public class ServletVerPerfilUsuario extends HttpServlet {
 		this.serviceResenia = (ServiceResenia) context.getBean(ServiceResenia.class);
 	}
 	
+	@SuppressWarnings("unused")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		try{

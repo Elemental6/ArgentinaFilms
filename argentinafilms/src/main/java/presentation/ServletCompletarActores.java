@@ -20,7 +20,6 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import com.google.gson.Gson;
 
 import service.ServiceActor;
-import service.ServicePelicula;
 import model.Actores;
 
 /**
