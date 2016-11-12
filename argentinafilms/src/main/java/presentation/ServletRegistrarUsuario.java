@@ -31,141 +31,140 @@ import util.MailService;
 @SuppressWarnings("serial")
 @WebServlet("/RegistrarUsuario")
 @MultipartConfig
-public class ServletRegistrarUsuario extends HttpServlet{
+public class ServletRegistrarUsuario extends HttpServlet {
 
-	
 	public ServiceUsuario serviceUsuario = null;
-	
+
 	String rutaAbsoluta = null;
 	String rutaRelativa = "imgs/avatares";
-	
-    private static final int THRESHOLD_SIZE     = 1024 * 1024 * 3;  // 3MB
-    private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB
-    private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
-	
+
+	private static final int THRESHOLD_SIZE = 1024 * 1024 * 3; // 3MB
+	private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB
+	private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MB
+
 	@Override
 	public void init(ServletConfig config) {
-		WebApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(config.getServletContext());
+		WebApplicationContext context = WebApplicationContextUtils
+				.getRequiredWebApplicationContext(config.getServletContext());
 		this.serviceUsuario = (ServiceUsuario) context.getBean(ServiceUsuario.class);
-		
+
 		rutaAbsoluta = config.getServletContext().getRealPath(rutaRelativa);
 	}
-	
-	
+
 	@SuppressWarnings({ "unused", "rawtypes" })
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		
 		String nombreImagenAvatar = CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg";
-		String idIngresado=null;
-    	String passIngresado1 = null;
-    	String passIngresado2 =null;
-    	String nombreIngresado = null;
-    	String apellidoIngresado = null;
-    	String emailIngresado = null;
+		String idIngresado = null;
+		String passIngresado1 = null;
+		String passIngresado2 = null;
+		String nombreIngresado = null;
+		String apellidoIngresado = null;
+		String emailIngresado = null;
 
-        // checks if the request actually contains upload file
-        if (!ServletFileUpload.isMultipartContent(request)) {
-            PrintWriter writer = response.getWriter();
-            writer.println("Request does not contain upload data");
-            writer.flush();
-            return;
-        }
-         
-        // configures upload settings
-        DiskFileItemFactory factory = new DiskFileItemFactory();
-        factory.setSizeThreshold(THRESHOLD_SIZE);
-        factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
-         
-        ServletFileUpload upload = new ServletFileUpload(factory);
-        upload.setFileSizeMax(MAX_FILE_SIZE);
-        upload.setSizeMax(MAX_REQUEST_SIZE);
-         
-        // constructs the directory path to store upload file
-//        String uploadPath = getServletContext().getRealPath("")
-//            + File.separator + UPLOAD_DIRECTORY;
-//        // creates the directory if it does not exist
-//        File uploadDir = new File(uploadPath);
-//        if (!uploadDir.exists()) {
-//            uploadDir.mkdir();
-//        }
-         
-        try {
-            // parses the request's content to extract file data
-            List formItems = upload.parseRequest(request);
-            Iterator iter = formItems.iterator();
-             
-            // iterates over form's fields
-            while (iter.hasNext()) {
-                FileItem item = (FileItem) iter.next();
-                // processes only fields that are not form fields
-                if (!item.isFormField()) {
-                    String fileName = new File(item.getName()).getName();
-//                    String filePath = uploadPath + File.separator + fileName;
-                    File storeFile = new File(rutaAbsoluta, nombreImagenAvatar);
-                     
-                    // saves the file on disk
-                    item.write(storeFile);
-                    
-                    
- 
-                    
-                }
-                
-                else{
-                    if(item.getFieldName().equals("txtId"))
-                    {   
-                      idIngresado=item.getString();
-                    }
+		// checks if the request actually contains upload file
+		if (!ServletFileUpload.isMultipartContent(request)) {
+			PrintWriter writer = response.getWriter();
+			writer.println("Request does not contain upload data");
+			writer.flush();
+			return;
+		}
 
+		// configures upload settings
+		DiskFileItemFactory factory = new DiskFileItemFactory();
+		factory.setSizeThreshold(THRESHOLD_SIZE);
+		factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
 
-                    if(item.getFieldName().equals("txtPass1"))
-                    {   
-                    	passIngresado1 = item.getString();
-                    }
+		ServletFileUpload upload = new ServletFileUpload(factory);
+		upload.setFileSizeMax(MAX_FILE_SIZE);
+		upload.setSizeMax(MAX_REQUEST_SIZE);
 
+		// constructs the directory path to store upload file
+		// String uploadPath = getServletContext().getRealPath("")
+		// + File.separator + UPLOAD_DIRECTORY;
+		// // creates the directory if it does not exist
+		// File uploadDir = new File(uploadPath);
+		// if (!uploadDir.exists()) {
+		// uploadDir.mkdir();
+		// }
 
+		try {
+			// parses the request's content to extract file data
+			List formItems = upload.parseRequest(request);
+			Iterator iter = formItems.iterator();
 
-                    if(item.getFieldName().equals("txtPass2"))
-                    {   
-                    	passIngresado2 = item.getString();
-                    }
+			// iterates over form's fields
+			while (iter.hasNext()) {
+				FileItem item = (FileItem) iter.next();
+				// processes only fields that are not form fields
+				if (!item.isFormField()) {
+					String fileName = new File(item.getName()).getName();
+					// String filePath = uploadPath + File.separator + fileName;
+					File storeFile = new File(rutaAbsoluta, nombreImagenAvatar);
 
-                    if(item.getFieldName().equals("txtNombre"))
-                    {   
-                    	nombreIngresado = item.getString();
-                    }
-                    
-                    if(item.getFieldName().equals("txtApellido"))
-                    {   
-                    	apellidoIngresado = item.getString();
-                    }
-                    
-                    if(item.getFieldName().equals("txtEmail"))
-                    {   
-                    	emailIngresado = item.getString();
-                    }
-                }
-            }
-            System.out.println("Upload has been done successfully!");
-        } catch (Exception ex) {
-            System.out.println("There was an error: " + ex.getMessage());
-        }
+					// saves the file on disk
+					item.write(storeFile);
 
-		
-		String avatar  = rutaRelativa + "/" + nombreImagenAvatar;
-//		SubidaDeImagen.Subir(request, response, rutaAbsoluta, nombreImagenAvatar);
-		
+				}
+
+				else {
+					if (item.getFieldName().equals("txtId")) {
+						idIngresado = item.getString();
+					}
+
+					if (item.getFieldName().equals("txtPass1")) {
+						passIngresado1 = item.getString();
+					}
+
+					if (item.getFieldName().equals("txtPass2")) {
+						passIngresado2 = item.getString();
+					}
+
+					if (item.getFieldName().equals("txtNombre")) {
+						nombreIngresado = item.getString();
+					}
+
+					if (item.getFieldName().equals("txtApellido")) {
+						apellidoIngresado = item.getString();
+					}
+
+					if (item.getFieldName().equals("txtEmail")) {
+						emailIngresado = item.getString();
+					}
+				}
+			}
+			System.out.println("Upload has been done successfully!");
+		} catch (Exception ex) {
+			System.out.println("There was an error: " + ex.getMessage());
+		}
+
+		String avatar = rutaRelativa + "/" + nombreImagenAvatar;
+		// SubidaDeImagen.Subir(request, response, rutaAbsoluta,
+		// nombreImagenAvatar);
+
 		String codActivacion = CodigoAleatorio.getCadenaAlfanumAleatoria(15);
-		
-		if(passIngresado1 == passIngresado2){
+
+		if (passIngresado1 == passIngresado2) {
 			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
-	        request.setAttribute("mensajeResultado", "Las contraseñas no coinciden. Reintente por favor.");
+			request.setAttribute("mensajeResultado", "Las contraseñas no coinciden. Reintente por favor.");
 			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
 			return;
 		}
-		
+
 		Usuarios usuario = new Usuarios();
+
+		// * El nombre debe contener solo números o letras.*/
+		String regExLetraNumero = "[a-zA-Z0-9]{1,}";
+		if (idIngresado.matches(regExLetraNumero)) {
+			usuario.setUsuario(idIngresado);
+		} else {
+			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
+			request.setAttribute("mensajeResultado", "El usuario solo puede contener números o letras");
+			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
+			return;
+		}
+
 		usuario.setUsuario(idIngresado);
 		usuario.setPass(passIngresado1);
 		usuario.setNombre(nombreIngresado);
@@ -175,41 +174,35 @@ public class ServletRegistrarUsuario extends HttpServlet{
 		usuario.setEstado(false);
 		usuario.setAvatar(avatar);
 		usuario.setCodActivacion(codActivacion);
-		
-		try{
+
+		try {
 			this.serviceUsuario.add(usuario);
-		}
-		catch(DataIntegrityViolationException e){
+		} catch (DataIntegrityViolationException e) {
 			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
-	        request.setAttribute("mensajeResultado", "El nombre de usuario o e-mail ingresado ya existe. Reintente con otro nombre y luego con otro mail por favor.");
+			request.setAttribute("mensajeResultado",
+					"El nombre de usuario o e-mail ingresado ya existe. Reintente con otro nombre y luego con otro mail por favor.");
 			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
 			return;
 		}
-		
-		
-		MailService mailService = new MailService();
-		mailService.Enviar("argentinafilms2016@gmail.com", "primavera322",
-						emailIngresado,
-						"Confirmación de registro en Argentina Films",
-						
-						"<h4 style=\"text-align: center;\">" +
-						"<img src=\"https://68.media.tumblr.com/2977aa25fe30dab5c35a67f0eb3b4424/tumblr_ofzmu7O1eu1tq5qvgo1_400.png\"" +
-						"alt=\"\" width=\"320\" height=\"92\" /></h4>" + 
-						"<h4 style=\"text-align: center;\">Estimado " +
-						"<strong><span style=\"color: #008000;\">" +
-						idIngresado + "</span>:</strong></h4>" +
-						"<h4 style=\"text-align: center;\">Gracias por registrarte " + 
-						"en <span style=\"color: #008000;\"><strong>Argentina Films</strong></span>. " + 
-						"Este es tu código de confirmación para poder activar tu cuenta:</h4>" +
-						"<h2 style=\"text-align: center;\"><span style=\"text-decoration: underline; color: #000000;\">" +
-						"<strong>" + codActivacion + "</strong></span></h2>" +
-						"<h4 style=\"text-align: center;\"><br />Por favor aseg&uacute;rate de no agregar espacios extras.</h4>" +
-						"<h4 style=\"text-align: center;\">Si a&uacute;n est&aacute;s teniendo problemas para activar tu cuenta, " +
-						"por favor contact&aacute; a un miembro de nuestro personal de soporte en argentinafilms2016@info.<wbr />com</h4>" +
-						"<h4 style=\"text-align: center;\">Saludos cordiales.</h4> " +
-						"<h4 style=\"text-align: center;\">Equipo de Argentina Films</h4>");
 
-		
+		MailService mailService = new MailService();
+		mailService.Enviar("argentinafilms2016@gmail.com", "primavera322", emailIngresado,
+				"Confirmación de registro en Argentina Films",
+
+				"<h4 style=\"text-align: center;\">"
+						+ "<img src=\"https://68.media.tumblr.com/2977aa25fe30dab5c35a67f0eb3b4424/tumblr_ofzmu7O1eu1tq5qvgo1_400.png\""
+						+ "alt=\"\" width=\"320\" height=\"92\" /></h4>" + "<h4 style=\"text-align: center;\">Estimado "
+						+ "<strong><span style=\"color: #008000;\">" + idIngresado + "</span>:</strong></h4>"
+						+ "<h4 style=\"text-align: center;\">Gracias por registrarte "
+						+ "en <span style=\"color: #008000;\"><strong>Argentina Films</strong></span>. "
+						+ "Este es tu código de confirmación para poder activar tu cuenta:</h4>"
+						+ "<h2 style=\"text-align: center;\"><span style=\"text-decoration: underline; color: #000000;\">"
+						+ "<strong>" + codActivacion + "</strong></span></h2>"
+						+ "<h4 style=\"text-align: center;\"><br />Por favor aseg&uacute;rate de no agregar espacios extras.</h4>"
+						+ "<h4 style=\"text-align: center;\">Si a&uacute;n est&aacute;s teniendo problemas para activar tu cuenta, "
+						+ "por favor contact&aacute; a un miembro de nuestro personal de soporte en argentinafilms2016@info.<wbr />com</h4>"
+						+ "<h4 style=\"text-align: center;\">Saludos cordiales.</h4> "
+						+ "<h4 style=\"text-align: center;\">Equipo de Argentina Films</h4>");
 
 		HttpSession sesion = request.getSession(true);
 		sesion.setAttribute("emailConfirmacion", emailIngresado);
@@ -217,6 +210,5 @@ public class ServletRegistrarUsuario extends HttpServlet{
 
 		request.getRequestDispatcher("/ActivarCuenta.jsp").forward(request, response);
 	}
-	
-	
+
 }
