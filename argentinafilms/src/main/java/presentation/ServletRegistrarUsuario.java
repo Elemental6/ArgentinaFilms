@@ -145,28 +145,53 @@ public class ServletRegistrarUsuario extends HttpServlet {
 
 		String codActivacion = CodigoAleatorio.getCadenaAlfanumAleatoria(15);
 
-		if (passIngresado1 == passIngresado2) {
-			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
-			request.setAttribute("mensajeResultado", "Las contraseñas no coinciden. Reintente por favor.");
-			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
-			return;
-		}
+		// if (passIngresado1 == passIngresado2) {
+		// request.setAttribute("tipoMensaje", "alert alert-dismissable
+		// alert-danger");
+		// request.setAttribute("mensajeResultado", "Las contraseñas no
+		// coinciden. Reintente por favor.");
+		// request.getRequestDispatcher("/Registrarse.jsp").forward(request,
+		// response);
+		// return;
+		// }
 
 		Usuarios usuario = new Usuarios();
 
-		// * El nombre debe contener solo números o letras.*/
-		String regExLetraNumero = "[a-zA-Z0-9]{1,}";
-		if (idIngresado.matches(regExLetraNumero)) {
+		// RegEx
+		String regExUsuario = "[a-zA-Z1-9_]{4,10}";
+		String regExContrasenia = "[a-zA-Z0-9]{8,20}";
+
+		// Validación usuario*/
+		if (idIngresado.matches(regExUsuario)) {
 			usuario.setUsuario(idIngresado);
 		} else {
-			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
-			request.setAttribute("mensajeResultado", "El usuario solo puede contener números o letras");
+			request.setAttribute("tipoMensaje", "alert alert-warning alert-dismissible");
+			request.setAttribute("mensajeResultado", "El usuario solo puede contener de 4 a 10 números o letras");
 			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
 			return;
 		}
 
-		usuario.setUsuario(idIngresado);
-		usuario.setPass(passIngresado1);
+		// usuario.setUsuario(idIngresado);
+
+		// * Validación password*/
+		if (passIngresado1.matches(regExContrasenia)) {
+			if (passIngresado1 == passIngresado2) {
+				usuario.setPass(passIngresado1);
+			} else {
+				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-warning");
+				request.setAttribute("mensajeResultado", "Las contraseñas deben coincidir");
+				request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
+				return;
+			}
+
+		} else {
+			request.setAttribute("tipoMensaje", "alert alert-dismissible alert-warning");
+			request.setAttribute("mensajeResultado", "La contraseña solo puede contener números o letras");
+			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
+			return;
+		}
+
+		// usuario.setPass(passIngresado1);
 		usuario.setNombre(nombreIngresado);
 		usuario.setApellido(apellidoIngresado);
 		usuario.setEmail(emailIngresado);

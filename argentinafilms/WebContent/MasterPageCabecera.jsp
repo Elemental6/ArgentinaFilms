@@ -14,6 +14,7 @@
 
 <link rel="shortcut icon" href="imgs/AFFavicon.ico" type="image/x-icon" />
 
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/dashboard.css" rel="stylesheet">
 <link href="css/lb.min.css" rel="stylesheet" type="text/css">
@@ -23,6 +24,7 @@
 <link href="css/contenido.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/seccion-desplegable.js"></script>
 <script type="text/javascript" src="js/sweetalert.min.js"></script>
 <script type="text/javascript" src="js/others.js"></script>
