@@ -1,5 +1,6 @@
 <jsp:include page="MasterPageCabecera.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<c:import url="/ListarUsuarios" /> <!-- llamo servlet al cargar pagina -->
     
 <div class="contenido">
 
@@ -15,55 +16,87 @@
     
 <c:if test="${userLogueado.rango == 'admin'}">
 
-    <div class="login">
-		<h1 class="text-center titulo-seccion"><img src="imgs/CambiarRango.png" class="imagen-seccion" />CAMBIAR RANGO A USUARIO</h1>
+ 	
+	<div class="login">
+		<h1 class="text-center titulo-seccion"><img src="imgs/CambiarRango.png" class="imagen-seccion" />CAMBIAR RANGO USUARIO</h1>
 	</div>
-        
-        <div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
-        
-        <form role="form" class="login form-horizontal" action="CambiarRangoUsuario" method="POST"> 
-        
-            <div class="form-group"> 
-                <label class="control-label col-sm-2">Nombre de usuario:</label>                 
-                <div class="col-sm-10">
-                    <div>
-                        <div>
-                            <div>
-                                <input type="text" class="form-control" name="txtNombreUsuario" placeholder="Ingrese el nombre de usuario" maxlength=15 required>
-                            </div>
-                        </div>
-                    </div>
-                </div>                 
-            </div>             
-            <div class="form-group"> 
-                <label class="control-label col-sm-2">Rango:</label>                 
-                <div class="col-sm-10">
-                    <div>
-                        <div>
-                            <div>
-                                <select id="ddlRango" name="ddlRango" class="input-sm">
-		               				<option value="novato">Novato</option>
-		                			<option value="moderador">Moderador</option>
-		                			<option value="admin">Administrador</option>
-		            			</select>
-                            </div>
-                        </div>
-                    </div>
-                </div>                 
-            </div>             
- 
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <div>
-                        <div>
-                            <div>
-                                <button type="submit" class="btn btn-success" id="btnCambiarRango">Cambiar rango</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>             
-        </form>
+
+	<div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
+
+		<table class="table" style="font-color: yellow!important; font-size: 14px!important; width: 900px!important; margin: auto;"> 
+		    <thead> 
+		        <tr> 
+		            <th>Nombre de usuario</th> 
+		            <th>Nombre y Apellido</th> 
+		            <th>E-mail</th> 
+		            <th>Rango</th>
+		            <th>Acción</th>
+		        </tr>         
+		    </thead>     
+		
+		    <tbody>
+		    
+		   		 <c:if test="${usuarios.size() == 0 || usuarios == null}">
+					<tr><td colspan="5" align="center">No existen usuarios activos.</td></tr>
+				</c:if>
+		    
+				<c:forEach items="${usuarios}" var="usuario">
+				
+				<form action="CambiarRangoUsuario" method="POST" id="filaUsuario">
+				
+				<input name="userSeleccionado" value="${usuario.usuario}" type="hidden"></input>
+				
+						<tr>
+						<td>${usuario.usuario}</td>
+						<td>${usuario.nombre} ${usuario.apellido}</td>
+						<td>${usuario.email}</td>
+
+						<td style="width:200px!important">
+							<select id="rangoSeleccionado" name="rangoSeleccionado" class="input-sm">
+		                	<option value="novato" <c:if test="${usuario.rango == 'novato'}">selected</c:if>>Novato</option>
+		                	<option value="moderador" <c:if test="${usuario.rango == 'moderador'}">selected</c:if>>Moderador</option>
+		                	<option value="admin" <c:if test="${usuario.rango == 'admin'}">selected</c:if>>Administrador</option>
+		            		</select>
+                    	</td>
+                    	
+                    	<td><button type="submit" class="btn btn-success btn-sm" style="margin: auto!important">Cambiar rango</button></td>
+						</tr>
+					
+				</form>
+				</c:forEach>
+			</tbody>
+		</table>
+
+
+	<div class="paginado" align="center">
+
+
+		<ul class="pagination lead" data-pg-collapsed> 
+		<c:if test="${paginaActual != 1}">
+		    <li>
+		        <a href="CambiarRangoUsuario.jsp?pagina=1">&laquo;</a>
+		    </li>    
+		 </c:if>   
+		     
+		     
+		 <c:forEach begin="1" end="${cantPaginas}" var="i">    
+
+
+		    <li <c:if test="${paginaActual == i}">class="active"</c:if>>
+		        <a href="CambiarRangoUsuario.jsp?pagina=${i}">${i}</a>
+		    </li>     
+
+		   </c:forEach> 
+		    
+		    <c:if test="${paginaActual lt cantPaginas}">
+		    <li>
+		        <a href="CambiarRangoUsuario.jsp?pagina=${cantPaginas}">&raquo;</a>
+		    </li>     
+		    </c:if>
+		</ul>
+
+
+	</div>
         
  </c:if>       
         

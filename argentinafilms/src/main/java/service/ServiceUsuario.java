@@ -15,5 +15,9 @@ public interface ServiceUsuario {
 	public void update(Usuarios usuario);
 	
 	public void delete(String nombreUsuario);
+
+	public List<Usuarios> getActivos(int offset, int cantRegistros);
+
+	public int getCantActivos();
 	
 }

@@ -17,15 +17,15 @@
 
         <div class="row text-center">
         
-          <div class="col-md-6" onclick="location.href='AceptarPeliculas.jsp';"  style="cursor:pointer;">
-            <img src="imgs/AceptarPeliculas.png" class="img-responsive img-thumbnail">
+          <div class="col-md-6" onclick="location.href='CantidadVisitas.jsp';"  style="cursor:pointer;">
+            <img src="imgs/cantVisitas.png" class="img-responsive img-thumbnail">
             <h1 class="text-primary">CANTIDAD DE VISITAS</h1>
             <p></p>
             <p></p>
           </div>
           
-          <div class="col-md-6" onclick="location.href='AceptarActores.jsp';" style="cursor:pointer;">
-            <img src="imgs/AceptarActores.png" class="img-responsive img-thumbnail">
+          <div class="col-md-6" onclick="location.href='MasActivos.jsp';" style="cursor:pointer;">
+            <img src="imgs/actividadUsuarios.png" class="img-responsive img-thumbnail">
             <h1 class="text-primary">USUARIOS MÁS ACTIVOS</h1>
             <p></p>
             <p></p>

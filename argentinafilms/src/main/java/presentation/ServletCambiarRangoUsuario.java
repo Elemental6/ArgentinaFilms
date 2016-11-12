@@ -32,15 +32,14 @@ public class ServletCambiarRangoUsuario extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-		String usuarioIngresado = request.getParameter("txtNombreUsuario");
-		String nuevoRango = request.getParameter("ddlRango");
+		String usuarioIngresado = request.getParameter("userSeleccionado");
+		String nuevoRango = request.getParameter("rangoSeleccionado");
 		
 		Usuarios usuario = this.serviceUsuario.getByUserName(usuarioIngresado);
 		
 		try{
-		usuario.setRango(nuevoRango);
-		
-		
+			usuario.setRango(nuevoRango);
+
 			this.serviceUsuario.update(usuario);;
 		}
 		catch(NullPointerException e){
@@ -52,7 +51,7 @@ public class ServletCambiarRangoUsuario extends HttpServlet{
 		
 		request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
         request.setAttribute("mensajeResultado", "El usuario " + usuario.getUsuario() + "fue cambiadado a rango " + nuevoRango + ".");
-		request.getRequestDispatcher("/CambiarRangoUsuario.jsp").forward(request, response);
+		response.sendRedirect("CambiarRangoUsuario.jsp");
 	}
 	
 	

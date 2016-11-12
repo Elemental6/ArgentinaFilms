@@ -16,4 +16,8 @@ public interface DAOUsuario {
 	
 	void save(Usuarios usuario);
 
+	List<Usuarios> getActivos(int offset, int cantRegistros);
+
+	int getCantActivos();
+
 }

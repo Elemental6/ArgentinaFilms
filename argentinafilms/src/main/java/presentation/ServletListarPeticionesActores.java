@@ -15,13 +15,11 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import dao.DAOActores;
 import model.Actores;
-import model.Peliculas;
-import service.ServicePelicula;
 
 /**
  * Servlet implementation class ServletListarPeticionesActores
  */
-@SuppressWarnings("serial")
+
 @WebServlet("/ListarPeticionesActores")
 public class ServletListarPeticionesActores extends HttpServlet {
 	private static final long serialVersionUID = 1L;
