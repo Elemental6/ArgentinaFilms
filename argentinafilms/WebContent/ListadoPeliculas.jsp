@@ -253,7 +253,8 @@ td.text-right {
                 	<p class="film-detail-meta rating-green film-detail-with-author"> <a class="avatar avatar-24"> 
                     <img src="<%= getServletContext().getRealPath("/") %>${Pelicula.usuario.avatar}" width="24" height="24" /> 
                     <span></span> 
-                    </a> <a href="/perfil/${Pelicula.usuario.usuario}" class="author">${Pelicula.usuario.usuario}</a> </p> 
+                    
+                    </a> <a href="ServletVerPerfilUsuario?id=${Pelicula.usuario.usuario}" class="author">${Pelicula.usuario.usuario}</a> </p> 
                         <div class="text collapsible-text"> 
                 	<p>${Pelicula.synopsis}</p>
               	</div>                         
