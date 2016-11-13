@@ -12,6 +12,21 @@ public final class ValidarDatos {
 		return valido;
 	}
 	
+	// Permite espacios //
+	public static boolean validarNombresyApellidos(String variable){
+		boolean valido = true;
+		
+		if (variable.equals(null)) valido = false;
+		if (!variable.matches("^([a-zA-Z]+\\s)*[a-zA-Z]+$")) {
+			valido = false;
+			System.out.println("Nombre: " + valido);
+		}
+		if (variable.length()>100) valido = false;
+		
+		return valido;
+	}
+	
+	
 	@SuppressWarnings("unused")
 	public static boolean validarInteger(String variable){
 		boolean valido = true;

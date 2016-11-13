@@ -60,6 +60,8 @@ public class ServletVerPelicula extends HttpServlet {
 
 			Puntajes puntajeUserLogueado = this.servicePuntaje.getByUsuarioYPelicula(usuario, pelicula);
 			request.getSession().setAttribute("puntajeUserLogueado", puntajeUserLogueado);
+			
+			response.sendRedirect("VerPelicula.jsp?pelicula_id="+ id);
 
 		}
 		catch(NullPointerException | NumberFormatException e){

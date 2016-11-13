@@ -48,18 +48,36 @@ public class ServletRegistrarActor extends HttpServlet {
 		doGet(request, response);		
 		
 		
-		Integer errores = 0;
+	
 		try{
 			String nombre = request.getParameter("actor_nombre");
-			if (!ValidarDatos.validarString(nombre)) errores++;	
+			if (!ValidarDatos.validarNombresyApellidos(nombre)){
+				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+				request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+				request.setAttribute("mensajeResultado", "El nombre no permite caracteres especiales o numeros. Reintente por favor.");
+				request.getRequestDispatcher("/AgregarActor.jsp").forward(request, response);
+				return;
+			}
 			
 			String apellido = request.getParameter("actor_apellido");
-			if (!ValidarDatos.validarString(apellido)) errores++;
+			if (!ValidarDatos.validarNombresyApellidos(apellido)){
+				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+				request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+				request.setAttribute("mensajeResultado", "El nombre no permite caracteres especiales o numeros. Reintente por favor.");
+				request.getRequestDispatcher("/AgregarActor.jsp").forward(request, response);
+				return;
+			}
 			
 			Integer edad = Integer.parseInt(request.getParameter("actor_edad"));
-			if (!ValidarDatos.validarInteger(request.getParameter("actor_edad"))) errores++;
+			if (!ValidarDatos.validarInteger(request.getParameter("actor_edad"))){
+				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+				request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+				request.setAttribute("mensajeResultado", "La edad debe ser numeros entre 1 y 120 anios. Reintente por favor.");
+				request.getRequestDispatcher("/AgregarActor.jsp").forward(request, response);
+				return;
+			}
 			
-			if (errores == 0){
+			
 				Actores actor = new Actores (nombre,apellido,edad, false);
 				// Guardar actor
 				this.actorService.save(actor);
@@ -67,19 +85,15 @@ public class ServletRegistrarActor extends HttpServlet {
 				System.out.println("Datos guardados");
 				request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
 		        request.setAttribute("mensajeResultado", "Actor agregado");	     
-			}
+			
 			
 		}		
 		catch (Exception e){
 			System.out.println(e.getLocalizedMessage());
-			
+			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
+	        request.setAttribute("mensajeResultado", "Datos incorrectos");
 		}
-		finally{
-			if (errores >= 1){
-				request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
-		        request.setAttribute("mensajeResultado", "Datos incorrectos");
-			}
-		}
+		
         request.getRequestDispatcher("/AgregarActor.jsp").forward(request, response);
 	}
 	@Override

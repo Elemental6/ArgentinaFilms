@@ -27,6 +27,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import service.ServiceUsuario;
 import util.CodigoAleatorio;
 import util.MailService;
+import util.ValidarDatos;
 
 @SuppressWarnings("serial")
 @WebServlet("/RegistrarUsuario")
@@ -160,14 +161,14 @@ public class ServletRegistrarUsuario extends HttpServlet {
 		// RegEx
 		String regExUsuario = "[a-zA-Z1-9_]{4,10}";
 		String regExContrasenia = "[a-zA-Z0-9]{8,20}";
-
+	
 		// Validación usuario*/
 		if (idIngresado.matches(regExUsuario)) {
 			usuario.setUsuario(idIngresado);
 		} else {
 			request.setAttribute("tipoMensaje", "alert alert-danger alert-dismissible");
 			request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
-			request.setAttribute("mensajeResultado", "El usuario solo puede contener de 4 a 10 números o letras");
+			request.setAttribute("mensajeResultado", "El usuario solo puede contener de 4 a 10 números o letras. Reintente por favor.");
 			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
 			return;
 		}
@@ -189,11 +190,28 @@ public class ServletRegistrarUsuario extends HttpServlet {
 		} else {
 			request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
 			request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
-			request.setAttribute("mensajeResultado", "La contraseña solo puede contener números o letras. Reintente por favor.");
+			request.setAttribute("mensajeResultado", "La contraseña solo puede contener números o letras y debe ser 8 caracteres o mayor. Reintente por favor.");
 			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
 			return;
 		}
-
+		
+		// Validar nombre y apellido
+		
+		if (!ValidarDatos.validarNombresyApellidos(nombreIngresado)){
+			request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+			request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+			request.setAttribute("mensajeResultado", "Su nombre no permite caracteres especiales o numeros. Reintente por favor");
+			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
+			return;
+		}
+		if (!ValidarDatos.validarNombresyApellidos(apellidoIngresado)){
+			request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+			request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+			request.setAttribute("mensajeResultado", "Su apellido no permite caracteres especiales o numeros. Reintente por favor");
+			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
+			return;
+		}
+	
 		// usuario.setPass(passIngresado1);
 		usuario.setNombre(nombreIngresado);
 		usuario.setApellido(apellidoIngresado);

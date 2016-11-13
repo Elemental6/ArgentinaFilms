@@ -199,7 +199,9 @@
 										<div>
 											<div>
 												<textarea class="form-control" name="resenia" cols="40"
-													rows="5" required></textarea>
+													rows="5" 
+										required title="Resenia debe contener de 10 a 250 caracteres."
+										maxlength="250"></textarea>
 
 											</div>
 										</div>

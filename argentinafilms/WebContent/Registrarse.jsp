@@ -23,7 +23,7 @@
 						<div>
 							<div>
 								<input type="text" class="form-control" name="txtId"
-									placeholder="Ingrese su nombre de usuario" required>
+									placeholder="Ingrese su nombre de usuario" pattern=".{4,10}" required title="Usuario debe contener de 4 a 10 caracteres." maxlength="10">
 							</div>
 						</div>
 					</div>
@@ -37,7 +37,7 @@
 						<div>
 							<div>
 								<input type="password" class="form-control login"
-									name="txtPass1" placeholder="Ingrese su contraseña" required>
+									name="txtPass1" placeholder="Ingrese su contraseña" pattern=".{8,20}" required title="Password debe contener de 8 a 20 caracteres." maxlength="20">
 							</div>
 						</div>
 					</div>
@@ -51,7 +51,7 @@
 						<div>
 							<div>
 								<input type="password" class="form-control login"
-									name="txtPass2" placeholder="Repita su contraseña" required>
+									name="txtPass2" placeholder="Repita su contraseña" pattern=".{8,20}" required title="Password debe contener de 8 a 20 caracteres." maxlength="20">
 							</div>
 						</div>
 					</div>
@@ -80,7 +80,7 @@
 						<div>
 							<div>
 								<input type="text" class="form-control login" name="txtNombre"
-									placeholder="Ingrese su nombre real" required>
+									placeholder="Ingrese su nombre real" pattern=".{2,100}" required title="Nombre debe contener de 2 a 100 caracteres." maxlength="100" >
 							</div>
 						</div>
 					</div>
@@ -94,7 +94,7 @@
 						<div>
 							<div>
 								<input type="text" class="form-control login" name="txtApellido"
-									placeholder="Ingrese su apellido real" required>
+									placeholder="Ingrese su apellido real" pattern=".{2,100}" required title="Apellido debe contener de 2 a 100 caracteres." maxlength="100">
 							</div>
 						</div>
 					</div>

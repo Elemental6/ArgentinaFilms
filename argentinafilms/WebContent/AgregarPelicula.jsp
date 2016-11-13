@@ -1,11 +1,42 @@
 <jsp:include page="MasterPageCabecera.jsp" />
 <script type="text/javascript" src="js/AgregarPelicula.js"></script>
 <link href="css/select2.min.css" rel="stylesheet">
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 
 <div class="contenido">
+<c:if test="${empty userLogueado}">
+			<style>
+					div.container a {
+						text-align: center;
+						font-family: Arial;
+						font-size: 22px;
+						font-style: normal;
+						font-weight: bold;
+						text-decoration: underline;
+						text-transform: none;
+						color: #ff0000;
+						margin-bottom: 20px;
+					}
+					
+					div.container {
+						margin: 0 auto;
+						width: 200px;
+					}
+		</style>
+
+			<div class="container">
+				<img src="imgs/SinPermisos.png" class="text-center img-responsive"  style="margin:auto;">
+				<a href="IniciarSesion.jsp">Inicie sesión para proceder.</a>
+
+			</div>
+
+
+		</c:if>
+<c:if test="${not empty userLogueado}">
+
+
 
     <div class="login reg">
         <h1 class="text-center titulo-seccion"><img src="imgs/register.png" class="imagen-seccion" />Agregar Pelicula</h1>
@@ -182,7 +213,7 @@
             </div>    
 	 </form>
     </div>
-    
+    </c:if>
 </div>		 
 		
 		<script type="text/javascript" src="js/select2.min.js"></script>

@@ -46,22 +46,37 @@ public class ServletRegistrarDirector extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
-		
-					
+			
 				
-				
-				Integer errores = 0;
 				try{
 					String nombre = request.getParameter("director_nombre");
-					if (!ValidarDatos.validarString(nombre)) errores++;	
+					if (!ValidarDatos.validarNombresyApellidos(nombre)){						
+						request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+						request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+						request.setAttribute("mensajeResultado", "El nombre no permite caracteres especiales o numeros. Reintente por favor.");
+						request.getRequestDispatcher("/AgregarDirector.jsp").forward(request, response);
+						return;
+					}
 					
 					String apellido = request.getParameter("director_apellido");
-					if (!ValidarDatos.validarString(apellido)) errores++;
+					if (!ValidarDatos.validarNombresyApellidos(apellido)){
+						request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+						request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+						request.setAttribute("mensajeResultado", "El apellido no permite caracteres especiales o numeros. Reintente por favor.");
+						request.getRequestDispatcher("/AgregarDirector.jsp").forward(request, response);
+						return;
+					} 
 					
 					Integer edad = Integer.parseInt(request.getParameter("director_edad"));
-					if (!ValidarDatos.validarInteger(request.getParameter("director_edad"))) errores++;
+					if (!ValidarDatos.validarInteger(request.getParameter("director_edad"))){
+						request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+						request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+						request.setAttribute("mensajeResultado", "La edad debe ser entre 1 y 120 anios. Reintente por favor.");
+						request.getRequestDispatcher("/AgregarDirector.jsp").forward(request, response);
+						return;
+					}
 					
-					if (errores == 0){
+					
 						Directores director = new Directores (nombre,apellido,edad);
 						// Guardar actor
 						this.directorService.save(director);
@@ -69,19 +84,15 @@ public class ServletRegistrarDirector extends HttpServlet {
 						System.out.println("Datos guardados");
 						request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
 				        request.setAttribute("mensajeResultado", "Director agregado");	     
-					}
+					
 					
 				}		
 				catch (Exception e){
 					System.out.println(e.getLocalizedMessage());
-					
+					request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
+			        request.setAttribute("mensajeResultado", "Datos incorrectos");
 				}
-				finally{
-					if (errores >= 1){
-						request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
-				        request.setAttribute("mensajeResultado", "Datos incorrectos");
-					}
-				}
+			
 		        request.getRequestDispatcher("/AgregarDirector.jsp").forward(request, response);
 	}
 	@Override

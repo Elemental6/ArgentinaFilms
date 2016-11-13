@@ -1,6 +1,39 @@
 <jsp:include page="MasterPageCabecera.jsp" />
-    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="contenido">
+
+<c:if test="${empty userLogueado}">
+			<style>
+					div.container a {
+						text-align: center;
+						font-family: Arial;
+						font-size: 22px;
+						font-style: normal;
+						font-weight: bold;
+						text-decoration: underline;
+						text-transform: none;
+						color: #ff0000;
+						margin-bottom: 20px;
+					}
+					
+					div.container {
+						margin: 0 auto;
+						width: 200px;
+					}
+		</style>
+
+			<div class="container">
+				<img src="imgs/SinPermisos.png" class="text-center img-responsive"  style="margin:auto;">
+				<a href="IniciarSesion.jsp">Inicie sesión para proceder.</a>
+
+			</div>
+
+
+		</c:if>
+<c:if test="${not empty userLogueado}">
+
+
+
     <div class="login reg">
         <h1 class="text-center titulo-seccion"><img src="imgs/RegistrarDirector.png" class="imagen-seccion" />Registrar Director</h1>
         
@@ -15,7 +48,9 @@
                     <div>
                         <div>
                             <div>
-                                <input type="text" class="form-control" name="director_nombre" placeholder="Ingrese nombre del actor" required>
+                                <input type="text" class="form-control" name="director_nombre" placeholder="Ingrese nombre del actor" pattern=".{2,100}"
+										required title="Nombre debe contener de 2 a 100 caracteres."
+										maxlength="100">
                             </div>
                         </div>
                     </div>
@@ -28,7 +63,9 @@
                     <div>
                         <div>
                             <div>
-                                <input type="text" class="form-control login" name="director_apellido" placeholder="Ingrese apellido del actor" required>
+                                <input type="text" class="form-control login" name="director_apellido" placeholder="Ingrese apellido del actor" pattern=".{2,100}"
+										required title="Apellido debe contener de 2 a 100 caracteres."
+										maxlength="100">
                             </div>
                         </div>
                     </div>
@@ -57,7 +94,7 @@
                     <div>
                         <div>
                             <div>
-                                <button type="submit" class="btn btn-success" id="btnAgregarActor">Agregar actor</button>
+                                <button type="submit" class="btn btn-success" id="btnAgregarDirector">Agregar director</button>
                             </div>
                         </div>
                     </div>
@@ -67,6 +104,8 @@
                      
         </form>
     </div>
+    
+    </c:if>
 </div>
 
 <jsp:include page="MasterPageFooter.jsp" />
