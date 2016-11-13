@@ -165,7 +165,8 @@ public class ServletRegistrarUsuario extends HttpServlet {
 		if (idIngresado.matches(regExUsuario)) {
 			usuario.setUsuario(idIngresado);
 		} else {
-			request.setAttribute("tipoMensaje", "alert alert-warning alert-dismissible");
+			request.setAttribute("tipoMensaje", "alert alert-danger alert-dismissible");
+			request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
 			request.setAttribute("mensajeResultado", "El usuario solo puede contener de 4 a 10 números o letras");
 			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
 			return;
@@ -175,18 +176,20 @@ public class ServletRegistrarUsuario extends HttpServlet {
 
 		// * Validación password*/
 		if (passIngresado1.matches(regExContrasenia)) {
-			if (passIngresado1 == passIngresado2) {
+			if (passIngresado1 != passIngresado2) {
 				usuario.setPass(passIngresado1);
 			} else {
-				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-warning");
-				request.setAttribute("mensajeResultado", "Las contraseñas deben coincidir");
+				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+				request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+				request.setAttribute("mensajeResultado", "Las contraseñas no coinciden. Reintente por favor.");
 				request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
 				return;
 			}
 
 		} else {
-			request.setAttribute("tipoMensaje", "alert alert-dismissible alert-warning");
-			request.setAttribute("mensajeResultado", "La contraseña solo puede contener números o letras");
+			request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+			request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+			request.setAttribute("mensajeResultado", "La contraseña solo puede contener números o letras. Reintente por favor.");
 			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
 			return;
 		}
@@ -204,8 +207,9 @@ public class ServletRegistrarUsuario extends HttpServlet {
 			this.serviceUsuario.add(usuario);
 		} catch (DataIntegrityViolationException e) {
 			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
+			request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
 			request.setAttribute("mensajeResultado",
-					"El nombre de usuario o e-mail ingresado ya existe. Reintente con otro nombre y luego con otro mail por favor.");
+					"El nombre de usuario o e-mail ingresado no están disponibles. Reintente con otro nombre y otro mail por favor.");
 			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
 			return;
 		}

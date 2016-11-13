@@ -82,29 +82,41 @@
 										test="${userLogueado.rango == 'moderador'}">Moderar</c:if>
 							</a></li>
 						</c:if>
+						
+						<c:if test="${userLogueado.estado == true}">
+							<li><a href="AgregarPelicula.jsp">
+									<!-- <span class="glyphicon glyphicon-log-in"></span> -->
+									Agregar película
+							</a></li>
+							<li><a href="AgregarActor.jsp"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Registrar
+									Actor
+							</a></li>
+							<li><a href="AgregarDirector.jsp"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Registrar
+									Director
+							</a></li>
+							<li><a href="ServletAsociarPeliculaXActor"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Asociar
+									Actor con pelicula
+							</a></br>
+							</br></li>
+							<li><a href="ServletAsociarDirectorXPelicula"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Asociar
+									Director con pelicula
+							</a><br>
+							</br></li>
+						</c:if>	
+						
+						<c:if test="${userLogueado.estado == false}">
+							<li><a href="ReenviarMailActivacion">
+									<!-- <span class="glyphicon glyphicon-log-in"></span> -->
+									Activar cuenta
+							</a></li>
+						</c:if>	
 
-						<li><a href="AgregarPelicula.jsp">
-								<!-- <span class="glyphicon glyphicon-log-in"></span> -->
-								Agregar película
-						</a></li>
-						<li><a href="AgregarActor.jsp"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Registrar
-								Actor
-						</a></li>
-						<li><a href="AgregarDirector.jsp"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Registrar
-								Director
-						</a></li>
-						<li><a href="ServletAsociarPeliculaXActor"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Asociar
-								Actor con pelicula
-						</a></br>
-						</br></li>
-						<li><a href="ServletAsociarDirectorXPelicula"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Asociar
-								Director con pelicula
-						</a></br>
-						</br></li>
-						<li><a href="CerrarSesion">
-								<!-- <span class="glyphicon glyphicon-log-out"></span> -->
-								Cerrar sesión
-						</a></li>
+							<li><a href="CerrarSesion">
+									<!-- <span class="glyphicon glyphicon-log-out"></span> -->
+									Cerrar sesión
+							</a></li>
+							
+						
 					</c:if>
 
 				</ul>

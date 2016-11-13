@@ -20,7 +20,7 @@
 
                 swal({
                     title: "Registro exitoso",
-                    text: "Tu cuenta ha sido activada con éxito. Ya podés iniciar sesión.",
+                    text: "Tu cuenta ha sido activada con éxito. Ya podés agregar películas, public reseñas, comentar y mucho más!",
                     type: "success"
                 }, function () {
                       window.location.href = 'Inicio.jsp';

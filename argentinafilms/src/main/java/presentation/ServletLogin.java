@@ -43,7 +43,7 @@ public class ServletLogin extends HttpServlet{
 			if(usuario.getPass().compareTo(passIngresado) == 0)
 			{
 				
-				if(!usuario.isEstado())
+				if(!usuario.isEstado() && usuario.getCodActivacion().compareTo("") == 0)
 				{
 					request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
 			        request.setAttribute("mensajeResultado", "Estás baneado. No podés ingresar");

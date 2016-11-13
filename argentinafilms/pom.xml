@@ -124,7 +124,31 @@
   </dependencies>
 	
   <build>
+          <finalName>ROOT</finalName>
+  
     <plugins>
+    
+     <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${org.apache.maven.plugins.war.version}</version>
+                <configuration>
+                    <resourceEncoding>UTF-8</resourceEncoding>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>eot</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>woff</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                    <webResources>
+                        <webResource>
+                            <directory>src/main/webapp</directory>
+                            <filtering>true</filtering>
+                        </webResource>
+                    </webResources>
+                </configuration>
+            </plugin>
+    
+    
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>

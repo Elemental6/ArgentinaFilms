@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed'), local('RobotoCondensed-Regular'), url(fonts/RobotoCondensed.woff) format('woff');
+}
+
+
+*
+{
+    font-family: 'Roboto Condensed'!important;
+}
+
 .contenido
 {
     margin-top: 10%;

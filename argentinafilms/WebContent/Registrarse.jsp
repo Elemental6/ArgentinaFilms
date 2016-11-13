@@ -7,8 +7,8 @@
 		</h1>
 
 		<div class="${tipoMensaje}">
-			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-			<b>${mensajeResultado}</b>
+		${Mensajedismisable}
+		<b>${mensajeResultado}</b>
 		</div>
 
 		<form action="RegistrarUsuario" role="form"

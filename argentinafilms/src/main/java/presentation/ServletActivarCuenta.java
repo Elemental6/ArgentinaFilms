@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Usuarios;
 
@@ -46,6 +47,11 @@ public class ServletActivarCuenta extends HttpServlet{
 			usuario.setCodActivacion("");
 			this.serviceUsuario.update(usuario);
 			
+			HttpSession sesion = request.getSession(true);
+			
+			if(sesion.getAttribute("userLogueado")!=null)
+				sesion.setAttribute("userLogueado", usuario);
+			
 			json = new Gson().toJson("codValido");
 			response.setContentType("application/json"); 
 			response.setCharacterEncoding("UTF-8"); 
@@ -62,5 +68,8 @@ public class ServletActivarCuenta extends HttpServlet{
 		
 	}
 	
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		doPost(request, response);
+	}
 	
 }
