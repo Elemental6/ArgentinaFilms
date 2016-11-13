@@ -69,7 +69,10 @@
 
 
 					<c:if test="${not empty userLogueado}">
-						<li><a href="VerPerfilUsuario.jsp?usuario=${userLogueado.usuario}">
+
+						<li><a href="VerPerfilUsuario.jsp?usuario=${userLogueado.usuario}"></a>
+
+						<li><a href="ServletVerPerfilUsuario?id=${userLogueado.usuario}">
 								<!-- <span class="glyphicon glyphicon-user"></span> -->
 								${userLogueado.usuario}
 						</a></li>
@@ -96,12 +99,11 @@
 							</a></li>
 							<li><a href="ServletAsociarPeliculaXActor"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Asociar
 									Actor con pelicula
-							</a></br>
-							</br></li>
+							</a></li>
 							<li><a href="ServletAsociarDirectorXPelicula"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Asociar
 									Director con pelicula
-							</a><br>
-							</br></li>
+							</a>
+							</li>
 						</c:if>	
 						
 						<c:if test="${userLogueado.estado == false}">

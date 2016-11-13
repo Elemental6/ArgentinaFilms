@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,6 +23,7 @@ public class Resenias implements Serializable{
 	@Id
 	@GeneratedValue
 	private Integer id_resenia;
+	@Column(length=812)
 	private String resenia;
 	private String aportadores;
 	@ManyToOne
