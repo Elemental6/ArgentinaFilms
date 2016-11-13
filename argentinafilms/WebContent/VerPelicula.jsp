@@ -254,20 +254,19 @@
 	</div>
 </div>
 <div id="cboxOverlay" style="opacity: 0.7; display: none;"></div>
-<div id="colorbox" class=""
-	style="display: none; visibility: visible; top: 20%; left: 25%; position: fixed; width: 980px; height: 586px; overflow: hidden; opacity: 1; cursor: auto;">
-	<div id="cboxWrapper" style="height: 586px; width: 980px;">
+<div id="colorbox" class="" style="display: none; visibility: visible; position: fixed; width: 880px; height: 486px; overflow: hidden; opacity: 1; cursor: auto; margin: auto; top: 0; left: 0; bottom: 0; right: 0;">
+	<div id="cboxWrapper" style="height: 486px; width: 880px;">
 		<div>
 			<div id="cboxTopLeft" style="float: left;"></div>
-			<div id="cboxTopCenter" style="float: left; width: 944px;"></div>
+			<div id="cboxTopCenter" style="float: left; width: 844px;"></div>
 			<div id="cboxTopRight" style="float: left;"></div>
 		</div>
 		<div style="clear: left;">
-			<div id="cboxMiddleLeft" style="float: left; height: 550px;"></div>
+			<div id="cboxMiddleLeft" style="float: left; height: 450px;"></div>
 			<div id="cboxContent"
-				style="float: left; width: 944px; height: 550px;">
+				style="float: left; width: 844px; height: 450px;">
 				<div id="cboxLoadedContent"
-					style="width: 944px; overflow: auto; height: 550px;"></div>
+					style="width: 844px; overflow: auto; height: 450px;"></div>
 				<div id="cboxTitle" style="float: left; display: block;"></div>
 				<div id="cboxCurrent" style="float: left; display: none;"></div>
 				<div id="cboxNext" style="float: left; display: none;"></div>
@@ -276,11 +275,11 @@
 				<div id="cboxClose" style="float: left;"
 					onclick="javascript:hideTrailer();">close</div>
 			</div>
-			<div id="cboxMiddleRight" style="float: left; height: 550px;"></div>
+			<div id="cboxMiddleRight" style="float: left; height: 450px;"></div>
 		</div>
 		<div style="clear: left;">
 			<div id="cboxBottomLeft" style="float: left;"></div>
-			<div id="cboxBottomCenter" style="float: left; width: 944px;"></div>
+			<div id="cboxBottomCenter" style="float: left; width: 844px;"></div>
 			<div id="cboxBottomRight" style="float: left;"></div>
 		</div>
 	</div>

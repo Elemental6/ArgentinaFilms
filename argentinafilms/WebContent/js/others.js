@@ -8,6 +8,7 @@ function showTrailer(id){
 	var theIframe = document.createElement("iframe");
 	theIframe.src = '//www.youtube.com/embed/'+id+'?rel=0&amp;wmode=transparent';
 	theIframe.className = "cboxIframe";
+	theIframe.setAttribute('allowFullScreen', '');
 	var element = document.getElementById("cboxLoadedContent");
 	element.appendChild(theIframe);
 	document.getElementById("cboxOverlay").style.display = 'block';
