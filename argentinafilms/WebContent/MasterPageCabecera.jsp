@@ -7,10 +7,6 @@
 <head>
 <title>Argentina Films</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Deshabilitar caché para no volver atrás -->
-<meta http-equiv="Expires" content="0" />
-<meta http-equiv="Pragma" content="no-cache" />
-
 
 <link rel="shortcut icon" href="imgs/AFFavicon.ico" type="image/x-icon" />
 
@@ -70,9 +66,7 @@
 
 					<c:if test="${not empty userLogueado}">
 
-						<li><a href="VerPerfilUsuario.jsp?usuario=${userLogueado.usuario}"></a>
-
-						<li><a href="ServletVerPerfilUsuario?id=${userLogueado.usuario}">
+						<li><a href="VerPerfilUsuario.jsp?id=${userLogueado.usuario}">
 								<!-- <span class="glyphicon glyphicon-user"></span> -->
 								${userLogueado.usuario}
 						</a></li>
