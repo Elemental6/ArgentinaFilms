@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 
 public class MailService {
 	
-	public void Enviar(final String emisor, final String emisorPass, String destinatario, String asunto, String mensaje) {
+	public void Enviar(final String emisor, final String emisorPass, String destinatario, String asunto, String mensaje) throws MessagingException{
 
 		        Properties props = new Properties();
 		        props.put("mail.smtp.auth", "true");
@@ -27,7 +27,7 @@ public class MailService {
 		                    }
 		                });
 		 
-		        try {
+//		        try {
 		 
 		            Message message = new MimeMessage(session);
 		            message.setFrom(new InternetAddress(emisor));
@@ -39,9 +39,9 @@ public class MailService {
 		            Transport.send(message);
 		            System.out.println("Mensaje enviado");
 		 
-		        } catch (MessagingException e) {
-		            throw new RuntimeException(e);
-		        }
+//		        } catch (MessagingException e) {
+//		            throw new RuntimeException(e);
+//		        }
 		    
 	}
 

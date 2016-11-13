@@ -1,7 +1,11 @@
 <jsp:include page="MasterPageCabecera.jsp" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
     
 <div class="contenido">
     <div class="login">
+    
+    <c:if test="${empty userLogueado}">
         <h1 class="text-center titulo-seccion"><img src="imgs/login.png" class="imagen-seccion" />INICIAR SESIÓN</h1>
         
         <div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
@@ -48,6 +52,13 @@
                 </div>
             </div>             
         </form>
+        
+       </c:if>
+        
+     <c:if test="${not empty userLogueado}">
+     	<c:redirect url="Inicio.jsp"/>
+     </c:if>   
+        
     </div>
 </div>
 

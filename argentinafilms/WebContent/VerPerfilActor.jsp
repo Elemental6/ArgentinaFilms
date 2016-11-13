@@ -23,7 +23,7 @@
 						<div class="react-component film-poster film-poster-70663 poster linked-film-poster">
 							<div data-reactid=".7">
 								<img src="${pelicula.poster}" width=70px height=105px>
-								<a href="ServletVerPelicula?pelicula_id=${pelicula.id_pelicula}" class="frame">
+								<a href="VerPelicula.jsp?pelicula_id=${pelicula.id_pelicula}" class="frame">
 									<span class="overlay"></span>
 								</a>
 							</div>

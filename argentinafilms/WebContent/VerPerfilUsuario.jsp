@@ -11,7 +11,7 @@
 			<div class="profile-summary">
 				<span class="avatar avatar-60">
 					<img src="<%=request.getContextPath()%>/${usuarioSelect.avatar}" width="60" height="60">
-					<a id="avatar-zoom" href="#avatar-large" class="cboxElement"></a>
+
 				</span>
 				<div class="profile-person-info followable" style="width: 497px; max-width: 497px;">
 					<div class="profile-name-wrap">
@@ -74,7 +74,7 @@
 			<div class="col-20">
 				<section id="peliculas-section" class="section grid-150 grid-single-row" style="display:none;">
 					<h2 class="section-heading">
-						Peliculas que agrego
+						Peliculas que agregó
 					</h2>
 					<ul class="posters posters-150 clear horizontal-list">
 						<c:forEach items="${lasPeliculas}" var="pelicula">
