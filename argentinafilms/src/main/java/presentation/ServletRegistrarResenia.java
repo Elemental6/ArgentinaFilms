@@ -62,6 +62,7 @@ public class ServletRegistrarResenia extends HttpServlet {
 		
 		try {
 			String reseniaCreada = request.getParameter("resenia");
+			String reseniaCreadaSaltosLinea = reseniaCreada.replace("\n", "<br />");
 			
 			//Obtengo el usuario que esta logueado
 			Usuarios usuario = (Usuarios) request.getSession().getAttribute("userLogueado");
@@ -70,7 +71,7 @@ public class ServletRegistrarResenia extends HttpServlet {
 			Resenias resenia = new Resenias();
 			resenias.add(resenia);
 			resenia.setUsuario(usuario);
-			resenia.setResenia(reseniaCreada);
+			resenia.setResenia(reseniaCreadaSaltosLinea);
 			
 		    pelicula.setResenias(resenias);
 			//Guardo la resenia y actualizo la lista de resenias en la pelicula
@@ -84,7 +85,7 @@ public class ServletRegistrarResenia extends HttpServlet {
 		}
 		
 		
-		response.sendRedirect("ServletVerPelicula?pelicula_id="+ id_pelicula);
+		response.sendRedirect("VerPelicula.jsp?pelicula_id="+ id_pelicula);
 	}
 
 }
