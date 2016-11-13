@@ -51,6 +51,8 @@ public class ServletVerPelicula extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("pelicula_id"));
 			Peliculas pelicula = this.servicePelicula.getById(id);
 			
+			System.out.println(pelicula.getId_pelicula());
+			
 			request.getSession().setAttribute("selectPelicula", pelicula);
 
 			HttpSession sesion = request.getSession(true);
@@ -60,7 +62,7 @@ public class ServletVerPelicula extends HttpServlet {
 			request.getSession().setAttribute("puntajeUserLogueado", puntajeUserLogueado);
 
 		}
-		catch(NumberFormatException e){
+		catch(NullPointerException | NumberFormatException e){
 			response.sendRedirect("Error404.jsp");
 			return;
 		}

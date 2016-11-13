@@ -20,11 +20,12 @@
 								<li class="filmstat-watches">
 									<div class="star-rating" id="star-rating">
 	
-										<c:if test="${empty userLogueado}">
-											<div style="font-size: 18px; font-weight: bold;">
-												Iniciá sesión para votar esta película.</div>
-										</c:if>
 										
+										<div style="font-size: 18px; font-weight: bold;">
+											<input type=hidden id="puntTotalVieja" value="${selectPelicula.puntuacion_total}">
+											Puntuación total: <span id="puntTotalActual">${selectPelicula.puntuacion_total}</span>	
+										</div>
+
 										<c:if test="${not empty userLogueado && empty puntajeUserLogueado}">
 											<label
 												onclick="javascript:PuntuarPelicula(5, ${selectPelicula.id_pelicula});"
@@ -53,49 +54,50 @@
 											<label>&#9733;</label>
 											<label>&#9733;</label>
 											<label>&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
 										</c:if>
 											
 										<c:if test="${puntajeUserLogueado.puntuacion == 2}">
 											<label>&#9733;</label>
 											<label>&#9733;</label>
 											<label>&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
 										</c:if>
 											
 										<c:if test="${puntajeUserLogueado.puntuacion == 3}">
 											<label>&#9733;</label>
 											<label>&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
 										</c:if>
 											
 											
 										<c:if test="${puntajeUserLogueado.puntuacion == 4}">
 											<label>&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
 										</c:if>
 											
 											
 										<c:if test="${puntajeUserLogueado.puntuacion == 5}">
-											<label style="color:#f39c12;">&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
-											<label style="color:#f39c12;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
+											<label style="color:#FFFF00;">&#9733;</label>
 										</c:if>
 										</c:if>
 										
 									</div>
-									
-									
-												Puntuación total: <span id="puntTotal">${selectPelicula.puntuacion_total}</span>
-					
+
+									<c:if test="${empty userLogueado}">									
+										<a href="IniciarSesion.jsp" style="color:#F3F781;">(Iniciá sesión para votar esta película)</a>
+									</c:if>
+
 								</li>
 							</ul>
 						</div>

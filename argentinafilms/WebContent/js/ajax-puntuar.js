@@ -24,38 +24,42 @@ function PuntuarPelicula(puntuacionSeleccionada, idPel){
 	$("#fourStars").prop('onclick',null).off('click');
 	$("#fiveStars").prop('onclick',null).off('click');
 	
-	var nuevaPuntuacion = +('#puntTotal').text + +puntuacionSeleccionada;
 	
-    $('#puntTotal').text(nuevaPuntuacion);
+	var puntTotalVieja = parseInt($('#puntTotalVieja').val());
+	var puntSeleccionadaInt = parseInt(puntuacionSeleccionada);
+	var puntTotalActual = puntTotalVieja + puntSeleccionadaInt;
+
+	$('#puntTotalActual').text(puntTotalActual);
 	
+
 	if(puntuacionSeleccionada == 1){
-		$("#oneStar").css('color', '#f39c12');
+		$("#oneStar").css('color', '#FFFF00');
 	}
 	
 	if(puntuacionSeleccionada == 2){
-		$("#oneStar").css('color', '#f39c12');
-		$("#twoStars").css('color', '#f39c12');
+		$("#oneStar").css('color', '#FFFF00');
+		$("#twoStars").css('color', '#FFFF00');
 	}
 
 	if(puntuacionSeleccionada == 3){
-		$("#oneStar").css('color', '#f39c12');
-		$("#twoStars").css('color', '#f39c12');
-		$("#threeStars").css('color', '#f39c12');
+		$("#oneStar").css('color', '#FFFF00');
+		$("#twoStars").css('color', '#FFFF00');
+		$("#threeStars").css('color', '#FFFF00');
 	}
 
 	if(puntuacionSeleccionada == 4){
-		$("#oneStar").css('color', '#f39c12');
-		$("#twoStars").css('color', '#f39c12');
-		$("#threeStars").css('color', '#f39c12');
-		$("#fourStars").css('color', '#f39c12');
+		$("#oneStar").css('color', '#FFFF00');
+		$("#twoStars").css('color', '#FFFF00');
+		$("#threeStars").css('color', '#FFFF00');
+		$("#fourStars").css('color', '#FFFF00');
 	}
 
 	if(puntuacionSeleccionada == 5){
-		$("#oneStar").css('color', '#f39c12');
-		$("#twoStars").css('color', '#f39c12');
-		$("#threeStars").css('color', '#f39c12');
-		$("#fourStars").css('color', '#f39c12');
-		$("#iveStars").css('color', '#f39c12');
+		$("#oneStar").css('color', '#FFFF00');
+		$("#twoStars").css('color', '#FFFF00');
+		$("#threeStars").css('color', '#FFFF00');
+		$("#fourStars").css('color', '#FFFF00');
+		$("#fiveStars").css('color', '#FFFF00');
 	}
 	
     $.post('ServletRegistrarPuntaje', {

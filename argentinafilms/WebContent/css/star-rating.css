@@ -4,10 +4,10 @@
   color: #95a5a6; /* gris (normal) */
 }
   .star-rating label:hover {
-    color: #f39c12; /* amarillo (seleccionado) */
+    color: #FFFF00; /* amarillo (seleccionado) */
   }
   .star-rating label:hover ~ label {
-    color: #f39c12; /* amarillo (seleccionado) */
+    color: #FFFF00; /* amarillo (seleccionado) */
   }
 
   
@@ -15,5 +15,18 @@
   
   .star-rating-voted label {
 	font-size: 300%;
-  float: right;
+  	float: right;
+  	color: black;
+}
+
+
+
+.star-rating, .star-rating-voted{
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
 }
