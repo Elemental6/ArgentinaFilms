@@ -25,8 +25,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.sun.mail.smtp.SMTPSendFailedException;
-
 import service.ServiceUsuario;
 import util.CodigoAleatorio;
 import util.MailService;
@@ -250,6 +248,7 @@ public class ServletRegistrarUsuario extends HttpServlet {
 		HttpSession sesion = request.getSession(true);
 		sesion.setAttribute("emailConfirmacion", emailIngresado);
 		sesion.setAttribute("usuarioConfirmacion", idIngresado);
+		sesion.setAttribute("userLogueado", usuario);
 		
 		request.getRequestDispatcher("/ActivarCuenta.jsp").forward(request, response);
 	}
