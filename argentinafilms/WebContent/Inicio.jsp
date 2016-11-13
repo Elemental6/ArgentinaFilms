@@ -39,11 +39,11 @@
                     
                     <div class="film-detail-content pull-left"> 
                   
-                        <h2 class="film-title prettify"><a href="ServletVerPelicula?pelicula_id=${pelicula.id_pelicula}">${pelicula.nombre}</a> <small><a href="/peliculas/anios/${pelicula.anio}/">${pelicula.anio}</a></small></h2> 
+                        <h2 class="film-title prettify"><a href="VerPelicula.jsp?pelicula_id=${pelicula.id_pelicula}">${pelicula.nombre}</a> <small><a href="/resultados.jsp?=${pelicula.anio}/">${pelicula.anio}</a></small></h2> 
                         <p class="film-detail-meta rating-green film-detail-with-author"> <a class="avatar avatar-24"> 
                                 <img src="<%=request.getContextPath()%>/${pelicula.usuario.avatar}" width="24" height="24" /> 
                                 <span></span> 
-                            </a> <a href="ServletVerPerfilUsuario?id=${pelicula.usuario.usuario}" class="author">${pelicula.usuario.usuario}</a> </p> 
+                            </a> <a href="VerPerfilUsuario.jsp?id=${pelicula.usuario.usuario}" class="author">${pelicula.usuario.usuario}</a> </p> 
                         <div class="text collapsible-text"> 
                             <p>${pelicula.synopsis}</p>
                         </div>                         

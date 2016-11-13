@@ -55,7 +55,6 @@ public class ServletVerPerfilUsuario extends HttpServlet {
 				resenias.get(i).setPelicula(servicePelicula.getByResenia(resenias.get(i).getId_resenia()));
 			}
 			request.getSession().setAttribute("lasResenias", resenias);
-			request.getRequestDispatcher("/VerPerfilUsuario.jsp").forward(request, response);
 		}
 		catch(NullPointerException e){
 			response.sendRedirect("Error404.jsp");

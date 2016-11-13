@@ -1,8 +1,9 @@
 <jsp:include page="MasterPageCabecera.jsp" />
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<div id="contenido" class="film backdropped logged-out backdrop-loaded">
-	<div id="cagamargin"></div>
+<c:import url="/ServletVerPelicula" /> <!-- llamo servlet al cargar pagina -->
+
+<div id="contenido" class="film backdropped logged-out backdrop-loaded" style="margin-top: 110px;">
 	<div class="content-wrap">
 		<div id="film-page-wrapper" class="cols-3 overflow">
 			<div>

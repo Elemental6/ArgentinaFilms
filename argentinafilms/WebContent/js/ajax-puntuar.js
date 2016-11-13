@@ -1,6 +1,16 @@
 function PuntuarPelicula(puntuacionSeleccionada, idPel){
 	
+	$("#oneStar").prop('onclick',null);
+	$("#twoStars").prop('onclick',null);
+	$("#threeStars").prop('onclick',null);
+	$("#fourStars").prop('onclick',null);
+	$("#fiveStars").prop('onclick',null);
+	
+	
+	
 	$("#star-rating").removeClass("star-rating").addClass("star-rating-voted");
+	
+	
 	
 	$("#oneStar").prop('style',null);
 	$("#twoStars").prop('style',null);
@@ -12,7 +22,7 @@ function PuntuarPelicula(puntuacionSeleccionada, idPel){
 	$("#twoStars").prop('onclick',null).off('click');
 	$("#threeStars").prop('onclick',null).off('click');
 	$("#fourStars").prop('onclick',null).off('click');
-	$("#fiveeStars").prop('onclick',null).off('click');
+	$("#fiveStars").prop('onclick',null).off('click');
 	
 	var nuevaPuntuacion = +('#puntTotal').text + +puntuacionSeleccionada;
 	

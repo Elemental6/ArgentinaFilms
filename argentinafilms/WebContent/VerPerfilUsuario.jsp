@@ -2,7 +2,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<div class="contenedor">
+<c:import url="/ServletVerPerfilUsuario" /> <!-- llamo servlet al cargar pagina -->
+
+<div class="contenido" style="margin-top: 50px;">
 	<div class="content-wrap">
 		<div class="cagamargin"></div>
 		<section id="profile-header">
@@ -90,7 +92,7 @@
 							<div class="react-component film-poster film-poster-240344 poster linked-film-poster removed-from-watchlist">
 								<div>
 									<img src="${pelicula.poster}" width="150" height="225">
-									<a href="ServletVerPelicula?pelicula_id=${pelicula.id_pelicula}" class="frame has-menu">
+									<a href="VerPelicula.jsp?pelicula_id=${pelicula.id_pelicula}" class="frame has-menu">
 										<span class="overlay"></span>
 									</a>
 								</div>
@@ -109,14 +111,14 @@
 							<div class="react-component film-poster film-poster-209381 poster linked-film-poster removed-from-watchlist">
 								<div>
 									<img src="${resenia.pelicula.poster}" alt="${resenia.pelicula.nombre} width="70" height="105">
-									<a href="ServletVerPelicula?pelicula_id=${resenia.pelicula.id_pelicula}" class="frame has-menu fm-amazon-streaming-availability">
+									<a href="VerPelicula.jsp?pelicula_id=${resenia.pelicula.id_pelicula}" class="frame has-menu fm-amazon-streaming-availability">
 										<span class="overlay"></span>
 									</a>
 								</div>
 							</div>
 							<div class="">
 								<h2 class="film-title prettify">
-									<a href="ServletVerPelicula?pelicula_id=${resenia.pelicula.id_pelicula}">
+									<a href="VerPelicula.jsp?pelicula_id=${resenia.pelicula.id_pelicula}">
 										${resenia.pelicula.nombre}
 									</a>
 									<small>

@@ -44,11 +44,12 @@ public class ServletVerPelicula extends HttpServlet {
 		this.servicePuntaje = (DAOPuntajes) context.getBean(DAOPuntajes.class);
 	}
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("pelicula_id"));
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
+
 		try{
-			Peliculas pelicula = new Peliculas();
-			pelicula = this.servicePelicula.getById(id);
+			int id = Integer.parseInt(request.getParameter("pelicula_id"));
+			Peliculas pelicula = this.servicePelicula.getById(id);
 			
 			request.getSession().setAttribute("selectPelicula", pelicula);
 
@@ -58,20 +59,13 @@ public class ServletVerPelicula extends HttpServlet {
 			Puntajes puntajeUserLogueado = this.servicePuntaje.getByUsuarioYPelicula(usuario, pelicula);
 			request.getSession().setAttribute("puntajeUserLogueado", puntajeUserLogueado);
 
-			request.getRequestDispatcher("/VerPelicula.jsp").forward(request, response);
-
 		}
-		catch(NullPointerException e){
+		catch(NumberFormatException e){
 			response.sendRedirect("Error404.jsp");
 			return;
 		}
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
 
 }

@@ -7,8 +7,8 @@
     <div class="alert alert-dismissable alert-success"><b>
      <input type="hidden" id="usuarioConfirmacion" name="usuarioConfirmacion" value="${usuarioConfirmacion}">
     
-      Te registraste correctamente. Un email se ha enviado a tu dirección de correo electrónico ${emailConfirmacion} 
-      con el código de activación que debés ingresar abajo para activar tu cuenta y así finalmente poder usarla.
+      Un email se ha enviado a tu dirección de correo electrónico ${emailConfirmacion} 
+      con el código de activación que debés ingresar abajo para activar tu cuenta.
      </b></div>
     
         <h1 class="text-center titulo-seccion"><img src="imgs/register.png" class="imagen-seccion" />CONFIRMAR REGISTRO</h1>
@@ -36,7 +36,7 @@
                     <div>
                         <div>
                             <div>
-                                <button type="submit" class="btn btn-success" id="btnRegistrar">Activar</button>
+                                <button type="submit" class="btn btn-success" id="btnConfirmarCodigo">Activar</button>
                             </div>
                         </div>
                     </div>

@@ -249,12 +249,12 @@ td.text-right {
 			 </div>                     
                     
              <div class="film-detail-content pull-left"> 
-             	<h2 class="film-title prettify"><a href="ServletVerPelicula?pelicula_id=${Pelicula.id_pelicula}">${Pelicula.nombre}</a> <small><a href="/peliculas/anios/${Pelicula.anio}/">${Pelicula.anio}</a></small></h2> 
+             	<h2 class="film-title prettify"><a href="VerPelicula.jsp?pelicula_id=${Pelicula.id_pelicula}">${Pelicula.nombre}</a> <small><a href="/peliculas/anios/${Pelicula.anio}/">${Pelicula.anio}</a></small></h2> 
                 	<p class="film-detail-meta rating-green film-detail-with-author"> <a class="avatar avatar-24"> 
-                    <img src="<%= getServletContext().getRealPath("/") %>${Pelicula.usuario.avatar}" width="24" height="24" /> 
+                    <img src="<%=request.getContextPath()%>/${Pelicula.usuario.avatar}" width="24" height="24" /> 
                     <span></span> 
                     
-                    </a> <a href="ServletVerPerfilUsuario?id=${Pelicula.usuario.usuario}" class="author">${Pelicula.usuario.usuario}</a> </p> 
+                    </a> <a href="VerPerfilUsuario.jsp?id=${Pelicula.usuario.usuario}" class="author">${Pelicula.usuario.usuario}</a> </p> 
                         <div class="text collapsible-text"> 
                 	<p>${Pelicula.synopsis}</p>
               	</div>                         

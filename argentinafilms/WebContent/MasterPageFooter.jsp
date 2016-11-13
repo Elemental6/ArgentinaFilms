@@ -1,5 +1,5 @@
         <div>
-            <footer id="footer" >
+            <footer id="footer">
                 <div class="content-wrap">
                     <nav>
                         <ul>

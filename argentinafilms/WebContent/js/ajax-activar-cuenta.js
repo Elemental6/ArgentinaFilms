@@ -1,5 +1,9 @@
 ﻿function ActivarCuenta(){
 
+
+	$('#btnConfirmarCodigo').attr("disabled", true);
+
+
         $.post('ActivarCuenta', {
 
             txtCodActivacion: $('#txtCodActivacion').val(),
@@ -7,14 +11,16 @@
 
         }, function (data) {
 
-            if (data == "codInvalido")
+            if (data == "codInvalido"){
 
                 swal({
-                    title: "Registro erróneo",
-                    text: "El código es erróneo. Reintentá por favor",
+                    title: "Código erróneo",
+                    text: "El código ingresado es incorrecto. Reintentá por favor",
                     type: "error"
-                })
-
+                });
+                
+                $('#btnConfirmarCodigo').attr("disabled", false);
+            }
 
             if(data== "codValido")
 
