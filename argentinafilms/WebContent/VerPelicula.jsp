@@ -224,7 +224,7 @@
 						<ul class="posters posters-70">
 							<c:forEach items="${selectPelicula.resenias}" var="resenia">
 								<li class="film-detail"><a class="avatar avatar-40"
-									href="ServletVerPerfilUsuario?id=${resenia.usuario.usuario}"> <img src="imgs/avatares/no-foto.png"
+									href="ServletVerPerfilUsuario?id=${resenia.usuario.usuario}"> <img src="${resenia.usuario.avatar}"
 										alt="${resenia.usuario.usuario}" height="40" width="40">
 								</a>
 									<div class="film-detail-content">

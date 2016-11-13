@@ -14,31 +14,21 @@
 				<div class="profile-person-info followable" style="width: 497px; max-width: 497px;">
 					<div class="profile-name-wrap">
 						<h1>
-							<c:if test="${!empty myPerfil}">
-								${myPerfil.usuario}
-							</c:if>
-							<c:if test="${!empty usuarioSelect}">
-								${usuarioSelect.usuario}
-							</c:if>
+							${usuarioSelect.usuario}
 						</h1>
 						<span class="badge badge-patron">
-							<c:if test="${!empty myPerfil}">${myPerfil.rango}</c:if><c:if test="${!empty usuarioSelect}">${usuarioSelect.rango}</c:if>
+							${usuarioSelect.rango}
 						</span>
 					</div>
 					
-					<c:if test="${!empty myPerfil}">
+					<c:if test="${usuarioSelect.usuario == userLogueado.usuario}">
 					<div class="follow-button-wrapper" style="visibility: visible;">
-						<a href="/settings/" class="has-icon icon-16 icon-edit"><span class="icon"></span><b>Editar Perfil</b></a>
+						<a href="modificar" class="has-icon icon-16 icon-edit"><span class="icon"></span><b>Editar Perfil</b></a>
 					</div>
 					</c:if>
 					<ul>
 						<li class="has-icon icon-16 icon-location"><span class="icon"></span>
-							<c:if test="${!empty myPerfil}">
-								${myPerfil.nombre} ${myPerfil.apellido}
-							</c:if>
-							<c:if test="${!empty usuarioSelect}">
-								${usuarioSelect.nombre} ${usuarioSelect.apellido}
-							</c:if>
+							${usuarioSelect.nombre} ${usuarioSelect.apellido}
 						</li>
 					</ul>
 				</div>
