@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -23,6 +24,8 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import com.sun.mail.smtp.SMTPSendFailedException;
 
 import service.ServiceUsuario;
 import util.CodigoAleatorio;
@@ -214,29 +217,40 @@ public class ServletRegistrarUsuario extends HttpServlet {
 			return;
 		}
 
+		
 		MailService mailService = new MailService();
-		mailService.Enviar("argentinafilms2016@gmail.com", "primavera322", emailIngresado,
-				"Confirmación de registro en Argentina Films",
+		try {
+			//* modificar el mail para forzar la excepción*/
+			mailService.Enviar("argentinafilms2016@gmail.com", "primavera322", emailIngresado,
+					"Confirmación de registro en Argentina Films",
 
-				"<h4 style=\"text-align: center;\">"
-						+ "<img src=\"https://68.media.tumblr.com/2977aa25fe30dab5c35a67f0eb3b4424/tumblr_ofzmu7O1eu1tq5qvgo1_400.png\""
-						+ "alt=\"\" width=\"320\" height=\"92\" /></h4>" + "<h4 style=\"text-align: center;\">Estimado "
-						+ "<strong><span style=\"color: #008000;\">" + idIngresado + "</span>:</strong></h4>"
-						+ "<h4 style=\"text-align: center;\">Gracias por registrarte "
-						+ "en <span style=\"color: #008000;\"><strong>Argentina Films</strong></span>. "
-						+ "Este es tu código de confirmación para poder activar tu cuenta:</h4>"
-						+ "<h2 style=\"text-align: center;\"><span style=\"text-decoration: underline; color: #000000;\">"
-						+ "<strong>" + codActivacion + "</strong></span></h2>"
-						+ "<h4 style=\"text-align: center;\"><br />Por favor aseg&uacute;rate de no agregar espacios extras.</h4>"
-						+ "<h4 style=\"text-align: center;\">Si a&uacute;n est&aacute;s teniendo problemas para activar tu cuenta, "
-						+ "por favor contact&aacute; a un miembro de nuestro personal de soporte en argentinafilms2016@info.<wbr />com</h4>"
-						+ "<h4 style=\"text-align: center;\">Saludos cordiales.</h4> "
-						+ "<h4 style=\"text-align: center;\">Equipo de Argentina Films</h4>");
-
+					"<h4 style=\"text-align: center;\">"
+							+ "<img src=\"https://68.media.tumblr.com/2977aa25fe30dab5c35a67f0eb3b4424/tumblr_ofzmu7O1eu1tq5qvgo1_400.png\""
+							+ "alt=\"\" width=\"320\" height=\"92\" /></h4>" + "<h4 style=\"text-align: center;\">Estimado "
+							+ "<strong><span style=\"color: #008000;\">" + idIngresado + "</span>:</strong></h4>"
+							+ "<h4 style=\"text-align: center;\">Gracias por registrarte "
+							+ "en <span style=\"color: #008000;\"><strong>Argentina Films</strong></span>. "
+							+ "Este es tu código de confirmación para poder activar tu cuenta:</h4>"
+							+ "<h2 style=\"text-align: center;\"><span style=\"text-decoration: underline; color: #000000;\">"
+							+ "<strong>" + codActivacion + "</strong></span></h2>"
+							+ "<h4 style=\"text-align: center;\"><br />Por favor aseg&uacute;rate de no agregar espacios extras.</h4>"
+							+ "<h4 style=\"text-align: center;\">Si a&uacute;n est&aacute;s teniendo problemas para activar tu cuenta, "
+							+ "por favor contact&aacute; a un miembro de nuestro personal de soporte en argentinafilms2016@info.<wbr />com</h4>"
+							+ "<h4 style=\"text-align: center;\">Saludos cordiales.</h4> "
+							+ "<h4 style=\"text-align: center;\">Equipo de Argentina Films</h4>");
+		} catch (MessagingException e) {
+			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
+			request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+			request.setAttribute("mensajeResultado",
+					"Servicio de mail actualmente no disponible");
+			request.getRequestDispatcher("/ActivarCuenta.jsp").forward(request, response);
+			return;
+		}
+		
 		HttpSession sesion = request.getSession(true);
 		sesion.setAttribute("emailConfirmacion", emailIngresado);
 		sesion.setAttribute("usuarioConfirmacion", idIngresado);
-
+		
 		request.getRequestDispatcher("/ActivarCuenta.jsp").forward(request, response);
 	}
 
