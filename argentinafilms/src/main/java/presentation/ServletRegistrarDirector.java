@@ -53,7 +53,7 @@ public class ServletRegistrarDirector extends HttpServlet {
 					if (!ValidarDatos.validarNombresyApellidos(nombre)){						
 						request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
 						request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
-						request.setAttribute("mensajeResultado", "El nombre no permite caracteres especiales o numeros. Reintente por favor.");
+						request.setAttribute("mensajeResultado", "El nombre no permite caracteres especiales, acentos o numeros (Ejemplo valido: Damian). Reintente por favor.");
 						request.getRequestDispatcher("/AgregarDirector.jsp").forward(request, response);
 						return;
 					}
@@ -62,7 +62,7 @@ public class ServletRegistrarDirector extends HttpServlet {
 					if (!ValidarDatos.validarNombresyApellidos(apellido)){
 						request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
 						request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
-						request.setAttribute("mensajeResultado", "El apellido no permite caracteres especiales o numeros. Reintente por favor.");
+						request.setAttribute("mensajeResultado", "El apellido no permite caracteres especiales, acentos o numeros (Ejemplo valido: Szifron). Reintente por favor.");
 						request.getRequestDispatcher("/AgregarDirector.jsp").forward(request, response);
 						return;
 					} 

@@ -65,6 +65,15 @@ public class ServletRegistrarPelicula extends HttpServlet {
 				request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
 				return;
 			}
+			else{
+				if (nombre.length()<1){
+					request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+					request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+					request.setAttribute("mensajeResultado", "El nombre de la pelicula no puede ser menor a 1. Reintente por favor.");
+					request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
+					return;
+				}
+			}
 		
 			
 			Integer anio = null;

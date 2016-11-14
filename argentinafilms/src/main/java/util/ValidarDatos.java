@@ -12,14 +12,18 @@ public final class ValidarDatos {
 		return valido;
 	}
 	
-	// Permite espacios //
+	
 	public static boolean validarNombresyApellidos(String variable){
 		boolean valido = true;
 		
 		if (variable.equals(null)) valido = false;
-//		if (!variable.matches("^([a-zA-Z]+\\s)*[a-zA-Z]+$")) {
+		// Permite espacios //
+		// Ejemplo: Jose Maria //
+		if (!variable.matches("^([a-zA-Z]+\\s)*[a-zA-Z]+$")) {
 		/** Faltaban los tildes*/
-		if(!variable.matches("[a-zA-ZáéíóúÁÉÍÓÚ]+")){
+		// No me valida los tildes a mi, por las dudas lo pongo como estaba
+		
+		//if(!variable.matches("[a-zA-ZáéûRúÁÉÍÓÚ]+")){
 			valido = false;
 			System.out.println("Nombre: " + valido);
 		}
