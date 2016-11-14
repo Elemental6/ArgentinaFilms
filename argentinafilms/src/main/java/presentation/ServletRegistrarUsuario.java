@@ -57,7 +57,8 @@ public class ServletRegistrarUsuario extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String nombreImagenAvatar = CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg";
+		String nombreImagenAvatar = null;
+		String avatar = null;
 		String idIngresado = null;
 		String passIngresado1 = null;
 		String passIngresado2 = null;
@@ -101,13 +102,25 @@ public class ServletRegistrarUsuario extends HttpServlet {
 				FileItem item = (FileItem) iter.next();
 				// processes only fields that are not form fields
 				if (!item.isFormField()) {
-					String fileName = new File(item.getName()).getName();
-					// String filePath = uploadPath + File.separator + fileName;
-					File storeFile = new File(rutaAbsoluta, nombreImagenAvatar);
-
-					// saves the file on disk
-					item.write(storeFile);
-
+					
+					if ("file".equals(item.getFieldName())) {
+				        if (item.getName() == null || item.getName().isEmpty()) {
+				        	nombreImagenAvatar = "no-foto.png";
+							avatar = rutaRelativa + "/" + nombreImagenAvatar;
+				        }
+					}
+					
+					else{
+						nombreImagenAvatar = CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg";
+						avatar = rutaRelativa + "/" + nombreImagenAvatar;
+	
+						String fileName = new File(item.getName()).getName();
+						// String filePath = uploadPath + File.separator + fileName;
+						File storeFile = new File(rutaAbsoluta, nombreImagenAvatar);
+	
+						// saves the file on disk
+						item.write(storeFile);
+					}
 				}
 
 				else {
@@ -141,7 +154,7 @@ public class ServletRegistrarUsuario extends HttpServlet {
 			System.out.println("There was an error: " + ex.getMessage());
 		}
 
-		String avatar = rutaRelativa + "/" + nombreImagenAvatar;
+		
 		// SubidaDeImagen.Subir(request, response, rutaAbsoluta,
 		// nombreImagenAvatar);
 

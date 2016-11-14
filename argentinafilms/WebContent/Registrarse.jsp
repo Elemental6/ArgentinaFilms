@@ -102,12 +102,12 @@
 			</div>
 
 			<div class="form-group">
-				<label class="control-label col-sm-2">Avatar:</label>
+				<label class="control-label col-sm-2">Avatar <a id=cancelarAvatar style="display:none;" onclick="cancelarAvatar()">(X)</a>:</label>
 				<div class="col-sm-10">
 					<div>
 						<div>
 							<div>
-								<input type="file" name="file" accept="image/*" />
+								<input type="file" name="file" accept="image/*" id="menu_images"/>
 							</div>
 						</div>
 					</div>

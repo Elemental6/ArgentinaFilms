@@ -100,7 +100,7 @@
 						<li class="film-detail film-not-watched">
 							<div class="react-component film-poster film-poster-209381 poster linked-film-poster removed-from-watchlist">
 								<div>
-									<img src="${resenia.pelicula.poster}" alt="${resenia.pelicula.nombre} width="70" height="105">
+									<img src="${resenia.pelicula.poster}" alt="${resenia.pelicula.nombre}" width="70" height="105">
 									<a href="VerPelicula.jsp?pelicula_id=${resenia.pelicula.id_pelicula}" class="frame has-menu fm-amazon-streaming-availability">
 										<span class="overlay"></span>
 									</a>
