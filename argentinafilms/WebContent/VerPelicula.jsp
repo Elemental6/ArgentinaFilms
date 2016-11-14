@@ -152,7 +152,7 @@
 						<div id="tab-cast">
 							<div class="cast-list box-link-list">
 								<p>
-									<a href="ServletVerPerfilDirector?id=${selectPelicula.director.id_director}" class="box-link"> <span>${selectPelicula.director.nombre}
+									<a href="VerPerfilDirector.jsp?id=${selectPelicula.director.id_director}" class="box-link"> <span>${selectPelicula.director.nombre}
 											${selectPelicula.director.apellido}</span>
 									</a>
 								</p>
@@ -171,7 +171,7 @@
 							<div class="cast-list box-link-list">
 								<p>
 									<c:forEach items="${selectPelicula.actores}" var="actor">
-										<a href="ServletVerPerfilActor?id=${actor.id_actor}"
+										<a href="VerPerfilActor.jsp?id=${actor.id_actor}"
 											class="box-link"> <span>${actor.nombre}
 												${actor.apellido}</span>
 										</a>
@@ -293,6 +293,10 @@
 
 
      <c:if test="${empty selectPelicula}">
+     	<c:redirect url="Error404.jsp"/>
+     </c:if>  
+     
+     <c:if test="${not empty error404}">
      	<c:redirect url="Error404.jsp"/>
      </c:if>  
 

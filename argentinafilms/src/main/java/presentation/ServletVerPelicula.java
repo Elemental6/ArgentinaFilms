@@ -46,6 +46,7 @@ public class ServletVerPelicula extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
+		try{
 			int id = Integer.parseInt(request.getParameter("pelicula_id"));
 		
 			Peliculas pelicula = this.servicePelicula.getById(id);
@@ -57,7 +58,10 @@ public class ServletVerPelicula extends HttpServlet {
 
 			Puntajes puntajeUserLogueado = this.servicePuntaje.getByUsuarioYPelicula(usuario, pelicula);
 			request.getSession().setAttribute("puntajeUserLogueado", puntajeUserLogueado);
-
+		}
+		catch(NumberFormatException e){
+			request.getSession().setAttribute("error404", true);
+		}
 
 
 	}

@@ -1,7 +1,6 @@
 package presentation;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletConfig;
@@ -33,22 +32,15 @@ public class ServletVerPerfilActor extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().removeAttribute("lasPeliculas");
-		request.getSession().removeAttribute("directorSelect");
-		request.getSession().removeAttribute("actorSelect");
+
 		int id = Integer.parseInt(request.getParameter("id"));
-			List<Peliculas> peliculas = new ArrayList<Peliculas>();
-			Actores actor = new Actores();
-			actor = this.serviceActor.getById(id);
-			request.getSession().setAttribute("actorSelect", actor);
-			peliculas = this.servicePelicula.getByActor(id);
-			request.getSession().setAttribute("lasPeliculas", peliculas);
-			request.getRequestDispatcher("/VerPerfilActor.jsp").forward(request, response);
 
-	}
+		Actores actor = this.serviceActor.getById(id);
+		List<Peliculas> peliculas = this.servicePelicula.getByActor(id);
+			
+		request.getSession().setAttribute("actorSelect", actor);
+		request.getSession().setAttribute("lasPeliculas", peliculas);
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 
 }
