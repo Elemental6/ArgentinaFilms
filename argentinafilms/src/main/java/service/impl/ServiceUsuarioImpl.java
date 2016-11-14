@@ -53,6 +53,11 @@ public class ServiceUsuarioImpl implements ServiceUsuario{
 	public int getCantActivos() {
 		return this.daoUsuario.getCantActivos();
 	}
+	
+	@Override
+	public List<Usuarios> getByNombre(String texto, int offset, int cantRegistros) {
+		return this.daoUsuario.getByNombre(texto, offset, cantRegistros);
+	}
 
 	public void setDaoUsuario(DAOUsuario daoUsuario) {
 		this.daoUsuario = daoUsuario;

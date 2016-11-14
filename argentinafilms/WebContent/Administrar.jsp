@@ -61,12 +61,12 @@
             <p></p>
           </div>
           
-<!--           <div class="col-md-6" onclick="location.href='ListarInformes.jsp';" style="cursor:pointer;">
+           <div class="col-md-6" onclick="location.href='ListarInformes.jsp';" style="cursor:pointer;">
             <img src="imgs/Informes.png" class="img-responsive img-thumbnail">
             <h1 class="text-primary">LISTAR INFORMES</h1>
             <p></p>
             <p></p>
-          </div> -->
+          </div>
           
         </div>
  

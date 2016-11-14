@@ -29,29 +29,20 @@ public class ServletCambiarRangoUsuario extends HttpServlet{
 	}
 	
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
 		String usuarioIngresado = request.getParameter("userSeleccionado");
 		String nuevoRango = request.getParameter("rangoSeleccionado");
+		String pagina = request.getParameter("pagActual");
 		
 		Usuarios usuario = this.serviceUsuario.getByUserName(usuarioIngresado);
-		
-		try{
-			usuario.setRango(nuevoRango);
+		usuario.setRango(nuevoRango);
+		this.serviceUsuario.update(usuario);
 
-			this.serviceUsuario.update(usuario);;
-		}
-		catch(NullPointerException e){
-			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
-	        request.setAttribute("mensajeResultado", "El nombre de usuario ingresado no existe. Reintente por favor.");
-			request.getRequestDispatcher("/CambiarRangoUsuario.jsp").forward(request, response);
-			return;
-		}
-		
 		request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
         request.setAttribute("mensajeResultado", "El usuario " + usuario.getUsuario() + "fue cambiadado a rango " + nuevoRango + ".");
-		response.sendRedirect("CambiarRangoUsuario.jsp");
+		response.sendRedirect("CambiarRangoUsuario.jsp?pagina=" + pagina);
 	}
 	
 	

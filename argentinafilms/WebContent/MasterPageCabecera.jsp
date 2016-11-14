@@ -24,8 +24,7 @@
 <script type="text/javascript" src="js/seccion-desplegable.js"></script>
 <script type="text/javascript" src="js/sweetalert.min.js"></script>
 <script type="text/javascript" src="js/others.js"></script>
-<script type="text/javascript" src="js/validaciones.js"></script>
-<script type="text/javascript" src="js/busqueda-pelicula.js"></script>
+<script type="text/javascript" src="js/eventos.js"></script>
 <script type="text/javascript" src="js/ajax-activar-cuenta.js"></script>
 <script type="text/javascript" src="js/ajax-peticiones-admin.js"></script>
 <script type="text/javascript" src="js/ajax-puntuar.js"></script>

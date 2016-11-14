@@ -23,6 +23,9 @@
 
 	<div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
 
+		<input type="text" id="inputBuscarUsuario" class="form-control"
+						placeholder="Buscar usuario..." style="font-size: 11px;">
+
 		<table class="table" style="font-color: yellow!important; font-size: 14px!important; width: 900px!important; margin: auto;"> 
 		    <thead> 
 		        <tr> 
@@ -41,10 +44,13 @@
 				</c:if>
 		    
 				<c:forEach items="${usuarios}" var="usuario">
+				<c:if test="${userLogueado.usuario != usuario.usuario}">
+				<form action="CambiarRangoUsuario" method="GET" id="filaUsuario">
 				
-				<form action="CambiarRangoUsuario" method="POST" id="filaUsuario">
+				
 				
 				<input name="userSeleccionado" value="${usuario.usuario}" type="hidden"></input>
+				<input name="pagActual" value="${paginaActual}" type="hidden"></input>
 				
 						<tr>
 						<td>${usuario.usuario}</td>
@@ -55,7 +61,6 @@
 							<select id="rangoSeleccionado" name="rangoSeleccionado" class="input-sm">
 		                	<option value="novato" <c:if test="${usuario.rango == 'novato'}">selected</c:if>>Novato</option>
 		                	<option value="moderador" <c:if test="${usuario.rango == 'moderador'}">selected</c:if>>Moderador</option>
-		                	<option value="admin" <c:if test="${usuario.rango == 'admin'}">selected</c:if>>Administrador</option>
 		            		</select>
                     	</td>
                     	
@@ -63,6 +68,7 @@
 						</tr>
 					
 				</form>
+				</c:if>
 				</c:forEach>
 			</tbody>
 		</table>
