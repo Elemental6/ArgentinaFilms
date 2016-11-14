@@ -17,7 +17,9 @@ public final class ValidarDatos {
 		boolean valido = true;
 		
 		if (variable.equals(null)) valido = false;
-		if (!variable.matches("^([a-zA-Z]+\\s)*[a-zA-Z]+$")) {
+//		if (!variable.matches("^([a-zA-Z]+\\s)*[a-zA-Z]+$")) {
+		/** Faltaban los tildes*/
+		if(!variable.matches("[a-zA-ZáéíóúÁÉÍÓÚ]+")){
 			valido = false;
 			System.out.println("Nombre: " + valido);
 		}
