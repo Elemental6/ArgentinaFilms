@@ -52,7 +52,8 @@
                     <div>
                         <div>
                             <div>
-                                <input type="text" class="form-control" name="txtnombre" placeholder="Ingrese el nombre de la película" required>
+                                <input type="text" class="form-control" name="txtnombre" placeholder="Ingrese el nombre de la película"  pattern=".{1,250}"
+										required title="Nombre de la pelicula debe contener de 1 a 250 caracteres.">
                             </div>
                         </div>
                     </div>
@@ -99,7 +100,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="number" min="0" max="300" class="form-control login" name="txtDuracion" placeholder="Ingrese la duracíon" required>
+                                <input type="number" min="1" max="300" class="form-control login" name="txtDuracion" placeholder="Ingrese la duracíon" required>
                             </div>
                         </div>
                     </div>
@@ -139,7 +140,7 @@
                 <div class="col-sm-10">
                     <div>
                         <div class= "select-field">
-							  <select class ="form-control" name="txtGenero" id ="completarGeneros">
+							  <select class ="form-control" name="txtGenero" id ="completarGeneros" required>
 							  
 							  </select>
 
@@ -154,7 +155,7 @@
 	                    <div>
 	                        <div>
 	                         <div> 
-							   <textarea class="form-control login" rows="5" name="txtAreaSynospsis"  MAXLENGTH="254"></textarea>
+							   <textarea class="form-control login" rows="5" name="txtAreaSynospsis"  MAXLENGTH="250" required></textarea>
 							 </div>
                         </div>
                     </div>

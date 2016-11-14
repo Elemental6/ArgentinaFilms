@@ -20,6 +20,7 @@ import service.ServiceActor;
 import service.ServiceDirector;
 import service.ServiceGenero;
 import service.ServicePelicula;
+import util.ValidarDatos;
 import model.*;
 
 
@@ -48,32 +49,56 @@ public class ServletRegistrarPelicula extends HttpServlet {
 	}
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		
-		
-		
-		
-		// TODO: Validar datos como la gente / Separar en capa de servicio si hay tiempo
-		try{
-			
+		try{			
 			
 			// Obtengo el usuario que esta logeado
-			Usuarios usuario =  (Usuarios) request.getSession().getAttribute("userLogueado");
-			// TODO: Deberia obtener al genero de un listbox
-			
-			Generos genero = new Generos();
-			
+			Usuarios usuario =  (Usuarios) request.getSession().getAttribute("userLogueado");			
+			Generos genero = new Generos();			
 			
 			String nombre = request.getParameter("txtnombre");
-			Integer anio =null;
-			if(request.getParameter("txtanio")!=""){
-				anio  = Integer.parseInt(request.getParameter("txtanio"));
+			if (nombre.equals(null)){						
+				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+				request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+				request.setAttribute("mensajeResultado", "El nombre de la pelicula no puede ser nulo. Reintente por favor.");
+				request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
+				return;
 			}
-			String ubicacion = request.getParameter("txtUbicacion");
+		
 			
+			Integer anio = null;
+			if (!ValidarDatos.validarInteger(request.getParameter("txtanio"))){
+				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+				request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+				request.setAttribute("mensajeResultado", "El anio de la pelicula debe ser un numero mayor que 1900. Reintente por favor.");
+				request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
+				return;
+			}
 			
-			Integer duracion = Integer.parseInt(request.getParameter("txtDuracion")); 
+			anio = Integer.parseInt(request.getParameter("txtanio"));
+			String ubicacion = request.getParameter("txtUbicacion");		
+			
+			Integer duracion = null;
+			
+			if (!ValidarDatos.validarInteger(request.getParameter("txtDuracion"))){
+				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+				request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+				request.setAttribute("mensajeResultado", "La duracion de la pelicula debe ser un numero mayor a 1 y menor a 300. Reintente por favor.");
+				request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
+				return;
+			}
+			 
+			duracion = Integer.parseInt(request.getParameter("txtDuracion"));			
+			
 			String synopsis = request.getParameter("txtAreaSynospsis"); 
+			if (synopsis.equals(null)){
+				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+				request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+				request.setAttribute("mensajeResultado", "La synopsis no puede ser nula. Reintente por favor.");
+				request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
+				return;
+			}
 			// Siempre que se registre una nueva pelicula su puntuacion sera 0
 			Integer puntuacion_total = 0;
 			Peliculas pelicula = new Peliculas(nombre,anio,ubicacion,duracion,synopsis,puntuacion_total,usuario,null);
@@ -82,23 +107,33 @@ public class ServletRegistrarPelicula extends HttpServlet {
 //			
 			// Poster y trailer podrian ser nulos
 			String trailer = request.getParameter("txtTrailer");
-			Integer id_genero ;
+			Integer id_genero = null;
 			if(request.getParameter("txtGenero")!= "")
 			{
-				id_genero =Integer.parseInt(request.getParameter("txtGenero"));
+				id_genero = Integer.parseInt(request.getParameter("txtGenero"));
 				genero = this.generosService.getById(id_genero);
 				pelicula.setGenero(genero);
-			}  
+			} 
+			else{
+				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
+				request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
+				request.setAttribute("mensajeResultado", "Por favor seleccione un genero y reintente.");
+				request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
+			}
+			
+			
 			pelicula.setTrailer(trailer);
 //			pelicula.setPoster(poster);
 			pelicula.setEstado(false);
-			Integer id_director;
+			
+			Integer id_director = null;
 			if(request.getParameter("txtdirector")!="")
 			{
 				id_director	= Integer.parseInt(request.getParameter("txtdirector"));
 				Directores director = this.directoresService.getById(id_director);
 				pelicula.setDirector(director);
 			}
+			
 
 			if(request.getParameter("txtactor")!=""){
 				
@@ -110,6 +145,7 @@ public class ServletRegistrarPelicula extends HttpServlet {
 				actores.add(actor);
 				pelicula.setActores(actores);
 			}
+			
 			
 			
 //			pelicula.setPoster(poster);
