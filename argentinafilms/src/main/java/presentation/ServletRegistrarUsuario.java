@@ -108,19 +108,20 @@ public class ServletRegistrarUsuario extends HttpServlet {
 				        	nombreImagenAvatar = "no-foto.png";
 							avatar = rutaRelativa + "/" + nombreImagenAvatar;
 				        }
+				        else{
+							nombreImagenAvatar = CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg";
+							avatar = rutaRelativa + "/" + nombreImagenAvatar;
+		
+							String fileName = new File(item.getName()).getName();
+							// String filePath = uploadPath + File.separator + fileName;
+							File storeFile = new File(rutaAbsoluta, nombreImagenAvatar);
+		
+							// saves the file on disk
+							item.write(storeFile);
+						}
 					}
 					
-					else{
-						nombreImagenAvatar = CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg";
-						avatar = rutaRelativa + "/" + nombreImagenAvatar;
-	
-						String fileName = new File(item.getName()).getName();
-						// String filePath = uploadPath + File.separator + fileName;
-						File storeFile = new File(rutaAbsoluta, nombreImagenAvatar);
-	
-						// saves the file on disk
-						item.write(storeFile);
-					}
+					
 				}
 
 				else {
