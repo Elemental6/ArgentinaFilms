@@ -40,7 +40,7 @@ public class ServletReenviarMailActivacion extends HttpServlet {
 		MailService mailService = new MailService();
 		try {
 			//* modificar el mail para forzar la excepción*/
-			mailService.Enviar("argentinafilms2016@gmail.com", "primavera322", usuario.getEmail(),
+			mailService.Enviar("argentinafilms2016@gmail.co", "primavera322", usuario.getEmail(),
 					"Confirmación de registro en Argentina Films",
 
 					"<h4 style=\"text-align: center;\">"
@@ -63,7 +63,7 @@ public class ServletReenviarMailActivacion extends HttpServlet {
 			request.setAttribute("Mensajedismisable",
 					"<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
 			request.setAttribute("mensajeResultado",
-					"Servicio de mail no disponible, intentá denuevo o logueate y disfrutá");
+					"Servicio de mail no disponible");
 			request.getRequestDispatcher("/ActivarCuenta.jsp").forward(request, response);
 			return;
 		}

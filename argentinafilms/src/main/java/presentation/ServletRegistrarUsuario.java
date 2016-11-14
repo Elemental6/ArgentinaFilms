@@ -272,6 +272,11 @@ public class ServletRegistrarUsuario extends HttpServlet {
 			request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
 			request.setAttribute("mensajeResultado",
 					"Servicio de mail actualmente no disponible");
+			
+			/** se loguea en el error también */
+			HttpSession sesion = request.getSession(true);
+			sesion.setAttribute("userLogueado", usuario);
+			
 			request.getRequestDispatcher("/ActivarCuenta.jsp").forward(request, response);
 			return;
 		}
