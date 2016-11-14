@@ -38,7 +38,6 @@ public class ServletVerPerfilDirector extends HttpServlet {
 		request.getSession().removeAttribute("directorSelect");
 		request.getSession().removeAttribute("actorSelect");
 		int id = Integer.parseInt(request.getParameter("id"));
-		try{
 			List<Peliculas> peliculas = new ArrayList<Peliculas>();
 			Directores director = new Directores();
 			director = this.serviceDirector.getById(id);
@@ -46,11 +45,8 @@ public class ServletVerPerfilDirector extends HttpServlet {
 			peliculas = this.servicePelicula.getByDirector(id);
 			request.getSession().setAttribute("lasPeliculas", peliculas);
 			request.getRequestDispatcher("/VerPerfilActor.jsp").forward(request, response);
-		}
-		catch(NullPointerException e){
-			response.sendRedirect("Error404.jsp");
-			return;
-		}
+
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

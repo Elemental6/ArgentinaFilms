@@ -1,6 +1,9 @@
 <jsp:include page="MasterPageCabecera.jsp" />
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
+<c:if test="${not empty actorSelect}">
+
 <div class="contenido">
 	<div class="posters film-list clear posters-70 film-details-list no-title" style="margin-left:30%; width:40%;">      
 		<div class="poster film-poster really-lazy-load" style="width:100px; height:100px;"> 
@@ -34,5 +37,12 @@
 		</div>
 	</section>
 </div>
+
+
+<c:if test="${empty actorSelect}">
+     	<c:redirect url="Error404.jsp"/>
+</c:if>  
+
+</c:if>
 
 <jsp:include page="MasterPageFooter.jsp" />

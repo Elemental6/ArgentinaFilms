@@ -57,7 +57,7 @@
 </section>
 </c:if> 
 
-	</div>
+</div>
 
 
 <jsp:include page="MasterPageFooter.jsp" />

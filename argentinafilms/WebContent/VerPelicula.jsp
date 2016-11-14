@@ -3,6 +3,8 @@
 
 <c:import url="/ServletVerPelicula" /> <!-- llamo servlet al cargar pagina -->
 
+<c:if test="${not empty selectPelicula}">
+
 <div id="contenido" class="film backdropped logged-out backdrop-loaded" style="margin-top: 110px;">
 	<div class="content-wrap">
 		<div id="film-page-wrapper" class="cols-3 overflow">
@@ -286,4 +288,12 @@
 	<div
 		style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
 </div>
+
+</c:if>
+
+
+     <c:if test="${empty selectPelicula}">
+     	<c:redirect url="Error404.jsp"/>
+     </c:if>  
+
 <jsp:include page="MasterPageFooter.jsp" />
