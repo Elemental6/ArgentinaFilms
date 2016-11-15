@@ -75,6 +75,7 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			Integer anio = null;
 			Integer duracion = null;
 			String synopsis = null;
+			String synopsisSaltosLinea = null;
 			Integer puntuacion_total = 0;
 			String trailer = null;
 			Integer id_genero = null;
@@ -206,8 +207,12 @@ public class ServletRegistrarPelicula extends HttpServlet {
 						}
 
 						if (item.getFieldName().equals("txtTrailer")) {
+							
 							trailer = item.getString();
 							trailer.trim();
+							
+							if(trailer.compareTo("") == 0)
+								trailer="tjKqb-G6Fyc";
 						}
 
 						if (item.getFieldName().equals("txtGenero")) {
@@ -280,27 +285,17 @@ public class ServletRegistrarPelicula extends HttpServlet {
 
 //			String ubicacion = request.getParameter("txtUbicacion");
 
-			
 
-			
-
-			
-
-			
-
-			
-			
-			
-			
-
-			
 
 			pelicula.setNombre(nombre);
 			pelicula.setAnio(anio);
 			pelicula.setDuracion(duracion);
 //			pelicula.setUbicacion(ubicacion);
 			pelicula.setPuntuacion_total(puntuacion_total);
-			pelicula.setSynopsis(synopsis);
+			
+			synopsisSaltosLinea = synopsis.replace("\n", "<br />");
+			
+			pelicula.setSynopsis(synopsisSaltosLinea);
 			pelicula.setTrailer(trailer);
 			pelicula.setPoster(poster);
 			pelicula.setEstado(false);
