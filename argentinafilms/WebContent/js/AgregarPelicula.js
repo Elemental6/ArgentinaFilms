@@ -6,7 +6,7 @@ function cargarActores() {
              for (i = 0; i < jsonObj.length; i++)
              { 
                   
-                 		 $('#completarActores').append( '<option value="'+jsonObj[i].id_actor+'">'+jsonObj[i].apellido +", "+jsonObj[i].nombre+" - Edad: " +jsonObj[i].edad +" años" + '</option>');
+                 		 $('#completarActores').append( '<option value="'+jsonObj[i].id_actor+'">'+jsonObj[i].apellido +" - "+jsonObj[i].nombre + '</option>');
              }
  
 });
@@ -34,26 +34,50 @@ function cargarDirectores() {
 	             for (i = 0; i < jsonObj.length; i++)
 	             { 
 	                  
-	                 		 $('#completarDirectores').append( '<option value="'+jsonObj[i].id_director+'">'+jsonObj[i].apellido +", "+jsonObj[i].nombre+" - Edad: " +jsonObj[i].edad +" años" + '</option>');
+	                 		 $('#completarDirectores').append( '<option value="'+jsonObj[i].id_director+'">'+jsonObj[i].apellido +" - "+jsonObj[i].nombre+ '</option>');
 	             }
 	 
 	});
 }
-
-function cargarAños() {
-	
-	var año = new Date().getFullYear()
-	for (i = año.Tostring(); i < cars.length; i++) { 
-    text += cars[i] + "<br>";
-}
-	
-}
-
 
 
 $(document).ready(function() {
 	 cargarActores();
 	 cargarGeneros()   
      cargarDirectores()
+     
+     
+     $("#lblActoresEliminar").on( "click", function() {
+    	 $("#lblActoresIds").val("") ;
+    	 $('#ListActoresAgregados').empty() ;
+     });
+     
+     $("#lblActores").on( "click", function() {
+     	if($('#completarActores').val() != ""){
+     		
+     		if( $("#lblActoresIds").val() == ""){
+     			$('#ListActoresAgregados').html($('#ListActoresAgregados').html() + '<li class="list-group-item list-group-item-warning">'+$("#completarActores option:selected").text()+'</li>');
+     			 $("#lblActoresIds").val($("#completarActores option:selected").val()+"-");
+     		}
+     		else{
+     			var id = $("#lblActoresIds").val();
+     			var x = $("#lblActoresIds").val();
+     			var listIds =x.split('-');
+     			var flag = false;
+     			for(var i in listIds){
+     				if(listIds[i] == $("#completarActores option:selected").val()){
+     				flag = true;
+     			}
+     			}
+     					if(flag == false){
+              			 $("#lblActoresIds").val(id + $('#completarActores option:selected').val()+"-");
+              			$('#ListActoresAgregados').html($('#ListActoresAgregados').html() + '<li class="list-group-item list-group-item-warning">'+$("#completarActores option:selected").text()+'</li>');
+     				  }
+     		}
+     			}
+     	
+     });
+     
+     
      
 });

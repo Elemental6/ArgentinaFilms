@@ -1,10 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE HTML>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="MasterPageCabecera.jsp" />
 <script type="text/javascript" src="js/AgregarPelicula.js"></script>
 <link href="css/select2.min.css" rel="stylesheet">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-
+<c:if test="${not empty userLogueado}" >
 <div class="contenido">
 <c:if test="${empty userLogueado}">
 			<style>
@@ -52,8 +55,10 @@
                     <div>
                         <div>
                             <div>
+
                                 <input type="text" class="form-control" name="txtnombre" placeholder="Ingrese el nombre de la película"  pattern=".{1,250}"
 										required title="Nombre de la pelicula debe contener de 1 a 250 caracteres.">
+
                             </div>
                         </div>
                     </div>
@@ -61,18 +66,20 @@
             </div>    
                      
            
-<!-- 			<div class="form-group">  -->
-<!-- 			<label class="control-label col-sm-2">Ubicación:</label>                  -->
-<!--                 <div class="col-sm-10"> -->
-<!--                     <div> -->
-<!--                         <div> -->
-<!--                             <div> -->
-<!--                                 <input type="text" class="form-control login" name="txtUbicacion" placeholder="Ingrese la ubicacíon" required> -->
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                 </div>                  -->
-<!-- 			</div> -->
+
+			<div class="form-group"> 
+			<label class="control-label col-sm-2">Ubicación:</label>                 
+                <div class="col-sm-10">
+                    <div>
+                        <div>
+                            <div>
+                                <input type="text" class="form-control login" maxlength="70" name="txtUbicacion"MAXLENGTH="50" placeholder="Ingrese la ubicacíon" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>                 
+			</div>
+
 			
 			
 				<div class="form-group"> 
@@ -95,12 +102,16 @@
 							
 
 			<div class="form-group"> 
-               <label class="control-label col-sm-2">Duración:</label>                 
+               <label class="control-label col-sm-2">Duración (Min):</label>                 
                 <div class="col-sm-10">
                     <div>
                         <div>
                             <div>
-                                <input type="number" min="1" max="300" class="form-control login" name="txtDuracion" placeholder="Ingrese la duracíon" required>
+
+                                <input type="number" min="10" max="350" class="form-control login" name="txtDuracion" placeholder="Ingrese la duracíon" required>
+
+                               
+
                             </div>
                         </div>
                     </div>
@@ -113,7 +124,7 @@
                     <div>
                         <div>
                             <div>
-                                <input type="text" class="form-control login" name="txtTrailer" placeholder="Ingrese el trailer">
+                                <input type="text" class="form-control login"pattern=".{11,}"  MAXLENGTH="11" name="txtTrailer" placeholder="Ingrese el codigo de Youtube de 11 caracteres">
                             </div>
                         </div>
                     </div>
@@ -150,12 +161,16 @@
 			 </div>  
 			 
 			<div class="form-group"> 
-            	<label class="control-label col-sm-2">Synopsis:</label>                 
+            	<label class="control-label col-sm-2">Sinopsis:</label>                 
 	                	<div class="col-sm-10">
 	                    <div>
 	                        <div>
 	                         <div> 
-							   <textarea class="form-control login" rows="5" name="txtAreaSynospsis"  MAXLENGTH="250" required></textarea>
+
+							   <textarea class="form-control note-editor" rows="5" name="txtAreaSynospsis"  MAXLENGTH="254"></textarea>
+
+							   
+
 							 </div>
                         </div>
                     </div>
@@ -169,7 +184,7 @@
                     <div>
                         <div>
                             <div>
-                                <select  class="form-control login" name="txtanio" value="2015" placeholder ="Ingrese el año de la película" required>
+                                <select  class="form-control login" name="txtanio"  required>
                                 <option value="">Seleccione un año</option>
                                 <script>
 								  var myDate = new Date();
@@ -186,21 +201,37 @@
 			 <div class="form-group"> 
 			                <label class="control-label col-sm-2">Actores:</label>                 
 			                <div class="col-sm-6">
-			                    <div>
+			                    
 			                        <div class= "select-field">
 										  <select class ="form-control" name="txtactor" id ="completarActores" >
 										   
 										  </select>
+										  </div>
+										  </div>
+										  <div class="col-sm-2">
+										  
+										   
+										   
+                            <label id="lblActores">Agregar</label>
+                            </div>
+                            <div class="col-sm-2">
+                            <label id="lblActoresEliminar">Eliminar</label>
+                    		
+                        </div>
 			
-			                        </div>
-			                    </div>
-			                </div>  
-			                  <div class="col-sm-4">  
-			                          <button class="btn btn-default btn-sm" id="btnAgregarActor">Agregar Actor</button>    
-			            </div>  
-			            <label id="lblActores"></label>       
+			                        
+			                    
+			                </div> 
+			                 
+			                <div class="form-group">
+			                 <input id="lblActoresIds"  hidden="true" name="actoresIdS"></input>
+			            <div class="col-sm-offset-2 col-sm10">
+                           
+						<ul class ="list-group" id="ListActoresAgregados">
+						
+						</ul>   
 						 </div>
-						 
+						 </div>
 						 <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <div>
@@ -208,15 +239,24 @@
                             <div>
                                 <button type="submit" class="btn btn-success" id="btnAgregar">Agregar Película</button>
                             </div>
-                        </div>
+                           
                     </div>
                 </div>
-            </div>    
+            </div>  
+            </div>  
 	 </form>
     </div>
     </c:if>
 </div>		 
-		
+</c:if> 
+<c:if test="${empty userLogueado}" >
+<div class="container left-addon inner-addon">
+		<img src="imgs/SinPermisos.png" class="text-center img-responsive" width="10px%" style="margin:auto;">
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h1 class="text-center">Debe iniciar sesion en la página para poder agregar una película.<br><br></h1> 
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+    </div>
+</c:if> 		
 		<script type="text/javascript" src="js/select2.min.js"></script>
 
 <script> $('select').select2();</script>
