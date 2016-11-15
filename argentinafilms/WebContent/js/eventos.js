@@ -1,4 +1,44 @@
 $(document).ready(function() {
+	
+	
+	 cargarActores();
+	 cargarGeneros()   
+     cargarDirectores()
+     
+     
+     $("#lblActoresEliminar").on( "click", function() {
+    	 $("#lblActoresIds").val("") ;
+    	 $('#ListActoresAgregados').empty() ;
+     });
+     
+     $("#lblActores").on( "click", function() {
+     	if($('#completarActores').val() != ""){
+     		
+     		if( $("#lblActoresIds").val() == ""){
+     			$('#ListActoresAgregados').html($('#ListActoresAgregados').html() + '<li class="list-group-item list-group-item-warning">'+$("#completarActores option:selected").text()+'</li>');
+     			 $("#lblActoresIds").val($("#completarActores option:selected").val()+"-");
+     		}
+     		else{
+     			var id = $("#lblActoresIds").val();
+     			var x = $("#lblActoresIds").val();
+     			var listIds =x.split('-');
+     			var flag = false;
+     			for(var i in listIds){
+     				if(listIds[i] == $("#completarActores option:selected").val()){
+     				flag = true;
+     			}
+     			}
+     					if(flag == false){
+              			 $("#lblActoresIds").val(id + $('#completarActores option:selected').val()+"-");
+              			$('#ListActoresAgregados').html($('#ListActoresAgregados').html() + '<li class="list-group-item list-group-item-warning">'+$("#completarActores option:selected").text()+'</li>');
+     				  }
+     		}
+     			}
+     	
+     })
+     
+
+	
 	$('#inputBuscarUsuario').on('keypress', function (e) {
 		
 		if (e.which == 13) {

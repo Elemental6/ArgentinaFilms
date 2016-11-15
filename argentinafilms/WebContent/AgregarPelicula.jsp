@@ -5,11 +5,32 @@
 <script type="text/javascript" src="js/AgregarPelicula.js"></script>
 <link href="css/select2.min.css" rel="stylesheet">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-<c:if test="${not empty userLogueado}" >
+
 <div class="contenido">
+
 <c:if test="${empty userLogueado}">
+	<div class="container left-addon inner-addon">
+		<img src="imgs/SinPermisos.png" class="text-center img-responsive" width="10px%" style="margin:auto;">
+		<br>
+        <h1 class="text-center">Debés estar logueado con una cuenta activa para poder agregar una película.<br><br></h1>  
+    </div>
+</c:if>  
+
+
+<c:if test="${userLogueado.estado == false}">
+	<div class="container left-addon inner-addon">
+		<img src="imgs/SinPermisos.png" class="text-center img-responsive" width="10px%" style="margin:auto;">
+		<br>
+        <h1 class="text-center">Debés activar tu cuenta para poder agregar una película.<br><br></h1>  
+    </div>
+</c:if>  
+		
+		
+<c:if test="${not empty userLogueado}">
+
 			<style>
 					div.container a {
 						text-align: center;
@@ -29,24 +50,12 @@
 					}
 		</style>
 
-			<div class="container">
-				<img src="imgs/SinPermisos.png" class="text-center img-responsive"  style="margin:auto;">
-				<a href="IniciarSesion.jsp">Inicie sesión para proceder.</a>
-
-			</div>
-
-
-		</c:if>
-<c:if test="${not empty userLogueado}">
-
-
-
     <div class="login reg">
         <h1 class="text-center titulo-seccion"><img src="imgs/register.png" class="imagen-seccion" />Agregar Pelicula</h1>
         
         <div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
         
-        <form action="ServletRegistrarPelicula" role="form" class="login form-horizontal" method="POST"> 
+        <form action="ServletRegistrarPelicula" role="form" class="login form-horizontal" method="POST" enctype="multipart/form-data"> 
         
         
             <div class="form-group"> 
@@ -66,7 +75,7 @@
             </div>    
                      
            
-
+<!-- 
 			<div class="form-group"> 
 			<label class="control-label col-sm-2">Ubicación:</label>                 
                 <div class="col-sm-10">
@@ -79,26 +88,30 @@
                     </div>
                 </div>                 
 			</div>
-
+ -->
 			
 			
-				<div class="form-group"> 
-							<label class="control-label col-sm-2">Poster:</label>                 
-				                <div class="col-sm-10">
-				                    <div>
-				                        <div>
-				                            <div class="bootstrap-filestyle input-group" style="width: 100%;">
-				                            <span class ="btn btn-default btn-file" style="width: 100%;cursor: default;">
+				<div class="form-group">
+				<label class="control-label col-sm-2">Póster <a id=cancelarAvatar style="display:none;" onclick="cancelarAvatar()">(X)</a>:</label>
+				<div class="col-sm-10">
+					<div>
+						<div>
+							<div>
+							<div class="bootstrap-filestyle input-group" style="width: 100%;">
+				                <span class ="btn btn-default btn-file" style="width: 100%;cursor: default;">
 				                           
-				                            <input type="file" id="myFile" style="cursor: default;" accept="image/*">
-				                            </span>
+
+								<input type="file" name="file" accept="image/*" id="menu_images"/>
+								
+								</span>
 				                                
 				                                
-				                                </div>
-				                            </div>
-				                        </div>
-				                    </div>
-				                </div>                 
+				              </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>              
 							
 
 			<div class="form-group"> 
@@ -137,7 +150,7 @@
                     <div>
                         <div>
                             <div>
-                                  <select class ="form-control" name="txtdirector" id ="completarDirectores">
+                                  <select class ="form-control" name="txtdirector" id ="completarDirectores" >
                                   
 							  </select>
                             </div>
@@ -184,7 +197,7 @@
                     <div>
                         <div>
                             <div>
-                                <select  class="form-control login" name="txtanio"  required>
+                                <select  class="form-control" name="txtanio" required>
                                 <option value="">Seleccione un año</option>
                                 <script>
 								  var myDate = new Date();
@@ -248,16 +261,11 @@
     </div>
     </c:if>
 </div>		 
-</c:if> 
-<c:if test="${empty userLogueado}" >
-<div class="container left-addon inner-addon">
-		<img src="imgs/SinPermisos.png" class="text-center img-responsive" width="10px%" style="margin:auto;">
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h1 class="text-center">Debe iniciar sesion en la página para poder agregar una película.<br><br></h1> 
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
-    </div>
-</c:if> 		
-		<script type="text/javascript" src="js/select2.min.js"></script>
+
+	
+	
+	
+<script type="text/javascript" src="js/select2.min.js"></script>
 
 <script> $('select').select2();</script>
 <style type="text/css">
