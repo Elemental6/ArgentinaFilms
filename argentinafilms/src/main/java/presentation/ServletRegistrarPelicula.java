@@ -2,6 +2,7 @@ package presentation;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.IOException;
 
@@ -54,19 +55,24 @@ public class ServletRegistrarPelicula extends HttpServlet {
 		try{			
 			
 			// Obtengo el usuario que esta logeado
-			Usuarios usuario =  (Usuarios) request.getSession().getAttribute("userLogueado");			
-			Generos genero = new Generos();			
+
+			Usuarios usuario =  (Usuarios) request.getSession().getAttribute("userLogeado");
+			
+			// TODO: Deberia obtener al genero de un listbox
 			
 			String nombre = request.getParameter("txtnombre");
+
 			if (nombre.equals(null)){						
 				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
 				request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
 				request.setAttribute("mensajeResultado", "El nombre de la pelicula no puede ser nulo. Reintente por favor.");
 				request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
 				return;
+
 			}
-		
-			
+
+			String ubicacion = request.getParameter("txtUbicacion");
+
 			Integer anio = null;
 			if (!ValidarDatos.validarInteger(request.getParameter("txtanio"))){
 				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
@@ -77,7 +83,7 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			}
 			
 			anio = Integer.parseInt(request.getParameter("txtanio"));
-			String ubicacion = request.getParameter("txtUbicacion");		
+		
 			
 			Integer duracion = null;
 			
@@ -91,6 +97,7 @@ public class ServletRegistrarPelicula extends HttpServlet {
 			 
 			duracion = Integer.parseInt(request.getParameter("txtDuracion"));			
 			
+
 			String synopsis = request.getParameter("txtAreaSynospsis"); 
 			if (synopsis.equals(null)){
 				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
@@ -99,32 +106,32 @@ public class ServletRegistrarPelicula extends HttpServlet {
 				request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
 				return;
 			}
-			// Siempre que se registre una nueva pelicula su puntuacion sera 0
+
 			Integer puntuacion_total = 0;
-			Peliculas pelicula = new Peliculas(nombre,anio,ubicacion,duracion,synopsis,puntuacion_total,usuario,null);
-//			String poster  = SubidaDeImagen.Subir(request, response, "imgs\\peliculas\\", CodigoAleatorio.getCadenaAlfanumAleatoria(15) + ".jpg");
-//			
-//			
-			// Poster y trailer podrian ser nulos
+
+			Peliculas pelicula = new Peliculas();
+
 			String trailer = request.getParameter("txtTrailer");
+
+			trailer.trim();
+			
+			Generos genero = new Generos();
+
 			Integer id_genero = null;
+
 			if(request.getParameter("txtGenero")!= "")
 			{
 				id_genero = Integer.parseInt(request.getParameter("txtGenero"));
 				genero = this.generosService.getById(id_genero);
 				pelicula.setGenero(genero);
-			} 
+
+			}  
 			else{
 				request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
 				request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
 				request.setAttribute("mensajeResultado", "Por favor seleccione un genero y reintente.");
 				request.getRequestDispatcher("/AgregarPelicula.jsp").forward(request, response);
 			}
-			
-			
-			pelicula.setTrailer(trailer);
-//			pelicula.setPoster(poster);
-			pelicula.setEstado(false);
 			
 			Integer id_director = null;
 			if(request.getParameter("txtdirector")!="")
@@ -133,22 +140,35 @@ public class ServletRegistrarPelicula extends HttpServlet {
 				Directores director = this.directoresService.getById(id_director);
 				pelicula.setDirector(director);
 			}
-			
 
+			String id_actor =request.getParameter("actoresIdS");
+			
+			if(request.getParameter("actoresIdS")!=""){
+			List<String> listaIds = Arrays.asList(id_actor.split("-"));
 			if(request.getParameter("txtactor")!=""){
-				
-			Integer id_actor =Integer.parseInt(request.getParameter("txtactor"));
 			Actores actor = new Actores();
 			List<Actores> actores = new ArrayList<>();
 			
-			actor = this.actoresService.getById(id_actor);
-				actores.add(actor);
+			for(String elem : listaIds){
+				actor = this.actoresService.getById( Integer.parseInt(elem));
+				actores.add(actor);//do whatever with the element
+				}
+				
 				pelicula.setActores(actores);
 			}
-			
-			
-			
-//			pelicula.setPoster(poster);
+			}
+
+			pelicula.setNombre(nombre);
+			pelicula.setAnio(anio);
+			pelicula.setDuracion(duracion);
+			pelicula.setUbicacion(ubicacion);
+			pelicula.setPuntuacion_total(puntuacion_total);
+			pelicula.setSynopsis(synopsis);
+			pelicula.setTrailer(trailer);
+			//pelicula.setPoster(poster);
+			pelicula.setEstado(false);
+			pelicula.setUsuario(usuario);
+
 			 //Guardo la pelicula
 			this.peliculaService.add(pelicula);
 			

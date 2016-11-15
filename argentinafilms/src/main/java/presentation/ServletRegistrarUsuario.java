@@ -215,14 +215,14 @@ public class ServletRegistrarUsuario extends HttpServlet {
 		if (!ValidarDatos.validarNombresyApellidos(nombreIngresado)){
 			request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
 			request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
-			request.setAttribute("mensajeResultado", "Su nombre no permite caracteres especiales o numeros. Reintente por favor");
+			request.setAttribute("mensajeResultado", "Su nombre no permite caracteres especiales, acentos o numeros (Ejemplo valido: Jose Maria). Reintente por favor");
 			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
 			return;
 		}
 		if (!ValidarDatos.validarNombresyApellidos(apellidoIngresado)){
 			request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
 			request.setAttribute("Mensajedismisable", "<a class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>");
-			request.setAttribute("mensajeResultado", "Su apellido no permite caracteres especiales o numeros. Reintente por favor");
+			request.setAttribute("mensajeResultado", "Su apellido no permite caracteres especiales, acentos o numeros (Ejemplo valido: Listorti). Reintente por favor");
 			request.getRequestDispatcher("/Registrarse.jsp").forward(request, response);
 			return;
 		}

@@ -45,27 +45,35 @@ public class ServletRegistrarPuntaje extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
-		
-					Usuarios usuario =  (Usuarios) request.getSession().getAttribute("userLogueado");					
-					Integer id_pelicula = Integer.parseInt(request.getParameter("id_pelicula")); 				
-					Peliculas pelicula = this.peliculaService.getById(id_pelicula);
 					
-					// Puntuacion deberia ser de 1-5 cierto?
-					Integer puntuacion = Integer.parseInt(request.getParameter("puntuacion")); 				
-					Puntajes puntaje = new Puntajes(puntuacion,pelicula,usuario);
-					
-					// Guardo nuevo puntaje
-					this.puntajeService.save(puntaje);
-					
-					// Actualizo pelicula, le agrego el nuevo puntaje a su puntuacion total
-					Integer puntuacion_total = pelicula.getPuntuacion_total() + puntuacion;
-					pelicula.setPuntuacion_total(puntuacion_total);
-					
-					this.peliculaService.update(pelicula);
-					
-					response.setContentType("text/plain");  // Set content type of the response so that jQuery knows what it can expect.
-				    response.setCharacterEncoding("UTF-8"); // You want world domination, huh?
-				    response.getWriter().write(puntuacion_total.toString());       // Write response body.
+					Usuarios usuario =  (Usuarios) request.getSession().getAttribute("userLogueado");		
+	
+					try{
+						usuario.getNombre();
+						
+						Integer id_pelicula = Integer.parseInt(request.getParameter("id_pelicula")); 				
+						Peliculas pelicula = this.peliculaService.getById(id_pelicula);
+						
+						// Puntuacion deberia ser de 1-5 cierto?
+						Integer puntuacion = Integer.parseInt(request.getParameter("puntuacion")); 				
+						Puntajes puntaje = new Puntajes(puntuacion,pelicula,usuario);
+						
+						// Guardo nuevo puntaje
+						this.puntajeService.save(puntaje);
+						
+						// Actualizo pelicula, le agrego el nuevo puntaje a su puntuacion total
+						Integer puntuacion_total = pelicula.getPuntuacion_total() + puntuacion;
+						pelicula.setPuntuacion_total(puntuacion_total);
+						
+						this.peliculaService.update(pelicula);
+						
+						response.setContentType("text/plain");  // Set content type of the response so that jQuery knows what it can expect.
+					    response.setCharacterEncoding("UTF-8"); // You want world domination, huh?
+					    response.getWriter().write(puntuacion_total.toString());       // Write response body.
+					}
+					catch(NullPointerException e){
+						System.out.println("No votado porque usuario no esta logueado.");
+					}
 				}
 
 	

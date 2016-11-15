@@ -39,8 +39,9 @@ public class ServletVerPerfilUsuario extends HttpServlet {
 	
 	@SuppressWarnings("unused")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		try{
+		
+			String id = request.getParameter("id");
+
 			List<Peliculas> peliculas = new ArrayList<Peliculas>();
 			Usuarios usuario = new Usuarios();
 			usuario = this.serviceUsuario.getByUserName(id);
@@ -54,12 +55,9 @@ public class ServletVerPerfilUsuario extends HttpServlet {
 			for(int i=0; i<resenias.size();i++){
 				resenias.get(i).setPelicula(servicePelicula.getByResenia(resenias.get(i).getId_resenia()));
 			}
+			
 			request.getSession().setAttribute("lasResenias", resenias);
-		}
-		catch(NullPointerException e){
-			response.sendRedirect("Error404.jsp");
-			return;
-		}
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

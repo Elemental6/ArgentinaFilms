@@ -3,6 +3,8 @@
 
 <c:import url="/ServletVerPelicula" /> <!-- llamo servlet al cargar pagina -->
 
+<c:if test="${not empty selectPelicula}">
+
 <div id="contenido" class="film backdropped logged-out backdrop-loaded" style="margin-top: 110px;">
 	<div class="content-wrap">
 		<div id="film-page-wrapper" class="cols-3 overflow">
@@ -150,7 +152,7 @@
 						<div id="tab-cast">
 							<div class="cast-list box-link-list">
 								<p>
-									<a href="ServletVerPerfilDirector?id=${selectPelicula.director.id_director}" class="box-link"> <span>${selectPelicula.director.nombre}
+									<a href="VerPerfilDirector.jsp?id=${selectPelicula.director.id_director}" class="box-link"> <span>${selectPelicula.director.nombre}
 											${selectPelicula.director.apellido}</span>
 									</a>
 								</p>
@@ -169,7 +171,7 @@
 							<div class="cast-list box-link-list">
 								<p>
 									<c:forEach items="${selectPelicula.actores}" var="actor">
-										<a href="ServletVerPerfilActor?id=${actor.id_actor}"
+										<a href="VerPerfilActor.jsp?id=${actor.id_actor}"
 											class="box-link"> <span>${actor.nombre}
 												${actor.apellido}</span>
 										</a>
@@ -286,4 +288,16 @@
 	<div
 		style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
 </div>
+
+</c:if>
+
+
+     <c:if test="${empty selectPelicula}">
+     	<c:redirect url="Error404.jsp"/>
+     </c:if>  
+     
+     <c:if test="${not empty error404}">
+     	<c:redirect url="Error404.jsp"/>
+     </c:if>  
+
 <jsp:include page="MasterPageFooter.jsp" />

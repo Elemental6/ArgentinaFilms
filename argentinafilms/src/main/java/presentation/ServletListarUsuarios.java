@@ -36,23 +36,32 @@ public class ServletListarUsuarios extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		int pagina = 1;
-		int cantRegistrosXPagina = 3;
+		int cantRegistrosXPagina = 10;
+		int cantTotalRegistros = 0;
+		List<Usuarios> usuarios = null;
+		String busqueda = request.getParameter("buscar");
 		
 		if(request.getParameter("pagina") != null)
             pagina = Integer.parseInt(request.getParameter("pagina"));
 		
-		List<Usuarios> usuarios = this.serviceUsuario.getActivos((pagina-1)*cantRegistrosXPagina, cantRegistrosXPagina);
 		
-		int cantTotalRegistros = this.serviceUsuario.getCantActivos();
+		if(request.getParameter("buscar") != null){
+            usuarios = this.serviceUsuario.getByNombre(busqueda, (pagina-1)*cantRegistrosXPagina, cantRegistrosXPagina);
+            cantTotalRegistros = this.serviceUsuario.getCantActivos();
+		}
+		else{
+			usuarios = this.serviceUsuario.getActivos((pagina-1)*cantRegistrosXPagina, cantRegistrosXPagina);
+			cantTotalRegistros = this.serviceUsuario.getCantActivos();
+		}
+		
+		
 		int cantPaginas = (int) Math.ceil(cantTotalRegistros * 1.0 / cantRegistrosXPagina); 
 		
 		request.getSession().setAttribute("usuarios", usuarios);
 		request.setAttribute("cantPaginas", cantPaginas);
         request.setAttribute("paginaActual", pagina);
-		response.sendRedirect("CambiarRangoUsuario.jsp");
-		
 
-		
+
 	}
 	
 	

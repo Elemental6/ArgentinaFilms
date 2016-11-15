@@ -1,6 +1,19 @@
-$( document ).ready(function() {
+$(document).ready(function() {
+	$('#inputBuscarUsuario').on('keypress', function (e) {
+		
+		if (e.which == 13) {
+	        document.location.href = "CambiarRangoUsuario.jsp?buscar=" + $('#inputBuscarUsuario').val(); 
+	    }
+	})
+
+	$('#inputBuscarPelicula').on('keypress', function (e) {
+		if (e.which == 13) {
+	        document.location.href = "resultados.jsp?buscar=" + $('#inputBuscarPelicula').val(); 
+	    }
+	})
+
 	document.getElementById("menu_images").onchange = function () {
-	
+		
 	    var reader = new FileReader();
 	    
 	    if(this.files[0].type.indexOf("image")==-1){
@@ -34,17 +47,4 @@ $( document ).ready(function() {
 	    
 	    $("#cancelarAvatar").prop('style', 'color:yellow; font-weight: bold; cursor: pointer; display:inline;');
 	};
-
-	
 });
-
-
-
-function cancelarAvatar(){
-	 $("#cancelarAvatar").prop('style', 'display:none;');
-	 
-	 $("#menu_image").attr("src","blank");
-     $("#menu_image").hide();  
-     $('#menu_images').wrap('<form>').closest('form').get(0).reset();
-     $('#menu_images').unwrap(); 
-}

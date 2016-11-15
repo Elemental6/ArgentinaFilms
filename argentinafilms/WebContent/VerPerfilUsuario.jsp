@@ -4,6 +4,9 @@
 
 <c:import url="/ServletVerPerfilUsuario" /> <!-- llamo servlet al cargar pagina -->
 
+<c:if test="${not empty usuarioSelect}">
+
+
 <div class="contenido" style="margin-top: 50px;">
 	<div class="content-wrap">
 		<div class="cagamargin"></div>
@@ -129,4 +132,13 @@
 		</div>
 	</div>
 </div>
+
+</c:if>
+
+
+     <c:if test="${empty usuarioSelect}">
+     	<c:redirect url="Error404.jsp"/>
+     </c:if>  
+
+
 <jsp:include page="MasterPageFooter.jsp" />

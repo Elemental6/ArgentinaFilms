@@ -28,3 +28,12 @@ function showResenias(){
 	document.getElementById("li-nav-two").className = "hide-for-owner";
 	document.getElementById("li-nav-one").className = "selected";
 }
+
+function cancelarAvatar(){
+	 $("#cancelarAvatar").prop('style', 'display:none;');
+	 
+	 $("#menu_image").attr("src","blank");
+    $("#menu_image").hide();  
+    $('#menu_images').wrap('<form>').closest('form').get(0).reset();
+    $('#menu_images').unwrap(); 
+}

@@ -2,6 +2,7 @@ package dao.impl;
 
 import java.util.List;
 
+import model.Peliculas;
 import model.Usuarios;
 
 import org.hibernate.Criteria;
@@ -68,4 +69,13 @@ public class DAOUsuarioImpl implements DAOUsuario{
 		this.hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
 
+	
+	@Override
+	public List<Usuarios> getByNombre(String texto, int offset, int cantRegistros) {
+		DetachedCriteria crit = DetachedCriteria.forClass(Usuarios.class);
+		crit.add(Restrictions.like("usuario", "%" + texto + "%"));
+		crit.add(Restrictions.eq("estado", true));
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.hibernateTemplate.findByCriteria(crit, offset, cantRegistros);
+	}
 }
