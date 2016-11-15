@@ -5,38 +5,30 @@
 <script type="text/javascript" src="js/AgregarPelicula.js"></script>
 <link href="css/select2.min.css" rel="stylesheet">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-<c:if test="${not empty userLogueado}" >
+
+
+
 <div class="contenido">
+
 <c:if test="${empty userLogueado}">
-			<style>
-					div.container a {
-						text-align: center;
-						font-family: Arial;
-						font-size: 22px;
-						font-style: normal;
-						font-weight: bold;
-						text-decoration: underline;
-						text-transform: none;
-						color: #ff0000;
-						margin-bottom: 20px;
-					}
-					
-					div.container {
-						margin: 0 auto;
-						width: 200px;
-					}
-		</style>
-
-			<div class="container">
-				<img src="imgs/SinPermisos.png" class="text-center img-responsive"  style="margin:auto;">
-				<a href="IniciarSesion.jsp">Inicie sesión para proceder.</a>
-
-			</div>
+	<div class="container left-addon inner-addon">
+		<img src="imgs/SinPermisos.png" class="text-center img-responsive" width="10px%" style="margin:auto;">
+		<br>
+        <h1 class="text-center">Debés estar logueado con una cuenta activa para poder agregar una película.<br><br></h1>  
+    </div>
+</c:if>  
 
 
-		</c:if>
+<c:if test="${userLogueado.estado == false}">
+	<div class="container left-addon inner-addon">
+		<img src="imgs/SinPermisos.png" class="text-center img-responsive" width="10px%" style="margin:auto;">
+		<br>
+        <h1 class="text-center">Debés activar tu cuenta para poder agregar una película.<br><br></h1>  
+    </div>
+</c:if>  
+		
+		
 <c:if test="${not empty userLogueado}">
 
 
@@ -248,16 +240,11 @@
     </div>
     </c:if>
 </div>		 
-</c:if> 
-<c:if test="${empty userLogueado}" >
-<div class="container left-addon inner-addon">
-		<img src="imgs/SinPermisos.png" class="text-center img-responsive" width="10px%" style="margin:auto;">
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h1 class="text-center">Debe iniciar sesion en la página para poder agregar una película.<br><br></h1> 
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
-    </div>
-</c:if> 		
-		<script type="text/javascript" src="js/select2.min.js"></script>
+
+	
+	
+	
+<script type="text/javascript" src="js/select2.min.js"></script>
 
 <script> $('select').select2();</script>
 <style type="text/css">
