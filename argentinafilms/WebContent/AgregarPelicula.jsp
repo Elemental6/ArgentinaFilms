@@ -6,7 +6,7 @@
 <link href="css/select2.min.css" rel="stylesheet">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 
 <div class="contenido">
@@ -31,14 +31,31 @@
 		
 <c:if test="${not empty userLogueado}">
 
-
+			<style>
+					div.container a {
+						text-align: center;
+						font-family: Arial;
+						font-size: 22px;
+						font-style: normal;
+						font-weight: bold;
+						text-decoration: underline;
+						text-transform: none;
+						color: #ff0000;
+						margin-bottom: 20px;
+					}
+					
+					div.container {
+						margin: 0 auto;
+						width: 200px;
+					}
+		</style>
 
     <div class="login reg">
         <h1 class="text-center titulo-seccion"><img src="imgs/register.png" class="imagen-seccion" />Agregar Pelicula</h1>
         
         <div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
         
-        <form action="ServletRegistrarPelicula" role="form" class="login form-horizontal" method="POST"> 
+        <form action="ServletRegistrarPelicula" role="form" class="login form-horizontal" method="POST" enctype="multipart/form-data"> 
         
         
             <div class="form-group"> 
@@ -58,7 +75,7 @@
             </div>    
                      
            
-
+<!-- 
 			<div class="form-group"> 
 			<label class="control-label col-sm-2">Ubicación:</label>                 
                 <div class="col-sm-10">
@@ -71,26 +88,30 @@
                     </div>
                 </div>                 
 			</div>
-
+ -->
 			
 			
-				<div class="form-group"> 
-							<label class="control-label col-sm-2">Poster:</label>                 
-				                <div class="col-sm-10">
-				                    <div>
-				                        <div>
-				                            <div class="bootstrap-filestyle input-group" style="width: 100%;">
-				                            <span class ="btn btn-default btn-file" style="width: 100%;cursor: default;">
+				<div class="form-group">
+				<label class="control-label col-sm-2">Póster <a id=cancelarAvatar style="display:none;" onclick="cancelarAvatar()">(X)</a>:</label>
+				<div class="col-sm-10">
+					<div>
+						<div>
+							<div>
+							<div class="bootstrap-filestyle input-group" style="width: 100%;">
+				                <span class ="btn btn-default btn-file" style="width: 100%;cursor: default;">
 				                           
-				                            <input type="file" id="myFile" style="cursor: default;" accept="image/*">
-				                            </span>
+
+								<input type="file" name="file" accept="image/*" id="menu_images"/>
+								
+								</span>
 				                                
 				                                
-				                                </div>
-				                            </div>
-				                        </div>
-				                    </div>
-				                </div>                 
+				              </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>              
 							
 
 			<div class="form-group"> 
@@ -129,7 +150,7 @@
                     <div>
                         <div>
                             <div>
-                                  <select class ="form-control" name="txtdirector" id ="completarDirectores">
+                                  <select class ="form-control" name="txtdirector" id ="completarDirectores" >
                                   
 							  </select>
                             </div>
@@ -176,7 +197,7 @@
                     <div>
                         <div>
                             <div>
-                                <select  class="form-control login" name="txtanio"  required>
+                                <select  class="form-control" name="txtanio" required>
                                 <option value="">Seleccione un año</option>
                                 <script>
 								  var myDate = new Date();

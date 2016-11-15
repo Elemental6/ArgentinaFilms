@@ -330,7 +330,7 @@ a:active,a:hover
 
 ::selection
 {
-    color: #FFF;
+    color: black;
     background: #F93;
 }
 
