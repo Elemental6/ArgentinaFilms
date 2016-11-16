@@ -16,7 +16,11 @@
 						<div class="react-component film-poster film-poster-209381 poster">
 							<img src="${selectPelicula.poster}"
 								alt="${selectPelicula.nombre}" height="345" width="230">
+								
 						</div>
+						
+						<a href="ModificarPelicula.jsp?pelicula_id=${selectPelicula.id_pelicula}" class="has-icon icon-16 icon-edit"><span class="icon"></span><b>Editar Película</b></a>
+						
 						<div class="film-stats">
 							<ul>
 								<li class="filmstat-watches">
@@ -113,6 +117,9 @@
 							</a>
 						</p>
 					</section>
+					<div class="follow-button-wrapper" style="visibility: visible;">
+						
+					</div>
 				</div>
 			</div>
 
