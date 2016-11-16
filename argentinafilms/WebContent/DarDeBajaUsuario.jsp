@@ -18,7 +18,7 @@
 
  	
 	<div class="login">
-		<h1 class="text-center titulo-seccion"><img src="imgs/CambiarRango.png" class="imagen-seccion" />CAMBIAR RANGO USUARIO</h1>
+		<h1 class="text-center titulo-seccion"><img src="imgs/Banear.png" class="imagen-seccion" />DAR DE BAJA USUARIO</h1>
 	</div>
 
 	<div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
@@ -45,7 +45,7 @@
 		    
 				<c:forEach items="${usuarios}" var="usuario">
 				<c:if test="${userLogueado.usuario != usuario.usuario}">
-				<form action="CambiarRangoUsuario" method="GET" id="filaUsuario">
+				<form action="DarDeBajaUsuario" method="GET" id="filaUsuario">
 				
 				
 				
@@ -56,15 +56,10 @@
 						<td>${usuario.usuario}</td>
 						<td>${usuario.nombre} ${usuario.apellido}</td>
 						<td>${usuario.email}</td>
+						<td>${usuario.rango}</td>
 
-						<td style="width:200px!important">
-							<select id="rangoSeleccionado" name="rangoSeleccionado" class="input-sm">
-		                	<option value="novato" <c:if test="${usuario.rango == 'novato'}">selected</c:if>>Novato</option>
-		                	<option value="moderador" <c:if test="${usuario.rango == 'moderador'}">selected</c:if>>Moderador</option>
-		            		</select>
-                    	</td>
-                    	
-                    	<td><button type="submit" class="btn btn-success btn-sm" style="margin: auto!important" onclick="return confirm('¿Esta completamente seguro?')" >Cambiar rango</button></td>
+						                    	
+                    	<td><button type="submit" class="btn btn-success btn-sm" style="margin: auto!important">Dar de baja</button></td>
 						</tr>
 					
 				</form>
@@ -80,7 +75,7 @@
 		<ul class="pagination lead" data-pg-collapsed> 
 		<c:if test="${paginaActual != 1}">
 		    <li>
-		        <a href="CambiarRangoUsuario.jsp?pagina=1">&laquo;</a>
+		        <a href="DarDeBajaUsuario.jsp?pagina=1">&laquo;</a>
 		    </li>    
 		 </c:if>   
 		     
@@ -89,14 +84,14 @@
 
 
 		    <li <c:if test="${paginaActual == i}">class="active"</c:if>>
-		        <a href="CambiarRangoUsuario.jsp?pagina=${i}">${i}</a>
+		        <a href="DarDeBajaUsuario.jsp?pagina=${i}">${i}</a>
 		    </li>     
 
 		   </c:forEach> 
 		    
 		    <c:if test="${paginaActual lt cantPaginas}">
 		    <li>
-		        <a href="CambiarRangoUsuario.jsp?pagina=${cantPaginas}">&raquo;</a>
+		        <a href="DarDeBajaUsuario.jsp?pagina=${cantPaginas}">&raquo;</a>
 		    </li>     
 		    </c:if>
 		</ul>

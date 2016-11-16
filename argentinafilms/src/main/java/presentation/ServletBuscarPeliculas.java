@@ -36,7 +36,7 @@ public class ServletBuscarPeliculas extends HttpServlet {
 		
 		List<Peliculas> peliculas = this.peliculaService.getByTextoEnNombre(texto);
 		request.getSession().setAttribute("PeliculasEncontradas", peliculas);
-		response.sendRedirect("resultados.jsp");
+		response.sendRedirect("Resultados.jsp");
 
 	}
 

@@ -39,7 +39,7 @@ public class ServletBanearUsuario extends HttpServlet{
 		try{
 			usuario.setEstado(false);
 		
-			this.serviceUsuario.update(usuario);;
+			this.serviceUsuario.update(usuario);
 		}
 		catch(NullPointerException e){
 			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
