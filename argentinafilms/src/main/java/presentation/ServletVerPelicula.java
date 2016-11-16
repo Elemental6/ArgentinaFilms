@@ -58,6 +58,28 @@ public class ServletVerPelicula extends HttpServlet {
 
 			Puntajes puntajeUserLogueado = this.servicePuntaje.getByUsuarioYPelicula(usuario, pelicula);
 			request.getSession().setAttribute("puntajeUserLogueado", puntajeUserLogueado);
+			
+			//Compruebo si el usuario puede editar la pelicula //
+			if (usuario != null && pelicula != null){
+			
+				Boolean valido = false;
+				if  (!usuario.getUsuario().equals(pelicula.getUsuario().getUsuario())){
+					if (usuario.getRango().equals("admin") || usuario.getRango().equals("moderador")){
+						valido = true;
+					}
+				}
+				else valido = true;
+			
+				if (valido){
+					request.getSession().setAttribute("PuedeEditarPelicula", "OK");
+				}
+				else{
+					request.getSession().setAttribute("PuedeEditarPelicula", "NOT");
+				}
+				
+				
+			}
+			
 		}
 		catch(NumberFormatException e){
 			request.getSession().setAttribute("error404", true);

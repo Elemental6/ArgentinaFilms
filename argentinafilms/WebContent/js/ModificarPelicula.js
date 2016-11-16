@@ -69,11 +69,12 @@ $(document).ready(function() {
 	            	 document.getElementById("txtanio").value = pelicula.anio
 	            	 document.getElementById("txtDuracion").value = pelicula.duracion
 	            	 document.getElementById("txtTrailer").value = pelicula.trailer
-	            	 document.getElementById("txtUbicacion").value = pelicula.ubicacion
+
 	            	 document.getElementById("txtAreaSynospsis").value = pelicula.synopsis
 	            	 document.getElementById('completarGeneros').value = pelicula.genero.genero_id
 	            	 document.getElementById('completarDirectores').value = pelicula.director.id_director
-	         
+	            	 document.getElementById('id_pelicula_modificar').value = pelicula.id_pelicula
+	      
 	            	 var actores = pelicula.actores;
 	            	 
 	            	 for(var i in actores){
@@ -81,7 +82,7 @@ $(document).ready(function() {
 		     			 $("#lblActoresIds").val($("#lblActoresIds").val() + actores[i].id_actor+"-");
 		     		}
 		     			
-	            	 
+	            	
 	            	 
 	            	 
 	            	 

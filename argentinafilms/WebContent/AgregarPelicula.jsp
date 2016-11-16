@@ -4,7 +4,7 @@
 <jsp:include page="MasterPageCabecera.jsp" />
 <script type="text/javascript" src="js/AgregarPelicula.js"></script>
 <link href="css/select2.min.css" rel="stylesheet">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 

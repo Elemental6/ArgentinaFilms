@@ -33,9 +33,17 @@ public class ServletLogin extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		
+		if (request.getParameter("txtNombreUsuario").equals(null) || request.getParameter("txtPass").equals(null)){
+			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-danger");
+	        request.setAttribute("mensajeResultado", "Usuario o Passwords no pueden estar vacios. Reintente.");
+			request.getRequestDispatcher("/IniciarSesion.jsp").forward(request, response);
+			return;
+		}
+		
 		String usuarioIngresado = request.getParameter("txtNombreUsuario");
 		String passIngresado = request.getParameter("txtPass");
-		
 		try{
 			Usuarios usuario = new Usuarios();
 			usuario = this.serviceUsuario.getByUserName(usuarioIngresado);
