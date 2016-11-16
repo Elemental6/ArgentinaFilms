@@ -278,8 +278,13 @@
 												<div class="collapsed-text">
 													<p>${resenia.resenia}</p>
 												</div>
+												<a style="float:right;" href="Comentarios?resenia_id=${resenia.id_resenia}"> <img src="imgs/comentarios.png"
+											alt="Ver comentarios" height="60" width="60"></a>
 											</div>
-										</div></li>
+										</div>
+										
+										
+										</li>
 
 								</c:forEach>
 							</ul>
