@@ -50,6 +50,7 @@
                         <div>
                             <div>
                                 <button type="submit" class="btn btn-success" id="btnIngresar" style="margin-top: -30px;">Ingresar</button>
+                                <a class= text-right href="Registrarse.jsp">No tenes cuenta? click aca</a>
                             </div>
                         </div>
                     </div>

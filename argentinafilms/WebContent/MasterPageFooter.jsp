@@ -4,7 +4,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="/acercade.jsp">Acerca de...</a>
+                                <a href="AcercaDe.jsp">Acerca de...</a>
                             </li>
                             <li class="mob-hide">
                                 <a href="/ayuda.jsp">Ayuda</a>
