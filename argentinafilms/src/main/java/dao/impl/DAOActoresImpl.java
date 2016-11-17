@@ -29,6 +29,15 @@ public class DAOActoresImpl implements DAOActores {
 	}
 
 	@Override
+	public List<Actores> getDiezMasVisitados(){
+		DetachedCriteria crit = DetachedCriteria.forClass(Actores.class);
+		crit.add(Restrictions.eq("estado", true));
+		crit.addOrder(Order.desc("cant_visitas"));
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.hibernateTemplate.findByCriteria(crit, 0, 10);
+	}
+	
+	@Override
 	public void update(Actores actor) {
 		this.hibernateTemplate.update(actor);
 	}

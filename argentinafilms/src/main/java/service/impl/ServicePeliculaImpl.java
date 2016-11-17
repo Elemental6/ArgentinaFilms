@@ -47,6 +47,11 @@ public class ServicePeliculaImpl implements ServicePelicula{
 	}
 
 	@Override
+	public List<Peliculas> getDiezMasVisitadas(){
+		return this.daoPelicula.getDiezMasVisitadas();
+	}
+	
+	@Override
 	public Peliculas getById(int id) {
 		return this.daoPelicula.getById(id);
 	}

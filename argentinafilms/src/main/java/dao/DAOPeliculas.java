@@ -34,5 +34,7 @@ public interface DAOPeliculas {
 
 	int getCantInactivas();
 
+	List<Peliculas> getDiezMasVisitadas();
+
 
 }

@@ -3,7 +3,6 @@ package service.impl;
 import java.util.List;
 
 import model.Actores;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +26,11 @@ public class ServiceActorImpl implements ServiceActor{
 		return this.daoActor.getById(id);
 	}
 
+	
+	@Override
+	public List<Actores> getDiezMasVisitados(){
+		return this.daoActor.getDiezMasVisitados();
+	}
 	
 	@Override
 	public void add(Actores actor){

@@ -245,10 +245,23 @@ public class Peliculas implements Serializable{
 		return estado;
 	}
 
-
-
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
+
+
+
+	public int getCant_visitas() {
+		return cant_visitas;
+	}
+
+
+
+	public void setCant_visitas(int cant_visitas) {
+		this.cant_visitas = cant_visitas;
+	}
+	
+	
+	
 
 }

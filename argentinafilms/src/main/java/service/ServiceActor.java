@@ -15,5 +15,7 @@ public interface ServiceActor {
 	public void update(Actores actor);
 	
 	public void delete(Actores actor);
+
+	List<Actores> getDiezMasVisitados();
 	
 }

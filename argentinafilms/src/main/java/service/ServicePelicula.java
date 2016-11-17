@@ -33,4 +33,6 @@ public interface ServicePelicula {
 	public Peliculas getByResenia(int id);
 	
 	public int getCantInactivas();
+
+	List<Peliculas> getDiezMasVisitadas();
 }

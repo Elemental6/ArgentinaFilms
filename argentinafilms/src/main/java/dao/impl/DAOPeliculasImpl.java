@@ -59,6 +59,15 @@ public class DAOPeliculasImpl implements DAOPeliculas {
 	}
 	
 	@Override
+	public List<Peliculas> getDiezMasVisitadas(){
+		DetachedCriteria crit = DetachedCriteria.forClass(Peliculas.class);
+		crit.add(Restrictions.eq("estado", true));
+		crit.addOrder(Order.desc("cant_visitas"));
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.hibernateTemplate.findByCriteria(crit, 0, 10);
+	}
+	
+	@Override
 	public Peliculas getById(Integer id_pelicula) {
 		return this.hibernateTemplate.get(Peliculas.class, id_pelicula);
 	}

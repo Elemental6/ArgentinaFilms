@@ -23,4 +23,6 @@ public interface DAOActores {
 	int getCantInactivas();
 	
 	List<Actores> getActivas();
+
+	List<Actores> getDiezMasVisitados();
 }

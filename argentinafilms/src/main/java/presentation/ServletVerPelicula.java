@@ -54,6 +54,8 @@ public class ServletVerPelicula extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("pelicula_id"));
 		
 			Peliculas pelicula = this.servicePelicula.getById(id);
+			pelicula.setCant_visitas(pelicula.getCant_visitas()+1);
+			this.servicePelicula.update(pelicula);
 			
 			request.getSession().setAttribute("selectPelicula", pelicula);
 
@@ -66,7 +68,7 @@ public class ServletVerPelicula extends HttpServlet {
 			Secciones seccion = this.serviceSeccion.getById(1);
 			seccion.setCant_visitas(seccion.getCant_visitas() + 1);
 			this.serviceSeccion.update(seccion);
-			
+
 			//Compruebo si el usuario puede editar la pelicula //
 			if (usuario != null && pelicula != null){
 			
