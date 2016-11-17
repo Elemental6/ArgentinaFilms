@@ -124,3 +124,5 @@
 
 		</div>
 	</nav>
+	
+  <div class="panel-body">

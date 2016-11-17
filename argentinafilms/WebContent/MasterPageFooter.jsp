@@ -1,4 +1,5 @@
-        <div>
+       </div> 
+
             <footer id="footer">
                 <div class="content-wrap">
                     <nav>
@@ -34,7 +35,7 @@
                     <p class="copyright">Argentina Films - Todos los derechos reservados</p> 
                 </div>
             </footer>
-        </div>
+
 
 
 </body>
