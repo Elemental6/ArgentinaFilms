@@ -83,6 +83,30 @@ public class Peliculas implements Serializable{
 	}
 
 
+	public Peliculas(String nombre, int anio, String ubicacion,
+			Integer duracion, String synopsis, Integer puntuacion_total,
+			String poster, String trailer, List<Actores> actores,
+			Directores director, List<Resenias> resenias, Usuarios usuario,
+			Generos genero, boolean estado, int cant_visitas) {
+		super();
+		this.nombre = nombre;
+		this.anio = anio;
+		this.ubicacion = ubicacion;
+		this.duracion = duracion;
+		this.synopsis = synopsis;
+		this.puntuacion_total = puntuacion_total;
+		this.poster = poster;
+		this.trailer = trailer;
+		this.actores = actores;
+		this.director = director;
+		this.resenias = resenias;
+		this.usuario = usuario;
+		this.genero = genero;
+		this.estado = estado;
+		this.cant_visitas = cant_visitas;
+	}
+
+	
 
 	public Peliculas(String nombre, int anio, String ubicacion, Integer duracion, String synopsis, Integer puntuacion_total, List<Actores> actores, Directores director, List<Resenias> resenias, Usuarios usuario, Generos genero) {
 		this.nombre = nombre;

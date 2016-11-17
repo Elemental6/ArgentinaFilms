@@ -10,7 +10,7 @@
         <p class="cuerpo-suelto desplegador">Argentina Films es el primer foro en unificar las ideas de
           todos en una sola gran idea! Conectáte.<br><br><button type="button" class="btn btn-default">Aprender más +</button></p>
         <div class="desplegable text-center aprender-mas">
-           <a href="RegistrosIniciales"><img src="imgs/EnConstruccion.png" width="100"></a>
+           <img src="imgs/EnConstruccion.png" width="100">
         </div>
     </div>
     

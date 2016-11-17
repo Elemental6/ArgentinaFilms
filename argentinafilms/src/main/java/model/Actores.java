@@ -28,6 +28,14 @@ public class Actores implements Serializable{
 		this.edad = edad;
 		this.estado = estado;
 	}
+	
+	public Actores(String nombre, String apellido, Integer edad, boolean estado, int cant_visitas) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.edad = edad;
+		this.estado = estado;
+		this.cant_visitas = cant_visitas;
+	}
 
 	public Actores(Integer id_actor, String nombre, String apellido, Integer edad, boolean estado) {
 		super();

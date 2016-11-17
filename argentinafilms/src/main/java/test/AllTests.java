@@ -1,15 +1,8 @@
-package presentation;
+package test;
 
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import model.Actores;
 import model.Directores;
@@ -19,48 +12,37 @@ import model.Resenias;
 import model.Secciones;
 import model.Usuarios;
 
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import config.AppConfig;
 import service.ServiceDirector;
 import service.ServiceGenero;
 import service.ServicePelicula;
 import service.ServiceSecciones;
 import service.ServiceUsuario;
 
-@WebServlet("/RegistrosIniciales")
-public class RegistrosIniciales extends HttpServlet{
-	private static final long serialVersionUID = 1L;
+public class AllTests {
+
 	public ServicePelicula peliculaService = null;
 	public ServiceUsuario usuarioService = null;
 	public ServiceDirector directorService = null;
 	public ServiceGenero generoService = null;
 	public ServiceSecciones seccionService = null;
+	
+	
+	@Test
+	public void GenerarDatosPredeterminados() {
 
-	@Override
-	public void init(ServletConfig config) {
-		WebApplicationContext context = WebApplicationContextUtils
-				.getRequiredWebApplicationContext(config.getServletContext());
+		ApplicationContext context =  new AnnotationConfigApplicationContext(AppConfig.class);
 		this.peliculaService = (ServicePelicula) context.getBean(ServicePelicula.class);
 		this.usuarioService = (ServiceUsuario) context.getBean(ServiceUsuario.class);
 		this.directorService = (ServiceDirector) context.getBean(ServiceDirector.class);
 		this.generoService = (ServiceGenero) context.getBean(ServiceGenero.class);
 		this.seccionService = (ServiceSecciones) context.getBean(ServiceSecciones.class);
-	}
-	
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*Genera las peliculas*/
-		crearDatos();
-		response.sendRedirect("Inicio.jsp");
-}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-	
-	
-	private void crearDatos(){
+		
+		
 		Usuarios usuario = new Usuarios("Jocs", "12345678", "Jose", "Hassan", "jose.h.utn@gmail.com", "admin", true);
 		usuario.setAvatar("imgs/avatares/xfdfrgf.jpg");
 		this.usuarioService.add(usuario);
@@ -941,10 +923,10 @@ public class RegistrosIniciales extends HttpServlet{
 		Actores actor714 = new Actores("Alicia", "Aller", 0, true);
 		Actores actor715 = new Actores("Ezequiel", "Diaz", 0, true);
 		Actores actor716 = new Actores("Celina", "Font", 0, true);
-		Actores actor717 = new Actores("Marcelo", "Melingo", 0, true);
+		Actores actor717 = new Actores("Marcelo", "Melingo", 0, true, 320);
 		Actores actor718 = new Actores("Lautaro", "Sagardoy", 0, true);
 		Actores actor719 = new Actores("Brian", "Sichel", 0, true);
-		Actores actor720 = new Actores("Victoria", "Almeida", 0, true);
+		Actores actor720 = new Actores("Victoria", "Almeida", 0, true, 520);
 		Actores actor721 = new Actores("Oscar", "Ayala", 0, true);
 		Actores actor722 = new Actores("Sandra", "Hoyos", 0, true);
 		Actores actor723 = new Actores("Kharold", "Garc僘", 0, true);
@@ -952,7 +934,7 @@ public class RegistrosIniciales extends HttpServlet{
 		Actores actor725 = new Actores("Fern疣", "Mir疽", 0, true);
 		Actores actor726 = new Actores("In駸", "Efr", 0, true);
 		Actores actor727 = new Actores("Guadalupe", "Docampo", 0, true);
-		Actores actor728 = new Actores("Guido", "Fiara", 0, true);
+		Actores actor728 = new Actores("Guido", "Fiara", 0, true, 555);
 		Actores actor729 = new Actores("Elcida", "Villagra", 0, true);
 		Actores actor730 = new Actores("Mar僘", "Alch�", 0, true);
 		Actores actor731 = new Actores("Alejandra", "Dar匤", 0, true);
@@ -968,8 +950,8 @@ public class RegistrosIniciales extends HttpServlet{
 		Actores actor741 = new Actores("Mar僘", "Merlino", 0, true);
 		Actores actor742 = new Actores("Nicol疽", "Scarpino", 0, true);
 		Actores actor743 = new Actores("Monica", "Francovich", 0, true);
-		Actores actor744 = new Actores("Agustina", "Rudi", 0, true);
-		Actores actor745 = new Actores("Paula", "Sartor", 0, true);
+		Actores actor744 = new Actores("Agustina", "Rudi", 0, true, 554);
+		Actores actor745 = new Actores("Paula", "Sartor", 0, true, 1200);
 		Actores actor746 = new Actores("Nadia", "Gazze", 0, true);
 		Actores actor747 = new Actores("Jorgelina", "Aruzzi", 0, true);
 		Actores actor748 = new Actores("Nora", "C疵pena", 0, true);
@@ -977,20 +959,20 @@ public class RegistrosIniciales extends HttpServlet{
 		Actores actor750 = new Actores("Nicol疽", "Francella", 0, true);
 		Actores actor751 = new Actores("Mar僘", "Sinisterra", 0, true);
 		Actores actor752 = new Actores("Imanol", "Arias", 0, true);
-		Actores actor753 = new Actores("Stefania", "Sandrelli", 0, true);
+		Actores actor753 = new Actores("Stefania", "Sandrelli", 0, true, 632);
 		Actores actor754 = new Actores("Chiara", "Caselli", 0, true);
 		Actores actor755 = new Actores("Gabriela", "Acher", 0, true);
 		Actores actor756 = new Actores("Edda", "Bustamante", 0, true);
 		Actores actor757 = new Actores("Sandra", "Sandrelli", 0, true);
 		Actores actor758 = new Actores("ﾓscar", "Ferrigno", 0, true);
-		Actores actor759 = new Actores("Eugenia", "Levin", 0, true);
+		Actores actor759 = new Actores("Eugenia", "Levin", 0, true, 850);
 		Actores actor760 = new Actores("Diego", "Rodr刕uez", 0, true);
 		Actores actor761 = new Actores("Pia", "Uribelarrea", 0, true);
 		Actores actor762 = new Actores("Irene", "Goldzer", 0, true);
 		Actores actor763 = new Actores("Luciana", "Dulizky", 0, true);
 		Actores actor764 = new Actores("Mart匤", "Aguilar", 0, true);
 		Actores actor765 = new Actores("Maite", "Zumelz�", 0, true);
-		Actores actor766 = new Actores("Eugenia", "Capizzano", 0, true);
+		Actores actor766 = new Actores("Eugenia", "Capizzano", 0, true, 23);
 		Actores actor767 = new Actores("Estefan僘", "Conejo", 0, true);
 		Actores actor768 = new Actores("Javier", "Heras", 0, true);
 		Actores actor769 = new Actores("Mar僘", "Passo", 0, true);
@@ -1008,13 +990,13 @@ public class RegistrosIniciales extends HttpServlet{
 		Actores actor781 = new Actores("Viviana", "Saccone", 0, true);
 		Actores actor782 = new Actores("Julia", "Calvo", 0, true);
 		Actores actor783 = new Actores("Carlos", "Kaspar", 0, true);
-		Actores actor784 = new Actores("Juan", "Minujin", 0, true);
+		Actores actor784 = new Actores("Juan", "Minujin", 0, true, 95);
 		Actores actor785 = new Actores("Luciano", "Cazaux", 0, true);
 		Actores actor786 = new Actores("Carlos", "Garric", 0, true);
 		Actores actor787 = new Actores("Diego", "Leske", 0, true);
 		Actores actor788 = new Actores("Constanza", "Marino", 0, true);
 		Actores actor789 = new Actores("Carlos", "Issa", 0, true);
-		Actores actor790 = new Actores("Francisco", "Nepomuceno", 0, true);
+		Actores actor790 = new Actores("Francisco", "Nepomuceno", 0, true, 283);
 		Actores actor791 = new Actores("Marcelo", "Sein", 0, true);
 
 		/*Genero Categorias*/
@@ -2948,7 +2930,7 @@ public class RegistrosIniciales extends HttpServlet{
 		reseniaspelicula.add(resenia217);
 		reseniaspelicula.add(resenia218);
 
-		Peliculas pelicula46 = new Peliculas("Inseparables",2016,"",107,"Felipe un empresario adinerado que ha quedado tetrapl駛ico, debido a un accidente, est� buscando a un asistente terap騏tico. Se presentan varios muy calificados, pero 駘 decide tomar al ayudante de su jardinero, Tito que ha decidido renunciar. Tito no re佖e ni por cerca las condiciones requeridas para tal empleo, cosa que notan inmediatamente las personas m疽 cercanas a Felipe: Verica e Ivonne su ama de llaves, pero Felipe mantiene firme su decisi.",0,"imgs/peliculas/46.jpg","k7E3MtBLf6U",actorespelicula,director12,reseniaspelicula,usuario,genero2, true);
+		Peliculas pelicula46 = new Peliculas("Inseparables",2016,"",107,"Felipe un empresario adinerado que ha quedado tetrapl駛ico, debido a un accidente, est� buscando a un asistente terap騏tico. Se presentan varios muy calificados, pero 駘 decide tomar al ayudante de su jardinero, Tito que ha decidido renunciar. Tito no re佖e ni por cerca las condiciones requeridas para tal empleo, cosa que notan inmediatamente las personas m疽 cercanas a Felipe: Verica e Ivonne su ama de llaves, pero Felipe mantiene firme su decisi.",0,"imgs/peliculas/46.jpg","k7E3MtBLf6U",actorespelicula,director12,reseniaspelicula,usuario,genero2, true, 653);
 
 		this.peliculaService.add(pelicula46);
 
@@ -2975,7 +2957,7 @@ public class RegistrosIniciales extends HttpServlet{
 		reseniaspelicula.add(resenia222);
 		reseniaspelicula.add(resenia223);
 
-		Peliculas pelicula47 = new Peliculas("El abrazo partido",2003,"",100,"Narra la historia de un &quot;adolescente tard卲&quot; que busca un pasaporte para huir de Argentina pero al que el regreso de su padre, que abandon� a la familia por un ideal, le trastoca los planes. Pese a ello, y gracias a este reencuentro, el hijo buscar� a trav駸 de su padre su propia identidad.",0,"imgs/peliculas/47.jpg","qHvys9ERRkg",actorespelicula,director34,reseniaspelicula,usuario,genero2, true);
+		Peliculas pelicula47 = new Peliculas("El abrazo partido",2003,"",100,"Narra la historia de un &quot;adolescente tard卲&quot; que busca un pasaporte para huir de Argentina pero al que el regreso de su padre, que abandon� a la familia por un ideal, le trastoca los planes. Pese a ello, y gracias a este reencuentro, el hijo buscar� a trav駸 de su padre su propia identidad.",0,"imgs/peliculas/47.jpg","qHvys9ERRkg",actorespelicula,director34,reseniaspelicula,usuario,genero2, true, 999);
 
 		this.peliculaService.add(pelicula47);
 
@@ -2997,7 +2979,7 @@ public class RegistrosIniciales extends HttpServlet{
 		reseniaspelicula.add(resenia227);
 		reseniaspelicula.add(resenia228);
 
-		Peliculas pelicula48 = new Peliculas("Infancia clandestina",2012,"",110,"Despu駸 de vivir en el exilio, Juan, un ni de doce as, regresa con su familia a Argentina, donde todav僘 gobierna la Junta militar que les oblig� a huir. Aunque es testigo de la actitud combativa de sus padres, intenta llevar una vida normal, en la que el colegio, las fiestas, las acampadas, las bromas y las risas con mam� tambi駭 tienen su lugar.",0,"imgs/peliculas/48.jpg","SQKwep5wuAU",actorespelicula,director35,reseniaspelicula,usuario,genero1, true);
+		Peliculas pelicula48 = new Peliculas("Infancia clandestina",2012,"",110,"Despu駸 de vivir en el exilio, Juan, un ni de doce as, regresa con su familia a Argentina, donde todav僘 gobierna la Junta militar que les oblig� a huir. Aunque es testigo de la actitud combativa de sus padres, intenta llevar una vida normal, en la que el colegio, las fiestas, las acampadas, las bromas y las risas con mam� tambi駭 tienen su lugar.",0,"imgs/peliculas/48.jpg","SQKwep5wuAU",actorespelicula,director35,reseniaspelicula,usuario,genero1, true, 230);
 
 		this.peliculaService.add(pelicula48);
 
@@ -3018,7 +3000,7 @@ public class RegistrosIniciales extends HttpServlet{
 		reseniaspelicula.add(resenia232);
 		reseniaspelicula.add(resenia233);
 
-		Peliculas pelicula49 = new Peliculas("La antena",2007,"",87,"Una ciudad entera se ha quedado sin voz y vive bajo un largo y crudo invierno. Un hombre malvado y sin escr侊ulos, el Sr. T.V., due absoluto de las im疊enes que animan esta ciudad y de una extensa cadena de productos bajo su sello personal, lleva adelante un siniestro plan secreto para someter eternamente a cada una de las almas que habitan este lugar.",0,"imgs/peliculas/49.jpg","XWtWib9k7hs",actorespelicula,director36,reseniaspelicula,usuario,genero6, true);
+		Peliculas pelicula49 = new Peliculas("La antena",2007,"",87,"Una ciudad entera se ha quedado sin voz y vive bajo un largo y crudo invierno. Un hombre malvado y sin escr侊ulos, el Sr. T.V., due absoluto de las im疊enes que animan esta ciudad y de una extensa cadena de productos bajo su sello personal, lleva adelante un siniestro plan secreto para someter eternamente a cada una de las almas que habitan este lugar.",0,"imgs/peliculas/49.jpg","XWtWib9k7hs",actorespelicula,director36,reseniaspelicula,usuario,genero6, true, 555);
 
 		this.peliculaService.add(pelicula49);
 
@@ -3063,7 +3045,7 @@ public class RegistrosIniciales extends HttpServlet{
 		reseniaspelicula.add(resenia242);
 		reseniaspelicula.add(resenia243);
 
-		Peliculas pelicula51 = new Peliculas("Hawaii",2013,"",106,"Eugenio pasa el verano cuidando la casa de sus t卲s, que alguna vez fue suya, mientras busca inspiraci para un guion que est� escribiendo. Mart匤 no tiene ninguna ocupaci y se ofrece a trabajar en esa casa haciendo todo tipo de arreglos. Se conocieron hace tiempo, siendo chicos, y no se volvieron a ver desde entonces.",0,"imgs/peliculas/51.jpg","DU0qmw2Ct0o",actorespelicula,director37,reseniaspelicula,usuario,genero1, true);
+		Peliculas pelicula51 = new Peliculas("Hawaii",2013,"",106,"Eugenio pasa el verano cuidando la casa de sus t卲s, que alguna vez fue suya, mientras busca inspiraci para un guion que est� escribiendo. Mart匤 no tiene ninguna ocupaci y se ofrece a trabajar en esa casa haciendo todo tipo de arreglos. Se conocieron hace tiempo, siendo chicos, y no se volvieron a ver desde entonces.",0,"imgs/peliculas/51.jpg","DU0qmw2Ct0o",actorespelicula,director37,reseniaspelicula,usuario,genero1, true, 630);
 
 		this.peliculaService.add(pelicula51);
 
@@ -3092,7 +3074,7 @@ public class RegistrosIniciales extends HttpServlet{
 		reseniaspelicula.add(resenia247);
 		reseniaspelicula.add(resenia248);
 
-		Peliculas pelicula52 = new Peliculas("El bonaerense",2002,"",99,"EL Zapa es cerrajero en un pueblo peque de la Provincia de Buenos Aires. El pueblo es tranquilo, trabajo de cerrajer僘 hay muy poco y las horas de trabajo pasan lentamente. El Polaco, el due del local lo env僘 a abrir una caja fuerte en una oficina. Al d僘 siguiente cae preso como responsable del robo al lugar. Su t卲 Ismael, polic僘 Bonaerense retirado, lo saca de la comisar僘 y lo env僘 al Gran Buenos Aires con una carta de recomendaci.",0,"imgs/peliculas/52.jpg","nADus4wBFSA",actorespelicula,director17,reseniaspelicula,usuario,genero1, true);
+		Peliculas pelicula52 = new Peliculas("El bonaerense",2002,"",99,"EL Zapa es cerrajero en un pueblo peque de la Provincia de Buenos Aires. El pueblo es tranquilo, trabajo de cerrajer僘 hay muy poco y las horas de trabajo pasan lentamente. El Polaco, el due del local lo env僘 a abrir una caja fuerte en una oficina. Al d僘 siguiente cae preso como responsable del robo al lugar. Su t卲 Ismael, polic僘 Bonaerense retirado, lo saca de la comisar僘 y lo env僘 al Gran Buenos Aires con una carta de recomendaci.",0,"imgs/peliculas/52.jpg","nADus4wBFSA",actorespelicula,director17,reseniaspelicula,usuario,genero1, true, 1096);
 
 		this.peliculaService.add(pelicula52);
 
@@ -3138,7 +3120,7 @@ public class RegistrosIniciales extends HttpServlet{
 		reseniaspelicula.add(resenia257);
 		reseniaspelicula.add(resenia258);
 
-		Peliculas pelicula54 = new Peliculas("Sin retorno",2010,"",104,"Un joven ciclista muere atropellado por un automil. El culpable huye sin dejar rastro. Pero el padre de la v兤tima, con el apoyo de los medios de comunicaci, exige que se encuentre al responsable y se haga justicia. Una serie de hechos fortuitos y unos magistrados contaminados por la opini p炻lica har疣 que un hombre inocente se siente en el banquillo de los acusados.",0,"imgs/peliculas/54.jpg","2AMAsUlb48M",actorespelicula,director39,reseniaspelicula,usuario,genero0, true);
+		Peliculas pelicula54 = new Peliculas("Sin retorno",2010,"",104,"Un joven ciclista muere atropellado por un automil. El culpable huye sin dejar rastro. Pero el padre de la v兤tima, con el apoyo de los medios de comunicaci, exige que se encuentre al responsable y se haga justicia. Una serie de hechos fortuitos y unos magistrados contaminados por la opini p炻lica har疣 que un hombre inocente se siente en el banquillo de los acusados.",0,"imgs/peliculas/54.jpg","2AMAsUlb48M",actorespelicula,director39,reseniaspelicula,usuario,genero0, true, 963);
 
 		this.peliculaService.add(pelicula54);
 
@@ -3191,7 +3173,7 @@ public class RegistrosIniciales extends HttpServlet{
 		reseniaspelicula.add(resenia267);
 		reseniaspelicula.add(resenia268);
 
-		Peliculas pelicula56 = new Peliculas("Nueces para el amor",2001,"",103,"En 1975, unos meses antes del comienzo de la dictadura militar argentina, Alicia y Marcelo se conocen en un concierto de rock. El amor surge inmediatamente entre ellos, pero el retorno del novio de Alicia provoca la separaci. En 1982, en Madrid, sus caminos vuelven a cruzarse. Tras el encuentro, se dan cuenta de que, a pesar de que el amor sigue latente, sus destinos discurren por rumbos separados.",0,"imgs/peliculas/56.jpg","LuqlNpSN1eM",actorespelicula,director33,reseniaspelicula,usuario,genero1, true);
+		Peliculas pelicula56 = new Peliculas("Nueces para el amor",2001,"",103,"En 1975, unos meses antes del comienzo de la dictadura militar argentina, Alicia y Marcelo se conocen en un concierto de rock. El amor surge inmediatamente entre ellos, pero el retorno del novio de Alicia provoca la separaci. En 1982, en Madrid, sus caminos vuelven a cruzarse. Tras el encuentro, se dan cuenta de que, a pesar de que el amor sigue latente, sus destinos discurren por rumbos separados.",0,"imgs/peliculas/56.jpg","LuqlNpSN1eM",actorespelicula,director33,reseniaspelicula,usuario,genero1, true, 3600);
 
 		this.peliculaService.add(pelicula56);
 
@@ -3259,7 +3241,7 @@ public class RegistrosIniciales extends HttpServlet{
 		reseniaspelicula.add(resenia282);
 		reseniaspelicula.add(resenia283);
 
-		Peliculas pelicula59 = new Peliculas("El camino de San Diego",2006,"",98,"Tati, un joven de la provincia de Misiones, es un fan loco de Maradona, como la mayor僘 de los argentinos. A pesar de haber perdido su trabajo y de que su situaci econica sea dram疸ica, Tati no pierde su esp叝itu jovial. Cuando la televisi informa del internamiento de Maradona en la Cl匤ica Suizo Argentina de Buenos Aires por un problema card僘co, Tati decide viajar a la capital para hacerle entrega personalmente de una talla esculpida en madera.",0,"imgs/peliculas/59.jpg","aW_3vH1kjdU",actorespelicula,director6,reseniaspelicula,usuario,genero1, true);
+		Peliculas pelicula59 = new Peliculas("El camino de San Diego",2006,"",98,"Tati, un joven de la provincia de Misiones, es un fan loco de Maradona, como la mayor僘 de los argentinos. A pesar de haber perdido su trabajo y de que su situaci econica sea dram疸ica, Tati no pierde su esp叝itu jovial. Cuando la televisi informa del internamiento de Maradona en la Cl匤ica Suizo Argentina de Buenos Aires por un problema card僘co, Tati decide viajar a la capital para hacerle entrega personalmente de una talla esculpida en madera.",0,"imgs/peliculas/59.jpg","aW_3vH1kjdU",actorespelicula,director6,reseniaspelicula,usuario,genero1, true, 190);
 
 		this.peliculaService.add(pelicula59);
 
@@ -3278,7 +3260,7 @@ public class RegistrosIniciales extends HttpServlet{
 		reseniaspelicula.add(resenia287);
 		reseniaspelicula.add(resenia288);
 
-		Peliculas pelicula60 = new Peliculas("Rancho aparte",2007,"",90,"Hab僘 una vez, en un lugar llamado Nogol�, un rancho de paredes de barro y piedra, donde viv僘n Tulio y Susana. La vida transcurr僘 con rutinas, casi so con rutinas y el mundo era ancho y ajeno. En ese peque mundo, todo era conocido, todo era compartido, los recuerdos, los rencores, los gustos y los muertos. Fuera de all� todo era extra, distinto, inconveniente, peligroso.",0,"imgs/peliculas/60.jpg","CqARyVdtGAw",actorespelicula,director42,reseniaspelicula,usuario,genero2, true);
+		Peliculas pelicula60 = new Peliculas("Rancho aparte",2007,"",90,"Hab僘 una vez, en un lugar llamado Nogol�, un rancho de paredes de barro y piedra, donde viv僘n Tulio y Susana. La vida transcurr僘 con rutinas, casi so con rutinas y el mundo era ancho y ajeno. En ese peque mundo, todo era conocido, todo era compartido, los recuerdos, los rencores, los gustos y los muertos. Fuera de all� todo era extra, distinto, inconveniente, peligroso.",0,"imgs/peliculas/60.jpg","CqARyVdtGAw",actorespelicula,director42,reseniaspelicula,usuario,genero2, true, 950);
 
 		this.peliculaService.add(pelicula60);
 
@@ -4918,7 +4900,7 @@ public class RegistrosIniciales extends HttpServlet{
 		reseniaspelicula = new ArrayList<Resenias>();
 		reseniaspelicula.add(resenia550);
 
-		Peliculas pelicula134 = new Peliculas("Mercano, el marciano",2002,"",87,"Largometraje cinematogr畴ico basado en el popular personaje animado de la televisi. Un marciano que usa las alcantarillas portes como base de operaciones para armar un mundo virtual.",0,"imgs/peliculas/134.jpg","VT5kNWnXwfI",actorespelicula,director91,reseniaspelicula,usuario,genero7, true);
+		Peliculas pelicula134 = new Peliculas("Mercano, el marciano",2002,"",87,"Largometraje cinematogr畴ico basado en el popular personaje animado de la televisi. Un marciano que usa las alcantarillas portes como base de operaciones para armar un mundo virtual.",0,"imgs/peliculas/134.jpg","VT5kNWnXwfI",actorespelicula,director91,reseniaspelicula,usuario,genero7, true, 1247);
 
 		this.peliculaService.add(pelicula134);
 
@@ -4950,25 +4932,23 @@ public class RegistrosIniciales extends HttpServlet{
 		
 		Secciones seccion1 = new Secciones();
 		seccion1.setDescripcion("Películas");
-		seccion1.setCant_visitas(0);
+		seccion1.setCant_visitas(10558);
 		this.seccionService.save(seccion1);
 		
 		Secciones seccion2 = new Secciones();
 		seccion2.setDescripcion("Actores");
-		seccion2.setCant_visitas(0);
+		seccion2.setCant_visitas(5032);
 		this.seccionService.save(seccion2);
 		
 		Secciones seccion3 = new Secciones();
 		seccion3.setDescripcion("Directores");
-		seccion3.setCant_visitas(0);
+		seccion3.setCant_visitas(520);
 		this.seccionService.save(seccion3);
 		
 		Secciones seccion4 = new Secciones();
 		seccion4.setDescripcion("Usuarios");
-		seccion4.setCant_visitas(0);
+		seccion4.setCant_visitas(600);
 		this.seccionService.save(seccion4);
-		
 	}
-	
 
 }
