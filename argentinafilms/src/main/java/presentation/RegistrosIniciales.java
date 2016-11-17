@@ -16,6 +16,7 @@ import model.Directores;
 import model.Generos;
 import model.Peliculas;
 import model.Resenias;
+import model.Secciones;
 import model.Usuarios;
 
 import org.springframework.web.context.WebApplicationContext;
@@ -24,6 +25,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import service.ServiceDirector;
 import service.ServiceGenero;
 import service.ServicePelicula;
+import service.ServiceSecciones;
 import service.ServiceUsuario;
 
 @WebServlet("/RegistrosIniciales")
@@ -33,6 +35,7 @@ public class RegistrosIniciales extends HttpServlet{
 	public ServiceUsuario usuarioService = null;
 	public ServiceDirector directorService = null;
 	public ServiceGenero generoService = null;
+	public ServiceSecciones seccionService = null;
 
 	@Override
 	public void init(ServletConfig config) {
@@ -42,6 +45,7 @@ public class RegistrosIniciales extends HttpServlet{
 		this.usuarioService = (ServiceUsuario) context.getBean(ServiceUsuario.class);
 		this.directorService = (ServiceDirector) context.getBean(ServiceDirector.class);
 		this.generoService = (ServiceGenero) context.getBean(ServiceGenero.class);
+		this.seccionService = (ServiceSecciones) context.getBean(ServiceSecciones.class);
 	}
 	
 	
@@ -4941,6 +4945,29 @@ public class RegistrosIniciales extends HttpServlet{
 
 		this.peliculaService.add(pelicula135);
 
+		
+		
+		
+		Secciones seccion1 = new Secciones();
+		seccion1.setDescripcion("Películas");
+		seccion1.setCant_visitas(0);
+		this.seccionService.save(seccion1);
+		
+		Secciones seccion2 = new Secciones();
+		seccion2.setDescripcion("Actores");
+		seccion2.setCant_visitas(0);
+		this.seccionService.save(seccion2);
+		
+		Secciones seccion3 = new Secciones();
+		seccion3.setDescripcion("Directores");
+		seccion3.setCant_visitas(0);
+		this.seccionService.save(seccion3);
+		
+		Secciones seccion4 = new Secciones();
+		seccion4.setDescripcion("Usuarios");
+		seccion4.setCant_visitas(0);
+		this.seccionService.save(seccion4);
+		
 	}
 	
 

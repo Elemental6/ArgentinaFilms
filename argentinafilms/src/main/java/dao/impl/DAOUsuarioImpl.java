@@ -2,7 +2,6 @@ package dao.impl;
 
 import java.util.List;
 
-import model.Peliculas;
 import model.Usuarios;
 
 import org.hibernate.Criteria;
@@ -14,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import dao.DAOUsuario;
-
+@SuppressWarnings("unchecked")
 
 public class DAOUsuarioImpl implements DAOUsuario{
 
@@ -46,7 +45,6 @@ public class DAOUsuarioImpl implements DAOUsuario{
 		this.hibernateTemplate.delete(nombreUsuario);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuarios> getActivos(int offset, int cantRegistros) {
 		DetachedCriteria crit = DetachedCriteria.forClass(Usuarios.class);

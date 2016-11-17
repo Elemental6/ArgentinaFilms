@@ -15,8 +15,10 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import dao.DAOPuntajes;
 import service.ServicePelicula;
+import service.ServiceSecciones;
 import model.Peliculas;
 import model.Puntajes;
+import model.Secciones;
 import model.Usuarios;
 
 /**
@@ -30,6 +32,7 @@ public class ServletVerPelicula extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
 	public ServicePelicula servicePelicula = null;
+	public ServiceSecciones serviceSeccion = null;
 	public DAOPuntajes servicePuntaje = null;
 
     public ServletVerPelicula() {
@@ -42,6 +45,7 @@ public class ServletVerPelicula extends HttpServlet {
 		WebApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(config.getServletContext());
 		this.servicePelicula = (ServicePelicula) context.getBean(ServicePelicula.class);
 		this.servicePuntaje = (DAOPuntajes) context.getBean(DAOPuntajes.class);
+		this.serviceSeccion = (ServiceSecciones) context.getBean(ServiceSecciones.class);
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -58,6 +62,10 @@ public class ServletVerPelicula extends HttpServlet {
 
 			Puntajes puntajeUserLogueado = this.servicePuntaje.getByUsuarioYPelicula(usuario, pelicula);
 			request.getSession().setAttribute("puntajeUserLogueado", puntajeUserLogueado);
+			
+			Secciones seccion = this.serviceSeccion.getById(1);
+			seccion.setCant_visitas(seccion.getCant_visitas() + 1);
+			this.serviceSeccion.update(seccion);
 			
 			//Compruebo si el usuario puede editar la pelicula //
 			if (usuario != null && pelicula != null){

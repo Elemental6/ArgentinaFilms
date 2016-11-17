@@ -28,6 +28,7 @@
 <script type="text/javascript" src="js/ajax-activar-cuenta.js"></script>
 <script type="text/javascript" src="js/ajax-peticiones-admin.js"></script>
 <script type="text/javascript" src="js/ajax-puntuar.js"></script>
+
 </head>
 
 <body>

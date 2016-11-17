@@ -8,18 +8,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.google.gson.Gson;
 
-import dao.DAOPuntajes;
 import service.ServicePelicula;
 import model.Peliculas;
-import model.Puntajes;
-import model.Usuarios;
 
 /**
  * Servlet implementation class ModificarPelicula

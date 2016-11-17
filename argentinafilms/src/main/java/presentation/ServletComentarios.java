@@ -1,7 +1,6 @@
 package presentation;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletConfig;
@@ -15,13 +14,10 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import dao.DAOComentarios;
-import dao.DAOPuntajes;
 import dao.DAOResenias;
 import model.Comentarios;
-import model.Peliculas;
 import model.Resenias;
 import model.Usuarios;
-import service.ServicePelicula;
 import util.ValidarDatos;
 
 /**

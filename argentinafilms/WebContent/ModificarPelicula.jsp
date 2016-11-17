@@ -7,7 +7,7 @@
 <link href="css/select2.min.css" rel="stylesheet">
 
 <link rel="stylesheet"
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	href="css/bootstrap.min1.css">
 
 <c:if test="${not empty userLogueado}">
 	<div class="contenido">

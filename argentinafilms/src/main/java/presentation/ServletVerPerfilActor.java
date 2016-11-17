@@ -12,22 +12,26 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Actores;
 import model.Peliculas;
+import model.Secciones;
 
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import service.ServicePelicula;
 import service.ServiceActor;
+import service.ServiceSecciones;
 
 @WebServlet("/ServletVerPerfilActor")
 public class ServletVerPerfilActor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public ServicePelicula servicePelicula = null;
+	public ServiceSecciones serviceSeccion = null;
 	public ServiceActor serviceActor = null;
 	
 	public void init(ServletConfig config) {
 		WebApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(config.getServletContext());
 		this.servicePelicula = (ServicePelicula) context.getBean(ServicePelicula.class);
+		this.serviceSeccion = (ServiceSecciones) context.getBean(ServiceSecciones.class);
 		this.serviceActor = (ServiceActor) context.getBean(ServiceActor.class);
 	}
 	
@@ -38,6 +42,10 @@ public class ServletVerPerfilActor extends HttpServlet {
 		Actores actor = this.serviceActor.getById(id);
 		List<Peliculas> peliculas = this.servicePelicula.getByActor(id);
 			
+		Secciones seccion = this.serviceSeccion.getById(2);
+		seccion.setCant_visitas(seccion.getCant_visitas() + 1);
+		this.serviceSeccion.update(seccion);
+		
 		request.getSession().setAttribute("actorSelect", actor);
 		request.getSession().setAttribute("lasPeliculas", peliculas);
 

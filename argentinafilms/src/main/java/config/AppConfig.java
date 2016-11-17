@@ -27,21 +27,12 @@ public class AppConfig {
 		return ret;
 	}
 	
-	@Bean
-	public DAOPuntajes puntajesDAO(){
-		return new DAOPuntajesImpl();
-	}
-	
-	@Bean
-	public DAOSesiones sesionesDAO(){
-		return new DAOSesionesImpl();
-	}
-	
+
 	@Bean
 	public AnnotationSessionFactoryBean sessionFactoryBean(){
 		AnnotationSessionFactoryBean ret = new AnnotationSessionFactoryBean();
 		
-		Class[] annotatedClasses = { Actores.class, Comentarios.class, Directores.class, Generos.class, Peliculas.class, Puntajes.class, Resenias.class, Sesiones.class, Usuarios.class };
+		Class[] annotatedClasses = { Actores.class, Comentarios.class, Directores.class, Generos.class, Peliculas.class, Puntajes.class, Resenias.class, Sesiones.class, Usuarios.class, Secciones.class };
 		ret.setAnnotatedClasses(annotatedClasses);
 		
 		Properties hibernateProperties = new Properties();
@@ -131,5 +122,23 @@ public class AppConfig {
 		return new DAOComentariosImpl();
 	}
 	
+	@Bean
+	public DAOPuntajes puntajesDAO(){
+		return new DAOPuntajesImpl();
+	}
 	
+	@Bean
+	public DAOSesiones sesionesDAO(){
+		return new DAOSesionesImpl();
+	}
+	
+	@Bean
+	public DAOSecciones seccionesDAO(){
+		return new DAOSeccionesImpl();
+	}
+	
+	@Bean
+	public ServiceSecciones serviceSecciones(){
+		return new ServiceSeccionesImpl();
+	}
 }
