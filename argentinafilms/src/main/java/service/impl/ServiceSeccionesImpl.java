@@ -1,5 +1,7 @@
 package service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +14,11 @@ public class ServiceSeccionesImpl implements ServiceSecciones{
 
 	@Autowired
 	private DAOSecciones daoSecciones = null;
+	
+	@Override
+	public List<Secciones> getAll() {
+		return this.daoSecciones.getAll();
+	}
 	
 	@Override
 	public void save(Secciones seccion) {

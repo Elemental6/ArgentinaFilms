@@ -16,6 +16,7 @@ public class Actores implements Serializable{
 	private String apellido;
 	private Integer edad;
 	private boolean estado;
+	int cant_visitas;
 	
 	public Actores() {
 		// TODO Auto-generated constructor stub
@@ -76,5 +77,15 @@ public class Actores implements Serializable{
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
+
+	public int getCant_visitas() {
+		return cant_visitas;
+	}
+
+	public void setCant_visitas(int cant_visitas) {
+		this.cant_visitas = cant_visitas;
+	}
+	
+	
 	
 }

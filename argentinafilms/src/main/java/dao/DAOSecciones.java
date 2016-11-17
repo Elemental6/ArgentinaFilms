@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import model.Secciones;
 
 public interface DAOSecciones {
@@ -9,5 +11,7 @@ public interface DAOSecciones {
 	public Secciones getById(Integer id_seccion);
 
 	public void update(Secciones seccion);
+
+	public List<Secciones> getAll();
 
 }

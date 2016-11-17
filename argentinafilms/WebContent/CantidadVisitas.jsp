@@ -19,80 +19,85 @@
 
 <c:if test="${userLogueado.rango == 'admin'}">
 	
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<style type="text/css">
 ${demo.css}
 		</style>
 		<script type="text/javascript">
 $(function () {
-    $('#cantidad-visitas-torta').highcharts({
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: 0,
-            plotShadow: false,
-            backgroundColor: "#424242"
-        },
-        title: {
-            text: 'Secciones',
-            align: 'center',
-            verticalAlign: 'middle',
-            y: 40,
-            style: { "color": "#e3c601", "fontSize": "18px" }
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                dataLabels: {
-                    enabled: true,
-                    distance: -50,
-                    style: {
-                        fontWeight: 'bold',
-                        color: 'white'
-                    }
-                },
-                startAngle: -90,
-                endAngle: 90,
-                center: ['50%', '75%']
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: 'Visitas',
-            innerSize: '50%',
-            data: [
-                ['Películas',   10.38],
-                ['Actores',       56.33],
-                ['Directores', 24.03],
-                ['Usuarios', 24.03],
-                
-                {
-                    name: 'Proprietary or Undetectable',
-                    y: 0.2,
-                    dataLabels: {
-                        enabled: false
-                    }
-                }
-            ]
-        }]
-    });
+	
+	
+	$.get('ListarSecciones', {
+
+	}, function(data) {
+
+	    $('#cantidad-visitas-secciones-torta').highcharts({
+	        chart: {
+	            plotBackgroundColor: null,
+	            plotBorderWidth: 0,
+	            plotShadow: false,
+	            backgroundColor: "#424242",
+	            options3d: {
+	                enabled: true,
+	                alpha: 45,
+	                beta: 0
+	            }
+	        },
+	        title: {
+	            text: 'Secciones',
+	            align: 'center',
+	            verticalAlign: 'middle',
+	            y: 40,
+	            style: { "color": "#e3c601", "fontSize": "18px" }
+	        },
+	        tooltip: {
+	            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+	        },
+	        plotOptions: {
+	            pie: {
+	                dataLabels: {
+	                    enabled: true,
+	                    distance: -50,
+	                    style: {
+	                        fontWeight: 'bold',
+	                        color: 'white'
+	                    }
+	                },
+	                startAngle: -90,
+	                endAngle: 90,
+	                center: ['50%', '75%']
+	            }
+	        },
+	        series: [{
+	            type: 'pie',
+	            name: 'Visitas',
+	            innerSize: '50%',
+	            data: [
+	                ['Películas',   data[0].cant_visitas],
+	                ['Actores',       data[1].cant_visitas],
+	                ['Directores', data[2].cant_visitas],
+	                ['Usuarios', data[3].cant_visitas],
+ 
+	            ]
+	        }]
+	    });
+	});
+		
 });
-
-
+	
 		</script>
 	
 	
 	<div class="login">
-		<h1 class="text-center titulo-seccion"><img src="imgs/cantVisitas.png" class="imagen-seccion" style="padding-top: -250px;"/>CANTIDAD DE VISITAS</h1>
+		<h1 class="text-center titulo-seccion"><img src="imgs/cantVisitas.png" class="imagen-seccion"/>CANTIDAD DE VISITAS</h1>
 	</div>
 	
 	
 	
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="js/highcharts.js"></script>
+<script src="js/exporting.js"></script>
 
-<div id="cantidad-visitas-torta" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto;"></div>
+<div id="cantidad-visitas-secciones-torta" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto;"></div>
 
 	
 

@@ -33,6 +33,7 @@ public class Peliculas implements Serializable{
 	private String poster;
 	private String trailer;
 	private boolean estado;
+	int cant_visitas;
 	
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(cascade = CascadeType.ALL)

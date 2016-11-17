@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import model.Secciones;
 
 public interface ServiceSecciones {
@@ -9,5 +11,7 @@ public interface ServiceSecciones {
 	public Secciones getById(Integer id_seccion);
 
 	public void update(Secciones seccion);
+
+	public List<Secciones> getAll();
 	
 }

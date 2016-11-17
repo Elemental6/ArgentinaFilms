@@ -1,5 +1,7 @@
 package dao.impl;
 
+import java.util.List;
+
 import model.Secciones;
 import dao.DAOSecciones;
 
@@ -11,6 +13,11 @@ public class DAOSeccionesImpl implements DAOSecciones{
 
 	private HibernateTemplate hibernateTemplate = null;
 
+	@Override
+	public List<Secciones> getAll() {
+		return this.hibernateTemplate.loadAll(Secciones.class);
+	}
+	
 	@Override
 	public Secciones getById(Integer id_seccion) {
 		return this.hibernateTemplate.get(Secciones.class, id_seccion);

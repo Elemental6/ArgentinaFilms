@@ -60,7 +60,7 @@ public class ServletVerPerfilUsuario extends HttpServlet {
 				resenias.get(i).setPelicula(servicePelicula.getByResenia(resenias.get(i).getId_resenia()));
 			}
 			
-			Secciones seccion = this.serviceSeccion.getById(3);
+			Secciones seccion = this.serviceSeccion.getById(4);
 			seccion.setCant_visitas(seccion.getCant_visitas() + 1);
 			this.serviceSeccion.update(seccion);
 			
