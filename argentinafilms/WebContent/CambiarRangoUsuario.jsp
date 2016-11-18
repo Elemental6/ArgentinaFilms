@@ -18,15 +18,16 @@
 
  	
 	<div class="login">
-		<h1 class="text-center titulo-seccion"><img src="imgs/CambiarRango.png" class="imagen-seccion" />CAMBIAR RANGO USUARIO</h1>
+		<h1 class="text-center titulo-seccion"><img src="imgs/CambiarRango.png" class="imagen-seccion" style="margin-top: -50px!important;"/>CAMBIAR RANGO USUARIO</h1>
 	</div>
 
 	<div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
 
-		<input type="text" id="inputBuscarUsuario" class="form-control"
-						placeholder="Buscar usuario..." style="font-size: 11px;">
-
-		<table class="table" style="font-color: yellow!important; font-size: 14px!important; width: 900px!important; margin: auto;"> 
+		<input type="text" id="inputBuscarUsuarioCambiarRango" class="form-control"
+						placeholder="Buscar usuario..." style="font-size: 18px; width:500px; margin: auto;">
+<br>
+<br>
+		<table class="table"> 
 		    <thead> 
 		        <tr> 
 		            <th>Nombre de usuario</th> 
@@ -53,7 +54,7 @@
 				<input name="pagActual" value="${paginaActual}" type="hidden"></input>
 				
 						<tr>
-						<td>${usuario.usuario}</td>
+						<td><a href="VerPerfilUsuario.jsp/?id="${usuario.usuario}></a>${usuario.usuario}</td>
 						<td>${usuario.nombre} ${usuario.apellido}</td>
 						<td>${usuario.email}</td>
 
@@ -64,7 +65,7 @@
 		            		</select>
                     	</td>
                     	
-                    	<td><button type="submit" class="btn btn-success btn-sm" style="margin: auto!important" onclick="return confirm('¿Esta completamente seguro?')" >Cambiar rango</button></td>
+                    	<td><button type="submit" class="btn btn-success btn-sm" style="margin: auto!important" onclick="return confirm('¿Está completamente seguro?')" >Cambiar rango</button></td>
 						</tr>
 					
 				</form>
@@ -101,8 +102,13 @@
 		    </c:if>
 		</ul>
 
-
 	</div>
+       
+       <hr>
+       
+       <div align=center style="width: 100%; margin:auto;">
+        	<a href="Administrar.jsp" class="btn btn-primary">Volver</a>
+        </div> 
         
  </c:if>       
         

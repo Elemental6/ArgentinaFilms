@@ -11,6 +11,21 @@
 		<div class="content-wrap">
 			<div id="film-page-wrapper" class="cols-3 overflow">
 				<div>
+				
+				<c:if test="${not empty PuedeEditarPelicula}">
+
+
+								<c:if test="${PuedeEditarPelicula == 'OK'}">
+
+									<a style="font-size: 18px; color: #F7819F" href="ModificarPelicula.jsp?pelicula_id=${selectPelicula.id_pelicula}"
+										class="has-icon icon-16 icon-edit"><span class="icon"></span><b>Editar Película</b></a>
+									<br>
+									<br>
+								</c:if>
+
+
+							</c:if>
+				
 					<div id="poster-col"
 						class="col-6 gutter-right-1 col-poster-large is_stuck"
 						style="position: /*fixed*/;">
@@ -22,27 +37,7 @@
 
 							</div>
 
-							<c:if test="${not empty PuedeEditarPelicula}">
-
-
-								<c:if test="${PuedeEditarPelicula == 'OK'}">
-
-									<a
-										href="ModificarPelicula.jsp?pelicula_id=${selectPelicula.id_pelicula}"
-										class="has-icon icon-16 icon-edit"><span class="icon"></span><b>Editar
-											Película</b></a>
-
-								</c:if>
-								<c:if test="${PuedeEditarPelicula == 'NOT'}">
-
-									<a href="IniciarSesion.jsp"><span class="icon"></span>(Debe tener privilegios para editar la pelicula)</a>
-
-								</c:if>
-
-							</c:if>
-
-
-
+			
 
 							<div class="film-stats">
 								<ul>

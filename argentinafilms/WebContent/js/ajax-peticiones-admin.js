@@ -1,21 +1,33 @@
 function AceptarPelicula(idPelicula) {
 
-	$.post('AceptarPeticionPelicula', {
+	swal(
+			{
+				title : "Est\u00E1s seguro de aceptar esta petici\u00F3n de Pel\u00EDcula?",
+				type : "warning",
+				showCancelButton : true,
+				confirmButtonColor : "#DD6B55",
+				confirmButtonText : "Si, aceptar",
+				closeOnConfirm : true
+			}, function() {
 
-		idSeleccionado : idPelicula
+				$.post('AceptarPeticionPelicula', {
 
-	}, function(data) {
+					idSeleccionado : idPelicula
 
-		$("#fila" + idPelicula).hide();
+				}, function(data) {
 
-	})
+					$("#fila" + idPelicula).hide();
+					sweetAlert("Petici\u00F3n de pel\u00EDcula aceptada", "La petici\u00F3n fue aceptada", "success");
+				})
+
+			});
 
 }
 
 function RechazarPelicula(idPelicula) {
 	swal(
 			{
-				title : "Est\u00E1s seguro de rechazar esta petici\u00F3n de Pel\u00EDcula?",
+				title : "Est\u00E1s seguro de rechazar esta petici\u00F3n de pel\u00EDcula?",
 				text : "No podr\u00E1s deshacer esta opci\u00F3n!",
 				type : "warning",
 				showCancelButton : true,
@@ -31,7 +43,7 @@ function RechazarPelicula(idPelicula) {
 				}, function(data) {
 
 					$("#fila" + idPelicula).hide();
-
+					sweetAlert("Pelicula rechazada", "La petición fue rechazada", "error");
 				})
 
 			});

@@ -7,10 +7,27 @@
 <div class="contenido" data-pg-collapsed>
     <div class="container left-addon inner-addon">
         <hr>
-        <p class="cuerpo-suelto desplegador">Argentina Films es el primer foro en unificar las ideas de
-          todos en una sola gran idea! Conectáte.<br><br><button type="button" class="btn btn-default">Aprender más +</button></p>
-        <div class="desplegable text-center aprender-mas">
-           <img src="imgs/EnConstruccion.png" width="100">
+        <p class="cuerpo-suelto desplegador">Argentina Films es el primer sitio en unificar las ideas de
+          todos en una sola gran idea.<br><br><button type="button" class="btn btn-default">Aprender más +</button></p>
+        <div class="desplegable" style="color:#9FF781;">
+           <div class="row">
+            <div class="col-md-4">
+                <h3 style="font-weight: bold" class="text-center">CONECTÁTE</h3>
+                <img src="imgs/connect.png" class="img-responsive" style="margin-left: 60px;"/> 
+                <p>Regístrate. Crearse una cuenta en Argentina Films es totalmente gratuito. En sólo 5 minutos tendrás tu cuenta lista para empezar a compartir tus aportes.</p> 
+            </div>
+            <div class="col-md-4 text-center">
+                <h3 style="font-weight: bold">HACÉ TU APORTE</h3>
+                <img src="imgs/pluma.png" class="img-responsive" width=200px/> 
+                <p>Agregá películas, actores, directores y reseñá películas del cine argentino para que los demás conozcan tu opinión y/o des a conocer esa película que tanto te gusta o querés dar a conocer.</p> 
+            </div>
+            <div class="col-md-4 pull-right text-right">
+                <h3 style="font-weight: bold" class="text-center">PUNTUÁ</h3>
+                <img src="imgs/estrella.png" class="img-responsive"/> 
+                <p>Dale puntajes del 1 al 5 a las películas considerando tu punto de vista.</p> 
+            </div>
+        </div>
+
         </div>
     </div>
     
@@ -20,7 +37,7 @@
 
         <section id="popular-reviews" class="section ultimas-publicaciones">
         
-            <h2 class="section-heading">ÚLTIMAS PELÍCULAS</h2>
+            <h2 class="section-heading">ÚLTIMAS PELÍCULAS AGREGADAS</h2>
             
             <a href="ServletListarPeliculas" class="all-link more-link" style="color:orange; font-weight: bold">VER TODAS</a>
             

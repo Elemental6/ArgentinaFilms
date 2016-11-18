@@ -81,23 +81,21 @@
 						</c:if>
 						
 						<c:if test="${userLogueado.estado == true}">
-							<li><a href="AgregarPelicula.jsp">
-									<!-- <span class="glyphicon glyphicon-log-in"></span> -->
-									Agregar película
-							</a></li>
-							<li><a href="AgregarActor.jsp"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Registrar
-									Actor
-							</a></li>
-							<li><a href="AgregarDirector.jsp"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Registrar
-									Director
-							</a></li>
-							<li><a href="ServletAsociarPeliculaXActor"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Asociar
-									Actor con pelicula
-							</a></li>
-							<li><a href="ServletAsociarDirectorXPelicula"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Asociar
-									Director con pelicula
-							</a>
-							</li>
+						<li class="dropdown">
+						    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Aporte <span class="caret"></span></a>
+						    <ul class="dropdown-menu" style="background-color: #b2b2b2;">
+						        <li>
+						            <a href="AgregarPelicula.jsp">Agregar película</a>
+						        </li>
+						        <li>
+						            <a href="AgregarActor.jsp">Agregar actor</a>
+						        </li>
+						        <li>
+						            <a href="AgregarDirector.jsp">Agregar director</a>
+						        </li>
+						    </ul>
+						</li>
+						
 						</c:if>	
 						
 						<c:if test="${userLogueado.estado == false}">
@@ -116,9 +114,9 @@
 					</c:if>
 
 				</ul>
-				<div class="navbar-form navbar-right" id="formSearch">
+				<div style="width: 400px; margin-right: 50px;" class="navbar-form navbar-right" id="formSearch">
 					<input type="text" id="inputBuscarPelicula" class="form-control"
-						placeholder="Buscar película..." style="font-size: 11px;">
+						placeholder="Buscar película..." style="font-size: 18px; width:400px;">
 				</div>
 			</div>
 

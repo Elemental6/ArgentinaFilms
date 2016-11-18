@@ -1,9 +1,16 @@
 $(document).ready(function() {
 	
-$('#inputBuscarUsuario').on('keypress', function (e) {
+$('#inputBuscarUsuarioCambiarRango').on('keypress', function (e) {
 		
 		if (e.which == 13) {
-	        document.location.href = "CambiarRangoUsuario.jsp?buscar=" + $('#inputBuscarUsuario').val(); 
+	        document.location.href = "CambiarRangoUsuario.jsp?buscar=" + $('#inputBuscarUsuarioCambiarRango').val(); 
+	    }
+	})
+	
+$('#inputBuscarUsuarioDarDeBaja').on('keypress', function (e) {
+		
+		if (e.which == 13) {
+	        document.location.href = "DarDeBajaUsuario.jsp?buscar=" + $('#inputBuscarUsuarioDarDeBaja').val(); 
 	    }
 	})
 

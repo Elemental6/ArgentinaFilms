@@ -54,6 +54,7 @@
     color: #ffffff;
     text-align: center;
     margin-top: 30px;
+    font-size: 22px;
 }
 
 .aprender-mas
@@ -65,3 +66,12 @@
 .addPel{
 	color: black!important;
 }
+
+td{
+	color: #F2F5A9;
+}
+
+thead{
+	color:#00FF80;
+}
+

@@ -115,6 +115,12 @@
 
  </c:if>  
 
+<hr>
+
+<div align=center style="width: 100%; margin:auto;">
+        	<a href="Administrar.jsp" class="btn btn-primary">Volver</a>
+        </div> 
+
 </div>
 
 

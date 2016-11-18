@@ -20,10 +20,10 @@
 <c:if test="${userLogueado.rango == 'admin' || userLogueado.rango == 'moderador'}">
 	
 	<div class="login">
-		<h1 class="text-center titulo-seccion"><img src="imgs/AceptarPeliculas.png" class="imagen-seccion" />ACEPTAR PELÍCULAS</h1>
+		<h1 class="text-center titulo-seccion"><img src="imgs/AceptarPeliculas.png" class="imagen-seccion" style="margin-top: -50px!important;"/>ACEPTAR PELÍCULAS</h1>
 	</div>
 
-		<table class="table" style="font-color: yellow!important; font-size: 14px!important; width: 900px!important; margin: auto;"> 
+		<table class="table" style="width: 900px!important; margin: auto;" id="peliculas-peticiones"> 
 		    <thead> 
 		        <tr> 
 		            <th>Título</th> 
@@ -86,6 +86,11 @@
 
 	</div>
 
+<hr>
+
+<div align=center style="width: 100%; margin:auto;">
+        	<a href="Administrar.jsp" class="btn btn-primary">Volver</a>
+        </div> 
 
  </c:if>  
 

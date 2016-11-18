@@ -279,6 +279,12 @@ $('#cantidad-visitas-actores-columns').highcharts({
 
  </c:if>  
 
+<hr>
+
+<div align=center style="width: 100%; margin:auto;">
+        	<a href="ListarInformes.jsp" class="btn btn-primary">Volver</a>
+        </div> 
+
 </div>
 
 

@@ -36,7 +36,7 @@
 
 		<c:if test="${not empty userLogueado}">
 			<h1 class="text-center titulo-seccion">
-				<img src="imgs/RegistrarActor.png" class="imagen-seccion" />Registrar
+				<img src="imgs/actor.png" class="imagen-seccion" />Registrar
 				Actor
 			</h1>
 			<div class="${tipoMensaje}">

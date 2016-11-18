@@ -18,14 +18,15 @@
 
  	
 	<div class="login">
-		<h1 class="text-center titulo-seccion"><img src="imgs/Banear.png" class="imagen-seccion" />DAR DE BAJA USUARIO</h1>
+		<h1 class="text-center titulo-seccion"><img src="imgs/Banear.png" class="imagen-seccion" style="margin-top: -50px!important;"/>DAR DE BAJA USUARIO</h1>
 	</div>
 
 	<div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
 
-		<input type="text" id="inputBuscarUsuario" class="form-control"
-						placeholder="Buscar usuario..." style="font-size: 11px;">
-
+		<input type="text" id="inputBuscarUsuarioDarDeBaja" class="form-control"
+						placeholder="Buscar usuario..." style="font-size: 18px; width:500px; margin: auto;">
+<br>
+<br>
 		<table class="table" style="font-color: yellow!important; font-size: 14px!important; width: 900px!important; margin: auto;"> 
 		    <thead> 
 		        <tr> 
@@ -53,13 +54,13 @@
 				<input name="pagActual" value="${paginaActual}" type="hidden"></input>
 				
 						<tr>
-						<td>${usuario.usuario}</td>
+						<td><a href="VerPerfilUsuario.jsp/?id="${usuario.usuario}></a>${usuario.usuario}</td>
 						<td>${usuario.nombre} ${usuario.apellido}</td>
 						<td>${usuario.email}</td>
 						<td>${usuario.rango}</td>
 
 						                    	
-                    	<td><button type="submit" class="btn btn-success btn-sm" style="margin: auto!important">Dar de baja</button></td>
+                    	<td><button type="submit" class="btn btn-success btn-sm" style="margin: auto!important" onclick="return confirm('¿Está completamente seguro?')">Dar de baja</button></td>
 						</tr>
 					
 				</form>
@@ -98,6 +99,13 @@
 
 
 	</div>
+   
+   
+   <hr>     
+        
+        <div align=center style="width: 100%; margin:auto;">
+        	<a href="Administrar.jsp" class="btn btn-primary">Volver</a>
+        </div> 
         
  </c:if>       
         

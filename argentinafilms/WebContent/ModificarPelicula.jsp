@@ -6,7 +6,7 @@
 <link href="css/select2.min.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 
 
 <div class="contenido">
@@ -43,7 +43,7 @@
 		</style>
 
     <div class="login reg">
-        <h1 class="text-center titulo-seccion"><img src="imgs/register.png" class="imagen-seccion" />Modificar Pelicula</h1>
+        <h1 class="text-center titulo-seccion"><img src="imgs/register.png" class="imagen-seccion" style="margin-top: -50px!important;" />MODIFICAR PELÍCULA</h1>
         
         <div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
         

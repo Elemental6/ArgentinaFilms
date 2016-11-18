@@ -44,6 +44,7 @@ public class DAOPeliculasImpl implements DAOPeliculas {
 	@Override
 	public List<Peliculas> getByTextoEnNombre(String texto) {
 		DetachedCriteria crit = DetachedCriteria.forClass(Peliculas.class);
+		crit.add(Restrictions.eq("estado", true));
 		crit.add(Restrictions.like("nombre", "%" + texto + "%"));
 		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		return this.hibernateTemplate.findByCriteria(crit);
