@@ -16,16 +16,24 @@
 
 <c:if test="${userLogueado.rango == 'moderador' || userLogueado.rango== 'admin'}" >
 
+
         <div class="row text-center">
-        
-          <div class="col-md-6" onclick="location.href='AceptarPeliculas.jsp';"  style="cursor:pointer;">
+            <div class="col-md-4" onclick="location.href='AceptarPeliculas.jsp';"  style="cursor:pointer;">
             <img src="imgs/AceptarPeliculas.png" class="img-responsive img-thumbnail">
             <h1 class="text-primary">ACEPTAR PETICIONES PELÍCULAS</h1>
             <p></p>
             <p></p>
           </div>
           
-          <div class="col-md-6" onclick="location.href='AceptarActores.jsp';" style="cursor:pointer;">
+           <div class="col-md-4" onclick="location.href='AceptarActores.jsp';" style="cursor:pointer;">
+            <img src="imgs/AceptarActores.png" class="img-responsive img-thumbnail">
+            <h1 class="text-primary">ACEPTAR PETICIONES ACTORES</h1>
+            <p></p>
+            <p></p>
+          </div>
+            
+            
+            <div class="col-md-4" onclick="location.href='AceptarActores.jsp';" style="cursor:pointer;">
             <img src="imgs/AceptarActores.png" class="img-responsive img-thumbnail">
             <h1 class="text-primary">ACEPTAR PETICIONES ACTORES</h1>
             <p></p>
@@ -33,44 +41,49 @@
           </div>
           
         </div>
-        
         <div class="row text-center">
         
-          <div class="col-md-12" onclick="location.href='DarDeBajaUsuario.jsp';"  style="cursor:pointer;">
+        
+        
+            <div class="col-md-4" onclick="location.href='CambiarRangoUsuario.jsp';"  style="cursor:pointer;">
+            <c:if test="${userLogueado.rango == 'admin'}">
+            <img src="imgs/CambiarRango.png" class="img-responsive img-thumbnail">
+            <h1 class="text-primary">CAMBIAR RANGO A USUARIO</h1>
+            <p></p>
+            <p></p>
+            </c:if>  
+          </div>
+            
+          
+            
+            <div class="col-md-4" onclick="location.href='DarDeBajaUsuario.jsp';"  style="cursor:pointer;">
             <img src="imgs/Banear.png" class="img-responsive img-thumbnail">
             <h1 class="text-primary">DAR DE BAJA USUARIO</h1>
             <p></p>
             <p></p>
           </div>
- 
+
+            <div class="col-md-4" onclick="location.href='ListarInformes.jsp';" style="cursor:pointer;">
+            <c:if test="${userLogueado.rango == 'admin'}">
+            <img src="imgs/Informes.png" class="img-responsive img-thumbnail">
+            <h1 class="text-primary">LISTAR INFORMES</h1>
+            <p></p>
+            <p></p>
+            </c:if>
+          </div>
+          
+          
         </div>
+
+
+
         
  </c:if>  
         
         
         
         
- <c:if test="${userLogueado.rango == 'admin'}" >       
-        
-        <div class="row text-center">
-        
-          <div class="col-md-6" onclick="location.href='CambiarRangoUsuario.jsp';"  style="cursor:pointer;">
-            <img src="imgs/CambiarRango.png" class="img-responsive img-thumbnail">
-            <h1 class="text-primary">CAMBIAR RANGO A USUARIO</h1>
-            <p></p>
-            <p></p>
-          </div>
-          
-           <div class="col-md-6" onclick="location.href='ListarInformes.jsp';" style="cursor:pointer;">
-            <img src="imgs/Informes.png" class="img-responsive img-thumbnail">
-            <h1 class="text-primary">LISTAR INFORMES</h1>
-            <p></p>
-            <p></p>
-          </div>
-          
-        </div>
- 
-  </c:if>             
+           
  
 </div>
 
