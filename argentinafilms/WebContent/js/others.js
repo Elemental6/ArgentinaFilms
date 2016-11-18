@@ -37,3 +37,18 @@ function cancelarAvatar(){
     $('#menu_images').wrap('<form>').closest('form').get(0).reset();
     $('#menu_images').unwrap(); 
 }
+
+//-------------------------------------------------------------------------
+function hideEdit(){
+	document.getElementById("cboxOverlay").style.display = 'none';
+	document.getElementById("colorbox").style.display = 'none';
+}
+
+function showEdit(){
+	document.getElementById("cboxOverlay").style.display = 'block';
+	document.getElementById("colorbox").style.display = 'block';
+	var names = document.getElementById("nomyape").innerHTML.split(' ');
+	document.getElementById("txtNombre").value = names[0];
+	document.getElementById("txtApellido").value = names[1];
+}
+//-----------------------------------------------------------------------

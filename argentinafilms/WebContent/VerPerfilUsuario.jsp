@@ -28,12 +28,12 @@
 					
 					<c:if test="${usuarioSelect.usuario == userLogueado.usuario}">
 					<div class="follow-button-wrapper" style="visibility: visible;">
-						<a href="modificar" class="has-icon icon-16 icon-edit"><span class="icon"></span><b>Modificar Perfil</b></a>
+						<a href="Javascript:showEdit();" class="has-icon icon-16 icon-edit"><span class="icon"></span><b>Modificar Perfil</b></a>
 					</div>
 					</c:if>
 					<ul>
 						<li class="has-icon icon-16 icon-location"><span class="icon"></span>
-							${usuarioSelect.nombre} ${usuarioSelect.apellido}
+							<div id="nomyape">${usuarioSelect.nombre} ${usuarioSelect.apellido}</div>
 						</li>
 					</ul>
 				</div>
@@ -152,6 +152,45 @@
 		</div>
 	</div>
 </div>
+	<div id="cboxOverlay" style="opacity: 0.7; display: none;"></div>
+	<div id="colorbox" class="" style="display: none; visibility: visible; position: fixed; width: 380px; height: 286px; overflow: hidden; opacity: 1; cursor: auto; margin: auto; top: 0; left: 0; bottom: 0; right: 0;">
+		<div id="cboxWrapper" style="height: 386px; width: 380px;">
+			<div>
+				<div id="cboxTopLeft" style="float: left;"></div>
+				<div id="cboxTopCenter" style="float: left; width: 344px;"></div>
+				<div id="cboxTopRight" style="float: left;"></div>
+			</div>
+			<div style="clear: left;">
+				<div id="cboxMiddleLeft" style="float: left; height: 250px;"></div>
+				<div id="cboxContent" style="float: left; width: 344px; height: 250px;">
+					<div id="cboxLoadedContent" style="width: 344px; overflow: auto; height: 250px;">
+						<form action="ModificarUsuario" role="form" class="login form-horizontal" style="width:250px;" method="POST">
+							<label style="font-size: large; margin-top: 15px;">Modificar Perfil:</label>
+							<label class="control-label col-sm-2">Nombre:</label>
+							<input type="text" class="form-control login" name="txtNombre" id="txtNombre" placeholder="Ingrese su nombre real" pattern=".{2,100}" required title="Nombre debe contener de 2 a 100 caracteres." maxlength="100">
+							<label class="control-label col-sm-2">Apellido:</label>
+							<input type="text" class="form-control login" name="txtApellido" id="txtApellido" placeholder="Ingrese su apellido real" pattern=".{2,100}" required title="Apellido debe contener de 2 a 100 caracteres." maxlength="100">
+							<button type="submit" class="btn btn-success" id="btnRegistrar" style="margin-top:20px;">Guardar Cambios</button>
+						</form>
+					</div>
+					<div id="cboxTitle" style="float: left; display: block;"></div>
+					<div id="cboxCurrent" style="float: left; display: none;"></div>
+					<div id="cboxNext" style="float: left; display: none;"></div>
+					<div id="cboxPrevious" style="float: left; display: none;"></div>
+					<div id="cboxSlideshow" style="float: left; display: none;"></div>
+					<div id="cboxClose" style="float: left;" onclick="javascript:hideEdit();">close</div>
+				</div>
+				<div id="cboxMiddleRight" style="float: left; height: 250px;"></div>
+			</div>
+			<div style="clear: left;">
+				<div id="cboxBottomLeft" style="float: left;"></div>
+				<div id="cboxBottomCenter" style="float: left; width: 344px;"></div>
+				<div id="cboxBottomRight" style="float: left;"></div>
+			</div>
+		</div>
+		<div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
+	</div>
+
 
 </c:if>
 
