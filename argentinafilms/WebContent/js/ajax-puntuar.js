@@ -25,12 +25,15 @@ function PuntuarPelicula(puntuacionSeleccionada, idPel){
 	$("#fiveStars").prop('onclick',null).off('click');
 	
 	
-	var puntTotalVieja = parseInt($('#puntTotalVieja').val());
+//--------------------------------------------------------
 	var puntSeleccionadaInt = parseInt(puntuacionSeleccionada);
-	var puntTotalActual = puntTotalVieja + puntSeleccionadaInt;
-
-	$('#puntTotalActual').text(puntTotalActual);
+	var puntTotal = parseInt($("#puntTotalActual").attr("totalpuntos"))+puntSeleccionadaInt;
+	var puntCount = parseInt($("#puntTotalActual").attr("countpuntos"))+1;
+	var puntTotalActual = Math.round((5*(100 * puntTotal)/(puntCount*5))/100);
 	
+
+	$('#puntTotalActual').text(puntTotalActual+'/5 ('+puntCount+' votos)');
+//---------------------------------------------------------
 
 	if(puntuacionSeleccionada == 1){
 		$("#oneStar").css('color', '#FFFF00');

@@ -1,6 +1,7 @@
 package presentation;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -65,6 +66,14 @@ public class ServletVerPelicula extends HttpServlet {
 			HttpSession sesion = request.getSession(true);
 			Usuarios usuario =  (Usuarios) sesion.getAttribute("userLogueado");
 
+			List<Puntajes> puntajes = this.servicePuntaje.getByPelicula(pelicula.getId_pelicula());
+			int puntuacion_suma = 0;
+			for(Puntajes p : puntajes)
+				puntuacion_suma += p.getPuntuacion();
+			request.getSession().setAttribute("selectTotalPelicula", puntuacion_suma);
+			request.getSession().setAttribute("selectCountPelicula", puntajes.size());
+			
+			
 			Puntajes puntajeUserLogueado = this.servicePuntaje.getByUsuarioYPelicula(usuario, pelicula);
 			request.getSession().setAttribute("puntajeUserLogueado", puntajeUserLogueado);
 			

@@ -1,6 +1,7 @@
 package presentation;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -61,9 +62,19 @@ public class ServletRegistrarPuntaje extends HttpServlet {
 						// Guardo nuevo puntaje
 						this.puntajeService.save(puntaje);
 						
+//-------------------------------------------------------------------------------------------------------------
+						// Traigo listado de puntajes en la pelicula
+						List<Puntajes> puntajes = this.puntajeService.getByPelicula(id_pelicula);
+						int puntuacion_suma = 0;
+						for(Puntajes p : puntajes)
+							puntuacion_suma += p.getPuntuacion();
+						Integer puntuacion_total = Math.round((5*(100 * puntuacion_suma)/(puntajes.size()*5))/100);
+						
+						
 						// Actualizo pelicula, le agrego el nuevo puntaje a su puntuacion total
-						Integer puntuacion_total = pelicula.getPuntuacion_total() + puntuacion;
+						//Integer puntuacion_total = pelicula.getPuntuacion_total() + puntuacion;
 						pelicula.setPuntuacion_total(puntuacion_total);
+//-------------------------------------------------------------------------------------------------------------
 						
 						this.peliculaService.update(pelicula);
 						

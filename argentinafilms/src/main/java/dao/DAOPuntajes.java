@@ -17,4 +17,7 @@ public interface DAOPuntajes {
 	void save(Puntajes puntaje);
 
 	Puntajes getByUsuarioYPelicula(Usuarios usuario, Peliculas id_pelicula);
+
+	List<Puntajes> getByPelicula(int id);
+
 }

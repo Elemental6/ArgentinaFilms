@@ -308,7 +308,6 @@ public class ServletModificarPelicula extends HttpServlet {
 			pelicula.setDirector(director);
 			pelicula.setActores(actores);
 			pelicula.setGenero(genero);
-			pelicula.setEstado(false);
 
 			 //Guardo la pelicula
 			this.peliculaService.update(pelicula);
@@ -316,7 +315,7 @@ public class ServletModificarPelicula extends HttpServlet {
 			// Nota: Al director y actores se los agrega  usando los servlets de asociar peliculas con actores y director
 			System.out.println("Datos guardados");
 			request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
-	        request.setAttribute("mensajeResultado", "Película modificada. Pendiente a ser aceptada o rechazada.");	     
+	        request.setAttribute("mensajeResultado", "Película modificada modificada con éxito.");	     
 		}
 		catch (Exception e){
 			System.out.println(e.getMessage());

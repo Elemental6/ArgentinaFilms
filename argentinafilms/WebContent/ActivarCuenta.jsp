@@ -51,8 +51,8 @@
 									id="btnConfirmarCodigo">Activar</button>
 							</div>
 							<br>
-							<div>
-								El email no me llego: 
+							<div style="font-size: 18px;">
+								El email no me llegó: 
 								<a href="ReenviarMailActivacion"
 									class=""><span class="icon"></span>
 									<b>Reenviar Email</b>

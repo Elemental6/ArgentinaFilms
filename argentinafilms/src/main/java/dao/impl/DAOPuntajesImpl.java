@@ -56,6 +56,10 @@ public class DAOPuntajesImpl implements DAOPuntajes {
 		crit.add(Restrictions.eq("pelicula", pelicula));
 		return (Puntajes) DataAccessUtils.singleResult(this.hibernateTemplate.findByCriteria(crit));
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Puntajes> getByPelicula(int id) {
+		return this.hibernateTemplate.find("select pu from Puntajes as pu join pu.pelicula as pe where pe.id_pelicula = '" + id + "'");
+	}
 }
-
-
