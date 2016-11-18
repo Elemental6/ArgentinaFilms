@@ -47,4 +47,5 @@ public interface DAOPeliculas {
 	
 	List<Peliculas> getActivos(int offset, int cantRegistros) ;
 
+
 }
