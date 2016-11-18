@@ -21,6 +21,13 @@
 	</div>
 	<section id="live-feed" class="section" style="margin-left:20%; width:60%; margin-top:50px;">
 		<h2 class="section-heading">Peliculas en las que fue director</h2>
+		
+		<c:if test="${lasPeliculas.size() == 0 || lasPeliculas == null}">
+			<div style="font-size: 18px!important; color: #A9E2F3; font-style:italic">(Este director no figura en ninguna película)</div>
+		</c:if>
+		
+		<c:if test="${not empty lasPeliculas}">
+					
 		<div class="live-feed-container has-fade ">
 			<ul class="posters posters-70">
 				<c:forEach items="${lasPeliculas}" var="pelicula">
@@ -37,6 +44,8 @@
 				</c:forEach>
 			</ul>
 		</div>
+		
+		</c:if>
 	</section>
 </div>
 

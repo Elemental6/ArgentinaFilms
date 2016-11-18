@@ -164,7 +164,7 @@
 								<br>
 								<h4 class="tagline">Duración</h4>
 								<div class="truncate">
-									<p>${selectPelicula.duracion}minutos</p>
+									<p>${selectPelicula.duracion} minutos</p>
 								</div>
 							</div>
 						</section>

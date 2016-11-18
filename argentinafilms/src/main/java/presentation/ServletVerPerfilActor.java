@@ -42,16 +42,21 @@ public class ServletVerPerfilActor extends HttpServlet {
 		Actores actor = this.serviceActor.getById(id);
 		List<Peliculas> peliculas = this.servicePelicula.getByActor(id);
 		
-		actor.setCant_visitas(actor.getCant_visitas()+1);
-		this.serviceActor.update(actor);
-		
-		Secciones seccion = this.serviceSeccion.getById(2);
-		seccion.setCant_visitas(seccion.getCant_visitas() + 1);
-		this.serviceSeccion.update(seccion);
-		
-		request.getSession().setAttribute("actorSelect", actor);
-		request.getSession().setAttribute("lasPeliculas", peliculas);
-
+		try
+		{
+			actor.setCant_visitas(actor.getCant_visitas()+1);
+			this.serviceActor.update(actor);
+			
+			Secciones seccion = this.serviceSeccion.getById(2);
+			seccion.setCant_visitas(seccion.getCant_visitas() + 1);
+			this.serviceSeccion.update(seccion);
+			
+			request.getSession().setAttribute("actorSelect", actor);
+			request.getSession().setAttribute("lasPeliculas", peliculas);
+		}
+		catch(NullPointerException e){
+			response.sendRedirect("Error404.jsp");
+		}
 	}
 
 }

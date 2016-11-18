@@ -87,6 +87,8 @@ public class ServletModificarPelicula extends HttpServlet {
 			Generos genero = new Generos();
 			Integer id_director = null;
 			String id_actor = null;
+			Directores director = null;
+			List<Actores> actores = new ArrayList<>();
 			
 			// checks if the request actually contains upload file
 			if (!ServletFileUpload.isMultipartContent(request)) {
@@ -229,8 +231,6 @@ public class ServletModificarPelicula extends HttpServlet {
 							{
 								id_genero = Integer.parseInt(item.getString());
 								genero = this.generosService.getById(id_genero);
-								pelicula.setGenero(genero);
-
 							}  
 							else{
 								request.setAttribute("tipoMensaje", "alert alert-dismissible alert-danger");
@@ -247,8 +247,8 @@ public class ServletModificarPelicula extends HttpServlet {
 							if(item.getString()!="")
 							{
 								id_director	= Integer.parseInt(item.getString());
-								Directores director = this.directoresService.getById(id_director);
-								pelicula.setDirector(director);
+								director = this.directoresService.getById(id_director);
+
 							}
 							
 						}
@@ -262,15 +262,14 @@ public class ServletModificarPelicula extends HttpServlet {
 							List<String> listaIds = Arrays.asList(id_actor.split("-"));
 							if(item.getString()!=""){
 							Actores actor = new Actores();
-							List<Actores> actores = new ArrayList<>();
+							
 							
 							for(String elem : listaIds){
 								actor = this.actoresService.getById( Integer.parseInt(elem));
 								actores.add(actor);//do whatever with the element
 								}
 								
-								pelicula.setActores(actores);
-							}
+								}
 							}
 							
 							
@@ -290,6 +289,9 @@ public class ServletModificarPelicula extends HttpServlet {
 
 			pelicula = this.peliculaService.getById(id_pelicula);
 			
+			if(pelicula.getPoster().compareTo("imgs/peliculas/no-foto-film.jpg")!=0)
+				if(poster.compareTo("imgs/peliculas/no-foto-film.jpg")==0)
+					poster = pelicula.getPoster();
 
 //			String ubicacion = request.getParameter("txtUbicacion");
 
@@ -303,6 +305,9 @@ public class ServletModificarPelicula extends HttpServlet {
 			pelicula.setSynopsis(synopsisSaltosLinea);
 			pelicula.setTrailer(trailer);
 			pelicula.setPoster(poster);
+			pelicula.setDirector(director);
+			pelicula.setActores(actores);
+			pelicula.setGenero(genero);
 			pelicula.setEstado(false);
 
 			 //Guardo la pelicula

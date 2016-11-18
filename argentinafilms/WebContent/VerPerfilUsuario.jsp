@@ -28,7 +28,7 @@
 					
 					<c:if test="${usuarioSelect.usuario == userLogueado.usuario}">
 					<div class="follow-button-wrapper" style="visibility: visible;">
-						<a href="modificar" class="has-icon icon-16 icon-edit"><span class="icon"></span><b>Editar Perfil</b></a>
+						<a href="modificar" class="has-icon icon-16 icon-edit"><span class="icon"></span><b>Modificar Perfil</b></a>
 					</div>
 					</c:if>
 					<ul>
@@ -79,7 +79,15 @@
 					<h2 class="section-heading">
 						Peliculas que agregó
 					</h2>
+					
+					<c:if test="${lasPeliculas.size() == 0 || lasPeliculas == null}">
+						<div style="font-size: 18px!important; color: #A9E2F3; font-style:italic">(Este usuario no agregó ninguna película)</div>
+					</c:if>
+					
+					<c:if test="${not empty lasPeliculas}">
+					
 					<ul class="posters posters-150 clear horizontal-list">
+
 						<c:forEach items="${lasPeliculas}" var="pelicula">
 						<li class="poster-container film-not-watched">
 							<div class="react-component film-poster film-poster-240344 poster linked-film-poster removed-from-watchlist">
@@ -92,12 +100,22 @@
 							</div>
 						</li>
 						</c:forEach>
+						
+					
 					</ul>
+					</c:if>
 				</section>		
 				<section id="resenias-section" class="section">
 					<h2 class="section-heading">
 						Reseñas realizadas
 					</h2>
+					
+					<c:if test="${lasResenias.size() == 0 || lasResenias == null}">
+						<div style="font-size: 18px!important; color: #A9E2F3; font-style:italic">(Este usuario no hizo ninguna reseña)</div>
+					</c:if>
+					
+					<c:if test="${not empty lasResenias}">
+					
 					<ul class="posters clear posters-70 film-details-list no-title">
 						<c:forEach items="${lasResenias}" var="resenia">
 						<li class="film-detail film-not-watched">
@@ -127,6 +145,8 @@
 						</li>
 						</c:forEach>
 					</ul>
+					
+					</c:if>
 				</section>
 			</div>
 		</div>

@@ -56,7 +56,7 @@
                     
                     <div class="film-detail-content pull-left"> 
                   
-                        <h2 class="film-title prettify"><a href="VerPelicula.jsp?pelicula_id=${pelicula.id_pelicula}">${pelicula.nombre}</a> <small> <!-- <ahref="Resultados.jsp?buscar=${pelicula.anio}/" >--> <a> ${pelicula.anio}</a></small></h2> 
+                        <h2 class="film-title prettify"><a href="VerPelicula.jsp?pelicula_id=${pelicula.id_pelicula}">${pelicula.nombre}</a> <small> <!-- <ahref="Resultados.jsp?buscar=${pelicula.anio}/" > <a>--> (${pelicula.anio})<!--</a>--></small></h2> 
                         <p class="film-detail-meta rating-green film-detail-with-author"> <a class="avatar avatar-24"> 
                                 <img src="<%=request.getContextPath()%>/${pelicula.usuario.avatar}" width="24" height="24" /> 
                                 <span></span> 

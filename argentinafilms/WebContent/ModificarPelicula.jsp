@@ -84,7 +84,7 @@
 			
 			
 				<div class="form-group">
-				<label class="control-label col-sm-2">Póster <a id=cancelarAvatar style="display:none;" onclick="cancelarAvatar()">(X)</a>:</label>
+				<label class="control-label col-sm-2">Póster <a id=cancelarAvatar style="color:yellow; font-weight: bold; cursor: pointer; display:inline;" onclick="cancelarAvatar()">(X)</a>:</label>
 				<div class="col-sm-10">
 					<div>
 						<div>
