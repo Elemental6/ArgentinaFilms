@@ -20,14 +20,14 @@ import model.Peliculas;
 /**
  * Servlet implementation class ModificarPelicula
  */
-@WebServlet("/ModificarPelicula")
-public class ModificarPelicula extends HttpServlet {
+@WebServlet("/ModificarPeliculaCargarDatos")
+public class ServletModificarPeliculaCargarDatos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public ServicePelicula servicePelicula = null;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModificarPelicula() {
+    public ServletModificarPeliculaCargarDatos() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -58,9 +58,6 @@ public class ModificarPelicula extends HttpServlet {
 			Integer id = Integer.parseInt(request.getParameter("id"));
 		
 			Peliculas pelicula = this.servicePelicula.getById(id);
-			
-			
-			
 			
 			
 			String json = new Gson().toJson(pelicula);

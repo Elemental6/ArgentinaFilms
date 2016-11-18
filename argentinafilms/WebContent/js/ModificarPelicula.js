@@ -58,7 +58,7 @@ $(document).ready(function() {
 	pelicula_id = getParameterByName("pelicula_id");
 	
 		//our country code was correct so we have some information to display
-			$.post("ModificarPelicula",
+			$.post("ModificarPeliculaCargarDatos",
 	                {
 	                 id:pelicula_id
 	                 

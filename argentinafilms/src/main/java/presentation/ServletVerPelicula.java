@@ -50,10 +50,13 @@ public class ServletVerPelicula extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
-		try{
-			int id = Integer.parseInt(request.getParameter("pelicula_id"));
 		
+
+		try{
+			
+			int id = Integer.parseInt(request.getParameter("pelicula_id"));
 			Peliculas pelicula = this.servicePelicula.getById(id);
+			System.out.println(pelicula.getNombre());
 			pelicula.setCant_visitas(pelicula.getCant_visitas()+1);
 			this.servicePelicula.update(pelicula);
 			
@@ -92,9 +95,11 @@ public class ServletVerPelicula extends HttpServlet {
 			
 		}
 		catch(NumberFormatException e){
-			request.getSession().setAttribute("error404", true);
+			response.sendRedirect("Error404.jsp");
 		}
-
+		catch(NullPointerException e){
+			response.sendRedirect("Error404.jsp");
+		}
 
 	}
 

@@ -333,12 +333,4 @@
 </c:if>
 
 
-<c:if test="${empty selectPelicula}">
-	<c:redirect url="Error404.jsp" />
-</c:if>
-
-<c:if test="${not empty error404}">
-	<c:redirect url="Error404.jsp" />
-</c:if>
-
 <jsp:include page="MasterPageFooter.jsp" />
