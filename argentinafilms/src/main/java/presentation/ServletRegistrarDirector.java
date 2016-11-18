@@ -77,13 +77,13 @@ public class ServletRegistrarDirector extends HttpServlet {
 					}
 					
 					
-						Directores director = new Directores (nombre,apellido,edad);
+						Directores director = new Directores (nombre,apellido,edad, false);
 						// Guardar actor
 						this.directorService.save(director);
 									
 						System.out.println("Datos guardados");
 						request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
-				        request.setAttribute("mensajeResultado", "Director agregado");	     
+				        request.setAttribute("mensajeResultado", "Director agregado. Ahora aguardá que un moderador acepte la petición. Gracias!");	     
 					
 					
 				}		

@@ -15,6 +15,7 @@ public class Directores implements Serializable{
 	private String nombre;
 	private String apellido;
 	private Integer edad;
+	private boolean estado;
 	
 	public Directores() {
 		// TODO Auto-generated constructor stub
@@ -24,6 +25,13 @@ public class Directores implements Serializable{
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.edad = edad;
+	}
+	
+	public Directores(String nombre, String apellido, Integer edad, boolean estado) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.edad = edad;
+		this.estado = estado;
 	}
 
 	public Integer getId_director() {
@@ -57,5 +65,15 @@ public class Directores implements Serializable{
 	public void setEdad(Integer edad) {
 		this.edad = edad;
 	}
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+	
+	
 
 }

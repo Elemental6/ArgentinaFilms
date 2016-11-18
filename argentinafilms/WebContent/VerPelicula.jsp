@@ -45,10 +45,11 @@
 										<div class="star-rating" id="star-rating">
 
 
-											<div style="font-size: 16px; font-weight: bold;">
+											<div style="font-size: 14px; font-weight: bold;">
 											<input type=hidden id="puntTotalVieja" value="${selectPelicula.puntuacion_total}">
 											Puntuación: <span id="puntTotalActual" countpuntos="${selectCountPelicula}" totalpuntos="${selectTotalPelicula}">${selectPelicula.puntuacion_total}/5 (${selectCountPelicula} votos)</span>	
 											</div>
+
 
 											<c:if
 												test="${not empty userLogueado && empty puntajeUserLogueado}">
