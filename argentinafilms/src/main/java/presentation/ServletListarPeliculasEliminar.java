@@ -15,7 +15,6 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import dao.DAOPeliculas;
 import model.Peliculas;
-import model.Usuarios;
 
 
 /**

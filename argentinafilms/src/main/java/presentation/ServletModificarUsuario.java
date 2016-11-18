@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Usuarios;
 
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 

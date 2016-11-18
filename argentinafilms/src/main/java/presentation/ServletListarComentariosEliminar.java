@@ -15,7 +15,6 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import dao.DAOComentarios;
 import model.Comentarios;
-import model.Peliculas;
 
 
 /**

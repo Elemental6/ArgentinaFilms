@@ -133,8 +133,7 @@ public class DAOPeliculasImpl implements DAOPeliculas {
 		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		return this.hibernateTemplate.findByCriteria(crit, offset, cantRegistros);
 	}
-	
-	@SuppressWarnings("unchecked")
+
 	@Override
 	public List<Peliculas> getActivos(int offset, int cantRegistros) {
 		DetachedCriteria crit = DetachedCriteria.forClass(Peliculas.class);
