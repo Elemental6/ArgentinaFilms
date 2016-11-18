@@ -41,10 +41,17 @@ public interface DAOPeliculas {
 
 	List<Peliculas> getDiezMasVisitadas();
 	
- int getCantActivas();
+	 int getCantActivas();
 	
 	 List<Peliculas> getByNombre(String texto, int offset, int cantRegistros);
 	
 	List<Peliculas> getActivos(int offset, int cantRegistros) ;
 
+	int getCantInactivas();
+	
+	List<Peliculas> getByNombre(String texto, int offset, int cantRegistros);
+	 int getCantActivas();
+	 List<Peliculas> getActivos(int offset, int cantRegistros) ;
+
+	List<Peliculas> getDiezMasVisitadas();
 }
