@@ -12,12 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Resenias;
+import model.Secciones;
 import model.Usuarios;
 import model.Peliculas;
 
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import service.ServiceSecciones;
 import service.ServiceUsuario;
 import service.ServicePelicula;
 import service.ServiceResenia;
@@ -27,6 +29,7 @@ public class ServletVerPerfilUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	public ServicePelicula servicePelicula = null;
+	public ServiceSecciones serviceSeccion = null;
 	public ServiceUsuario serviceUsuario = null;
 	public ServiceResenia serviceResenia = null;
 	
@@ -34,6 +37,7 @@ public class ServletVerPerfilUsuario extends HttpServlet {
 		WebApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(config.getServletContext());
 		this.servicePelicula = (ServicePelicula) context.getBean(ServicePelicula.class);
 		this.serviceUsuario = (ServiceUsuario) context.getBean(ServiceUsuario.class);
+		this.serviceSeccion = (ServiceSecciones) context.getBean(ServiceSecciones.class);
 		this.serviceResenia = (ServiceResenia) context.getBean(ServiceResenia.class);
 	}
 	
@@ -55,6 +59,10 @@ public class ServletVerPerfilUsuario extends HttpServlet {
 			for(int i=0; i<resenias.size();i++){
 				resenias.get(i).setPelicula(servicePelicula.getByResenia(resenias.get(i).getId_resenia()));
 			}
+			
+			Secciones seccion = this.serviceSeccion.getById(3);
+			seccion.setCant_visitas(seccion.getCant_visitas() + 1);
+			this.serviceSeccion.update(seccion);
 			
 			request.getSession().setAttribute("lasResenias", resenias);
 

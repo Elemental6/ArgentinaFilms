@@ -17,8 +17,10 @@
                 <div class="col-sm-10">
                     <div>
                         <div>
-                            <div>
-                                <input type="text" class="form-control" name="txtNombreUsuario" placeholder="Ingrese su nombre de usuario" maxlength=15 required>
+                            <div>                               
+                                <input type="text" class="form-control" name="txtNombreUsuario"
+									placeholder="Ingrese su nombre de usuario" pattern=".{4,10}" required title="Usuario debe contener de 4 a 10 caracteres." maxlength="10">
+                              
                             </div>
                         </div>
                     </div>
@@ -30,7 +32,9 @@
                     <div>
                         <div>
                             <div>
-                                <input type="password" class="form-control login" name="txtPass" placeholder="Ingrese su contraseña" maxlength=15 required>
+                            <input type="password" class="form-control login"
+									name="txtPass" placeholder="Ingrese su contraseña" pattern=".{8,20}" required title="Password debe contener de 8 a 20 caracteres." maxlength="20">						
+                   
                             </div>
                         </div>
                     </div>

@@ -19,172 +19,80 @@
 
 <c:if test="${userLogueado.rango == 'admin'}">
 	
-	<div class="login">
-		<h1 class="text-center titulo-seccion"><img src="imgs/cantVisitas.png" class="imagen-seccion" />CANTIDAD DE VISITAS</h1>
-	</div>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<script type="text/javascript">
+$(function () {
+    $('#cantidad-visitas-torta').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false,
+            backgroundColor: "#424242"
+        },
+        title: {
+            text: 'Secciones',
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 40,
+            style: { "color": "#e3c601", "fontSize": "18px" }
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: true,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white'
+                    }
+                },
+                startAngle: -90,
+                endAngle: 90,
+                center: ['50%', '75%']
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Visitas',
+            innerSize: '50%',
+            data: [
+                ['Películas',   10.38],
+                ['Actores',       56.33],
+                ['Directores', 24.03],
+                ['Usuarios', 24.03],
+                
+                {
+                    name: 'Proprietary or Undetectable',
+                    y: 0.2,
+                    dataLabels: {
+                        enabled: false
+                    }
+                }
+            ]
+        }]
+    });
+});
 
 
-
-		<div class="container-fluid">
-	<div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Películas más visitadas</h3>
-            </div>
-	<div class="row">
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-10">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>
-							Película
-						</th>
-						<th>
-							Usuario
-						</th>
-						
-						<th>
-							Puntuación
-						</th>
-						<th>
-							Cantidad de visitas
-						</th>
-						
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							"${pelicula.nombre }"
-						</td>
-						<td>
-							"${pelicula.usuario.usuario }"
-						</td>
-						
-						<td>
-							"${pelicula.usuario.puntuacion_total }"
-						</td>
-						<td>
-							2000
-						</td>
-						
-					</tr>
-					
-				</tbody>
-			</table>
-		</div>
-		<div class="col-md-1">
-		</div>
-	</div>
-</div>
-</div>
-
-
-	<div class="container-fluid">
-	<div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Actores más visitados</h3>
-            </div>
-	<div class="row">
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-10">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>
-							Actor
-						</th>
-						<th>
-							Participación en Peliculas
-						</th>
-						<th>
-							Cantidad de visitas
-						</th>
-						
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							"${actor.nombre + " " + actor.apellido}"
-						</td>
-						<td>
-							15 peliculas
-						</td>
-						
-						<td>
-							100
-						</td>
-												
-					</tr>
+		</script>
 	
-				</tbody>
-			</table>
-		</div>
-		<div class="col-md-1">
-		</div>
+	
+	<div class="login">
+		<h1 class="text-center titulo-seccion"><img src="imgs/cantVisitas.png" class="imagen-seccion" style="padding-top: -250px;"/>CANTIDAD DE VISITAS</h1>
 	</div>
-</div>
-</div>
+	
+	
+	
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-
-
-	<div class="container-fluid">
-	<div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Secciones más visitadas</h3>
-            </div>
-	<div class="row">
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-10">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>
-							Nombre de la sección
-						</th>
-						<th>
-							Cantidad de visitas
-						</th>
-						
-						
-						
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							Películas
-						</td>
-						<td>
-							10000
-						</td>
-						
-						
-						
-					</tr>
-					<tr >
-						<td>
-							Actores
-						</td>
-
-						<td>
-							3000
-						</td>
-					</tr>
-					
-					
-				</tbody>
-			</table>
-		</div>
-		<div class="col-md-1">
-		</div>
-	</div>
-</div>
-</div>
+<div id="cantidad-visitas-torta" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto;"></div>
 
 	
 

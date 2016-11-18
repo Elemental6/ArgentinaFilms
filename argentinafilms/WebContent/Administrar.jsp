@@ -36,9 +36,9 @@
         
         <div class="row text-center">
         
-          <div class="col-md-12" onclick="location.href='BanearUsuario.jsp';"  style="cursor:pointer;">
+          <div class="col-md-12" onclick="location.href='DarDeBajaUsuario.jsp';"  style="cursor:pointer;">
             <img src="imgs/Banear.png" class="img-responsive img-thumbnail">
-            <h1 class="text-primary">BANEAR USUARIO</h1>
+            <h1 class="text-primary">DAR DE BAJA USUARIO</h1>
             <p></p>
             <p></p>
           </div>
