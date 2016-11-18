@@ -1,24 +1,5 @@
 $(document).ready(function() {
 	
-$('#inputBuscarUsuarioCambiarRango').on('keypress', function (e) {
-		
-		if (e.which == 13) {
-	        document.location.href = "CambiarRangoUsuario.jsp?buscar=" + $('#inputBuscarUsuarioCambiarRango').val(); 
-	    }
-	})
-	
-$('#inputBuscarUsuarioDarDeBaja').on('keypress', function (e) {
-		
-		if (e.which == 13) {
-	        document.location.href = "DarDeBajaUsuario.jsp?buscar=" + $('#inputBuscarUsuarioDarDeBaja').val(); 
-	    }
-	})
-
-	$('#inputBuscarPelicula').on('keypress', function (e) {
-		if (e.which == 13) {
-	        document.location.href = "resultados.jsp?buscar=" + $('#inputBuscarPelicula').val(); 
-	    }
-	})
 	
 	 cargarActores();
 	 cargarGeneros()   
@@ -28,7 +9,7 @@ $('#inputBuscarUsuarioDarDeBaja').on('keypress', function (e) {
      $("#lblActoresEliminar").on( "click", function() {
     	 $("#lblActoresIds").val("") ;
     	 $('#ListActoresAgregados').empty() ;
-     })
+     });
      
      $("#lblActores").on( "click", function() {
      	if($('#completarActores').val() != ""){
@@ -58,7 +39,18 @@ $('#inputBuscarUsuarioDarDeBaja').on('keypress', function (e) {
      
 
 	
-	
+	$('#inputBuscarUsuario').on('keypress', function (e) {
+		
+		if (e.which == 13) {
+	        document.location.href = "CambiarRangoUsuario.jsp?buscar=" + $('#inputBuscarUsuario').val(); 
+	    }
+	})
+/*
+	$('#inputBuscarPelicula').on('keypress', function (e) {
+		if (e.which == 13) {
+	        document.location.href = "Resultados.jsp?buscar=" + $('#inputBuscarPelicula').val(); 
+	    }
+	})*/
 
 	document.getElementById("menu_images").onchange = function () {
 		

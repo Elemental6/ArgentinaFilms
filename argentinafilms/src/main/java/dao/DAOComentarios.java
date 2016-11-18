@@ -12,8 +12,12 @@ public interface DAOComentarios {
 	
 	void update(Comentarios comentario);
 	
-	void delete(Integer id_comentario);
+	void delete(Comentarios comentario);
 
 	void save(Comentarios comentario);
+	
+	List<Comentarios> getActivos(int offset, int cantRegistros);
+	
+	 int getCantidad();
 
 }

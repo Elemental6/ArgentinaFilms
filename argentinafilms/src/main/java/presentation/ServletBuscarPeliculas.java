@@ -33,12 +33,18 @@ public class ServletBuscarPeliculas extends HttpServlet {
 			throws ServletException, IOException {
 
 		String texto = request.getParameter("buscar");
+		if (!texto.equals(null)){
+			if (texto.length()>2){
+				List<Peliculas> peliculas = this.peliculaService.getByTextoEnNombre(texto);
+				request.getSession().setAttribute("PeliculasEncontradas", peliculas);
+			}
+		}
+		System.out.println(request.getParameter("buscar"));
 		
-		List<Peliculas> peliculas = this.peliculaService.getByTextoEnNombre(texto);
-		request.getSession().setAttribute("PeliculasEncontradas", peliculas);
 		response.sendRedirect("Resultados.jsp");
 
 	}
+
 
 
 }

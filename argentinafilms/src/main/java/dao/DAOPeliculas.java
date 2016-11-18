@@ -2,6 +2,11 @@ package dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+
 import model.*;
 
 public interface DAOPeliculas {
@@ -35,6 +40,11 @@ public interface DAOPeliculas {
 	int getCantInactivas();
 
 	List<Peliculas> getDiezMasVisitadas();
-
+	
+ int getCantActivas();
+	
+	 List<Peliculas> getByNombre(String texto, int offset, int cantRegistros);
+	
+	List<Peliculas> getActivos(int offset, int cantRegistros) ;
 
 }

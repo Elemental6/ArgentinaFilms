@@ -97,7 +97,7 @@ div.container {
 														<textarea class="form-control" name="comentariotxt"
 															cols="40" rows="5" required
 															title="Comentario debe contener de 10 a 250 caracteres."
-															maxlength="250"></textarea>
+															maxlength="250" minlength="10"></textarea>
 
 													</div>
 												</div>

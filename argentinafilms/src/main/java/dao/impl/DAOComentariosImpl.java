@@ -2,7 +2,11 @@ package dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -28,8 +32,8 @@ public class DAOComentariosImpl implements DAOComentarios {
 	}
 
 	@Override
-	public void delete(Integer id_comentario) {
-		this.hibernateTemplate.delete(id_comentario);
+	public void delete(Comentarios comentario) {
+		this.hibernateTemplate.delete(comentario);
 	}
 
 	@Autowired
@@ -42,5 +46,20 @@ public class DAOComentariosImpl implements DAOComentarios {
 		this.hibernateTemplate.save(comentario);
 		
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Comentarios> getActivos(int offset, int cantRegistros) {
+		DetachedCriteria crit = DetachedCriteria.forClass(Comentarios.class);
 
+		crit.addOrder(Order.asc("comentario_id"));
+		
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.hibernateTemplate.findByCriteria(crit, offset, cantRegistros);
+	}
+
+	@Override
+	public int getCantidad(){
+		return this.hibernateTemplate.loadAll(Comentarios.class).size();
+	}
 }

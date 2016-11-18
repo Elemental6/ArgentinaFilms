@@ -28,7 +28,6 @@
 <script type="text/javascript" src="js/ajax-activar-cuenta.js"></script>
 <script type="text/javascript" src="js/ajax-peticiones-admin.js"></script>
 <script type="text/javascript" src="js/ajax-puntuar.js"></script>
-
 </head>
 
 <body>
@@ -81,21 +80,23 @@
 						</c:if>
 						
 						<c:if test="${userLogueado.estado == true}">
-						<li class="dropdown">
-						    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Aporte <span class="caret"></span></a>
-						    <ul class="dropdown-menu" style="background-color: #b2b2b2;">
-						        <li>
-						            <a href="AgregarPelicula.jsp">Agregar película</a>
-						        </li>
-						        <li>
-						            <a href="AgregarActor.jsp">Agregar actor</a>
-						        </li>
-						        <li>
-						            <a href="AgregarDirector.jsp">Agregar director</a>
-						        </li>
-						    </ul>
-						</li>
-						
+							<li><a href="AgregarPelicula.jsp">
+									<!-- <span class="glyphicon glyphicon-log-in"></span> -->
+									Agregar película
+							</a></li>
+							<li><a href="AgregarActor.jsp"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Registrar
+									Actor
+							</a></li>
+							<li><a href="AgregarDirector.jsp"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Registrar
+									Director
+							</a></li>
+							<li><a href="ServletAsociarPeliculaXActor"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Asociar
+									Actor con pelicula
+							</a></li>
+							<li><a href="ServletAsociarDirectorXPelicula"> <!-- <span class="glyphicon glyphicon-log-in"></span> -->Asociar
+									Director con pelicula
+							</a>
+							</li>
 						</c:if>	
 						
 						<c:if test="${userLogueado.estado == false}">
@@ -114,13 +115,32 @@
 					</c:if>
 
 				</ul>
-				<div style="width: 400px; margin-right: 50px;" class="navbar-form navbar-right" id="formSearch">
+				<div class="navbar-form navbar-right" id="formSearch">
+				
+					<script type="text/javascript">
+function showDetails()
+{
+   window.location = 'Resultados.jsp?buscar='+document.getElementById("inputBuscarPelicula").value;
+}
+</script>
+				
 					<input type="text" id="inputBuscarPelicula" class="form-control"
-						placeholder="Buscar película..." style="font-size: 18px; width:400px;">
+						placeholder="Buscar película..." style="font-size: 11px;">
+						<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-10">
+											<div>
+												<div>
+													<div>
+														<button type="submit" class="btn btn-success"
+															id="btnAgregarComentario" onClick="showDetails()" >Buscar</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
 				</div>
 			</div>
 
 		</div>
 	</nav>
-	
-  <div class="panel-body">

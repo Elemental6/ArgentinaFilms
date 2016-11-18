@@ -13,7 +13,7 @@ public interface ServiceComentario {
 	
 	public void update(Comentarios comentario);
 	
-	public void delete(int id);
+	public void delete(Comentarios comentario);
 
 
 }

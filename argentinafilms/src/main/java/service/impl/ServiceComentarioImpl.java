@@ -39,8 +39,8 @@ public class ServiceComentarioImpl implements ServiceComentario{
 	}
 
 	@Override
-	public void delete(int id) {
-		this.daoComentario.delete(id);
+	public void delete(Comentarios comentario) {
+		this.daoComentario.delete(comentario);
 	}
 
 	public void setDaoUsuario(DAOComentarios daoComentario) {
