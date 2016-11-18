@@ -1,5 +1,5 @@
-<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:import url="/ListarPeliculasMasReseniadas" /> <!-- llamo servlet al cargar pagina -->
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:import url="/ListarDiezPeliculasMasReseniadas" /> <!-- llamo servlet al cargar pagina -->
 
 <jsp:include page="MasterPageCabecera.jsp" />
     
@@ -35,52 +35,22 @@
 		
 		    <tbody>
 		    
-		   		 <c:if test="${peliculasMasReseniadas.size() == 0 || peliculasMasReseniadas == null}">
+		   		 <c:if test="${diezPeliculasMasReseniadas.size() == 0 || diezPeliculasMasReseniadas == null}">
 					<tr><td colspan="5" align="center">No hay películas.</td></tr>
 				</c:if>
 		    
-				<c:forEach items="${peliculasMasReseniadas}" var="pelicula">
+				<c:forEach items="${diezPeliculasMasReseniadas}" var="pelicula">
 						<tr>
-						<td>${pelicula.nombre}</td>
-						<td>${peticionPelicula.anio}</td>
-						<td>${peticionPelicula.duracion}</td>
-						<td>${pelicula.resenias.size()}</td>
+						<td>${pelicula.pelicula.nombre}</td>
+						<td>${peticionPelicula.pelicula.anio}</td>
+						<td>${peticionPelicula.pelicula.duracion}</td>
+						<td>${pelicula.cant_resenias}</td>
 						<td style="width:200px!important">
 						</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 
-
-	<div class="paginado" align="center">
-
-
-		<ul class="pagination lead" data-pg-collapsed> 
-		<c:if test="${paginaActual != 1}">
-		    <li>
-		        <a href="AceptarPeliculas.jsp?pagina=1">&laquo;</a>
-		    </li>    
-		 </c:if>   
-		     
-		     
-		 <c:forEach begin="1" end="${cantPaginas}" var="i">    
-
-
-		    <li <c:if test="${paginaActual == i}">class="active"</c:if>>
-		        <a href="AceptarPeliculas.jsp?pagina=${i}">${i}</a>
-		    </li>     
-
-		   </c:forEach> 
-		    
-		    <c:if test="${paginaActual lt cantPaginas}">
-		    <li>
-		        <a href="AceptarPeliculas.jsp?pagina=${cantPaginas}">&raquo;</a>
-		    </li>     
-		    </c:if>
-		</ul>
-
-
-	</div>
 
 
 <div align=center style="width: 100%; margin:auto;">
@@ -92,4 +62,4 @@
 </div>
 
 
-<jsp:include page="MasterPageFooter.jsp" /> --%>
+<jsp:include page="MasterPageFooter.jsp" /> 

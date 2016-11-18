@@ -1,26 +1,39 @@
 package dto;
 
-public class PeliculaCantResenias {
+import model.Peliculas;
 
-	private String nombrePelicula;
+public class PeliculaCantResenias implements Comparable<PeliculaCantResenias>{
+
+	private Peliculas pelicula;
 	private int cant_resenias;
 	
-	public PeliculaCantResenias(String nombrePelicula, int cant_resenias){
-		this.nombrePelicula = nombrePelicula;
+	public PeliculaCantResenias(Peliculas pelicula, int cant_resenias){
+		this.pelicula = pelicula;
 		this.cant_resenias = cant_resenias;
 	}
 	
-	public String getNombrePelicula() {
-		return nombrePelicula;
+	public Peliculas getPelicula() {
+		return this.pelicula;
 	}
-	public void setNombrePelicula(String nombrePelicula) {
-		this.nombrePelicula = nombrePelicula;
+	public void setNombrePelicula(Peliculas pelicula) {
+		this.pelicula = pelicula;
 	}
 	public int getCant_resenias() {
 		return cant_resenias;
 	}
 	public void setCant_resenias(int cant_resenias) {
 		this.cant_resenias = cant_resenias;
+	}
+
+	@Override
+	public int compareTo(PeliculaCantResenias o) {
+		   if (cant_resenias < o.cant_resenias) {
+               return -1;
+           }
+           if (cant_resenias > o.cant_resenias) {
+               return 1;
+           }
+           return 0;
 	}
 	
 	
