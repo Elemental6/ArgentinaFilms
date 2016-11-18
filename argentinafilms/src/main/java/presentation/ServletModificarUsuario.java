@@ -18,7 +18,6 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import service.ServiceUsuario;
 
-@SuppressWarnings("serial")
 @MultipartConfig
 @WebServlet("/ModificarUsuario")
 public class ServletModificarUsuario extends HttpServlet {

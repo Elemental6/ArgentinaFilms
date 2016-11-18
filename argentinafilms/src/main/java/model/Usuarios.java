@@ -14,7 +14,7 @@ public class Usuarios implements Serializable{
 	private String pass;
 	private String nombre;
 	private String apellido;
-	
+
 	@Column(unique=true)
 	private String email;
 	private String rango;

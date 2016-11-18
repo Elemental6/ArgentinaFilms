@@ -139,15 +139,15 @@ $('#cantidad-visitas-actores-columns').highcharts({
         name: 'Visitas',
         data: [
             [data[0].nombre.concat(" ").concat(data[0].apellido), data[0].cant_visitas],
-            [data[1].nombre.concat(" ").concat(data[0].apellido), data[1].cant_visitas],
-            [data[2].nombre.concat(" ").concat(data[0].apellido), data[2].cant_visitas],
-            [data[3].nombre.concat(" ").concat(data[0].apellido), data[3].cant_visitas],
-            [data[4].nombre.concat(" ").concat(data[0].apellido), data[4].cant_visitas],
-            [data[5].nombre.concat(" ").concat(data[0].apellido), data[5].cant_visitas],
-            [data[6].nombre.concat(" ").concat(data[0].apellido), data[6].cant_visitas],
-            [data[7].nombre.concat(" ").concat(data[0].apellido), data[7].cant_visitas],
-            [data[8].nombre.concat(" ").concat(data[0].apellido), data[8].cant_visitas],
-            [data[9].nombre.concat(" ").concat(data[0].apellido), data[9].cant_visitas],
+            [data[1].nombre.concat(" ").concat(data[1].apellido), data[1].cant_visitas],
+            [data[2].nombre.concat(" ").concat(data[2].apellido), data[2].cant_visitas],
+            [data[3].nombre.concat(" ").concat(data[3].apellido), data[3].cant_visitas],
+            [data[4].nombre.concat(" ").concat(data[4].apellido), data[4].cant_visitas],
+            [data[5].nombre.concat(" ").concat(data[5].apellido), data[5].cant_visitas],
+            [data[6].nombre.concat(" ").concat(data[6].apellido), data[6].cant_visitas],
+            [data[7].nombre.concat(" ").concat(data[7].apellido), data[7].cant_visitas],
+            [data[8].nombre.concat(" ").concat(data[8].apellido), data[8].cant_visitas],
+            [data[9].nombre.concat(" ").concat(data[9].apellido), data[9].cant_visitas],
 
         ],
         dataLabels: {
@@ -158,7 +158,7 @@ $('#cantidad-visitas-actores-columns').highcharts({
             format: '{point.y:.1f}', // one decimal
             y: 10, // 10 pixels down from the top
             style: {
-                fontSize: '22px',
+                fontSize: '18px',
                 fontFamily: 'Verdana, sans-serif'
             }
         }
@@ -268,7 +268,13 @@ $('#cantidad-visitas-actores-columns').highcharts({
 	
 	
 
-	
+	<hr>
+
+<div align=center style="width: 100%; margin:auto;">
+        	<a href="ListarInformes.jsp" class="btn btn-primary">Volver</a>
+        </div> 
+
+</div>
 	
 	
 <script src="js/highcharts.js"></script>
@@ -279,13 +285,7 @@ $('#cantidad-visitas-actores-columns').highcharts({
 
  </c:if>  
 
-<hr>
 
-<div align=center style="width: 100%; margin:auto;">
-        	<a href="ListarInformes.jsp" class="btn btn-primary">Volver</a>
-        </div> 
-
-</div>
 
 
 <jsp:include page="MasterPageFooter.jsp" />
