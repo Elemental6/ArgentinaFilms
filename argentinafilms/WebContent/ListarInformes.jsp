@@ -30,15 +30,15 @@
             <p></p>
             <p></p>
           </div>
-          
-          <div class="col-md-4" onclick="location.href='MasActivos.jsp';" style="cursor:pointer;">
+          <!-- MasActivos.jsp -->
+          <div class="col-md-4" onclick="location.href='ListarInformes.jsp';" style="cursor:pointer;">
             <img src="imgs/actividadUsuarios.png" class="img-responsive img-thumbnail" style="width:140px;">
             <h1 class="text-primary">USUARIOS MÁS ACTIVOS</h1>
             <p></p>
             <p></p>
           </div>
-          
-          <div class="col-md-4 pull right" onclick="location.href='MasReseniadas.jsp';" style="cursor:pointer;">
+          <!--MasReseniadas  -->
+          <div class="col-md-4 pull right" onclick="location.href='ListarInformes.jsp';" style="cursor:pointer;">
             <img src="imgs/masreseniadas.png" class="img-responsive img-thumbnail" style="width:140px;">
             <h1 class="text-primary">PELÍCULAS MÁS RESEÑADAS</h1>
             <p></p>
