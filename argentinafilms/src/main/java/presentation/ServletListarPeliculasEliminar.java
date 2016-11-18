@@ -31,7 +31,7 @@ public DAOPeliculas servicePelicula = null;
 		WebApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(config.getServletContext());
 		this.servicePelicula = (DAOPeliculas) context.getBean(DAOPeliculas.class);
 	}
-		
+		 
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int pagina = 1;
