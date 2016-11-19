@@ -124,7 +124,7 @@ div.container {
 									</div>
 
 								</form>
-								</div>
+								<div>
 						</c:if>
 
 						<ul class="posters posters-70">
