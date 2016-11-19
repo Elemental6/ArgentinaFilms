@@ -18,7 +18,7 @@
 
  	
 	<div class="login">
-		<h1 class="text-center titulo-seccion"><img src="imgs/BorrarPelicula.png" class="imagen-seccion" />ELIMINAR PELICULA</h1>
+		<h1 class="text-center titulo-seccion"><img src="imgs/BorrarPelicula.png" class="imagen-seccion" />ELIMINAR COMENTARIO</h1>
 	</div>
 
 	<div class="${tipoMensaje}"><b>${mensajeResultado}</b></div>
