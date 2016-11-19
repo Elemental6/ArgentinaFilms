@@ -14,7 +14,7 @@
             <div class="col-md-4">
                 <h3 style="font-weight: bold" class="text-center">CONECTÁTE</h3>
                 <img src="imgs/connect.png" class="img-responsive" style="margin-left: 60px;"/> 
-                <p>Regístrate. Crearse una cuenta en Argentina Films es totalmente gratuito. En sólo 5 minutos tendrás tu cuenta lista para empezar a compartir tus aportes.</p> 
+                <p>Regístrate. Crearse una cuenta en Argentina Films es totalmente gratuito. En sólo 5 minutos tendrás tu cuenta lista para empezar a compartir tus aportes<a href="RegistrosIniciales">.</a></p> 
                 
             </div>
             <div class="col-md-4 text-center">
