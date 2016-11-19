@@ -15,10 +15,8 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import dao.DAOComentarios;
-import dao.DAOPeliculas;
 import dao.DAOResenias;
 import model.Comentarios;
-import model.Peliculas;
 import model.Resenias;
 
 /**
