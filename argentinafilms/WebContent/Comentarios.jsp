@@ -67,20 +67,20 @@ div.container {
 
 						</section>
 
-						</br>
-						</br>
-						</br>
-						</br>
-						</br>
-						</br>
-						</br>
-						</br>
-						</br>
-						</br>
-						</br>
-						</br>
-						</br>
-						</br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
 						<c:if test="${!empty userLogueado}">
 							<div style="float: right;">
 								<form action=Comentarios role="form"
@@ -124,7 +124,7 @@ div.container {
 									</div>
 
 								</form>
-								<div>
+								</div>
 						</c:if>
 
 						<ul class="posters posters-70">
