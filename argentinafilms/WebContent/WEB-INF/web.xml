@@ -19,7 +19,10 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>config.AppConfig</param-value>
   </context-param>
-  
+    <error-page>
+        <location>/Error404.jsp</location>
+        
+    </error-page>
   <session-config>
         <session-timeout>
             30
