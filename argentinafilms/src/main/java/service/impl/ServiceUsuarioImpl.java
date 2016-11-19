@@ -50,6 +50,11 @@ public class ServiceUsuarioImpl implements ServiceUsuario{
 	}
 	
 	@Override
+	public List<Usuarios> getActivos() {
+		return this.daoUsuario.getActivos();
+	}
+	
+	@Override
 	public int getCantActivos() {
 		return this.daoUsuario.getCantActivos();
 	}

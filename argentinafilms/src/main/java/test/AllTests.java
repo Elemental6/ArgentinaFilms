@@ -47,6 +47,14 @@ public class AllTests {
 		usuario.setAvatar("imgs/avatares/xfdfrgf.jpg");
 		this.usuarioService.add(usuario);
 		
+		Usuarios moderador2 = new Usuarios("markisho", "12345678", "Marcos", "Beltran", "marcos.utn@gmail.com", "moderador", true);
+		moderador2.setAvatar("imgs/avatares/48.png");
+		this.usuarioService.add(moderador2);
+		
+		Usuarios moderador3 = new Usuarios("ferreiro", "12345678", "Leandro", "Ferreiro", "ferreiro.utn@gmail.com", "moderador", true);
+		moderador3.setAvatar("imgs/avatares/12.jpg");
+		this.usuarioService.add(moderador3);
+		
 		List<Actores> actorespelicula = null;
 		List<Resenias> reseniaspelicula = null;
 

@@ -20,7 +20,7 @@
 <c:if test="${userLogueado.rango == 'admin'}">
 	
 	<div class="login">
-		<h1 class="text-center titulo-seccion"><img src="imgs/AceptarPeliculas.png" class="imagen-seccion" style="margin-top: -50px!important;"/>ACEPTAR PELÍCULAS</h1>
+		<h1 class="text-center titulo-seccion"><img src="imgs/masreseniadas.png" class="imagen-seccion" style="margin-top: -50px!important;"/>10 PELÍCULAS MÁS RESEÑADAS</h1>
 	</div>
 
 		<table class="table" style="width: 900px!important; margin: auto;" id="peliculas-peticiones"> 
@@ -42,8 +42,8 @@
 				<c:forEach items="${diezPeliculasMasReseniadas}" var="pelicula">
 						<tr>
 						<td>${pelicula.pelicula.nombre}</td>
-						<td>${peticionPelicula.pelicula.anio}</td>
-						<td>${peticionPelicula.pelicula.duracion}</td>
+						<td>${pelicula.pelicula.anio}</td>
+						<td>${pelicula.pelicula.duracion}</td>
 						<td>${pelicula.cant_resenias}</td>
 						<td style="width:200px!important">
 						</tr>
@@ -54,7 +54,7 @@
 
 
 <div align=center style="width: 100%; margin:auto;">
-        	<a href="Administrar.jsp" class="btn btn-primary">Volver</a>
+        	<a href="ListarInformes.jsp" class="btn btn-primary">Volver</a>
         </div> 
 
  </c:if>  

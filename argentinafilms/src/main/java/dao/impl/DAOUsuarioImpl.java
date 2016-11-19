@@ -55,6 +55,14 @@ public class DAOUsuarioImpl implements DAOUsuario{
 	}
 	
 	@Override
+	public List<Usuarios> getActivos() {
+		DetachedCriteria crit = DetachedCriteria.forClass(Usuarios.class);
+		crit.add(Restrictions.eq("estado", true));
+		crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		return this.hibernateTemplate.findByCriteria(crit);
+	}
+	
+	@Override
 	public int getCantActivos(){
 		DetachedCriteria crit = DetachedCriteria.forClass(Usuarios.class);
 		crit.add(Restrictions.eq("estado", true));

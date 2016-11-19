@@ -49,8 +49,20 @@ function RechazarPelicula(idPelicula) {
 			});
 }
 
+
+
 function AceptarActor(idActor) {
 
+	swal(
+			{
+				title : "Est\u00E1s seguro de aceptar esta petici\u00F3n de Actor?",
+				type : "warning",
+				showCancelButton : true,
+				confirmButtonColor : "#DD6B55",
+				confirmButtonText : "Si, aceptar",
+				closeOnConfirm : true
+			}, function() {
+	
 	$.post('AceptarPeticionActor', {
 
 		idSeleccionado : idActor
@@ -60,8 +72,9 @@ function AceptarActor(idActor) {
 		$("#fila" + idActor).hide();
 
 	})
-
+});
 }
+
 
 function RechazarActor(idActor) {
 	swal({
@@ -84,5 +97,57 @@ function RechazarActor(idActor) {
 
 		})
 
+	})
+	
+}
+	
+	
+function AceptarDirector(idDirector) {
+	
+	swal(
+			{
+				title : "Est\u00E1s seguro de aceptar esta petici\u00F3n de Director?",
+				type : "warning",
+				showCancelButton : true,
+				confirmButtonColor : "#DD6B55",
+				confirmButtonText : "Si, aceptar",
+				closeOnConfirm : true
+			}, function() {	
+
+		$.post('AceptarPeticionDirector', {
+
+			idSeleccionado : idDirector
+
+		}, function(data) {
+
+			$("#fila" + idDirector).hide();
+
+		})
 	});
+}
+
+	function RechazarDirector(idDirector) {
+		swal({
+			title : "Est\u00E1s seguro de rechazar esta petici\u00F3n de Director?",
+			text : "No podr\u00E1s deshacer esta opci\u00F3n!",
+			type : "warning",
+			showCancelButton : true,
+			confirmButtonColor : "#DD6B55",
+			confirmButtonText : "Si, rechazar",
+			closeOnConfirm : true
+		}, function() {
+
+			$.post('RechazarPeticionDirector', {
+
+				idSeleccionado : idActor
+
+			}, function(data) {
+
+				$("#fila" + idDirector).hide();
+
+			})
+
+		})
+	
+	
 }

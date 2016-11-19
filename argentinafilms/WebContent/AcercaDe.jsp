@@ -11,8 +11,7 @@
 				<br> <br>
 				<h1> ACERCA DE</h1> <br>
 				<p class="text-left">Argentina Films es una página web dedidaca a las películas Argentinas y a la comunidad cineasta.<br>
-				El equipo de trabajo está formado por Germán Acosta, Leandro Ferreiro, Marcos Beltran, José Hassan
-				y Tomás Munóz.</p>
+				El equipo de trabajo está formado por Marcos Beltrán, Leandro Ferreiro, Germán Acosta, José Hassan y Tomás Munóz.</p>
 			
 			</div>
 		</div>

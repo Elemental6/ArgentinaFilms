@@ -21,6 +21,8 @@ public interface ServiceUsuario {
 	public int getCantActivos();
 
 	List<Usuarios> getByNombre(String texto, int offset, int cantRegistros);
+
+	List<Usuarios> getActivos();
 	
 }
 

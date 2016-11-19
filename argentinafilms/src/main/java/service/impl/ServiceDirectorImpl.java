@@ -29,6 +29,16 @@ public class ServiceDirectorImpl implements ServiceDirector{
 
 	
 	@Override
+	public List<Directores> getInactivas(int offset, int cantRegistros) {
+		return this.daoDirector.getInactivas(offset, cantRegistros);
+	}
+	
+	@Override
+	public int getCantInactivas(){
+		return this.daoDirector.getCantInactivas();
+	}
+	
+	@Override
 	public void add(Directores director){
 		this.daoDirector.save(director);
 	}
@@ -39,8 +49,8 @@ public class ServiceDirectorImpl implements ServiceDirector{
 	}
 
 	@Override
-	public void delete(Integer id) {
-		this.daoDirector.delete(id);
+	public void delete(Directores director) {
+		this.daoDirector.delete(director);
 	}
 
 	

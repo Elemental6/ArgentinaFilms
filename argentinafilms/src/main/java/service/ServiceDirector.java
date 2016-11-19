@@ -14,6 +14,10 @@ public interface ServiceDirector {
 	
 	public void update(Directores director);
 	
-	public void delete(Integer id);
+	public void delete(Directores director);
+
+	List<Directores> getInactivas(int offset, int cantRegistros);
+
+	int getCantInactivas();
 	
 }

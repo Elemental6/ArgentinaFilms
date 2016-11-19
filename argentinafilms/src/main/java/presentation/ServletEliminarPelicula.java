@@ -39,8 +39,8 @@ public class ServletEliminarPelicula extends HttpServlet {
 		String pagina = request.getParameter("pagActual");
 
 		Peliculas pelicula = this.servicePelicula.getById(peliculaSeleccionada);
-		pelicula.setEstado(false);
-		this.servicePelicula.update(pelicula);
+
+		this.servicePelicula.delete(pelicula);
 
 		request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
 		request.setAttribute("mensajeResultado",

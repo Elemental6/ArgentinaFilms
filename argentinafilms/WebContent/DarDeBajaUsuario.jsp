@@ -60,7 +60,7 @@
 						<td>${usuario.rango}</td>
 
 						                    	
-                    	<td><button type="submit" class="btn btn-success btn-sm" style="margin: auto!important" onclick="return confirm('¿Está completamente seguro?')">Dar de baja</button></td>
+                    	<td><button type="submit" class="btn btn-danger btn-sm" style="margin: auto!important" onclick="return confirm('¿Está completamente seguro?')">Dar de baja</button></td>
 						</tr>
 					
 				</form>

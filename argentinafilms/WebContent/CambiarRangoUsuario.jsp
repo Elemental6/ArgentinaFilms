@@ -65,7 +65,7 @@
 		            		</select>
                     	</td>
                     	
-                    	<td><button type="submit" class="btn btn-success btn-sm" style="margin: auto!important" onclick="return confirm('¿Está completamente seguro?')" >Cambiar rango</button></td>
+                    	<td><button type="submit" class="btn btn-primary btn-sm" style="margin: auto!important" onclick="return confirm('¿Está completamente seguro?')" >Cambiar rango</button></td>
 						</tr>
 					
 				</form>

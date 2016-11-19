@@ -22,4 +22,6 @@ public interface DAOUsuario {
 
 	List<Usuarios> getByNombre(String texto, int offset, int cantRegistros);
 
+	List<Usuarios> getActivos();
+
 }

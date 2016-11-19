@@ -7,6 +7,7 @@
 
 
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<c:import url="/VerificarUsuarioModificarPelicula" /> <!-- llamo servlet al cargar pagina -->
 
 
 <div class="contenido">
@@ -17,6 +18,10 @@
 
 
 <c:if test="${userLogueado.estado == false}">
+	<c:redirect url="Inicio.jsp"></c:redirect>
+</c:if>  
+
+<c:if test="${OK == false}">
 	<c:redirect url="Inicio.jsp"></c:redirect>
 </c:if>  
 		

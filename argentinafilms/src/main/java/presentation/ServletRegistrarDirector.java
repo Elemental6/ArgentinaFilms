@@ -83,7 +83,7 @@ public class ServletRegistrarDirector extends HttpServlet {
 									
 						System.out.println("Datos guardados");
 						request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
-				        request.setAttribute("mensajeResultado", "Director agregado satisfactoriamente!");	     
+				        request.setAttribute("mensajeResultado", "Director agregado satisfactoriamente. Pendiente de ser aceptado o no. Gracias por tu aporte!");	     
 					
 					
 				}		

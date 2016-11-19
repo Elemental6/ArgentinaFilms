@@ -54,7 +54,7 @@
 						<td>${pelicula.duracion}</td>		
 
 						                    	
-                    	<td><button type="submit" class="btn btn-success btn-sm" style="margin: auto!important" onclick="return confirm('Esta seguro?');">Eliminar</button></td>
+                    	<td><button type="submit" class="btn btn-danger btn-sm" style="margin: auto!important" onclick="return confirm('Esta seguro?');">Eliminar</button></td>
 						</tr>
 					
 				</form>
@@ -93,6 +93,14 @@
 
 
 	</div>
+  
+  <hr>
+  
+       
+  <div align=center style="width: 100%; margin:auto;">
+        	<a href="Administrar.jsp" class="btn btn-primary">Volver</a>
+        </div> 
+              
         
  </c:if>       
         

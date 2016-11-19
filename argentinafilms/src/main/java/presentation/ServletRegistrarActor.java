@@ -83,7 +83,7 @@ public class ServletRegistrarActor extends HttpServlet {
 							
 				System.out.println("Datos guardados");
 				request.setAttribute("tipoMensaje", "alert alert-dismissable alert-success");
-		        request.setAttribute("mensajeResultado", "Actor agregado");	     
+		        request.setAttribute("mensajeResultado", "Actor agregado. Pendiente de ser aceptado o no. Gracias por tu aporte!");	     
 			
 			
 		}		
