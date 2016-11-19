@@ -8,10 +8,10 @@
                                 <a href="AcercaDe.jsp">Acerca de...</a>
                             </li>
                             <li class="mob-hide">
-                                <a href="/ayuda.jsp">Ayuda</a>
+                                <a href="">Ayuda</a>
                             </li>
                             <li>
-                                <a href="/contacto.jsp">Contacto</a>
+                                <a href="">Contacto</a>
                             </li>
                         </ul>
                     </nav>
