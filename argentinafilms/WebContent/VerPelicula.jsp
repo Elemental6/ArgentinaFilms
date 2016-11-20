@@ -168,6 +168,17 @@
 								</div>
 							</div>
 						</section>
+						
+						<section>
+							<div class="review text text-large">
+								<br>
+								<h4 class="tagline">Género</h4>
+								<div class="truncate">
+									<p>${selectPelicula.genero.genero}</p>
+								</div>
+							</div>
+						</section>
+						
 						<div id="tabbed-content">
 							<header>
 								<ul>

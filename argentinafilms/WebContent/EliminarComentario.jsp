@@ -4,7 +4,7 @@
     
 <div class="contenido">
 
-<c:if test="${userLogueado.rango != 'admin'}" >
+<c:if test="${userLogueado.rango != 'admin' && userLogueado.rango != 'moderador'}" >
 	<div class="container left-addon inner-addon">
 		<img src="imgs/SinPermisos.png" class="text-center img-responsive" width="10px%" style="margin:auto;">
 		<br>
@@ -14,7 +14,7 @@
     
     
     
-<c:if test="${userLogueado.rango == 'admin'}">
+<c:if test="${userLogueado.rango == 'admin' || userLogueado.rango == 'moderador'}">
 
  	
 	<div class="login">
