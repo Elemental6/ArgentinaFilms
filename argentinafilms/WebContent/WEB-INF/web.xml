@@ -21,6 +21,7 @@
   </context-param>
     <error-page>
         <location>/Error404.jsp</location>
+        
     </error-page>
   <session-config>
         <session-timeout>
